@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=2 format=3 uid="uid://djnwiopkr12qv"]
+
+[ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/colony.gd" id="1_blfmr"]
 
 [node name="Colony" type="Node2D"]
+script = ExtResource("1_blfmr")
