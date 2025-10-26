@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://omx3pl3xhdw"]
+
+[ext_resource type="Script" uid="uid://dujssmy26e32u" path="res://scripts/buildings/iron_refinery.gd" id="1_tn2a3"]
+
+[node name="IronRefinery" type="Node2D"]
+script = ExtResource("1_tn2a3")

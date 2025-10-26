@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://du8rqqwg06b8"]
+
+[ext_resource type="Script" uid="uid://qgwiwb7gjqpd" path="res://scripts/screens/victory.gd" id="1_63tvk"]
+
+[node name="Victory" type="Node2D"]
+script = ExtResource("1_63tvk")
