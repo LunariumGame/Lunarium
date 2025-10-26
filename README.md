@@ -28,6 +28,15 @@ If your project contains code that: 1) your team did not write, and 2) does not 
 
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
 
+## Colorblindness simulator
+
+Parameters for the shader were based on fully color deficient matrices from the following paper:
+[A Physiologically-based Model for Simulation of Color Vision Deficiency](https://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html).
+
+That paper was found through the [Firefox source documentation](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/simulation/index.html).
+
+Parameters for achromatopsia (monochrome vision) were based on [the GIMP luminance equation](https://docs.gimp.org/2.10/en/gimp-filter-desaturate.html).
+
 # Main Roles #
 
 Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
