@@ -13,9 +13,8 @@ script = ExtResource("1_nnsk1")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 z_index = -1
-position = Vector2(576, 320)
+position = Vector2(558, 283)
 texture = ExtResource("2_rwgxs")
 script = ExtResource("3_4wyf3")
 
 [node name="Settings" parent="." instance=ExtResource("4_k0juu")]
-visible = false
