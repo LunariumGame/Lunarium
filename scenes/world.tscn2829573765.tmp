@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://djnwiopkr12qv"]
+
+[ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
+[ext_resource type="Texture2D" uid="uid://dcdeghtn5ird2" path="res://assets/icon.svg" id="2_rwgxs"]
+[ext_resource type="Script" uid="uid://canxpcf44aac1" path="res://scripts/temp.gd" id="3_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://bo383rljnyhxr" path="res://scenes/screens/settings.tscn" id="4_k0juu"]
+
+[node name="World" type="Node"]
+process_mode = 1
+script = ExtResource("1_nnsk1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+z_index = -1
+position = Vector2(558, 283)
+texture = ExtResource("2_rwgxs")
+script = ExtResource("3_4wyf3")
+
+[node name="Settings" parent="." instance=ExtResource("4_k0juu")]

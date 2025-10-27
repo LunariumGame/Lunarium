@@ -67,7 +67,16 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Animation and Visuals
 
-**List your assets, including their sources and licenses.**
+### Third-Party Assets
+<u>Fonts</u>  
+<i>[m5x7](https://managore.itch.io/m5x7)</i> by Daniel Linssen - Creative Commons License  
+
+<u>Sprites</u>  
+<i>[Lunarium Title](https://chatgpt.com/)</i> by ChatGPT - Free Use  
+<i>[Rotating Moon](https://deep-fold.itch.io/pixel-planet-generator)</i> by Deep-Fold - MIT License  
+
+### Original Assets
+<i>Moon 16x16</i> by Joe Vogel   
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
@@ -79,7 +88,11 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Audio
 
-**List your assets, including their sources and licenses.**
+### Third-Party Assets
+<u>Music</u>  
+<i>[Space Music Pack](https://gooseninja.itch.io/space-music-pack)</i> by Goose Ninja - Free Use  
+
+### Original Assets
 
 **Describe the implementation of your audio system.**
 
