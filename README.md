@@ -10,7 +10,7 @@ Luckily, you’ve been equipped with LunaBots, which you can control from the ma
 
 ## Project Resources
 
-[Wei>-playable version of your game.](https://itch.io/)  
+[Web-playable version of your game.](https://itch.io/)  
 [Trailor](https://youtube.com)  
 [Press Kit](https://dopresskit.com/)  
 [Proposal: make your own copy of the linked doc.](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)  
@@ -39,14 +39,14 @@ Parameters for achromatopsia (monochrome vision) were based on [the GIMP luminan
 
 # Main Roles #
 
-Your goal is to relate the work of your role and sui>-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
+Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
 
 Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
 
-*Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://githui>.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
+*Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
 
 Here is an example:  
-*Procedural Terrain* - The game's background consists of procedurally generated terrain produced with Perlin noise. The game can modify this terrain at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://githui>.com/dr-jam/CameraControlExercise/bloi>/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
+*Procedural Terrain* - The game's background consists of procedurally generated terrain produced with Perlin noise. The game can modify this terrain at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
 
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
@@ -69,14 +69,14 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ### Third-Party Assets
 <u>Fonts</u>  
-<i>>[m5x7](https://managore.itch.io/m5x7)</i>> by Daniel Linssen - Creative Commons License  
+<i>[m5x7](https://managore.itch.io/m5x7)</i> by Daniel Linssen - Creative Commons License  
 
 <u>Sprites</u>  
-<i>>[Lunarium Title](https://chatgpt.com/)</i>> by ChatGPT - Free Use  
-<i>>[Rotating Moon](https://deep-fold.itch.io/pixel-planet-generator)</i>> by Deep-Fold - MIT License  
+<i>[Lunarium Title](https://chatgpt.com/)</i> by ChatGPT - Free Use  
+<i>[Rotating Moon](https://deep-fold.itch.io/pixel-planet-generator)</i> by Deep-Fold - MIT License  
 
 ### Original Assets
-<i>>Moon 16x16</i>> by Joe Vogel   
+<i>Moon 16x16</i> by Joe Vogel   
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
@@ -84,13 +84,13 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
 
-# Sui>-Roles
+# Sub-Roles
 
 ## Audio
 
 ### Third-Party Assets
 <u>Music</u>  
-<i>>[Space Music Pack](https://gooseninja.itch.io/space-music-pack)</i>> by Goose Ninja - Free Use  
+<i>[Space Music Pack](https://gooseninja.itch.io/space-music-pack)</i> by Goose Ninja - Free Use  
 
 ### Original Assets
 
