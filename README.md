@@ -67,18 +67,16 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Animation and Visuals
 
-**List your assets, including their sources and licenses.**
-
 ### Third-Party Assets
-<u>Fonts</u>
-<b>[m5x7](https://managore.itch.io/m5x7)</b> by Daniel Linssen - Creative Commons License
+<u>Fonts</u>  
+<b>[m5x7](https://managore.itch.io/m5x7)</b> by Daniel Linssen - Creative Commons License  
 
-<u>Sprites</u>
-<b>[Title Logo](https://chatgpt.com/)</b> by ChatGPT - Free Use
-<b>[Rotating Animated Moon](https://deep-fold.itch.io/pixel-planet-generator)</b> by Deep-Fold - MIT License
+<u>Sprites</u>  
+<b>[Lunarium Title](https://chatgpt.com/)</b> by ChatGPT - Free Use  
+<b>[Rotating Moon](https://deep-fold.itch.io/pixel-planet-generator)</b> by Deep-Fold - MIT License  
 
 ### Original Assets
-<b>[Small moon]</b> (used as volume sliders) by Joe Vogel 
+<b>Moon 16x16</b> (used as volume sliders) by Joe Vogel   
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
@@ -90,11 +88,11 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Audio
 
-**List your assets, including their sources and licenses.**
-
 ### Third-Party Assets
-<u>Music</u>
-<b>[Space Music Pack](https://gooseninja.itch.io/space-music-pack)</b> by Goose Ninja - Free Use
+<u>Music</u>  
+<b>[Space Music Pack](https://gooseninja.itch.io/space-music-pack)</b> by Goose Ninja - Free Use  
+
+### Original Assets
 
 **Describe the implementation of your audio system.**
 
