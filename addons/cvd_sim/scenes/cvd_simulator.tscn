@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://y7hyrhysarul"]
+
+[ext_resource type="Shader" uid="uid://etujycxntgq8" path="res://addons/cvd_sim/shaders/cvd.gdshader" id="1_j83u3"]
+[ext_resource type="Script" uid="uid://duh083rc4jtcf" path="res://addons/cvd_sim/scripts/cvd_simulator.gd" id="1_os8qs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nlqlu"]
+resource_local_to_scene = true
+shader = ExtResource("1_j83u3")
+shader_parameter/color_matrix = Basis(1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[node name="CvdSimulator" type="CanvasLayer"]
+layer = 1024
+script = ExtResource("1_os8qs")
+filter = 0
+
+[node name="ShaderRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_nlqlu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

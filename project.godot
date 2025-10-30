@@ -23,6 +23,10 @@ Signals="*res://scripts/core/signals.gd"
 
 project/assembly_name="Lunarium"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/cvd_sim/plugin.cfg")
+
 [input]
 
 ui_left={
