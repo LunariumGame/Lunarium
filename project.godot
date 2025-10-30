@@ -19,6 +19,10 @@ config/icon="res://assets/sprites/icon.svg"
 
 project/assembly_name="Lunarium"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/cvd_sim/plugin.cfg")
+
 [input]
 
 settings={
