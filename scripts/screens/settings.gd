@@ -1,14 +1,17 @@
 extends Control
 
-@export var alpha_speed: float = 0.5
+@export var alpha_speed: float = 0.75
 @export var min_alpha: float = 0.3
 @export var max_alpha: float = 0.7
+
+var _time := 0.0
 
 @onready var rotating_moon: AnimatedSprite2D = $RotatingMoon
 @onready var title: Sprite2D = $LunariumTitle
 @onready var master_volume: HSlider = $"AudioSettings/MasterVolume"
 @onready var music_volume: HSlider = $"AudioSettings/MusicVolume"
 @onready var effects_volume: HSlider = $"AudioSettings/EffectsVolume"
+
 
 func _ready():
 	get_parent().visible = false
@@ -18,10 +21,9 @@ func _ready():
 
 func _process(delta):
 	#region Fluctuate alpha of title and rotating moon
-	var time := 0 
-	time += delta * alpha_speed
+	_time += delta * alpha_speed
 	# Calculate alpha value with sine wave
-	var alpha = min_alpha + (max_alpha - min_alpha) * (sin(time) * 0.5 + 0.5)
+	var alpha = min_alpha + (max_alpha - min_alpha) * (sin(_time) * 0.5 + 0.5)
 	title.modulate = Color(title.modulate.r, title.modulate.g, title.modulate.b, alpha)
 	rotating_moon.modulate = Color(rotating_moon.modulate.r, rotating_moon.modulate.g, rotating_moon.modulate.b, alpha)
 	#endregion

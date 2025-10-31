@@ -1,9 +1,8 @@
-[gd_scene load_steps=62 format=3 uid="uid://bo383rljnyhxr"]
+[gd_scene load_steps=61 format=3 uid="uid://bo383rljnyhxr"]
 
 [ext_resource type="Script" uid="uid://eqg0rjagl3i7" path="res://scripts/screens/settings.gd" id="1_emdcu"]
 [ext_resource type="Texture2D" uid="uid://b38ydovtwkyyw" path="res://assets/sprites/lunarium_title.png" id="2_a6gug"]
 [ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="2_jljg7"]
-[ext_resource type="Script" uid="uid://ccbhaktu33o54" path="res://scripts/screens/title_logo.gd" id="3_a6gug"]
 [ext_resource type="Texture2D" uid="uid://b6k7dd38rgif8" path="res://assets/sprites/moon_16x16.png" id="3_q3kmr"]
 [ext_resource type="Texture2D" uid="uid://b0twi2t3k4cmh" path="res://assets/sprites/rotating_moon.png" id="6_3otaf"]
 
@@ -419,7 +418,6 @@ modulate = Color(1, 1, 1, 0.77254903)
 position = Vector2(576, 96)
 scale = Vector2(0.32, 0.32)
 texture = ExtResource("2_a6gug")
-script = ExtResource("3_a6gug")
 
 [node name="RotatingMoon" type="AnimatedSprite2D" parent="Settings"]
 modulate = Color(0.79607844, 0.7882353, 0.67058825, 0.7647059)
