@@ -15,6 +15,10 @@ run/main_scene="uid://djnwiopkr12qv"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://assets/sprites/icon.svg"
 
+[autoload]
+
+Signals="*res://scripts/core/signals.gd"
+
 [dotnet]
 
 project/assembly_name="Lunarium"
