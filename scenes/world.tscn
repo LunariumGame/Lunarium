@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=10 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bo383rljnyhxr" path="res://scenes/screens/settings.tscn" id="4_k0juu"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bfnlmryosks8l" path="res://assets/audio/Space Music Pack/fx/alien-talk-1.wav" id="6_i7141"]
 [ext_resource type="AudioStream" uid="uid://bdd3w8a2mlpn2" path="res://assets/audio/Space Music Pack/fx/alien-talk-2.wav" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bvqdwlryncc6q" path="res://scenes/player.tscn" id="7_7r4gi"]
+[ext_resource type="Script" uid="uid://dm3fhxjge8xxk" path="res://scripts/camera/position_lock.gd" id="8_4mrxx"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7r4gi"]
 random_pitch = 1.1
@@ -41,3 +42,9 @@ scale = Vector2(2.1821895, 2.1821895)
 texture = ExtResource("6_4mrxx")
 
 [node name="Player" parent="." instance=ExtResource("7_7r4gi")]
+position = Vector2(614, 406)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(614, 406)
+script = ExtResource("8_4mrxx")
+player = NodePath("../Player")
