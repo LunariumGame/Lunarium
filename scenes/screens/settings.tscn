@@ -401,7 +401,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_emdcu")
-metadata/_edit_use_anchors_ = true
 
 [node name="SettingsBackground" type="ColorRect" parent="Settings"]
 layout_mode = 1
@@ -411,19 +410,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.7921569)
-metadata/_edit_use_anchors_ = true
 
 [node name="LunariumTitle" type="Sprite2D" parent="Settings"]
 modulate = Color(1, 1, 1, 0.77254903)
-position = Vector2(576, 96)
-scale = Vector2(0.32, 0.32)
+position = Vector2(839.56, 214.72)
+scale = Vector2(0.52, 0.52)
 texture = ExtResource("2_a6gug")
 
 [node name="RotatingMoon" type="AnimatedSprite2D" parent="Settings"]
 modulate = Color(0.79607844, 0.7882353, 0.67058825, 0.7647059)
 texture_filter = 1
-position = Vector2(912, 88)
-scale = Vector2(3.5, 3.5)
+position = Vector2(1390.6, 206.72)
+scale = Vector2(5.42, 5.42)
 sprite_frames = SubResource("SpriteFrames_18liy")
 animation = &"rotate"
 autoplay = "rotate"
@@ -437,9 +435,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -168.0
-offset_top = -124.0
+offset_top = -156.0
 offset_right = 168.0
-offset_bottom = -44.0
+offset_bottom = -76.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Paused
@@ -450,10 +448,12 @@ vertical_alignment = 1
 
 [node name="AudioSettings" type="VBoxContainer" parent="Settings"]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 320.0
-offset_right = 704.0
-offset_bottom = 508.0
+offset_left = 832.0
+offset_top = 488.0
+offset_right = 1088.0
+offset_bottom = 676.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Audio" type="Label" parent="Settings/AudioSettings"]
 layout_mode = 2
