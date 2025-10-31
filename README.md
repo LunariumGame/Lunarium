@@ -28,14 +28,13 @@ If your project contains code that: 1) your team did not write, and 2) does not 
 
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
 
-## Colorblindness simulator
+## Color Vision Deficiency Matrices
 
-Parameters for the shader were based on fully color deficient matrices from the following paper:
-[A Physiologically-based Model for Simulation of Color Vision Deficiency](https://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html).
+The color deficiency simulation matrices for our CVD Simulator plugin (`addons/cvd_sim) were based on the full strength CVD matrices from
+[*A Physiologically-based Model for Simulation of Color Vision Deficiency*](https://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html).
+That paper was found through the [Firefox Source Docs](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/simulation/index.html).
 
-That paper was found through the [Firefox source documentation](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/simulation/index.html).
-
-Parameters for achromatopsia (monochrome vision) were based on [the GIMP luminance equation](https://docs.gimp.org/2.10/en/gimp-filter-desaturate.html).
+The matrix for achromatopsia (monochrome vision) was based on [the GIMP luminance equation](https://docs.gimp.org/2.10/en/gimp-filter-desaturate.html).
 
 # Main Roles #
 
