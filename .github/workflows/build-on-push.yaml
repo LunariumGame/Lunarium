@@ -19,7 +19,7 @@ jobs:
       - name: Godot Dependencies
         run: |
           apt-get update
-          apt-get install -y config
+          apt-get install -y fontconfig
 
       - name: Create Build Directory
         run: mkdir -v -p build/web
