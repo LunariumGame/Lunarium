@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=11 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bo383rljnyhxr" path="res://scenes/screens/settings.tscn" id="4_k0juu"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bdd3w8a2mlpn2" path="res://assets/audio/Space Music Pack/fx/alien-talk-2.wav" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bvqdwlryncc6q" path="res://scenes/player.tscn" id="7_7r4gi"]
 [ext_resource type="Script" uid="uid://dm3fhxjge8xxk" path="res://scripts/camera/position_lock.gd" id="8_4mrxx"]
+[ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="9_7r4gi"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7r4gi"]
 random_pitch = 1.1
@@ -62,5 +63,10 @@ offset_top = -8.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "End Turn"
+
+[node name="TurnCounter" type="Label" parent="MainUI"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("9_7r4gi")
 
 [connection signal="pressed" from="MainUI/EndTurn" to="." method="_on_end_turn_pressed"]
