@@ -8,3 +8,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_end_turn_pressed() -> void:
+	game_manager.end_turn()
