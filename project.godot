@@ -22,6 +22,7 @@ boot_splash/minimum_display_time=2000
 [autoload]
 
 Signals="*res://scripts/core/signals.gd"
+game_manager="*res://scripts/managers/game_manager.gd"
 
 [display]
 
