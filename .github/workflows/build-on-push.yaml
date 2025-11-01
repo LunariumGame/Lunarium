@@ -31,7 +31,6 @@ jobs:
         run: |
           cd build/web
           zip -r lunarium.zip .
-          mv lunarium.zip ../../build/web/lunarium.zip
 
       - name: Upload to itch.io
         run: butler push build/web/lunarium.zip hawkhobo/lunarium:html5
