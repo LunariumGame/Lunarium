@@ -48,3 +48,19 @@ position = Vector2(614, 406)
 position = Vector2(614, 406)
 script = ExtResource("8_4mrxx")
 player = NodePath("../Player")
+
+[node name="MainUI" type="CanvasLayer" parent="."]
+
+[node name="EndTurn" type="Button" parent="MainUI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "End Turn"
+
+[connection signal="pressed" from="MainUI/EndTurn" to="." method="_on_end_turn_pressed"]
