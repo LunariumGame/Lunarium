@@ -1,0 +1,41 @@
+name: Build and Upload to itch.io
+
+on: [push, pull_request]
+
+jobs:
+  itchio-upload:
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.5.1
+    steps:
+      - name: Checkout Lunarium Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Godot Export Templates
+        run : |
+          mkdir -v -p ~/.local/share/godot/export_templates
+          mv /root/.local/share/godot/export_templates/4.5.1.stable ~/.local/share/godot/export_templates/4.5.1.stable
+
+      - name: Godot Dependencies
+        run: |
+          apt-get update
+          apt-get install -y fontconfig
+
+      - name: Create Build Directory
+        run: mkdir -v -p build/web
+
+      - name: Export HTML5
+        run: godot -v --headless --export-release "Web" build/web/index.html
+
+      - name: Zip game
+        run: |
+          cd build/web
+          zip -r lunarium.zip .
+
+      - name: Upload to itch.io
+        run: butler push build/web/lunarium.zip hawkhobo/lunarium:html5
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+
+
+
