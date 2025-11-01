@@ -8,7 +8,7 @@ jobs:
         uses: remarkablegames/setup-butler@v2
 
       - name: Upload to itch.io
-        run: butler push build/web hawkhobo/lunarium:html5
+        run: butler push build/web/lunarium.zip hawkhobo/lunarium:html5
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
 
