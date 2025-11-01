@@ -76,6 +76,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ### Original Assets
 <i>Moon 16x16</i> by Joe Vogel   
+<i>Cursor</i> by Joe Vogel
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
