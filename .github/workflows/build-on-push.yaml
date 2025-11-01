@@ -25,7 +25,7 @@ jobs:
         run: mkdir -v -p build/web
 
       - name: Export HTML5
-        run: godot -v --headless --export-release "HTML5" build/web/index.html
+        run: godot -v --headless --export-release "Web" build/web/index.html
 
       - name: Zip game
         run: |
