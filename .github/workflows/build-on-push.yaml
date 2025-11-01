@@ -16,6 +16,11 @@ jobs:
           mkdir -v -p ~/.local/share/godot/export_templates
           mv /root/.local/share/godot/export_templates/4.5.1.stable ~/.local/share/godot/export_templates/4.5.1.stable
 
+      - name: Godot Dependencies
+        run: |
+          apt-get update
+          apt-get install -y config
+
       - name: Create Build Directory
         run: mkdir -v -p build/web
 
