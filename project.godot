@@ -13,11 +13,24 @@ config_version=5
 config/name="Lunarium"
 run/main_scene="uid://djnwiopkr12qv"
 config/features=PackedStringArray("4.5", "Mobile")
+boot_splash/bg_color=Color(0.07284262, 0.072842635, 0.072842576, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://b38ydovtwkyyw"
 config/icon="uid://b6k7dd38rgif8"
+boot_splash/minimum_display_time=2000
 
 [autoload]
 
 Signals="*res://scripts/core/signals.gd"
+game_manager="*res://scripts/managers/game_manager.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="viewport"
+mouse_cursor/custom_image="uid://c51gqpsex86gw"
 
 [dotnet]
 
