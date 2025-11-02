@@ -19,8 +19,8 @@ func _ready() -> void:
 		ResourceType.POPULATION: ResourceTracker.new(1),
 	}
 	
-	for type in ResourceType:
-		assert(type in _trackers)
+	for type in ResourceType.values():
+		assert(type in _trackers, "%s not in _trackers" % ResourceType.keys()[type])
 
 
 func get_resource(resource_type:ResourceType) -> float:
