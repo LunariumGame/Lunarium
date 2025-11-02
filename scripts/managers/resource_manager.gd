@@ -29,18 +29,21 @@ func get_resource(resource_type:ResourceType) -> float:
 
 func set_resource(resource_type:ResourceType, value:float) -> void:
 	_trackers[resource_type].value = value
+	Signals.resource_value_changed.emit(get_resource(resource_type))
 
 
 ## Applies modifiers to value before adding the value to the resource.
 func calculate_and_update(resource_type:ResourceType, actor:Node, value:float) -> float:
 	var modified_value:float = calculate_modifiers(resource_type, actor, value)
 	add_precalculated(resource_type, modified_value)
+	# resource_value_changed is already emitted by add_precalculated
 	return modified_value
 
 
 ## Add a precalcualted value to the resource, skipping any modifier calculations
 func add_precalculated(resource_type:ResourceType, value:float) -> void:
 	_trackers[resource_type].add_precalculated(value)
+	Signals.resource_value_changed.emit(get_resource(resource_type))
 
 
 ## Calculates gain/loss value with modifiers applied
