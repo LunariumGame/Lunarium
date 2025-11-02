@@ -8,29 +8,55 @@ enum ResourceType {
 	POPULATION,
 }
 
-var resources:Dictionary[ResourceType, float]
-var engines:Dictionary[ResourceType, ResourceEngine]
+var _trackers:Dictionary[ResourceType, ResourceTracker]
 
 
 func _ready() -> void:
-	resources = {
-		ResourceType.FOOD: 100,
-		ResourceType.ELECTRICITY: 100,
-		ResourceType.IRON: 100,
-		ResourceType.POPULATION: 100,
+	_trackers = {
+		ResourceType.FOOD: ResourceTracker.new(100),
+		ResourceType.ELECTRICITY: ResourceTracker.new(),
+		ResourceType.IRON: ResourceTracker.new(100),
+		ResourceType.POPULATION: ResourceTracker.new(1),
 	}
 	
 	for type in ResourceType:
-		assert(type in resources)
-	
-	for type in ResourceType:
-		engines[type] = ResourceEngine.new()
+		assert(type in _trackers)
+
+
+func get_resource(resource_type:ResourceType) -> float:
+	return _trackers[resource_type].value
+
+
+func set_resource(resource_type:ResourceType, value:float) -> void:
+	_trackers[resource_type].value = value
+
+
+## Applies modifiers to value before adding the value to the resource.
+func calculate_and_update(resource_type:ResourceType, actor:Node, value:float) -> float:
+	var modified_value:float = calculate_modifiers(resource_type, actor, value)
+	add_precalculated(resource_type, modified_value)
+	return modified_value
+
+
+## Add a precalcualted value to the resource, skipping any modifier calculations
+func add_precalculated(resource_type:ResourceType, value:float) -> void:
+	_trackers[resource_type].add_precalculated(value)
 
 
 ## Calculates gain/loss value with modifiers applied
 ##
 ## Does not update the value of the resource.
-func calculate_modifiers(actor:Node, value:float, resource_type:ResourceType) -> float:
-	return engines[resource_type].apply(actor, value)
+func calculate_modifiers(resource_type:ResourceType, actor:Node, value:float) -> float:
+	return _trackers[resource_type].engine.apply(actor, value)
+
+
+class ResourceTracker:
+	var value:float
+	var engine:ResourceEngine
 	
+	func _init(_value:float = 0, _engine:ResourceEngine = null) -> void:
+		value = _value
+		engine = _engine if _engine else ResourceEngine.new()
 	
+	func add_precalculated(_value:float) -> void:
+		value += _value
