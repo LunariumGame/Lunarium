@@ -1,6 +1,14 @@
 name: Build and Upload to itch.io
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
 
 jobs:
   itchio-upload:
@@ -36,6 +44,3 @@ jobs:
         run: butler push build/web/lunarium.zip hawkhobo/lunarium:html5
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-
-
-

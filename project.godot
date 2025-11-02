@@ -13,7 +13,7 @@ config_version=5
 config/name="Lunarium"
 run/main_scene="uid://djnwiopkr12qv"
 config/features=PackedStringArray("4.5", "Mobile")
-config/icon="res://assets/sprites/icon.svg"
+config/icon="uid://b6k7dd38rgif8"
 
 [autoload]
 
