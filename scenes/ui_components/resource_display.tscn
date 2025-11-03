@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce48wrjunv4rk"]
+
+[ext_resource type="Script" uid="uid://bk2c6el5gj6vm" path="res://scripts/ui_components/resource_display.gd" id="1_d8d5m"]
+
+[node name="ResourceDisplay" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "RESOURCE_VALUE"
+script = ExtResource("1_d8d5m")
