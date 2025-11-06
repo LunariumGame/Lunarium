@@ -1,7 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
-[ext_resource type="PackedScene" uid="uid://bo383rljnyhxr" path="res://scenes/screens/settings.tscn" id="4_k0juu"]
 [ext_resource type="AudioStream" uid="uid://crfw4ttuymq44" path="res://assets/audio/Space Music Pack/slow-travel.wav" id="5_71j4m"]
 [ext_resource type="Texture2D" uid="uid://dqb752gtm0gfe" path="res://assets/sprites/moonsurface.jpg" id="6_4mrxx"]
 [ext_resource type="AudioStream" uid="uid://bfnlmryosks8l" path="res://assets/audio/Space Music Pack/fx/alien-talk-1.wav" id="6_i7141"]
@@ -20,6 +19,12 @@ stream_1/stream = ExtResource("7_4mrxx")
 [node name="World" type="Node"]
 process_mode = 1
 script = ExtResource("1_nnsk1")
+
+[node name="UI_ROOT" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Audio" type="Node" parent="."]
 
