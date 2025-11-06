@@ -43,6 +43,10 @@ project/assembly_name="Lunarium"
 
 enabled=PackedStringArray("res://addons/cvd_sim/plugin.cfg")
 
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
 [input]
 
 ui_left={

@@ -6,8 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://bfnlmryosks8l" path="res://assets/audio/Space Music Pack/fx/alien-talk-1.wav" id="6_i7141"]
 [ext_resource type="AudioStream" uid="uid://bdd3w8a2mlpn2" path="res://assets/audio/Space Music Pack/fx/alien-talk-2.wav" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bvqdwlryncc6q" path="res://scenes/player.tscn" id="7_7r4gi"]
-[ext_resource type="Script" path="res://scripts/camera/position_lock.gd" id="8_4mrxx"]
-[ext_resource type="PackedScene" uid="uid://bpc6gps3lk4ac" path="res://scenes/ui_components/hud.tscn" id="8_7r4gi"]
+[ext_resource type="Script" uid="uid://dm3fhxjge8xxk" path="res://scripts/camera/position_lock.gd" id="8_4mrxx"]
+[ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="9_7r4gi"]
+[ext_resource type="PackedScene" uid="uid://ce48wrjunv4rk" path="res://scenes/ui_components/resource_display.tscn" id="10_w7kh3"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7r4gi"]
 random_pitch = 1.1
@@ -22,9 +23,105 @@ script = ExtResource("1_nnsk1")
 
 [node name="UI_ROOT" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainUI" type="CanvasLayer" parent="UI_ROOT"]
+
+[node name="EndTurn" type="Button" parent="UI_ROOT/MainUI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -172.0
+offset_top = -80.0
+offset_right = -86.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+text = "Next Turn"
+
+[node name="TurnPopDisplay" type="VBoxContainer" parent="UI_ROOT/MainUI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -139.0
+offset_bottom = 50.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+
+[node name="TurnCounter" type="Label" parent="UI_ROOT/MainUI/TurnPopDisplay"]
+layout_mode = 2
+text = "TURN"
+horizontal_alignment = 1
+script = ExtResource("9_7r4gi")
+
+[node name="Population" parent="UI_ROOT/MainUI/TurnPopDisplay" instance=ExtResource("10_w7kh3")]
+layout_mode = 2
+text = "Population"
+horizontal_alignment = 1
+resource = 3
+
+[node name="ResourceDisplay" type="HBoxContainer" parent="UI_ROOT/MainUI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -500.0
+offset_right = -250.0
+offset_bottom = 23.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+alignment = 2
+
+[node name="Food" parent="UI_ROOT/MainUI/ResourceDisplay" instance=ExtResource("10_w7kh3")]
+layout_mode = 2
+text = "Food"
+
+[node name="Electricity" parent="UI_ROOT/MainUI/ResourceDisplay" instance=ExtResource("10_w7kh3")]
+layout_mode = 2
+text = "Electricity"
+resource = 1
+
+[node name="Iron" parent="UI_ROOT/MainUI/ResourceDisplay" instance=ExtResource("10_w7kh3")]
+layout_mode = 2
+text = "Iron"
+resource = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI_ROOT/MainUI/ResourceDisplay"]
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="UI_ROOT/MainUI"]
+offset_right = 70.0
 offset_bottom = 40.0
+scale = Vector2(2, 2)
+text = "Settings"
+
+[node name="SystemsDisplay" type="HBoxContainer" parent="UI_ROOT/MainUI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 144.0
+offset_bottom = -40.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+
+[node name="TechTree" type="Button" parent="UI_ROOT/MainUI/SystemsDisplay"]
+layout_mode = 2
+text = "Tech"
+
+[node name="BuildingManager" type="Button" parent="UI_ROOT/MainUI/SystemsDisplay"]
+layout_mode = 2
+text = "Build"
+
+[node name="BotManager" type="Button" parent="UI_ROOT/MainUI/SystemsDisplay"]
+layout_mode = 2
+text = "Bots"
 
 [node name="Audio" type="Node" parent="."]
 
@@ -52,12 +149,4 @@ position = Vector2(614, 406)
 script = ExtResource("8_4mrxx")
 player = NodePath("../Player")
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="UI" instance=ExtResource("8_7r4gi")]
-
-[node name="Settings" parent="UI" instance=ExtResource("4_k0juu")]
-
-[connection signal="pressed" from="UI/HUD/EndTurn" to="." method="_on_end_turn_pressed"]
-
-[editable path="UI/HUD"]
+[connection signal="pressed" from="UI_ROOT/MainUI/EndTurn" to="." method="_on_end_turn_pressed"]
