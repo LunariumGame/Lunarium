@@ -392,6 +392,7 @@ anti_aliasing_size = 0.55
 [node name="Settings" type="CanvasLayer"]
 process_mode = 3
 layer = 100
+script = ExtResource("1_emdcu")
 
 [node name="Settings" type="Control" parent="."]
 layout_mode = 3
@@ -400,7 +401,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_emdcu")
 
 [node name="SettingsBackground" type="ColorRect" parent="Settings"]
 layout_mode = 1
@@ -505,6 +505,6 @@ theme_override_styles/slider = SubResource("StyleBoxFlat_3otaf")
 max_value = 1.0
 step = 0.01
 
-[connection signal="value_changed" from="Settings/AudioSettings/MasterVolume" to="Settings" method="_on_master_volume_value_changed"]
-[connection signal="value_changed" from="Settings/AudioSettings/MusicVolume" to="Settings" method="_on_music_volume_value_changed"]
-[connection signal="value_changed" from="Settings/AudioSettings/EffectsVolume" to="Settings" method="_on_effects_volume_value_changed"]
+[connection signal="value_changed" from="Settings/AudioSettings/MasterVolume" to="." method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="Settings/AudioSettings/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="Settings/AudioSettings/EffectsVolume" to="." method="_on_effects_volume_value_changed"]
