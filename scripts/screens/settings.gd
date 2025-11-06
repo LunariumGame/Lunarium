@@ -28,11 +28,11 @@ func _process(delta):
 	rotating_moon.modulate = Color(rotating_moon.modulate.r, rotating_moon.modulate.g, rotating_moon.modulate.b, alpha)
 	#endregion
 
+
 func _input(event):
 	if event.is_action_pressed("settings"):
 		get_tree().paused = !get_tree().paused
 		get_parent().visible = get_tree().paused
-		print(get_parent())
 
 
 func _on_master_volume_value_changed(value: float) -> void:
