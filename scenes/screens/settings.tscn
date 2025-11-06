@@ -389,11 +389,9 @@ corner_radius_bottom_left = 5
 shadow_color = Color(1, 1, 1, 0.6)
 anti_aliasing_size = 0.55
 
-[node name="Settings" type="CanvasLayer"]
+[node name="Settings" type="Control"]
 process_mode = 3
-layer = 100
-
-[node name="Settings" type="Control" parent="."]
+z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -402,7 +400,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_emdcu")
 
-[node name="SettingsBackground" type="ColorRect" parent="Settings"]
+[node name="SettingsBackground" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -411,13 +409,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.7921569)
 
-[node name="LunariumTitle" type="Sprite2D" parent="Settings"]
+[node name="LunariumTitle" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.77254903)
 position = Vector2(839.56, 214.72)
 scale = Vector2(0.52, 0.52)
 texture = ExtResource("2_a6gug")
 
-[node name="RotatingMoon" type="AnimatedSprite2D" parent="Settings"]
+[node name="RotatingMoon" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.79607844, 0.7882353, 0.67058825, 0.7647059)
 texture_filter = 1
 position = Vector2(1390.6, 206.72)
@@ -427,7 +425,7 @@ animation = &"rotate"
 autoplay = "rotate"
 frame_progress = 0.8968328
 
-[node name="PausedText" type="Label" parent="Settings"]
+[node name="PausedText" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -446,7 +444,7 @@ label_settings = SubResource("LabelSettings_emdcu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioSettings" type="VBoxContainer" parent="Settings"]
+[node name="AudioSettings" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 832.0
 offset_top = 488.0
@@ -455,17 +453,17 @@ offset_bottom = 676.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Audio" type="Label" parent="Settings/AudioSettings"]
+[node name="Audio" type="Label" parent="AudioSettings"]
 layout_mode = 2
 text = "Audio"
 label_settings = SubResource("LabelSettings_jljg7")
 
-[node name="Master" type="Label" parent="Settings/AudioSettings"]
+[node name="Master" type="Label" parent="AudioSettings"]
 layout_mode = 2
 text = "Master"
 label_settings = SubResource("LabelSettings_q3kmr")
 
-[node name="MasterVolume" type="HSlider" parent="Settings/AudioSettings"]
+[node name="MasterVolume" type="HSlider" parent="AudioSettings"]
 texture_filter = 1
 layout_mode = 2
 theme_override_icons/grabber = ExtResource("3_q3kmr")
@@ -475,12 +473,12 @@ theme_override_styles/slider = SubResource("StyleBoxFlat_3otaf")
 max_value = 1.0
 step = 0.01
 
-[node name="Music" type="Label" parent="Settings/AudioSettings"]
+[node name="Music" type="Label" parent="AudioSettings"]
 layout_mode = 2
 text = "Music"
 label_settings = SubResource("LabelSettings_q3kmr")
 
-[node name="MusicVolume" type="HSlider" parent="Settings/AudioSettings"]
+[node name="MusicVolume" type="HSlider" parent="AudioSettings"]
 texture_filter = 1
 layout_mode = 2
 theme_override_icons/grabber = ExtResource("3_q3kmr")
@@ -490,12 +488,12 @@ theme_override_styles/slider = SubResource("StyleBoxFlat_3otaf")
 max_value = 1.0
 step = 0.01
 
-[node name="Effects" type="Label" parent="Settings/AudioSettings"]
+[node name="Effects" type="Label" parent="AudioSettings"]
 layout_mode = 2
 text = "Effects"
 label_settings = SubResource("LabelSettings_q3kmr")
 
-[node name="EffectsVolume" type="HSlider" parent="Settings/AudioSettings"]
+[node name="EffectsVolume" type="HSlider" parent="AudioSettings"]
 texture_filter = 1
 layout_mode = 2
 theme_override_icons/grabber = ExtResource("3_q3kmr")
@@ -505,6 +503,6 @@ theme_override_styles/slider = SubResource("StyleBoxFlat_3otaf")
 max_value = 1.0
 step = 0.01
 
-[connection signal="value_changed" from="Settings/AudioSettings/MasterVolume" to="Settings" method="_on_master_volume_value_changed"]
-[connection signal="value_changed" from="Settings/AudioSettings/MusicVolume" to="Settings" method="_on_music_volume_value_changed"]
-[connection signal="value_changed" from="Settings/AudioSettings/EffectsVolume" to="Settings" method="_on_effects_volume_value_changed"]
+[connection signal="value_changed" from="AudioSettings/MasterVolume" to="." method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="AudioSettings/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="AudioSettings/EffectsVolume" to="." method="_on_effects_volume_value_changed"]

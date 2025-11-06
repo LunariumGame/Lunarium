@@ -1,6 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=3 format=3 uid="uid://bpc6gps3lk4ac"]
 
-[ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_q33s8"]
+[ext_resource type="Script" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
+[ext_resource type="PackedScene" uid="uid://ce48wrjunv4rk" path="res://scenes/ui_components/resource_display.tscn" id="2_cjm6u"]
 
-[node name="Hud" type="Node2D"]
-script = ExtResource("1_q33s8")
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EndTurn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "End Turn"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="TurnCounter" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "TURN"
+script = ExtResource("1_xgrr2")
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResourceDisplay" parent="HBoxContainer" instance=ExtResource("2_cjm6u")]
+layout_mode = 2
+
+[node name="ResourceDisplay2" parent="HBoxContainer" instance=ExtResource("2_cjm6u")]
+layout_mode = 2
+resource = 1
+
+[node name="ResourceDisplay3" parent="HBoxContainer" instance=ExtResource("2_cjm6u")]
+layout_mode = 2
+resource = 2
+
+[node name="ResourceDisplay4" parent="HBoxContainer" instance=ExtResource("2_cjm6u")]
+layout_mode = 2
+resource = 3

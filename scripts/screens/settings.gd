@@ -14,7 +14,7 @@ var _time := 0.0
 
 
 func _ready():
-	get_parent().visible = false
+	visible = false
 	master_volume.value = 0.5
 	music_volume.value = 0.5
 	effects_volume.value = 0.5
@@ -32,7 +32,7 @@ func _process(delta):
 func _input(event):
 	if event.is_action_pressed("settings"):
 		get_tree().paused = !get_tree().paused
-		get_parent().visible = get_tree().paused
+		visible = get_tree().paused
 
 
 func _on_master_volume_value_changed(value: float) -> void:
