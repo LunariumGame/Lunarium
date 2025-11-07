@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bo383rljnyhxr"]
+[gd_scene load_steps=64 format=3 uid="uid://bo383rljnyhxr"]
 
 [ext_resource type="Script" uid="uid://eqg0rjagl3i7" path="res://scripts/screens/settings.gd" id="1_emdcu"]
 [ext_resource type="Texture2D" uid="uid://b38ydovtwkyyw" path="res://assets/sprites/lunarium_title.png" id="2_a6gug"]
@@ -390,11 +390,37 @@ shadow_color = Color(1, 1, 1, 0.6)
 anti_aliasing_size = 0.55
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6gug"]
-content_margin_left = 8.0
-content_margin_top = 5.0
-content_margin_right = 8.0
-content_margin_bottom = 5.0
 bg_color = Color(0.29586652, 0.29586652, 0.29586637, 0.49803922)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 8.0
+expand_margin_top = 4.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ct2w"]
+bg_color = Color(0.14767182, 0.14767179, 0.14767185, 0.6784314)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 8.0
+expand_margin_top = 4.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ap0kp"]
+bg_color = Color(0.5132329, 0.51323295, 0.51323277, 0.63529414)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 8.0
+expand_margin_top = 4.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
 
 [node name="Settings" type="CanvasLayer"]
 process_mode = 3
@@ -519,15 +545,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -48.0
-offset_top = -336.0
-offset_right = 44.0
+offset_left = -78.5
+offset_top = -343.0
+offset_right = 74.5
 offset_bottom = -305.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_mode = 0
 theme_override_fonts/font = ExtResource("2_jljg7")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_a6gug")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0ct2w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ap0kp")
 text = "Quit Game"
 
 [connection signal="value_changed" from="Settings/AudioSettings/MasterVolume" to="." method="_on_master_volume_value_changed"]
