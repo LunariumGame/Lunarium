@@ -12,17 +12,19 @@ var _time := 0.0
 @onready var music_volume: HSlider = $"Settings/AudioSettings/MusicVolume"
 @onready var effects_volume: HSlider = $"Settings/AudioSettings/EffectsVolume"
 
+
 func _ready():
 	master_volume.value = settings_data.volume_value_master
 	music_volume.value = settings_data.volume_value_music
 	effects_volume.value = settings_data.volume_value_effects
-
 	get_tree().paused = true
+
 
 func close():
 	get_tree().paused = false
 	window_manager.pop()
 	queue_free()
+
 
 func _process(delta):
 	#region Fluctuate alpha of title and rotating moon
@@ -38,11 +40,6 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		close()
 		get_viewport().set_input_as_handled()
-	
-	#if event.is_action_pressed("settings"):
-		#get_tree().paused = !get_tree().paused
-		#get_parent().visible = get_tree().paused
-		#print(get_parent())
 
 
 func _on_master_volume_value_changed(value: float) -> void:

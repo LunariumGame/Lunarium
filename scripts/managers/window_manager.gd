@@ -22,8 +22,8 @@ func push(window: Node):
 
 func pop():
 	if window_stack.size() > 0:
-		var top = window_stack.pop_back()
-		top.queue_free()
+		var top_window = window_stack.pop_back()
+		top_window.queue_free()
 	print("UI STACK: ", window_stack.size())
 
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=12 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="2_w7kh3"]
 [ext_resource type="AudioStream" uid="uid://crfw4ttuymq44" path="res://assets/audio/Space Music Pack/slow-travel.wav" id="5_71j4m"]
 [ext_resource type="Texture2D" uid="uid://dqb752gtm0gfe" path="res://assets/sprites/moonsurface.jpg" id="6_4mrxx"]
 [ext_resource type="AudioStream" uid="uid://bfnlmryosks8l" path="res://assets/audio/Space Music Pack/fx/alien-talk-1.wav" id="6_i7141"]
@@ -21,7 +22,7 @@ stream_1/stream = ExtResource("7_4mrxx")
 process_mode = 1
 script = ExtResource("1_nnsk1")
 
-[node name="UI_ROOT" type="Control" parent="."]
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,99 +30,125 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainUI" type="CanvasLayer" parent="UI_ROOT"]
+[node name="HUD" type="CanvasLayer" parent="UI"]
+script = ExtResource("2_w7kh3")
 
-[node name="EndTurn" type="Button" parent="UI_ROOT/MainUI"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HUDUI" type="Control" parent="UI/HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NextTurn" type="Button" parent="UI/HUD/HUDUI"]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -172.0
-offset_top = -80.0
-offset_right = -86.0
-offset_bottom = -40.0
+offset_left = 1708.0
+offset_top = 960.0
+offset_right = 1794.0
+offset_bottom = 1000.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2, 2)
+focus_mode = 0
 text = "Next Turn"
 
-[node name="TurnPopDisplay" type="VBoxContainer" parent="UI_ROOT/MainUI"]
+[node name="Settings" type="Button" parent="UI/HUD/HUDUI"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+focus_mode = 0
+text = "Settings"
+
+[node name="SystemButtons" type="HBoxContainer" parent="UI/HUD/HUDUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 960.0
+offset_right = 144.0
+offset_bottom = 1000.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+
+[node name="TechTree" type="Button" parent="UI/HUD/HUDUI/SystemButtons"]
+layout_mode = 2
+focus_mode = 0
+text = "Tech"
+
+[node name="BuildingManager" type="Button" parent="UI/HUD/HUDUI/SystemButtons"]
+layout_mode = 2
+focus_mode = 0
+text = "Build"
+
+[node name="BotManager" type="Button" parent="UI/HUD/HUDUI/SystemButtons"]
+layout_mode = 2
+focus_mode = 0
+text = "Bots"
+
+[node name="TurnPopDisplay" type="VBoxContainer" parent="UI/HUD/HUDUI"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -139.0
+offset_left = 801.0
+offset_right = 940.0
 offset_bottom = 50.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
 
-[node name="TurnCounter" type="Label" parent="UI_ROOT/MainUI/TurnPopDisplay"]
+[node name="TurnCounter" type="Label" parent="UI/HUD/HUDUI/TurnPopDisplay"]
 layout_mode = 2
-text = "TURN"
+text = "TURN #"
 horizontal_alignment = 1
 script = ExtResource("9_7r4gi")
 
-[node name="Population" parent="UI_ROOT/MainUI/TurnPopDisplay" instance=ExtResource("10_w7kh3")]
+[node name="Population" parent="UI/HUD/HUDUI/TurnPopDisplay" instance=ExtResource("10_w7kh3")]
 layout_mode = 2
 text = "Population"
 horizontal_alignment = 1
 resource = 3
 
-[node name="ResourceDisplay" type="HBoxContainer" parent="UI_ROOT/MainUI"]
+[node name="ResourceDisplay" type="HBoxContainer" parent="UI/HUD/HUDUI"]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -500.0
-offset_right = -250.0
+offset_left = 1380.0
+offset_right = 1630.0
 offset_bottom = 23.0
 grow_horizontal = 0
 scale = Vector2(2, 2)
 alignment = 2
 
-[node name="Food" parent="UI_ROOT/MainUI/ResourceDisplay" instance=ExtResource("10_w7kh3")]
+[node name="Food" parent="UI/HUD/HUDUI/ResourceDisplay" instance=ExtResource("10_w7kh3")]
 layout_mode = 2
 text = "Food"
 
-[node name="Electricity" parent="UI_ROOT/MainUI/ResourceDisplay" instance=ExtResource("10_w7kh3")]
+[node name="Electricity" parent="UI/HUD/HUDUI/ResourceDisplay" instance=ExtResource("10_w7kh3")]
 layout_mode = 2
 text = "Electricity"
 resource = 1
 
-[node name="Iron" parent="UI_ROOT/MainUI/ResourceDisplay" instance=ExtResource("10_w7kh3")]
+[node name="Iron" parent="UI/HUD/HUDUI/ResourceDisplay" instance=ExtResource("10_w7kh3")]
 layout_mode = 2
 text = "Iron"
 resource = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="UI_ROOT/MainUI/ResourceDisplay"]
-layout_mode = 2
-
-[node name="Settings" type="Button" parent="UI_ROOT/MainUI"]
-offset_right = 70.0
-offset_bottom = 40.0
-scale = Vector2(2, 2)
-text = "Settings"
-
-[node name="SystemsDisplay" type="HBoxContainer" parent="UI_ROOT/MainUI"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -80.0
-offset_right = 144.0
-offset_bottom = -40.0
-grow_vertical = 0
-scale = Vector2(2, 2)
-
-[node name="TechTree" type="Button" parent="UI_ROOT/MainUI/SystemsDisplay"]
-layout_mode = 2
-text = "Tech"
-
-[node name="BuildingManager" type="Button" parent="UI_ROOT/MainUI/SystemsDisplay"]
-layout_mode = 2
-text = "Build"
-
-[node name="BotManager" type="Button" parent="UI_ROOT/MainUI/SystemsDisplay"]
-layout_mode = 2
-text = "Bots"
 
 [node name="Audio" type="Node" parent="."]
 
@@ -149,4 +176,5 @@ position = Vector2(614, 406)
 script = ExtResource("8_4mrxx")
 player = NodePath("../Player")
 
-[connection signal="pressed" from="UI_ROOT/MainUI/EndTurn" to="." method="_on_end_turn_pressed"]
+[connection signal="pressed" from="UI/HUD/HUDUI/NextTurn" to="." method="_on_end_turn_pressed"]
+[connection signal="pressed" from="UI/HUD/HUDUI/Settings" to="UI/HUD" method="_on_settings_pressed"]
