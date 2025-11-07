@@ -58,3 +58,7 @@ func _on_music_volume_value_changed(value: float) -> void:
 func _on_effects_volume_value_changed(value: float) -> void:
 	settings_data.volume_value_effects = value
 	AudioServer.set_bus_volume_db(2, linear_to_db(value))
+
+
+func _on_quit_game_pressed() -> void:
+	get_tree().quit()
