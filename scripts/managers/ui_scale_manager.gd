@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 signal scale_changed(new_scale:float)
