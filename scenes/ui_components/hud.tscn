@@ -135,4 +135,5 @@ text = "Iron"
 label_settings = SubResource("LabelSettings_o8fc1")
 resource = 2
 
+[connection signal="pressed" from="MarginContainer/HUDUI/NextTurn" to="." method="_on_next_turn_pressed"]
 [connection signal="pressed" from="MarginContainer/HUDUI/Settings" to="." method="_on_settings_pressed"]

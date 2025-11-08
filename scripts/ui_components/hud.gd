@@ -3,5 +3,8 @@ extends CanvasLayer
 
 
 func _on_settings_pressed() -> void:
-	var World:WorldScene = get_tree().root.get_node("World")
-	World.open_settings_window()
+	Signals.settings_opened.emit()
+
+
+func _on_next_turn_pressed() -> void:
+	game_manager.end_turn()
