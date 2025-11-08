@@ -24,6 +24,8 @@ boot_splash/minimum_display_time=2000
 Signals="*res://scripts/core/signals.gd"
 game_manager="*res://scripts/managers/game_manager.gd"
 resource_manager="*res://scripts/managers/resource_manager.gd"
+window_manager="*res://scripts/managers/window_manager.gd"
+settings_data="*res://scripts/core/settings_data.gd"
 UiScaleManager="*res://scripts/managers/ui_scale_manager.gd"
 
 [display]
@@ -41,6 +43,10 @@ project/assembly_name="Lunarium"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/cvd_sim/plugin.cfg")
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 

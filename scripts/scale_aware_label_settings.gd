@@ -3,7 +3,7 @@ class_name ScaleAwareLabelSettings
 extends LabelSettings
 
 
-@export var base_font_size:int = 12:
+@export var base_font_size:int = 8:
 	set(v):
 		font_size = v
 		base_font_size = v
