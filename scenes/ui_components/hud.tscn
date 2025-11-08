@@ -1,55 +1,138 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=9 format=3 uid="uid://bpc6gps3lk4ac"]
 
-[ext_resource type="Script" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
+[ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
+[ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
 [ext_resource type="PackedScene" uid="uid://ce48wrjunv4rk" path="res://scenes/ui_components/resource_display.tscn" id="2_cjm6u"]
 
-[node name="HUD" type="Control"]
-layout_mode = 3
+[sub_resource type="LabelSettings" id="LabelSettings_w7kh3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e3hyu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhx03"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8fc1"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_cjm6u")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="EndTurn" type="Button" parent="."]
+[node name="HUDUI" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="NextTurn" type="Button" parent="MarginContainer/HUDUI"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -78.0
-offset_top = -31.0
+offset_left = -172.0
+offset_top = -80.0
+offset_right = -86.0
+offset_bottom = -40.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "End Turn"
+scale = Vector2(2, 2)
+focus_mode = 0
+text = "Next Turn"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Settings" type="Button" parent="MarginContainer/HUDUI"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+focus_mode = 0
+text = "Settings"
+
+[node name="SystemButtons" type="HBoxContainer" parent="MarginContainer/HUDUI"]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 144.0
+offset_bottom = -40.0
+grow_vertical = 0
+scale = Vector2(2, 2)
 
-[node name="TurnCounter" type="Label" parent="HBoxContainer"]
+[node name="TechTree" type="Button" parent="MarginContainer/HUDUI/SystemButtons"]
+layout_mode = 2
+focus_mode = 0
+text = "Tech"
+
+[node name="BuildingManager" type="Button" parent="MarginContainer/HUDUI/SystemButtons"]
+layout_mode = 2
+focus_mode = 0
+text = "Build"
+
+[node name="BotManager" type="Button" parent="MarginContainer/HUDUI/SystemButtons"]
+layout_mode = 2
+focus_mode = 0
+text = "Bots"
+
+[node name="TurnPopDisplay" type="VBoxContainer" parent="MarginContainer/HUDUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -139.0
+offset_bottom = 50.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+
+[node name="TurnCounter" type="Label" parent="MarginContainer/HUDUI/TurnPopDisplay"]
 layout_mode = 2
 text = "TURN"
+label_settings = SubResource("LabelSettings_w7kh3")
+horizontal_alignment = 1
 script = ExtResource("1_xgrr2")
 
-[node name="Control" type="Control" parent="HBoxContainer"]
+[node name="Population" parent="MarginContainer/HUDUI/TurnPopDisplay" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
-size_flags_horizontal = 3
+text = "Population"
+label_settings = SubResource("LabelSettings_e3hyu")
+horizontal_alignment = 1
+resource = 3
 
-[node name="ResourceDisplay" parent="HBoxContainer" instance=ExtResource("2_cjm6u")]
-layout_mode = 2
+[node name="ResourceDisplay" type="HBoxContainer" parent="MarginContainer/HUDUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -500.0
+offset_right = -250.0
+offset_bottom = 23.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+alignment = 2
 
-[node name="ResourceDisplay2" parent="HBoxContainer" instance=ExtResource("2_cjm6u")]
+[node name="Food" parent="MarginContainer/HUDUI/ResourceDisplay" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
+text = "Food"
+label_settings = SubResource("LabelSettings_q5onr")
+
+[node name="Electricity" parent="MarginContainer/HUDUI/ResourceDisplay" instance=ExtResource("2_cjm6u")]
+layout_mode = 2
+text = "Electricity"
+label_settings = SubResource("LabelSettings_jhx03")
 resource = 1
 
-[node name="ResourceDisplay3" parent="HBoxContainer" instance=ExtResource("2_cjm6u")]
+[node name="Iron" parent="MarginContainer/HUDUI/ResourceDisplay" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
+text = "Iron"
+label_settings = SubResource("LabelSettings_o8fc1")
 resource = 2
 
-[node name="ResourceDisplay4" parent="HBoxContainer" instance=ExtResource("2_cjm6u")]
-layout_mode = 2
-resource = 3
+[connection signal="pressed" from="MarginContainer/HUDUI/Settings" to="." method="_on_settings_pressed"]
