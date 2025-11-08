@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=15 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="2_w7kh3"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bvqdwlryncc6q" path="res://scenes/player.tscn" id="7_7r4gi"]
 [ext_resource type="Script" uid="uid://dm3fhxjge8xxk" path="res://scripts/camera/position_lock.gd" id="8_4mrxx"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="9_7r4gi"]
+[ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="9_q5onr"]
+[ext_resource type="Script" uid="uid://bj1omfohfnxvq" path="res://scripts/scale_aware_label_settings.gd" id="10_jhx03"]
 [ext_resource type="PackedScene" uid="uid://ce48wrjunv4rk" path="res://scenes/ui_components/resource_display.tscn" id="10_w7kh3"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7r4gi"]
@@ -17,6 +19,13 @@ random_volume_offset_db = 1.0
 streams_count = 2
 stream_0/stream = ExtResource("6_i7141")
 stream_1/stream = ExtResource("7_4mrxx")
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8fc1"]
+font = ExtResource("9_q5onr")
+font_size = 32
+script = ExtResource("10_jhx03")
+base_font_size = 32
+metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 
 [node name="World" type="Node"]
 process_mode = 1
@@ -110,8 +119,9 @@ scale = Vector2(2, 2)
 
 [node name="TurnCounter" type="Label" parent="UI/HUD/MarginContainer/HUDUI/TurnPopDisplay"]
 layout_mode = 2
-text = "TURN #"
 horizontal_alignment = 1
+text = "TURN"
+label_settings = SubResource("LabelSettings_o8fc1")
 script = ExtResource("9_7r4gi")
 
 [node name="Population" parent="UI/HUD/MarginContainer/HUDUI/TurnPopDisplay" instance=ExtResource("10_w7kh3")]
