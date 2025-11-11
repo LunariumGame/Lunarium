@@ -2,34 +2,30 @@ class_name ResourceEngine
 extends Node
 
 
-@abstract class ResourceModifier:
-	enum Priority {
-		# Modifiers of the same priority should be commutative
-		SUBTRACTIVE_NONNEGATIVE, # Subtracts with a bound
-		SUBTRACTIVE, # Subtracts without bound
-		ADDITIVE, # Adds a value
-		MULTIPLICATIVE, # Multiplies a value
-	}
-	
-	@abstract func apply(actor:Node, value:float) -> float
-	
-	
-	## Returns the priority of the modifier
-	## Higher priority modifiers get applied first
-	@abstract func priority() -> Priority
-	
-	
-	static func is_higher_priority(a:ResourceModifier, b:ResourceModifier) -> bool:
-		return a.priority() > b.priority()
+enum Priority {
+	# Modifiers of the same priority should be commutative
+	SUBTRACTIVE_NONNEGATIVE, # Subtracts with a bound
+	SUBTRACTIVE, # Subtracts without bound
+	ADDITIVE, # Adds a value
+	MULTIPLICATIVE, # Multiplies a value
+}
+
+enum ApplyTime {
+	NOW,
+	ON_TURN_END,
+	ON_RESOURCE_GAIN,
+	ON_BUILD,
+}
 
 
 var modifiers:Array[ResourceModifier] = []
 
 
 ## Applies the resource modifiers
-func apply(actor:Node, value:float) -> float:
+func apply(actor:Node, value:float, apply_time: ApplyTime) -> float:
 	for modifier in modifiers:
-		value = modifier.apply(actor, value)
+		if modifier.get_apply_time() == apply_time:
+			value = modifier.apply(actor, value)
 	
 	return value
 

@@ -50,7 +50,8 @@ func add_precalculated(resource_type:ResourceType, value:float) -> void:
 ##
 ## Does not update the value of the resource.
 func calculate_modifiers(resource_type:ResourceType, actor:Node, value:float) -> float:
-	return _trackers[resource_type].engine.apply(actor, value)
+	return _trackers[resource_type].engine.apply(
+			actor, value, ResourceEngine.ApplyTime.ON_RESOURCE_GAIN)
 
 
 class ResourceTracker:
