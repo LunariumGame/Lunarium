@@ -6,10 +6,8 @@ extends Node2D
 var unlocked: bool 
 var bought: bool
 
-var spec: TechTreeNodeSpec
+@export var spec: TechTreeNodeSpec
 
-func _init(s: TechTreeNodeSpec) -> void:
-	self.spec = s
 
 func purchase() -> void:
 	if bought or not unlocked:
@@ -23,14 +21,15 @@ func purchase() -> void:
 	
 	# Prevent from buying again
 	bought = true
+	print_debug("Purchase upgraded: ", spec.name)
 	
 	# Activate all effects of the upgrade
 	for modifier in spec.modifier_list:
-		if modifier is ResourceEngine.ResourceModifier:
+		if modifier is ResourceModifier:
 			# Determine which resource this modifier applies to
 			var target_type = modifier.resource_type
 			# Add it to the corresponding resource tracker’s engine
 			resource_manager._trackers[target_type].engine.add_modifier(modifier)
 		else:
-			printerr("Invalid upgrade type in", self.name)
+			printerr("Invalid upgrade type in ", spec.name)
 			

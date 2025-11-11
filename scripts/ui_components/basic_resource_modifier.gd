@@ -9,7 +9,7 @@ extends ResourceModifier
 
 
 # The resource engine handles apply time 
-func apply(_actor:Node, value:float) -> float:
+func apply(value:float) -> float:
 	match priority:
 		ResourceEngine.Priority.SUBTRACTIVE_NONNEGATIVE:
 			value -= amount
@@ -30,3 +30,7 @@ func get_priority() -> ResourceEngine.Priority:
 
 func get_apply_time() -> ResourceEngine.ApplyTime:
 	return apply_time
+
+
+func get_resource_type() -> ResourceManager.ResourceType:
+	return resource_type
