@@ -17,7 +17,7 @@ jobs:
           BRANCH_NAME: ${{github.event.ref }}
         run: |
           # fetch all channels
-          CHANNELS_JSON=$(curl -s -H "Authorization: Beared $BUTLER_API_KEY" \
+          CHANNELS_JSON=$(curl -s -H "Authorization: Bearer $BUTLER_API_KEY" \
           "https://itch.io/api/1/key/game/$ITCH_GAME_ID/channels")
 
           # finding matching branch channel
