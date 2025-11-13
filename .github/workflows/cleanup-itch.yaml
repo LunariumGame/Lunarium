@@ -1,0 +1,37 @@
+name: Cleanup Itch.io of Deleted Branch
+
+on:
+  delete:
+
+jobs:
+  delete-itch-channel:
+    if: github.event.ref_type == 'branch' && github.event.ref != 'main' && github.event.ref != 'dev'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete Channel with Itch API
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+          # specific game id
+          ITCH_GAME_ID: ${{ secrets.ITCH_GAME_ID }}
+          # name of branch being deleted
+          BRANCH_NAME: ${{github.event.ref }}
+        run: |
+          # fetch all channels
+          CHANNELS_JSON=$(curl -s -H "Authorization: Beared $BUTLER_API_KEY" \
+          "https://itch.io/api/1/key/game/$ITCH_GAME_ID/channels")
+
+          # finding matching branch channel
+          CHANNEL_ID=$(echo "$CHANNEL_JSON" | jq -r --arg BRANCH "$BRANCH_NAME" \
+          '.channels[] | select(.name | endswith(":\($BRANCH)")) | .id')
+
+          if [ -z "$CHANNEL_ID" ] || [ "$CHANNEL_ID" == "null" ]; then
+            echo "No itch.io channel found for branch: $BRANCH_NAME."
+            exit 0 
+          fi
+
+          # delete the channel
+          curl -s -X DELETE -H "Authorization: Bearer $BUTLER_API_KEY" \
+            "https://itch.io/api/1/key/channels/$CHANNEL_ID"
+
+          echo "channel of $BRANCH_NAME deleted"
+
