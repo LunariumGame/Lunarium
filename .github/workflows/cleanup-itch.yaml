@@ -21,8 +21,8 @@ jobs:
           "https://itch.io/api/1/key/game/$ITCH_GAME_ID/channels")
 
           # finding matching branch channel
-          CHANNEL_ID=$(echo "$CHANNEL_JSON" | jq -r --arg BRANCH "$BRANCH_NAME" \
-          '.channels[] | select(.name | endswith(":\($BRANCH)")) | .id')
+          CHANNEL_ID=$(echo "$CHANNELS_JSON" | jq -r --arg BRANCH "$BRANCH_NAME" \
+          '.channels[] | select(.name == $BRANCH) | .id')
 
           if [ -z "$CHANNEL_ID" ] || [ "$CHANNEL_ID" == "null" ]; then
             echo "No itch.io channel found for branch: $BRANCH_NAME."
