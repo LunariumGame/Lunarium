@@ -34,8 +34,8 @@ func set_resource(resource_type:ResourceType, value:float) -> void:
 
 
 ## Applies modifiers to value before adding the value to the resource.
-func calculate_and_update(resource_type:ResourceType, value:float, apply_time: ResourceEngine.ApplyTime) -> float:
-	var modified_value:float = calculate_modifiers(resource_type, value, apply_time)
+func calculate_and_update(resource_type:ResourceType, actor:Object, value:float, apply_time: ResourceEngine.ApplyTime) -> float:
+	var modified_value:float = calculate_modifiers(resource_type, actor, value, apply_time)
 	add_precalculated(resource_type, modified_value)
 	# resource_value_changed is already emitted by add_precalculated
 	return modified_value
@@ -50,8 +50,8 @@ func add_precalculated(resource_type:ResourceType, value:float) -> void:
 ## Calculates gain/loss value with modifiers applied
 ##
 ## Does not update the value of the resource.
-func calculate_modifiers(resource_type:ResourceType, value:float, apply_time: ResourceEngine.ApplyTime) -> float:
-	return _trackers[resource_type].engine.apply(value, apply_time)
+func calculate_modifiers(resource_type:ResourceType, actor:Object, value:float, apply_time: ResourceEngine.ApplyTime) -> float:
+	return _trackers[resource_type].engine.apply(actor, value, apply_time)
 
 
 class ResourceTracker:

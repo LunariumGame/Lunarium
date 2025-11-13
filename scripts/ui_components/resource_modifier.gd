@@ -2,7 +2,7 @@
 class_name ResourceModifier
 extends Resource
 
-@abstract func apply(value:float) -> float
+@abstract func apply(actor:Object, value:float) -> float
 
 ## Returns the priority of the modifier
 ## Higher priority modifiers get applied first

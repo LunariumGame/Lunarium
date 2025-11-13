@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 func _on_turn_started(_turn:int) -> void:
-	resource_manager.calculate_and_update(PRODUCED_RESOURCE, self, _production_at_level(level))
+	resource_manager.calculate_and_update(PRODUCED_RESOURCE, self, _production_at_level(level), ResourceEngine.ApplyTime.ON_TURN_STARTED)
 	print(resource_manager.get_resource(PRODUCED_RESOURCE))
 
 

@@ -9,7 +9,7 @@ extends ResourceModifier
 
 
 # The resource engine handles apply time 
-func apply(value:float) -> float:
+func apply(_actor:Object, value:float) -> float:
 	match priority:
 		ResourceEngine.Priority.SUBTRACTIVE_NONNEGATIVE:
 			value -= amount
