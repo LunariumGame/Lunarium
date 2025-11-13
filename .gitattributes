@@ -2,8 +2,8 @@
 * text=auto eol=lf
 
 # Godot scenes are resources are collpased in PRs
-*.tscn linguist-generated=true
-*.tres linguist-generated=true
+*.tscn linguist-generated
+*.tres linguist-generated
 
 *.png binary
 *.jpg binary
