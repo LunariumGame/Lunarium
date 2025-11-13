@@ -17,12 +17,10 @@ jobs:
           BRANCH_NAME: ${{github.event.ref }}
         run: |
           # fetch all channels
-          CHANNELS_JSON=$(curl -s -H "Authorization: Bearer $BUTLER_API_KEY" \
-          "https://itch.io/api/1/key/game/$ITCH_GAME_ID/channels")
-
+          CHANNELS_JSON=$(curl -s "https://itch.io/api/1/$BUTLER_API_KEY/game/$ITCH_GAME_ID")
           # finding matching branch channel
           CHANNEL_ID=$(echo "$CHANNELS_JSON" | jq -r --arg BRANCH "$BRANCH_NAME" \
-          '.channels[] | select(.name == $BRANCH) | .id')
+          '.game.channels[] | select(.name == $BRANCH) | .id')
 
           if [ -z "$CHANNEL_ID" ] || [ "$CHANNEL_ID" == "null" ]; then
             echo "No itch.io channel found for branch: $BRANCH_NAME."
@@ -30,8 +28,7 @@ jobs:
           fi
 
           # delete the channel
-          curl -s -X DELETE -H "Authorization: Bearer $BUTLER_API_KEY" \
-            "https://itch.io/api/1/key/channels/$CHANNEL_ID"
+          curl -s -X POST "https://itch.io/api/1/$BUTLER_API_KEY/channel/$CHANNEL_ID/delete"
 
           echo "channel of $BRANCH_NAME deleted"
 
