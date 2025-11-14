@@ -11,6 +11,3 @@ signal turn_ended(turn_number:int)
 signal resource_value_changed(resource:ResourceManager.ResourceType, value:float)
 
 signal settings_opened()
-
-# emitted when a building is clicked
-signal on_building_click(new_building_texture: Texture2D)

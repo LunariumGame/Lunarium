@@ -1,7 +1,17 @@
 [gd_scene load_steps=2 format=3 uid="uid://ca5dpbbb16yjm"]
 
-[ext_resource type="Script" uid="uid://cpxswnb7308vv" path="res://scripts/managers/update_building_texture.gd" id="1_u3r2r"]
+[sub_resource type="GDScript" id="GDScript_bhy5u"]
+script/source = "# update building texture. used for cursor-click in GUI and when a building is upgraded
+class_name UpdateBuildingTexture
+extends Sprite2D
+
+func _ready() -> void:
+	Signals.on_building_click.connect(set_current_texture)
+	
+#	
+func set_current_texture(current_building_texture: Texture2D) -> void:
+	texture = current_building_texture
+"
 
 [node name="UpdateBuilding" type="Sprite2D"]
-script = ExtResource("1_u3r2r")
-metadata/_custom_type_script = "uid://cpxswnb7308vv"
+script = SubResource("GDScript_bhy5u")

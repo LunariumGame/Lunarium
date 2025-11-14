@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=10 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
 [ext_resource type="PackedScene" uid="uid://ce48wrjunv4rk" path="res://scenes/ui_components/resource_display.tscn" id="2_cjm6u"]
+[ext_resource type="Script" uid="uid://b2eoxpgf2ve3o" path="res://scripts/ui_components/building/building_button.gd" id="2_ntdy2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w7kh3"]
 
@@ -76,6 +77,8 @@ text = "Tech"
 layout_mode = 2
 focus_mode = 0
 text = "Build"
+script = ExtResource("2_ntdy2")
+building_type = 4
 
 [node name="BotManager" type="Button" parent="MarginContainer/HUDUI/SystemButtons"]
 layout_mode = 2
