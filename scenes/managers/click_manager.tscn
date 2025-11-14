@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca5dpbbb16yjm"]
+
+[ext_resource type="Script" uid="uid://cpxswnb7308vv" path="res://scripts/managers/update_building_texture.gd" id="1_u3r2r"]
+
+[node name="UpdateBuilding" type="Sprite2D"]
+script = ExtResource("1_u3r2r")
+metadata/_custom_type_script = "uid://cpxswnb7308vv"

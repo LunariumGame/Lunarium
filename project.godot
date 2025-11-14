@@ -27,6 +27,7 @@ resource_manager="*res://scripts/managers/resource_manager.gd"
 window_manager="*res://scripts/managers/window_manager.gd"
 settings_data="*res://scripts/core/settings_data.gd"
 UiScaleManager="*res://scripts/managers/ui_scale_manager.gd"
+game_data="*res://scripts/core/game_data.gd"
 
 [display]
 
