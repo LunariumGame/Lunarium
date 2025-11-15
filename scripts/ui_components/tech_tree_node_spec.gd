@@ -11,4 +11,4 @@ extends Resource
 
 @export var name: String = "New Upgrade"
 
-@export var modifier_list: Array[Resource] = []
+@export var modifier_list: Array[ResourceModifier] = []
