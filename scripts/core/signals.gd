@@ -9,3 +9,5 @@ signal turn_ended(turn_number:int)
 
 ## Emitted when the amount of a resource that the player has is changed.
 signal resource_value_changed(resource:ResourceManager.ResourceType, value:float)
+
+signal settings_opened()
