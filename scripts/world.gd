@@ -38,11 +38,9 @@ func open_settings_window():
 	window_manager.push(settings_scene)
 
 
+## Get the buildings in a given area. Affected by the area's mask.
 static func get_buildings_in_area(area:Area2D) -> Array[Building]:
-	var buildings:Array[Building] = []
-	
-	for node in area.get_overlapping_bodies():
-		if node is Building:
-			buildings.push_back(node)
-	
-	return buildings
+	return area.get_overlapping_bodies().filter(
+		func (n) -> bool:
+				return n is Building
+	)
