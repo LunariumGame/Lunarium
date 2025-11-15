@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=12 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bpc6gps3lk4ac" path="res://scenes/ui_components/hud.tscn" id="2_4mrxx"]
@@ -8,8 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://bdd3w8a2mlpn2" path="res://assets/audio/Space Music Pack/fx/alien-talk-2.wav" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bvqdwlryncc6q" path="res://scenes/player.tscn" id="7_7r4gi"]
 [ext_resource type="Script" uid="uid://dm3fhxjge8xxk" path="res://scripts/camera/position_lock.gd" id="8_4mrxx"]
-[ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="9_7r4gi"]
-[ext_resource type="PackedScene" uid="uid://ce48wrjunv4rk" path="res://scenes/ui_components/resource_display.tscn" id="10_w7kh3"]
 [ext_resource type="Script" uid="uid://dm1gqee5hpi86" path="res://scripts/ui_components/tech_tree_node.gd" id="11_e3hyu"]
 [ext_resource type="Resource" uid="uid://2hdhlbnrajfh" path="res://assets/tech_tree_upgrades/resource_boost.tres" id="12_q5onr"]
 
@@ -24,20 +22,11 @@ stream_1/stream = ExtResource("7_4mrxx")
 process_mode = 1
 script = ExtResource("1_nnsk1")
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="UI" type="Node" parent="."]
+
+[node name="PopupWindowHolder" type="Node" parent="UI"]
 
 [node name="HUD" parent="UI" instance=ExtResource("2_4mrxx")]
-
-[node name="PopupWindowHolder" type="Control" parent="UI"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Audio" type="Node" parent="."]
 
@@ -65,52 +54,7 @@ position = Vector2(614, 406)
 script = ExtResource("8_4mrxx")
 player = NodePath("../Player")
 
-[node name="MainUI" type="CanvasLayer" parent="."]
-
-[node name="EndTurn" type="Button" parent="MainUI"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -8.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "End Turn"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MainUI"]
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-
-[node name="TurnCounter" type="Label" parent="MainUI/HBoxContainer"]
-layout_mode = 2
-text = "TURN"
-script = ExtResource("9_7r4gi")
-
-[node name="Control" type="Control" parent="MainUI/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ResourceDisplay" parent="MainUI/HBoxContainer" instance=ExtResource("10_w7kh3")]
-layout_mode = 2
-
-[node name="ResourceDisplay2" parent="MainUI/HBoxContainer" instance=ExtResource("10_w7kh3")]
-layout_mode = 2
-resource = 1
-
-[node name="ResourceDisplay3" parent="MainUI/HBoxContainer" instance=ExtResource("10_w7kh3")]
-layout_mode = 2
-resource = 2
-
-[node name="ResourceDisplay4" parent="MainUI/HBoxContainer" instance=ExtResource("10_w7kh3")]
-layout_mode = 2
-resource = 3
-
 [node name="TechTreeNode" type="Node2D" parent="."]
 script = ExtResource("11_e3hyu")
 spec = ExtResource("12_q5onr")
 metadata/_custom_type_script = "uid://dm1gqee5hpi86"
-
-[connection signal="pressed" from="MainUI/EndTurn" to="." method="_on_end_turn_pressed"]
