@@ -28,13 +28,10 @@ func purchase() -> bool:
 	
 	# Activate all effects of the upgrade
 	for modifier in spec.modifier_list:
-		if modifier is ResourceModifier:
-			# Determine which resource this modifier applies to
-			var target_type = modifier.resource_type
-			# Add it to the corresponding resource tracker’s engine
-			resource_manager._trackers[target_type].engine.add_modifier(modifier)
-		else:
-			printerr("Invalid upgrade type in ", spec.name)
+		# Determine which resource this modifier applies to
+		var target_type = modifier.resource_type
+		# Add it to the corresponding resource tracker’s engine
+		resource_manager._trackers[target_type].engine.add_modifier(modifier)
 	
 	return true
 
