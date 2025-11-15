@@ -2,7 +2,7 @@ class_name TechTreeNodeSpec
 extends Resource
 
 
-@export var cost: Dictionary = {
+@export var cost: Dictionary[ResourceManager.ResourceType, float] = {
 	ResourceManager.ResourceType.FOOD: 0,
 	ResourceManager.ResourceType.ELECTRICITY: 0,
 	ResourceManager.ResourceType.IRON: 0,
@@ -11,4 +11,4 @@ extends Resource
 
 @export var name: String = "New Upgrade"
 
-@export var modifier_list: Array[Resource] = []
+@export var modifier_list: Array[ResourceModifier] = []
