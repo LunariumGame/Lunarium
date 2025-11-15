@@ -36,3 +36,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func open_settings_window():
 	var settings_scene = preload("res://scenes/screens/settings.tscn").instantiate()
 	window_manager.push(settings_scene)
+
+
+static func get_buildings_in_area(area:Area2D) -> Array[Building]:
+	var buildings:Array[Building] = []
+	
+	for node in area.get_overlapping_bodies():
+		if node is Building:
+			buildings.push_back(node)
+	
+	return buildings
