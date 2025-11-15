@@ -8,10 +8,13 @@ var bought: bool
 
 @export var spec: TechTreeNodeSpec
 
+func is_purchasable() -> bool:
+	return unlocked and _resource_costs_met() and not bought
 
-func purchase() -> void:
-	if bought or not unlocked:
-		return;
+
+func purchase() -> bool:
+	if not is_purchasable():
+		return false
 	
 	# Subtract cost
 	var cost := spec.cost
@@ -25,11 +28,17 @@ func purchase() -> void:
 	
 	# Activate all effects of the upgrade
 	for modifier in spec.modifier_list:
-		if modifier is ResourceModifier:
-			# Determine which resource this modifier applies to
-			var target_type = modifier.resource_type
-			# Add it to the corresponding resource tracker’s engine
-			resource_manager._trackers[target_type].engine.add_modifier(modifier)
-		else:
-			printerr("Invalid upgrade type in ", spec.name)
-			
+		# Determine which resource this modifier applies to
+		var target_type = modifier.resource_type
+		# Add it to the corresponding resource tracker’s engine
+		resource_manager._trackers[target_type].engine.add_modifier(modifier)
+	
+	return true
+
+## Returns whether the player has enough resources to purchase this upgrade.
+func _resource_costs_met() -> bool:
+	for resource_type in spec.cost.keys():
+		if spec.cost[resource_type] > resource_manager.get_resource(resource_type):
+			return false
+	
+	return true
