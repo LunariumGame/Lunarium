@@ -13,11 +13,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	# Test upgrade
-	#if tech_upgrade is TechTreeNode:
-		#tech_upgrade.unlocked = true
-		#tech_upgrade.purchase()
-	#else:
-		#print_debug("wrong type")
+	if tech_upgrade is TechTreeNode:
+		tech_upgrade.unlocked = true
+		tech_upgrade.purchase()
+	else:
+		print_debug("wrong type")
 	pass
 
 
