@@ -59,6 +59,7 @@ text = "Next Turn"
 script = ExtResource("2_ntdy2")
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HUDUI/NextTurn"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
