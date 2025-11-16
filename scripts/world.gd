@@ -37,6 +37,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			open_settings_window()
 
 
+# TODO: Should this be in the world.gd script?
 func open_settings_window():
 	var settings_scene = preload("res://scenes/screens/settings.tscn").instantiate()
 	window_manager.push(settings_scene)
