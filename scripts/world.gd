@@ -2,6 +2,7 @@ class_name WorldScene
 extends Node
 
 @onready var tech_upgrade:TechTreeNode = get_node("TechTreeNode")
+@onready var building_finder: ShapeCast2D = $BuildingFinder
 
 
 # Called when the node enters the scene tree for the first time.
@@ -44,3 +45,21 @@ static func get_buildings_in_area(area:Area2D) -> Array[Building]:
 		func (n) -> bool:
 				return n is Building
 	)
+
+
+func get_buildings_within_rect(rect:Rect2) -> Array[Building]:
+	var shape := RectangleShape2D.new()
+	shape.size = rect.size
+	
+	building_finder.position = rect.position + rect.size / 2
+	building_finder.shape = shape
+	building_finder.force_shapecast_update()
+	
+	var results:Array[Building] = []
+	for collision in building_finder.get_collision_count():
+		var collider:Object = building_finder.get_collider(collision)
+		if collider is Building:
+			results.push_back(collider)
+	
+	shape.queue_free()
+	return results
