@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=13 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
@@ -12,15 +12,48 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otepx"]
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 25.0
+expand_margin_top = 7.0
+expand_margin_right = 25.0
+expand_margin_bottom = 7.0
+shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
+shadow_size = 5
+
 [sub_resource type="LabelSettings" id="LabelSettings_w7kh3"]
+font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_e3hyu"]
+font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2itkv"]
+content_margin_right = 15.0
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 3
+border_width_bottom = 3
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_bottom_left = 3
+expand_margin_top = 7.0
+expand_margin_right = 9.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
+shadow_size = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
+font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jhx03"]
+font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_o8fc1"]
+font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_cjm6u")
@@ -104,54 +137,66 @@ layout_mode = 2
 focus_mode = 0
 text = "Bots"
 
-[node name="TurnPopDisplay" type="VBoxContainer" parent="MarginContainer/HUDUI"]
+[node name="TurnPopPanel" type="PanelContainer" parent="MarginContainer/HUDUI"]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -139.0
-offset_bottom = 50.0
+offset_left = -136.0
+offset_top = -2.0
+offset_right = 3.0
+offset_bottom = 46.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_otepx")
 
-[node name="TurnCounter" type="Label" parent="MarginContainer/HUDUI/TurnPopDisplay"]
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/HUDUI/TurnPopPanel"]
+layout_mode = 2
+
+[node name="TurnCounter" type="Label" parent="MarginContainer/HUDUI/TurnPopPanel/VBox"]
 layout_mode = 2
 text = "TURN"
 label_settings = SubResource("LabelSettings_w7kh3")
 horizontal_alignment = 1
 script = ExtResource("1_xgrr2")
 
-[node name="Population" parent="MarginContainer/HUDUI/TurnPopDisplay" instance=ExtResource("2_cjm6u")]
+[node name="Population" parent="MarginContainer/HUDUI/TurnPopPanel/VBox" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Population"
 label_settings = SubResource("LabelSettings_e3hyu")
 horizontal_alignment = 1
 resource = 3
 
-[node name="ResourceDisplay" type="HBoxContainer" parent="MarginContainer/HUDUI"]
+[node name="ResourcePanel" type="PanelContainer" parent="MarginContainer/HUDUI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -500.0
-offset_right = -250.0
-offset_bottom = 23.0
+offset_left = -584.0
+offset_top = -2.0
+offset_right = -293.0
+offset_bottom = 38.0
 grow_horizontal = 0
 scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_2itkv")
+
+[node name="HBox" type="HBoxContainer" parent="MarginContainer/HUDUI/ResourcePanel"]
+layout_mode = 2
 alignment = 2
 
-[node name="Food" parent="MarginContainer/HUDUI/ResourceDisplay" instance=ExtResource("2_cjm6u")]
+[node name="Food" parent="MarginContainer/HUDUI/ResourcePanel/HBox" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Food"
 label_settings = SubResource("LabelSettings_q5onr")
 
-[node name="Electricity" parent="MarginContainer/HUDUI/ResourceDisplay" instance=ExtResource("2_cjm6u")]
+[node name="Electricity" parent="MarginContainer/HUDUI/ResourcePanel/HBox" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Electricity"
 label_settings = SubResource("LabelSettings_jhx03")
 resource = 1
 
-[node name="Iron" parent="MarginContainer/HUDUI/ResourceDisplay" instance=ExtResource("2_cjm6u")]
+[node name="Iron" parent="MarginContainer/HUDUI/ResourcePanel/HBox" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Iron"
 label_settings = SubResource("LabelSettings_o8fc1")
