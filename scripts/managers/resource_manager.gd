@@ -54,6 +54,10 @@ func calculate_modifiers(resource_type:ResourceType, actor:Object, value:float, 
 	return _trackers[resource_type].engine.apply(actor, value, apply_time)
 
 
+func add_modifier(resource_type:ResourceType, m:ResourceModifier) -> void:
+	_trackers[resource_type].engine.add_modifier(m)
+
+
 class ResourceTracker:
 	var value:float
 	var engine:ResourceEngine
