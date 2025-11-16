@@ -158,3 +158,6 @@ resource = 2
 
 [connection signal="pressed" from="MarginContainer/HUDUI/NextTurn" to="." method="_on_next_turn_pressed"]
 [connection signal="pressed" from="MarginContainer/HUDUI/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/HUDUI/SystemButtons/TechTree" to="." method="_on_tech_tree_pressed"]
+[connection signal="pressed" from="MarginContainer/HUDUI/SystemButtons/BuildingManager" to="." method="_on_building_manager_pressed"]
+[connection signal="pressed" from="MarginContainer/HUDUI/SystemButtons/BotManager" to="." method="_on_bot_manager_pressed"]
