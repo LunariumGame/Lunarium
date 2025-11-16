@@ -1,8 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=11 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
 [ext_resource type="PackedScene" uid="uid://ce48wrjunv4rk" path="res://scenes/ui_components/resource_display.tscn" id="2_cjm6u"]
+[ext_resource type="Script" uid="uid://c5toevd7s65xr" path="res://scripts/ui_components/next_turn.gd" id="2_ntdy2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntdy2"]
+bg_color = Color(0.6, 0.6, 0.6, 0.69803923)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="LabelSettings" id="LabelSettings_w7kh3"]
 
@@ -32,6 +40,7 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 
 [node name="NextTurn" type="Button" parent="MarginContainer/HUDUI"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -47,6 +56,18 @@ grow_vertical = 0
 scale = Vector2(2, 2)
 focus_mode = 0
 text = "Next Turn"
+script = ExtResource("2_ntdy2")
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HUDUI/NextTurn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 8
+theme_override_styles/fill = SubResource("StyleBoxFlat_ntdy2")
+show_percentage = false
 
 [node name="Settings" type="Button" parent="MarginContainer/HUDUI"]
 layout_mode = 0
