@@ -51,7 +51,7 @@ func get_buildings_within_rect(rect:Rect2) -> Array[Building]:
 	var shape := RectangleShape2D.new()
 	shape.size = rect.size
 	
-	building_finder.position = rect.position + rect.size / 2
+	building_finder.global_position = rect.position + rect.size / 2
 	building_finder.shape = shape
 	building_finder.force_shapecast_update()
 	
@@ -61,5 +61,4 @@ func get_buildings_within_rect(rect:Rect2) -> Array[Building]:
 		if collider is Building:
 			results.push_back(collider)
 	
-	shape.queue_free()
-	return results
+		return results

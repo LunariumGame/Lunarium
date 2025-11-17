@@ -64,4 +64,6 @@ metadata/_custom_type_script = "uid://dm1gqee5hpi86"
 position = Vector2(569, 230)
 
 [node name="BuildingFinder" type="ShapeCast2D" parent="."]
+target_position = Vector2(0, 0)
 max_results = 9999999
+collide_with_areas = true
