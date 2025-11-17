@@ -34,15 +34,15 @@ font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
 font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2itkv"]
+content_margin_left = 15.0
 content_margin_right = 15.0
 bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
-border_width_left = 3
+border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
-corner_radius_bottom_left = 3
-expand_margin_top = 7.0
+corner_radius_bottom_right = 3
+expand_margin_left = 8.0
 expand_margin_right = 9.0
-expand_margin_bottom = 5.0
 shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
 shadow_size = 5
 
@@ -104,9 +104,14 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ntdy2")
 show_percentage = false
 
 [node name="Settings" type="Button" parent="MarginContainer/HUDUI"]
-layout_mode = 0
-offset_right = 70.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -141.0
+offset_right = -71.0
 offset_bottom = 40.0
+grow_horizontal = 0
 scale = Vector2(2, 2)
 focus_mode = 0
 text = "Settings"
@@ -170,20 +175,14 @@ resource = 3
 
 [node name="ResourcePanel" type="PanelContainer" parent="MarginContainer/HUDUI"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -584.0
-offset_top = -2.0
-offset_right = -293.0
-offset_bottom = 38.0
-grow_horizontal = 0
+offset_top = -16.0
+offset_right = 291.0
+offset_bottom = 24.0
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_2itkv")
 
 [node name="HBox" type="HBoxContainer" parent="MarginContainer/HUDUI/ResourcePanel"]
 layout_mode = 2
-alignment = 2
 
 [node name="Food" parent="MarginContainer/HUDUI/ResourcePanel/HBox" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
