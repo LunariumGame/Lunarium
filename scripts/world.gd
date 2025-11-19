@@ -48,11 +48,8 @@ static func get_buildings_in_area(area:Area2D) -> Array[Building]:
 
 
 func get_buildings_within_rect(rect:Rect2) -> Array[Building]:
-	var shape := RectangleShape2D.new()
-	shape.size = rect.size
-	
 	building_finder.global_position = rect.position + rect.size / 2
-	building_finder.shape = shape
+	building_finder.shape.size = rect.size
 	building_finder.force_shapecast_update()
 	
 	var results:Array[Building] = []
@@ -61,4 +58,4 @@ func get_buildings_within_rect(rect:Rect2) -> Array[Building]:
 		if collider is Building:
 			results.push_back(collider)
 	
-		return results
+	return results
