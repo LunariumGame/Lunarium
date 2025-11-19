@@ -1,19 +1,208 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=34 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
 [ext_resource type="PackedScene" uid="uid://ce48wrjunv4rk" path="res://scenes/ui_components/resource_display.tscn" id="2_cjm6u"]
-[ext_resource type="Script" uid="uid://b2eoxpgf2ve3o" path="res://scripts/ui_components/building/building_button.gd" id="2_ntdy2"]
+[ext_resource type="Script" uid="uid://c5toevd7s65xr" path="res://scripts/ui_components/next_turn.gd" id="2_ntdy2"]
+[ext_resource type="Texture2D" uid="uid://d1yyx8mxhypco" path="res://assets/sprites/icon_cog.png" id="3_otepx"]
+[ext_resource type="Texture2D" uid="uid://dbxx8xh1go5g8" path="res://assets/sprites/wrench.png" id="4_2itkv"]
+[ext_resource type="Texture2D" uid="uid://mjkrxk6sjcvc" path="res://assets/sprites/building.png" id="5_fok22"]
+[ext_resource type="Texture2D" uid="uid://fqnxvku6ehk1" path="res://assets/sprites/icon_robot.png" id="6_5qewb"]
+[ext_resource type="Script" uid="uid://b2eoxpgf2ve3o" path="res://scripts/ui_components/building/building_button.gd" id="9_jswg8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ij283"]
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 3
+border_width_top = 3
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_top_left = 3
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afnkq"]
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 3
+border_width_top = 3
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_top_left = 3
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2n4f"]
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 3
+border_width_top = 3
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_top_left = 3
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8125u"]
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 3
+border_width_top = 3
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_top_left = 3
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pkrv"]
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntdy2"]
+bg_color = Color(0.6, 0.6, 0.6, 0.023529412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ne71y"]
+bg_color = Color(0.36647415, 0.41772693, 0.40837803, 0.80784315)
+corner_radius_top_left = 2
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qewb"]
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 3
+border_width_bottom = 3
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_bottom_left = 3
+expand_margin_top = 5.0
+expand_margin_right = 1.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jswg8"]
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 3
+border_width_bottom = 3
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_bottom_left = 3
+expand_margin_top = 5.0
+expand_margin_right = 1.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do4pv"]
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 3
+border_width_bottom = 3
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_bottom_left = 3
+expand_margin_top = 5.0
+expand_margin_right = 1.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6ec8"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fok22"]
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 3
+border_width_bottom = 3
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_bottom_left = 3
+expand_margin_top = 5.0
+expand_margin_right = 1.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otepx"]
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 25.0
+expand_margin_top = 7.0
+expand_margin_right = 25.0
+expand_margin_bottom = 7.0
+shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
+shadow_size = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_w7kh3"]
+font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_e3hyu"]
+font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2itkv"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_bottom_right = 3
+expand_margin_left = 8.0
+expand_margin_right = 9.0
+shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
+shadow_size = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
+font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jhx03"]
+font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_o8fc1"]
+font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2w4nd"]
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_top = 8
+border_width_right = 8
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_top_right = 5
+shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3esv6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_haqli"]
+content_margin_left = 24.0
+content_margin_right = 32.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5qewb"]
+font_size = 24
+font_color = Color(0.26657495, 0.26657537, 0.26657495, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7utte"]
+bg_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+expand_margin_top = 1.0
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_cjm6u")
@@ -33,111 +222,314 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 mouse_filter = 2
 
-[node name="NextTurn" type="Button" parent="MarginContainer/HUDUI"]
+[node name="Buttons" type="Control" parent="MarginContainer/HUDUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NextTurn" type="Button" parent="MarginContainer/HUDUI/Buttons"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -172.0
-offset_top = -80.0
-offset_right = -86.0
-offset_bottom = -40.0
+offset_left = 1684.0
+offset_top = 944.0
+offset_right = 1770.0
+offset_bottom = 984.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2, 2)
 focus_mode = 0
+theme_override_colors/font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ij283")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_afnkq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v2n4f")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8125u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6pkrv")
 text = "Next Turn"
-
-[node name="Settings" type="Button" parent="MarginContainer/HUDUI"]
-layout_mode = 0
-offset_right = 70.0
-offset_bottom = 40.0
-scale = Vector2(2, 2)
-focus_mode = 0
-text = "Settings"
-
-[node name="SystemButtons" type="HBoxContainer" parent="MarginContainer/HUDUI"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -80.0
-offset_right = 144.0
-offset_bottom = -40.0
-grow_vertical = 0
-scale = Vector2(2, 2)
-
-[node name="TechTree" type="Button" parent="MarginContainer/HUDUI/SystemButtons"]
-layout_mode = 2
-focus_mode = 0
-text = "Tech"
-
-[node name="BuildingManager" type="Button" parent="MarginContainer/HUDUI/SystemButtons"]
-layout_mode = 2
-focus_mode = 0
-text = "Build"
 script = ExtResource("2_ntdy2")
-building_type = 1
 
-[node name="BotManager" type="Button" parent="MarginContainer/HUDUI/SystemButtons"]
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HUDUI/Buttons/NextTurn"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.011627907
+anchor_top = 0.075
+anchor_right = 1.0465117
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_ntdy2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ne71y")
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings" type="Button" parent="MarginContainer/HUDUI/Buttons"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1825.0
+offset_top = -13.0
+offset_right = 1895.0
+offset_bottom = 43.0
+grow_horizontal = 0
+scale = Vector2(0.55, 0.55)
+focus_mode = 0
+accessibility_name = "Settings Button"
+accessibility_description = "Opens the settings menu"
+theme_override_colors/icon_normal_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_5qewb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jswg8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_do4pv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_a6ec8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fok22")
+icon = ExtResource("3_otepx")
+icon_alignment = 1
+
+[node name="SystemButtons" type="HBoxContainer" parent="MarginContainer/HUDUI/Buttons"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 19.4
+anchor_right = 7.8
+anchor_bottom = 21.4
+offset_right = -144.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="TechTree" type="Button" parent="MarginContainer/HUDUI/Buttons/SystemButtons"]
+texture_filter = 1
+custom_minimum_size = Vector2(43, 41)
 layout_mode = 2
 focus_mode = 0
-text = "Bots"
+accessibility_name = "Tech Tree Button"
+accessibility_description = "Opens the tech tree"
+theme_override_colors/icon_normal_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+theme_override_colors/icon_focus_color = Color(0.34509805, 0.5019608, 0.47843137, 1)
+theme_override_colors/icon_pressed_color = Color(0.34575823, 0.50253403, 0.4785378, 1)
+theme_override_colors/icon_hover_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_6pkrv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6pkrv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6pkrv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6pkrv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6pkrv")
+toggle_mode = true
+action_mode = 0
+icon = ExtResource("4_2itkv")
+icon_alignment = 1
+expand_icon = true
 
-[node name="TurnPopDisplay" type="VBoxContainer" parent="MarginContainer/HUDUI"]
+[node name="BuildingManager" type="Button" parent="MarginContainer/HUDUI/Buttons/SystemButtons"]
+texture_filter = 1
+custom_minimum_size = Vector2(43, 41)
+layout_mode = 2
+focus_mode = 0
+accessibility_name = "Building Manager Button"
+accessibility_description = "Opens the building manager"
+theme_override_colors/icon_normal_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+theme_override_colors/icon_focus_color = Color(0.34509805, 0.5019608, 0.47843137, 1)
+theme_override_colors/icon_pressed_color = Color(0.34509805, 0.5019608, 0.47843137, 1)
+theme_override_colors/icon_hover_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_6pkrv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6pkrv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6pkrv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6pkrv")
+toggle_mode = true
+action_mode = 0
+icon = ExtResource("5_fok22")
+icon_alignment = 1
+expand_icon = true
+
+[node name="BotManager" type="Button" parent="MarginContainer/HUDUI/Buttons/SystemButtons"]
+custom_minimum_size = Vector2(43, 41)
+layout_mode = 2
+focus_mode = 0
+accessibility_name = "Bot Manager Button"
+accessibility_description = "Opens the bot manager"
+theme_override_colors/icon_normal_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+theme_override_colors/icon_focus_color = Color(0.34509805, 0.5019608, 0.47843137, 1)
+theme_override_colors/icon_pressed_color = Color(0.34509805, 0.5019608, 0.47843137, 1)
+theme_override_colors/icon_hover_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_6pkrv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6pkrv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6pkrv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6pkrv")
+toggle_mode = true
+action_mode = 0
+icon = ExtResource("6_5qewb")
+expand_icon = true
+
+[node name="TurnPopPanel" type="PanelContainer" parent="MarginContainer/HUDUI"]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -139.0
-offset_bottom = 50.0
+offset_left = -136.0
+offset_top = -2.0
+offset_right = 3.0
+offset_bottom = 46.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_otepx")
 
-[node name="TurnCounter" type="Label" parent="MarginContainer/HUDUI/TurnPopDisplay"]
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/HUDUI/TurnPopPanel"]
+layout_mode = 2
+
+[node name="TurnCounter" type="Label" parent="MarginContainer/HUDUI/TurnPopPanel/VBox"]
 layout_mode = 2
 text = "TURN"
 label_settings = SubResource("LabelSettings_w7kh3")
 horizontal_alignment = 1
 script = ExtResource("1_xgrr2")
 
-[node name="Population" parent="MarginContainer/HUDUI/TurnPopDisplay" instance=ExtResource("2_cjm6u")]
+[node name="Population" parent="MarginContainer/HUDUI/TurnPopPanel/VBox" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Population"
 label_settings = SubResource("LabelSettings_e3hyu")
 horizontal_alignment = 1
 resource = 3
 
-[node name="ResourceDisplay" type="HBoxContainer" parent="MarginContainer/HUDUI"]
+[node name="ResourcePanel" type="PanelContainer" parent="MarginContainer/HUDUI"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -500.0
-offset_right = -250.0
-offset_bottom = 23.0
-grow_horizontal = 0
+offset_top = -16.0
+offset_right = 291.0
+offset_bottom = 24.0
 scale = Vector2(2, 2)
-alignment = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2itkv")
 
-[node name="Food" parent="MarginContainer/HUDUI/ResourceDisplay" instance=ExtResource("2_cjm6u")]
+[node name="HBox" type="HBoxContainer" parent="MarginContainer/HUDUI/ResourcePanel"]
+layout_mode = 2
+
+[node name="Food" parent="MarginContainer/HUDUI/ResourcePanel/HBox" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Food"
 label_settings = SubResource("LabelSettings_q5onr")
 
-[node name="Electricity" parent="MarginContainer/HUDUI/ResourceDisplay" instance=ExtResource("2_cjm6u")]
+[node name="Electricity" parent="MarginContainer/HUDUI/ResourcePanel/HBox" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Electricity"
 label_settings = SubResource("LabelSettings_jhx03")
 resource = 1
 
-[node name="Iron" parent="MarginContainer/HUDUI/ResourceDisplay" instance=ExtResource("2_cjm6u")]
+[node name="Iron" parent="MarginContainer/HUDUI/ResourcePanel/HBox" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Iron"
 label_settings = SubResource("LabelSettings_o8fc1")
 resource = 2
 
-[connection signal="pressed" from="MarginContainer/HUDUI/NextTurn" to="." method="_on_next_turn_pressed"]
-[connection signal="pressed" from="MarginContainer/HUDUI/Settings" to="." method="_on_settings_pressed"]
+[node name="InspectorPanel" type="PanelContainer" parent="MarginContainer/HUDUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -192.0
+offset_right = 672.0
+offset_bottom = 16.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2w4nd")
+
+[node name="TechInspector" type="PanelContainer" parent="MarginContainer/HUDUI/InspectorPanel"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HUDUI/InspectorPanel/TechInspector"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "TODO TECH (?)
+or just open tech tree?"
+
+[node name="BuildingInspector" type="PanelContainer" parent="MarginContainer/HUDUI/InspectorPanel"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3esv6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector"]
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 2
+layout_mode = 2
+
+[node name="Costs" type="VBoxContainer" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer"]
+layout_mode = 2
+
+[node name="BuildingCost" type="Label" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer/Costs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_haqli")
+text = "Costs Placeholder:
+- 30 Iron
+- 50 Electricty
+- 25 Food
+- 3 Residents Required"
+label_settings = SubResource("LabelSettings_5qewb")
+
+[node name="Panel" type="Panel" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7utte")
+
+[node name="BuildingButtons" type="VBoxContainer" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons"]
+layout_mode = 2
+
+[node name="Residential" type="Button" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Residential"
+script = ExtResource("9_jswg8")
+building_type = 4
+
+[node name="Refinery" type="Button" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Refinery"
+script = ExtResource("9_jswg8")
+building_type = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons"]
+layout_mode = 2
+
+[node name="Reactor" type="Button" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+text = "Reactor"
+script = ExtResource("9_jswg8")
+building_type = 3
+
+[node name="Farm" type="Button" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+text = "Farm"
+script = ExtResource("9_jswg8")
+
+[node name="BotInspector" type="PanelContainer" parent="MarginContainer/HUDUI/InspectorPanel"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HUDUI/InspectorPanel/BotInspector"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "TODO BOTS"
+
+[connection signal="pressed" from="MarginContainer/HUDUI/Buttons/NextTurn" to="." method="_on_next_turn_pressed"]
+[connection signal="pressed" from="MarginContainer/HUDUI/Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/HUDUI/Buttons/SystemButtons/TechTree" to="." method="_on_tech_tree_pressed"]
+[connection signal="pressed" from="MarginContainer/HUDUI/Buttons/SystemButtons/BuildingManager" to="." method="_on_building_manager_pressed"]
+[connection signal="pressed" from="MarginContainer/HUDUI/Buttons/SystemButtons/BotManager" to="." method="_on_bot_manager_pressed"]

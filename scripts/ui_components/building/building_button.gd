@@ -1,4 +1,4 @@
-# Currently, set up to populate l1 residence building. 
+	# Currently, set up to populate l1 residence building. 
 # create more build buttons for different buildings
 # this logic will be ported below BuildingManager button
 # 1) BuildingManager toggles GUI with 5 buttons for constructing buildings
