@@ -3,11 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://bm8p72lwna2a5" path="res://scenes/buildings/building.tscn" id="1_tn2a3"]
 [ext_resource type="Texture2D" uid="uid://cqmie6dqg2mbc" path="res://assets/sprites/buildings/u1/iron_refinery_1.svg" id="2_5cuwk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cuwk"]
-
-[node name="IronRefinery" type="Area2D"]
-script = ExtResource("1_tn2a3")
-metadata/_custom_type_script = "uid://6myfee53w1xy"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_5cuwk")
+[node name="IronRefinery" instance=ExtResource("1_tn2a3")]
+script = ExtResource("2_5cuwk")
