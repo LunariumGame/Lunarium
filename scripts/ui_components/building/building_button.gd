@@ -30,16 +30,7 @@ func populate_cursor_on_click() -> void:
 
 	get_tree().current_scene.add_child(building_instance)
 	
-
-# player right-clicked, or successfully placed building (to-do)
-func depopulate_cursor():
-	if is_instance_valid(building_instance):
-		building_instance.queue_free()
-		building_instance = null
-
-
-# when building is placed, make sure node lives under a LiveBuildings node as a child of root (for organization)
-func _place_building() -> void:
-	print("maybe I'll place a building?")   
+	# fetch building type for world instantiation
+	building_instance.initialized_building(building_type)  
 	   
 	
