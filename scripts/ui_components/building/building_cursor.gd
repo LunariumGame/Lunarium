@@ -33,7 +33,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			queue_free()
 		elif event.is_action_pressed("engage_building_button"):
 			get_viewport().set_input_as_handled()
-			print("maybe place?")
 			_place_building()
 			call_deferred("queue_free")
 
@@ -46,7 +45,7 @@ func _place_building() -> void:
 
 	building_instance.global_position = get_global_mouse_position()
 
-	var colony_buildings_node = get_tree().get_root().get_node("World/PlacedBuildings")
+	var colony_buildings_node: Node = get_tree().get_root().get_node("World/PlacedBuildings")
 	colony_buildings_node.add_child(building_instance)
 
 	print("successfully added to colony: ", building_instance.name)
