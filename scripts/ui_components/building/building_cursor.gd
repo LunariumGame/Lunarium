@@ -40,8 +40,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _place_building() -> void:
 	var building_instance = building_scene.instantiate()
-	
+
 	if (building_instance == null):
 		push_error("<building_cursor.gd, L45> building was not initialized prior to instantiation")
-		
-	
+
+	building_instance.global_position = get_global_mouse_position()
+
+	var colony_buildings_node = get_tree().get_root().get_node("World/PlacedBuildings")
+	colony_buildings_node.add_child(building_instance)
+
+	print("successfully added to colony: ", building_instance.name)

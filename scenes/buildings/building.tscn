@@ -7,7 +7,7 @@
 [node name="Building" type="Node2D"]
 script = ExtResource("1_a3sb6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
 

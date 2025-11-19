@@ -65,3 +65,5 @@ player = NodePath("../Player")
 script = ExtResource("11_e3hyu")
 spec = ExtResource("12_q5onr")
 metadata/_custom_type_script = "uid://dm1gqee5hpi86"
+
+[node name="PlacedBuildings" type="Node" parent="."]
