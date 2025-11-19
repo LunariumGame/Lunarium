@@ -11,8 +11,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	
+func _process(_delta: float) -> void:
 	var ppos:Vector2 = player.global_position
 	
 	global_position = ppos
