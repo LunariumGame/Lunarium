@@ -1,8 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://omx3pl3xhdw"]
 
-[ext_resource type="Script" uid="uid://dujssmy26e32u" path="res://scripts/buildings/iron_refinery.gd" id="1_tn2a3"]
+[ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_tn2a3"]
+[ext_resource type="Script" uid="uid://dujssmy26e32u" path="res://scripts/buildings/iron_refinery.gd" id="2_5cuwk"]
 
 [node name="IronRefinery" instance=ExtResource("1_tn2a3")]
-
-[node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_5cuwk")
+script = ExtResource("2_5cuwk")

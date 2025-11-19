@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://difixbbx5vh2p"]
+[gd_scene load_steps=3 format=3 uid="uid://difixbbx5vh2p"]
 
-[ext_resource type="Script" uid="uid://bn6ih2d7ok7s5" path="res://scripts/buildings/mech_quarter.gd" id="1_gd26s"]
+[ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_gd26s"]
+[ext_resource type="Script" uid="uid://bn6ih2d7ok7s5" path="res://scripts/buildings/mech_quarter.gd" id="2_qtgo6"]
 
-[node name="MechQuarter" type="Node2D"]
-script = ExtResource("1_gd26s")
+[node name="MechQuarter" instance=ExtResource("1_gd26s")]
+script = ExtResource("2_qtgo6")

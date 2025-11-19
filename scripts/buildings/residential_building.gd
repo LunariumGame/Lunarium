@@ -1,1 +1,2 @@
-extends Node2D
+class_name ResidentialBuilding
+extends Building

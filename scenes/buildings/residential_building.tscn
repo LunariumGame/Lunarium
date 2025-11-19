@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://62tr4h246vw0"]
+[gd_scene load_steps=3 format=3 uid="uid://62tr4h246vw0"]
 
-[ext_resource type="Script" uid="uid://cnl1jwpsm0ofq" path="res://scripts/buildings/residential_building.gd" id="1_e5v3o"]
+[ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_e5v3o"]
+[ext_resource type="Script" uid="uid://cnl1jwpsm0ofq" path="res://scripts/buildings/residential_building.gd" id="2_kguij"]
 
-[node name="ResidentialBuilding" type="Node2D"]
-script = ExtResource("1_e5v3o")
+[node name="ResidentialBuilding" instance=ExtResource("1_e5v3o")]
+script = ExtResource("2_kguij")
