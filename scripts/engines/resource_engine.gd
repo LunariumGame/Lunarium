@@ -38,15 +38,16 @@ func add_modifier(m:ResourceModifier) -> void:
 		
 		# Run additive gains through the modifiers
 		if m.get_priority() == Priority.ADDITIVE:
-			var amount = m.apply(null, 0)
+			var amount:float = m.apply(null, 0)
 			resource_manager.calculate_and_update(res_type, null, amount, ApplyTime.NOW)
 			return
 		
 		# Skip modifiers otherwise
-		var current_value: float = resource_manager.get_resource(res_type)
-		var new_value = m.apply(null, current_value)
+		var current_value:float = resource_manager.get_resource(res_type)
+		var new_value:float = m.apply(null, current_value)
 		resource_manager.set_resource(res_type, new_value)
 		
 		return
+	
 	modifiers.push_back(m)
 	modifiers.sort_custom(ResourceModifier.is_higher_priority)

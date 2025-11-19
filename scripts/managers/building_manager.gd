@@ -2,6 +2,7 @@
 class_name BuildingManager
 extends Node
 
+
 func _ready() -> void:
 	pass
 	#Signals.on_building_click.connect(populate_cursor_on_click)

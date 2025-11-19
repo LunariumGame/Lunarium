@@ -2,7 +2,7 @@ extends Node
 
 # window_stack tracks the windows
 # guaranteed to represent popup order
-var window_stack: Array = []
+var window_stack: Array[Node] = []
 # ui_root is what appears on the screen
 # NOT guaranteed to always represent popup order
 var ui_root: Node = null
@@ -22,16 +22,13 @@ func push(window: Node):
 
 func pop():
 	if window_stack.size() > 0:
-		var top_window = window_stack.pop_back()
+		var top_window:Node = window_stack.pop_back()
 		top_window.queue_free()
 	print("UI STACK: ", window_stack.size())
 
 
 func top() -> Node:
-	if window_stack.size() > 0:
-		return window_stack[-1]
-	else:
-		return null
+	return window_stack.back()
 
 
 func has_windows() -> bool:

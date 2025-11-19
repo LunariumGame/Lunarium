@@ -1,9 +1,9 @@
 class_name IronRefinery
 extends Building
 
-const PRODUCED_RESOURCE = ResourceManager.ResourceType.IRON
+const PRODUCED_RESOURCE := ResourceManager.ResourceType.IRON
 
-var level = 1
+var level:int = 1
 
 
 func _ready() -> void:
