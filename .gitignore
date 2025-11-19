@@ -4,3 +4,5 @@
 
 # build source for CI/CD
 build/
+
+*.tmp
