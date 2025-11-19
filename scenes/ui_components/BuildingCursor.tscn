@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://bwsftqdqm0a8c" path="res://scripts/ui_components/building/building_cursor.gd" id="1_jgetg"]
 
-[node name="BuildingCursor" type="Node2D"]
+[node name="BuildingCursor" type="Sprite2D"]
 script = ExtResource("1_jgetg")

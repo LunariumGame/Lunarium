@@ -36,3 +36,10 @@ func depopulate_cursor():
 	if is_instance_valid(building_instance):
 		building_instance.queue_free()
 		building_instance = null
+
+
+# when building is placed, make sure node lives under a LiveBuildings node as a child of root (for organization)
+func _place_building() -> void:
+	print("maybe I'll place a building?")   
+	   
+	
