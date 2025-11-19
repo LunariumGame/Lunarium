@@ -2,24 +2,25 @@
 class_name BuildingCursor
 extends Sprite2D
 
-var building_instance = null
+var building_scene = null
 
 
 # determine what building should be placed in the world
 func initialize_building(building_type: GameData.BuildingType) -> void:
 	match building_type:
 		GameData.BuildingType.ECO_DOME:
-			building_instance = preload("res://scripts/buildings/eco_dome.gd")
+			building_scene = preload("res://scenes/buildings/eco_dome.tscn")
 		GameData.BuildingType.IRON_REFINERY:
-			building_instance = preload("res://scripts/buildings/iron_refinery.gd")
+			building_scene = preload("res://scenes/buildings/iron_refinery.tscn")
 		GameData.BuildingType.MECH_QUARTER:
-			building_instance = preload("res://scripts/buildings/mech_quarter.gd")
+			building_scene = preload("res://scenes/buildings/mech_quarter.tscn")
 		GameData.BuildingType.POWER_PLANT:
-			building_instance = preload("res://scripts/buildings/power_plant.gd")
+			building_scene = preload("res://scenes/buildings/power_plant.tscn")
 		GameData.BuildingType.RESIDENCE_BUILDING:
-			building_instance = preload("res://scripts/buildings/residential_building.gd")
+			building_scene = preload("res://scenes/buildings/residential_building.tscn")
 		_:
 			push_error("attempted to place unrecognized building in world")
+	print("building selected: ", building_scene.resource_path)
 
 
 func _process(_delta: float) -> void:
@@ -38,4 +39,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _place_building() -> void:
-	pass 
+	var building_instance = building_scene.instantiate()
+	
+	if (building_instance == null):
+		push_error("<building_cursor.gd, L45> building was not initialized prior to instantiation")
+		
+	

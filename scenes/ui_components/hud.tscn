@@ -79,6 +79,7 @@ layout_mode = 2
 focus_mode = 0
 text = "Build"
 script = ExtResource("2_ntdy2")
+building_type = 1
 
 [node name="BotManager" type="Button" parent="MarginContainer/HUDUI/SystemButtons"]
 layout_mode = 2
