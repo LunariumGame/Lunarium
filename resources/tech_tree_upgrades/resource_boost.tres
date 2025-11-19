@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="TechTreeNodeSpec" load_steps=6 format=3 uid="uid://2hdhlbnrajfh"]
+
+[ext_resource type="Script" path="res://scripts/ui_components/basic_resource_modifier.gd" id="1_6ks0m"]
+[ext_resource type="Script" path="res://scripts/ui_components/resource_modifier.gd" id="1_ew5ac"]
+[ext_resource type="Script" path="res://scripts/ui_components/tech_tree_node_spec.gd" id="2_ew5ac"]
+
+[sub_resource type="Resource" id="Resource_xvuom"]
+script = ExtResource("1_6ks0m")
+amount = 500.0
+priority = 2
+metadata/_custom_type_script = "uid://dx0koo4fgwe6x"
+
+[sub_resource type="Resource" id="Resource_sagdq"]
+script = ExtResource("1_6ks0m")
+resource_type = 1
+amount = 50.0
+priority = 2
+metadata/_custom_type_script = "uid://dx0koo4fgwe6x"
+
+[resource]
+script = ExtResource("2_ew5ac")
+cost = Dictionary[int, float]({
+0: 0.0,
+1: 0.0,
+2: 50.0,
+3: 0.0
+})
+name = "Resource Boost"
+modifier_list = Array[ExtResource("1_ew5ac")]([SubResource("Resource_xvuom"), SubResource("Resource_sagdq")])
+metadata/_custom_type_script = "uid://bn5lwxvevygb0"

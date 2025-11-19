@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbn11gkh6wm5a"]
+[gd_scene load_steps=2 format=3 uid="uid://bbn11gkh6wm5a"]
 
-[ext_resource type="Texture2D" uid="uid://dholdk43r0udg" path="res://assets/sprites/buildings/u1/eco_dome_1.svg" id="1_if870"]
 [ext_resource type="Script" uid="uid://bwsftqdqm0a8c" path="res://scripts/ui_components/building/building_cursor.gd" id="1_jgetg"]
 
-[node name="BuildingCursor" type="Sprite2D"]
-texture = ExtResource("1_if870")
+[node name="BuildingCursor" type="Node2D"]
 script = ExtResource("1_jgetg")

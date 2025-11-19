@@ -4,6 +4,8 @@
 class_name BuildingData
 extends Resource
 
+@export var building_scene : PackedScene
+
 @export var upgrade_1: Texture2D
 @export var upgrade_2: Texture2D
 @export var upgrade_3: Texture2D

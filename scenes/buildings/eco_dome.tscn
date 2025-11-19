@@ -1,6 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://dgfq7odjk1hcx"]
 
-[ext_resource type="Script" uid="uid://cap1i0rek2d6n" path="res://scripts/buildings/eco_dome.gd" id="1_sid64"]
+[ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_sid64"]
 
-[node name="EcoDome" type="Node2D"]
-script = ExtResource("1_sid64")
+[node name="EcoDome" instance=ExtResource("1_sid64")]

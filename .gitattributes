@@ -1,2 +1,25 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
+
+# Godot scenes, resources uids are collapsed in PRs
+*.tscn linguist-generated
+*.tres linguist-generated
+*.uid linguist-generated
+project-godot linguist-generated
+
+*.png binary linguist-generated
+*.jpg binary linguist-generated
+*.jpeg binary linguist-generated
+*.svg binary linguist-generated
+*.wav binary linguist-generated
+*.ogg binary linguist-generated
+*.mp3 binary linguist-generated
+*.glb binary linguist-generated
+*.gltf binary linguist-generated
+*.blend binary linguist-generated
+*.import binary linguist-generated
+
+# Aseprite 
+*.ase binary linguist-generated
+*.aseprite binary linguist-generated
+*.aseprite-extension binary linguist-generated
