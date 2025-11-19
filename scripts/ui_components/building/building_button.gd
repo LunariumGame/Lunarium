@@ -30,7 +30,7 @@ func populate_cursor_on_click() -> void:
 
 	get_tree().current_scene.add_child(building_instance)
 	
-	# fetch building type for world instantiation
+	# set building type for world instantiation
 	building_instance.initialize_building(building_type)  
 	   
 	

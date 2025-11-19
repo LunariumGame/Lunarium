@@ -5,7 +5,7 @@
 *.tscn linguist-generated
 *.tres linguist-generated
 *.uid linguist-generated
-project-godot linguist-generated
+project.godot linguist-generated
 
 *.png binary linguist-generated
 *.jpg binary linguist-generated
