@@ -70,6 +70,7 @@ spec = ExtResource("12_q5onr")
 metadata/_custom_type_script = "uid://dm1gqee5hpi86"
 
 [node name="PlacedBuildings" type="Node" parent="."]
+
 [node name="IronRefinery" parent="." instance=ExtResource("11_q5onr")]
 position = Vector2(569, 230)
 
