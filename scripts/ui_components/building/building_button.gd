@@ -13,15 +13,13 @@ var building_instance: BuildingCursor = null
 func _ready() -> void:
 	add_to_group("building_buttons")
 	pressed.connect(_populate_cursor_on_click)
-	pressed.connect(_activate_cleanup)
 
-
-# let other building buttons know this button is active
-func _activate_cleanup():
-	get_tree().call_group("tracker", "button_activated", self)
 
 # create a child of cursor that is a preview of the building clicked. follows cursor
 func _populate_cursor_on_click() -> void:
+	# let other building buttons know this button has taken activity priority
+	get_tree().call_group("tracker", "button_activated", self)
+	
 	var preview_texture: Texture2D = game_data.get_building_texture(building_type)
 	
 	if not preview_texture:
