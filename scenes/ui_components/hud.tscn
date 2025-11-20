@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
 [ext_resource type="PackedScene" uid="uid://ce48wrjunv4rk" path="res://scenes/ui_components/resource_display.tscn" id="2_cjm6u"]
-[ext_resource type="Script" uid="uid://c5toevd7s65xr" path="res://scripts/ui_components/next_turn.gd" id="2_ntdy2"]
+[ext_resource type="Script" path="res://scripts/ui_components/next_turn.gd" id="2_ntdy2"]
 [ext_resource type="Texture2D" uid="uid://d1yyx8mxhypco" path="res://assets/sprites/icon_cog.png" id="3_otepx"]
 [ext_resource type="Texture2D" uid="uid://dbxx8xh1go5g8" path="res://assets/sprites/wrench.png" id="4_2itkv"]
 [ext_resource type="Texture2D" uid="uid://mjkrxk6sjcvc" path="res://assets/sprites/building.png" id="5_fok22"]

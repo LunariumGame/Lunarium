@@ -2,6 +2,7 @@
 class_name BuildingCursor
 extends Sprite2D
 
+const TILE_SIZE: Vector2 = Vector2(16.0, 16.0)
 var building_scene = null
 
 
@@ -23,9 +24,8 @@ func initialize_building(building_type: GameData.BuildingType) -> void:
 	print("building selected: ", building_scene.resource_path)
 
 
-func _process(_delta: float) -> void:
-	global_position = get_global_mouse_position()
-
+func _physics_process(_delta: float) -> void:
+	global_position = get_global_mouse_position().snapped(TILE_SIZE)
 
 func _unhandled_input(event: InputEvent) -> void:
 		if event.is_action_pressed("cancel_building_button"):
