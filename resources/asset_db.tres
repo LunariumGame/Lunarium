@@ -1,0 +1,75 @@
+[gd_resource type="Resource" script_class="AssetDatabase" load_steps=28 format=3 uid="uid://dufasrvxhjc2n"]
+
+[ext_resource type="Script" uid="uid://deat5lcce5vve" path="res://scripts/core/resource_templates/building_db.gd" id="1_0murn"]
+[ext_resource type="PackedScene" uid="uid://dgfq7odjk1hcx" path="res://scenes/buildings/eco_dome.tscn" id="2_4qkwl"]
+[ext_resource type="Texture2D" uid="uid://dholdk43r0udg" path="res://assets/sprites/buildings/u1/eco_dome_1.svg" id="2_q57ne"]
+[ext_resource type="Texture2D" uid="uid://c4ispleytwkrb" path="res://assets/sprites/buildings/u2/eco_dome_2.svg" id="3_oxstp"]
+[ext_resource type="Texture2D" uid="uid://d0isi43ayb2f5" path="res://assets/sprites/buildings/u3/eco_dome_3.svg" id="4_dkp5e"]
+[ext_resource type="Texture2D" uid="uid://cqmie6dqg2mbc" path="res://assets/sprites/buildings/u1/iron_refinery_1.svg" id="5_uktel"]
+[ext_resource type="Texture2D" uid="uid://dinds4fdx0oc1" path="res://assets/sprites/buildings/u2/iron_refinery_2.svg" id="6_8hh8s"]
+[ext_resource type="PackedScene" uid="uid://omx3pl3xhdw" path="res://scenes/buildings/iron_refinery.tscn" id="6_jfw5p"]
+[ext_resource type="Texture2D" uid="uid://wfi0q0kmtpnu" path="res://assets/sprites/buildings/u3/iron_refinery_3.svg" id="7_jlsmx"]
+[ext_resource type="Texture2D" uid="uid://berreqbi5g2sh" path="res://assets/sprites/buildings/u1/mech_quarter_1.svg" id="8_i7l8h"]
+[ext_resource type="Texture2D" uid="uid://dnoci02vsemj7" path="res://assets/sprites/buildings/u2/mech_quarter_2.svg" id="9_4qkwl"]
+[ext_resource type="Texture2D" uid="uid://0k4fe401tljs" path="res://assets/sprites/buildings/u3/mech_quarter_3.svg" id="10_jfw5p"]
+[ext_resource type="PackedScene" uid="uid://difixbbx5vh2p" path="res://scenes/buildings/mech_quarter.tscn" id="10_roewu"]
+[ext_resource type="Texture2D" uid="uid://cxyv2mu47njhb" path="res://assets/sprites/buildings/u1/power_plant_1.svg" id="11_roewu"]
+[ext_resource type="Texture2D" uid="uid://b8l6wvk1hm4oh" path="res://assets/sprites/buildings/u2/power_plant_2.svg" id="12_wmosa"]
+[ext_resource type="Texture2D" uid="uid://c7s3un541u0so" path="res://assets/sprites/buildings/u3/power_plant_3.svg" id="13_2kyse"]
+[ext_resource type="Texture2D" uid="uid://chxk5hge7yyve" path="res://assets/sprites/buildings/u1/residence_building_1.svg" id="14_dkp5e"]
+[ext_resource type="Script" uid="uid://c5b1sl2n2lqnr" path="res://scripts/core/resource_templates/asset_db.gd" id="14_rif6l"]
+[ext_resource type="PackedScene" uid="uid://bmcgkpbcwft3l" path="res://scenes/buildings/power_plant.tscn" id="14_wmosa"]
+[ext_resource type="Texture2D" uid="uid://bkiott3u4b8gq" path="res://assets/sprites/buildings/u2/residence_building_2.svg" id="15_uktel"]
+[ext_resource type="Texture2D" uid="uid://c3j2npcase1lg" path="res://assets/sprites/buildings/u3/residence_building_3.svg" id="16_8hh8s"]
+[ext_resource type="PackedScene" uid="uid://62tr4h246vw0" path="res://scenes/buildings/residential_building.tscn" id="18_2kyse"]
+
+[sub_resource type="Resource" id="Resource_0murn"]
+script = ExtResource("1_0murn")
+building_scene = ExtResource("2_4qkwl")
+upgrade_1 = ExtResource("2_q57ne")
+upgrade_2 = ExtResource("3_oxstp")
+upgrade_3 = ExtResource("4_dkp5e")
+metadata/_custom_type_script = "uid://deat5lcce5vve"
+
+[sub_resource type="Resource" id="Resource_q57ne"]
+script = ExtResource("1_0murn")
+building_scene = ExtResource("6_jfw5p")
+upgrade_1 = ExtResource("5_uktel")
+upgrade_2 = ExtResource("6_8hh8s")
+upgrade_3 = ExtResource("7_jlsmx")
+metadata/_custom_type_script = "uid://deat5lcce5vve"
+
+[sub_resource type="Resource" id="Resource_oxstp"]
+script = ExtResource("1_0murn")
+building_scene = ExtResource("10_roewu")
+upgrade_1 = ExtResource("8_i7l8h")
+upgrade_2 = ExtResource("9_4qkwl")
+upgrade_3 = ExtResource("10_jfw5p")
+metadata/_custom_type_script = "uid://deat5lcce5vve"
+
+[sub_resource type="Resource" id="Resource_dkp5e"]
+script = ExtResource("1_0murn")
+building_scene = ExtResource("14_wmosa")
+upgrade_1 = ExtResource("11_roewu")
+upgrade_2 = ExtResource("12_wmosa")
+upgrade_3 = ExtResource("13_2kyse")
+metadata/_custom_type_script = "uid://deat5lcce5vve"
+
+[sub_resource type="Resource" id="Resource_uktel"]
+script = ExtResource("1_0murn")
+building_scene = ExtResource("18_2kyse")
+upgrade_1 = ExtResource("14_dkp5e")
+upgrade_2 = ExtResource("15_uktel")
+upgrade_3 = ExtResource("16_8hh8s")
+metadata/_custom_type_script = "uid://deat5lcce5vve"
+
+[resource]
+script = ExtResource("14_rif6l")
+building_data = Dictionary[String, ExtResource("1_0murn")]({
+"ECO_DOME": SubResource("Resource_0murn"),
+"IRON_REFINERY": SubResource("Resource_q57ne"),
+"MECH_QUARTER": SubResource("Resource_oxstp"),
+"POWER_PLANT": SubResource("Resource_dkp5e"),
+"RESIDENCE_BUILDING": SubResource("Resource_uktel")
+})
+metadata/_custom_type_script = "uid://c5b1sl2n2lqnr"

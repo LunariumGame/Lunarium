@@ -25,7 +25,14 @@ stream_1/stream = ExtResource("7_4mrxx")
 process_mode = 1
 script = ExtResource("1_nnsk1")
 
-[node name="UI" type="Node" parent="."]
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="PopupWindowHolder" type="Node" parent="UI"]
 
@@ -61,6 +68,8 @@ player = NodePath("../Player")
 script = ExtResource("11_e3hyu")
 spec = ExtResource("12_q5onr")
 metadata/_custom_type_script = "uid://dm1gqee5hpi86"
+
+[node name="PlacedBuildings" type="Node" parent="."]
 
 [node name="IronRefinery" parent="." instance=ExtResource("11_q5onr")]
 position = Vector2(569, 230)

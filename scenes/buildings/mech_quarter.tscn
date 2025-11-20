@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://difixbbx5vh2p"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_gd26s"]
-[ext_resource type="Script" uid="uid://bn6ih2d7ok7s5" path="res://scripts/buildings/mech_quarter.gd" id="2_qtgo6"]
+[ext_resource type="Texture2D" uid="uid://berreqbi5g2sh" path="res://assets/sprites/buildings/u1/mech_quarter_1.svg" id="2_qtgo6"]
 
 [node name="MechQuarter" instance=ExtResource("1_gd26s")]
-script = ExtResource("2_qtgo6")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_qtgo6")

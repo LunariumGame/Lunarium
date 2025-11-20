@@ -6,7 +6,7 @@ var turn:int = 1
 
 func _ready() -> void:
 	pass
-
+	
 
 func end_turn() -> void:
 	print("Ending turn ", turn)

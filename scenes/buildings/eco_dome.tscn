@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgfq7odjk1hcx"]
 
-[ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_sid64"]
-[ext_resource type="Script" uid="uid://cap1i0rek2d6n" path="res://scripts/buildings/eco_dome.gd" id="2_e5dil"]
+[ext_resource type="PackedScene" uid="uid://bm8p72lwna2a5" path="res://scenes/buildings/building.tscn" id="1_sid64"]
+[ext_resource type="Texture2D" uid="uid://dholdk43r0udg" path="res://assets/sprites/buildings/u1/eco_dome_1.svg" id="2_e5dil"]
 
 [node name="EcoDome" instance=ExtResource("1_sid64")]
-script = ExtResource("2_e5dil")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_e5dil")
