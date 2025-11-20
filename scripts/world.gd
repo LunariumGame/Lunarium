@@ -61,5 +61,5 @@ func get_buildings_within_rect(rect:Rect2) -> Array[Building]:
 		var collider:Object = building_finder.get_collider(collision)
 		if collider is Building:
 			results.push_back(collider)
-
+	
 	return results
