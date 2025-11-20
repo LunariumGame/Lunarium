@@ -73,6 +73,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 <u>Sprites</u>  
 <i>[Lunarium Title](https://chatgpt.com/)</i> by ChatGPT - Free Use  
 <i>[Rotating Moon](https://deep-fold.itch.io/pixel-planet-generator)</i> by Deep-Fold - MIT License  
+<i>[Settings Cog](https://kenney.nl/assets/mobile-controls)</i> from Kenney.nl - Creative Commons
 
 ### Original Assets
 <i>Moon 16x16</i> by Joe Vogel   
