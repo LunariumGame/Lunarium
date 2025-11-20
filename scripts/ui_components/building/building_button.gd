@@ -40,7 +40,7 @@ func _populate_cursor_on_click() -> void:
 	building_instance.texture = preview_texture
 	# assign BuildingCursor transparency to 50%
 	building_instance.modulate.a = 0.5
-
+	
 	add_child(building_instance)
 	
 	# set building type for world instantiation
