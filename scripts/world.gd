@@ -44,7 +44,7 @@ func open_settings_window():
 static func get_buildings_in_area(area:Area2D) -> Array[Building]:
 	return area.get_overlapping_bodies().filter(
 		func (n) -> bool:
-				return n is Building
+			return n is Building
 	)
 
 
@@ -62,4 +62,4 @@ func get_buildings_within_rect(rect:Rect2) -> Array[Building]:
 		if collider is Building:
 			results.push_back(collider)
 	
-		return results
+	return results
