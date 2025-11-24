@@ -83,7 +83,7 @@ func get_adjacent_buildings_single(position: Vector2i) -> Array[BuildingType]:
 
 func get_adjacent_positions(position: Vector2i) -> Array[Vector2i]:
 	# Get original type
-	var my_building_type: BuildingType = get_building_type(position)
+	var my_building_id: int = get_building_id(position)
 	
 	# Create seen board
 	var seen: Array = []
@@ -109,7 +109,7 @@ func get_adjacent_positions(position: Vector2i) -> Array[Vector2i]:
 			if seen[pos.y][pos.x]:
 				continue
 				
-			if get_building_type(pos) == my_building_type:
+			if get_building_id(pos) == my_building_id:
 				to_look_at.append(pos)
 			else:
 				adjacent_positions.append(pos)
