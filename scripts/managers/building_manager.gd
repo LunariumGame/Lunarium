@@ -129,10 +129,11 @@ func get_adjacent_buildings(position: Vector2i) -> Array[BuildingType]:
 	return adjacent_buildings
 
 
+# Returns the building_id at a position or -1 if out of bounds
 func get_building_id(position: Vector2i) -> int:
 	# Bounds check
-	if (position.x < 0 or position.x > WIDTH or 
-				position.y < 0 or position.y > HEIGHT):
+	if (position.x < 0 or position.x >= WIDTH or 
+				position.y < 0 or position.y >= HEIGHT):
 		print_debug("requesting building id from out of bounds!")
 		return -1
 		
@@ -141,8 +142,8 @@ func get_building_id(position: Vector2i) -> int:
 
 func get_building_type(position: Vector2i) -> BuildingType:
 	# Bounds check
-	if (position.x < 0 or position.x > WIDTH or 
-				position.y < 0 or position.y > HEIGHT):
+	if (position.x < 0 or position.x >= WIDTH or 
+				position.y < 0 or position.y >= HEIGHT):
 		print_debug("requesting building type from out of bounds!")
 		return BuildingType.EMPTY
 		
