@@ -2,12 +2,12 @@
 class_name BuildingButton
 extends Button
 
-const BUILDING_CURSOR = (
-	preload("res://scenes/ui_components/BuildingCursor.tscn")
+const BUILDING_CANVAS = (
+	preload("res://scenes/ui_components/building_canvas.tscn")
 )
 
-var building_canvas: BuildingCursor = null
-var building_instance: CursorElement = null
+var building_canvas: BuildingCanvas = null
+var building_instance: BuildingCursor = null
 
 @export var building_type: GameData.BuildingType
 
@@ -37,8 +37,8 @@ func _populate_cursor_on_click() -> void:
 	if not preview_texture:
 		return
 
-	building_canvas = BUILDING_CURSOR.instantiate()	
-	building_instance = building_canvas.get_node("CursorElement")
+	building_canvas = BUILDING_CANVAS.instantiate()	
+	building_instance = building_canvas.get_node("BuildingCursor")
 	
 	building_instance.texture = preview_texture
 	# assign BuildingCursor transparency to 50%

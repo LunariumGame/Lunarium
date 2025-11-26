@@ -18,7 +18,7 @@ func button_activated(active_button: BuildingButton) -> void:
 
 
 func _free_cursor(target_button: BuildingButton) -> bool:
-	var node_to_free: BuildingCursor = ( 
+	var node_to_free: BuildingCanvas = ( 
 		target_button.get_node_or_null(^"BuildingCursor")
 	)
 

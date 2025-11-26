@@ -1,5 +1,5 @@
 # building that follows cursor, then gets placed in the world
-class_name CursorElement
+class_name BuildingCursor
 extends Sprite2D
 
 var width: float
