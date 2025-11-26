@@ -21,7 +21,6 @@ func _ready() -> void:
 	
 	for type in ResourceType.values():
 		assert(type in _trackers, "%s not in _trackers" % ResourceType.keys()[type])
-	
 
 
 func get_resource(resource_type:ResourceType) -> float:
@@ -41,13 +40,14 @@ func calculate_and_update(resource_type:ResourceType, actor:Object, value:float,
 	return modified_value
 
 
-## Add a precalcualted value to the resource, skipping any modifier calculations
+## Add a value to a resource, skip all modifier calculations
 func add_precalculated(resource_type:ResourceType, value:float) -> void:
-	_trackers[resource_type].add_precalculated(value)
+	
+	_trackers[resource_type].value += value
 	Signals.resource_value_changed.emit(resource_type, get_resource(resource_type))
 
 
-## Calculates gain/loss value with modifiers applied
+## Calculates gained/lost/multiplied value with modifiers applied
 ##
 ## Does not update the value of the resource.
 func calculate_modifiers(resource_type:ResourceType, actor:Object, value:float, apply_time: ResourceEngine.ApplyTime) -> float:
@@ -65,6 +65,3 @@ class ResourceTracker:
 	func _init(_value:float = 0, _engine:ResourceEngine = null) -> void:
 		value = _value
 		engine = _engine if _engine else ResourceEngine.new()
-	
-	func add_precalculated(_value:float) -> void:
-		value += _value
