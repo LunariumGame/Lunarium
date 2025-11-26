@@ -1,6 +1,11 @@
 # building that follows cursor, then gets placed in the world
-class_name BuildingCursor
+class_name CursorElement
 extends Sprite2D
+
+var width: float
+var height: float
+
+var tile_size: Vector2
 
 var building_scene = null
 
@@ -23,8 +28,14 @@ func initialize_building(building_type: GameData.BuildingType) -> void:
 	print("building selected: ", building_scene.resource_path)
 
 
-func _process(_delta: float) -> void:
-	global_position = get_global_mouse_position()
+func _ready() -> void:
+	width = texture.get_width() * scale.x
+	height = texture.get_height() * scale.y
+	tile_size = Vector2(width, height)
+
+
+func _physics_process(_delta: float) -> void:
+	global_position = get_tree().root.get_canvas_transform() * _placement_target_world_pos()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -43,8 +54,19 @@ func _place_building() -> void:
 	if (building_instance == null):
 		push_error("building was not initialized prior to instantiation")
 
-	var colony_buildings_node: Node = get_tree().get_root().get_node("World/PlacedBuildings")
+	var colony_buildings_node: Node = (
+		get_tree().get_root().get_node("World/PlacedBuildings")
+	)
 	colony_buildings_node.add_child(building_instance)
-	building_instance.global_position = building_instance.get_global_mouse_position()
+
+	building_instance.global_position = _placement_target_world_pos()
 
 	print("successfully added to colony: ", building_instance.name)
+
+
+func _world_target_pos() -> Vector2:
+	return get_tree().root.get_canvas_transform().inverse() * get_viewport().get_mouse_position()
+
+
+func _placement_target_world_pos() -> Vector2:
+	return _world_target_pos().snapped(tile_size)

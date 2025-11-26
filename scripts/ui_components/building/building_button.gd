@@ -6,7 +6,8 @@ const BUILDING_CURSOR = (
 	preload("res://scenes/ui_components/BuildingCursor.tscn")
 )
 
-var building_instance: BuildingCursor = null
+var building_canvas: BuildingCursor = null
+var building_instance: CursorElement = null
 
 @export var building_type: GameData.BuildingType
 
@@ -35,13 +36,15 @@ func _populate_cursor_on_click() -> void:
 	
 	if not preview_texture:
 		return
+
+	building_canvas = BUILDING_CURSOR.instantiate()	
+	building_instance = building_canvas.get_node("CursorElement")
 	
-	building_instance = BUILDING_CURSOR.instantiate()
 	building_instance.texture = preview_texture
 	# assign BuildingCursor transparency to 50%
 	building_instance.modulate.a = 0.5
-
-	add_child(building_instance)
+	
+	add_child(building_canvas)
 	
 	# set building type for world instantiation
 	building_instance.initialize_building(building_type)

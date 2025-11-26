@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbn11gkh6wm5a"]
+[gd_scene load_steps=3 format=3 uid="uid://bbn11gkh6wm5a"]
 
 [ext_resource type="Script" uid="uid://bwsftqdqm0a8c" path="res://scripts/ui_components/building/building_cursor.gd" id="1_jgetg"]
+[ext_resource type="Script" uid="uid://cq8qfkj8yhcb5" path="res://scripts/ui_components/building/building_canvas.gd" id="2_if870"]
 
-[node name="BuildingCursor" type="Sprite2D"]
+[node name="BuildingCursor" type="CanvasLayer"]
+layer = 0
+script = ExtResource("2_if870")
+
+[node name="CursorElement" type="Sprite2D" parent="."]
 script = ExtResource("1_jgetg")
+metadata/_custom_type_script = "uid://bwsftqdqm0a8c"

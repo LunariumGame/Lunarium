@@ -15,6 +15,12 @@ enum Systems {TECH, BUILDING, BOT}
 	%InspectorPanel/BotInspector
 ]
 
+
+func _ready() -> void:
+	print("layers value: ", layers.order.HUD)
+	layer = layers.order.HUD
+
+
 func _on_settings_pressed() -> void:
 	Signals.settings_opened.emit()
 
