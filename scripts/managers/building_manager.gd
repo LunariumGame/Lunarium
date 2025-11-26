@@ -25,11 +25,9 @@ enum BuildingType {
 	RESIDENCE,
 }
 
+var _buildings: Array = []
+var _id_to_type = {}
 var _building_id_counter := 0
-
-var buildings: Array = []
-var id_to_type = {}
-
 
 func _ready() -> void:
 	# Populate buildings array with empty type
@@ -37,7 +35,7 @@ func _ready() -> void:
 		var row: Array[BuildingType] = []
 		for x in range(WIDTH):
 			row.append(BuildingType.EMPTY)
-		buildings.append(row)
+		_buildings.append(row)
 
 
 func build(building_type: BuildingType, position: Vector2i, width: int, height: int) -> void:
@@ -51,10 +49,10 @@ func build(building_type: BuildingType, position: Vector2i, width: int, height: 
 	# Fill buildings array
 	for x in range(position.x, position.x + width):
 		for y in range(position.y, position.y + height):
-			buildings[y][x] = _building_id_counter
+			_buildings[y][x] = _building_id_counter
 	
 	# Create mapping
-	id_to_type[_building_id_counter] = building_type
+	_id_to_type[_building_id_counter] = building_type
 	
 	_building_id_counter += 1
 
@@ -137,7 +135,7 @@ func get_building_id(position: Vector2i) -> int:
 		print_debug("requesting building id from out of bounds!")
 		return -1
 		
-	return buildings[position.y][position.x]
+	return _buildings[position.y][position.x]
 
 
 func get_building_type(position: Vector2i) -> BuildingType:
@@ -148,4 +146,19 @@ func get_building_type(position: Vector2i) -> BuildingType:
 		return BuildingType.EMPTY
 		
 	var id: int = get_building_id(position)
-	return id_to_type[id]
+	return _id_to_type[id]
+
+
+# Returns the total number of buildings built if the type is not specified
+# Returns the total number of buildings of a specified type otherwise
+func get_num_buildings(type: BuildingType = BuildingType.EMPTY) -> int:
+	
+	if type == BuildingType.EMPTY:
+		return _building_id_counter
+	
+	var count: int = 0
+	for id in _id_to_type.keys():
+		if _id_to_type[id] == type:
+			count += 1
+	
+	return count
