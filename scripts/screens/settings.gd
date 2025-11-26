@@ -5,6 +5,7 @@ extends CanvasLayer
 @export var max_alpha: float = 0.7
 
 var _time := 0.0
+var hud : CanvasLayer 
 
 @onready var rotating_moon: AnimatedSprite2D = $Settings/RotatingMoon
 @onready var title: Sprite2D = $Settings/LunariumTitle
@@ -12,16 +13,18 @@ var _time := 0.0
 @onready var music_volume: HSlider = $"Settings/AudioSettings/MusicVolume"
 @onready var effects_volume: HSlider = $"Settings/AudioSettings/EffectsVolume"
 
-
 func _ready():
 	master_volume.value = settings_data.volume_value_master
 	music_volume.value = settings_data.volume_value_music
 	effects_volume.value = settings_data.volume_value_effects
+	hud = get_tree().get_root().get_node("World/UI/HUD")
+	hud.visible = false
 	get_tree().paused = true
 
 
 func close():
 	get_tree().paused = false
+	hud.visible = true
 	window_manager.pop()
 	queue_free()
 
@@ -36,7 +39,7 @@ func _process(delta):
 	#endregion
 
 
-func _input(event):
+func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
 		close()
 		get_viewport().set_input_as_handled()

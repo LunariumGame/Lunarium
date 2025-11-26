@@ -5,10 +5,11 @@ on:
     # all branches
     branches:
       - '**'
-  pull_request:
-    branches:
-      - main
-      - dev
+
+# cancel if push to same branch quickly
+concurrency:
+  group: ${{ github.workflow }}-github.ref_name }}
+  cancel-in-progress: true
 
 jobs:
   itchio-upload:
@@ -40,33 +41,12 @@ jobs:
           cd build/web
           zip -r lunarium.zip .
 
-
-      - name: set branch name (for push)
-        if: github.event_name == 'push'
+      - name: set branch name
         run: echo "BRANCH_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
 
-      - name: set branch name (for PR)
-        if: github.event_name == 'pull_request'
-        run: echo "BRANCH_NAME=${{ github.head_ref }}" >> $GITHUB_ENV
-
         # butler push to dev channel, but only when there is a push to dev (a PR is approved)
-      - name: Upload to itch.io (dev build)
+      - name: Upload to itch.io
         if: github.event_name == 'push' && github.ref_name == 'dev'
-        run: butler push build/web/lunarium.zip hawkhobo/lunarium:dev
-        env:
-          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-
-        # butler push to main channel, but only when there is a push to main (rare PR approval from dev to main)
-      - name: Upload to itch.io (main build)
-        if: github.event_name == 'push' && github.ref_name == 'main'
-        run: butler push build/web/lunarium.zip hawkhobo/lunarium:main
-        env:
-          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-
-        # build in specific channel for a given branch on any push to the remote of this branch
-        # also, any PR from the remote of this branch (as one last sanity check)
-      - name: Upload to itch.io (specific branch build)
-        if: github.ref_name != 'main' && github.ref_name != 'dev'
         run: butler push build/web/lunarium.zip hawkhobo/lunarium:${{ env.BRANCH_NAME }}
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}

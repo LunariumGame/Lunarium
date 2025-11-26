@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbn11gkh6wm5a"]
+
+[ext_resource type="Script" uid="uid://bwsftqdqm0a8c" path="res://scripts/ui_components/building/building_cursor.gd" id="1_jgetg"]
+
+[node name="BuildingCursor" type="Sprite2D"]
+script = ExtResource("1_jgetg")

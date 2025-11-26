@@ -19,7 +19,7 @@ func purchase() -> bool:
 	# Subtract cost
 	var cost := spec.cost
 	for resource_type in cost.keys():
-		var resource_cost = cost[resource_type]
+		var resource_cost:float = cost[resource_type]
 		resource_manager.add_precalculated(resource_type, -resource_cost)
 	
 	# Prevent from buying again
@@ -29,9 +29,9 @@ func purchase() -> bool:
 	# Activate all effects of the upgrade
 	for modifier in spec.modifier_list:
 		# Determine which resource this modifier applies to
-		var target_type = modifier.resource_type
+		var target_type:ResourceManager.ResourceType = modifier.resource_type
 		# Add it to the corresponding resource tracker’s engine
-		resource_manager._trackers[target_type].engine.add_modifier(modifier)
+		resource_manager.add_modifier(target_type, modifier)
 	
 	return true
 
