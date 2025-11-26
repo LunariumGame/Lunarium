@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=34 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
@@ -6,185 +6,106 @@
 [ext_resource type="Script" uid="uid://c5toevd7s65xr" path="res://scripts/ui_components/next_turn.gd" id="2_ntdy2"]
 [ext_resource type="Texture2D" uid="uid://d1yyx8mxhypco" path="res://assets/sprites/icon_cog.png" id="3_otepx"]
 [ext_resource type="Texture2D" uid="uid://dbxx8xh1go5g8" path="res://assets/sprites/wrench.png" id="4_2itkv"]
+[ext_resource type="Script" uid="uid://bk2c6el5gj6vm" path="res://scripts/ui_components/resource_display.gd" id="4_a6ec8"]
 [ext_resource type="Texture2D" uid="uid://mjkrxk6sjcvc" path="res://assets/sprites/building.png" id="5_fok22"]
 [ext_resource type="Texture2D" uid="uid://fqnxvku6ehk1" path="res://assets/sprites/icon_robot.png" id="6_5qewb"]
 [ext_resource type="Script" uid="uid://4lk24jcuaq6g" path="res://scripts/ui_components/building/active_button_tracker.gd" id="9_do4pv"]
 [ext_resource type="Script" uid="uid://b2eoxpgf2ve3o" path="res://scripts/ui_components/building/building_button.gd" id="9_jswg8"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ij283"]
-bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
-border_width_left = 3
-border_width_top = 3
-border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
-corner_radius_top_left = 3
-expand_margin_left = 4.0
-expand_margin_right = 4.0
-shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
-shadow_size = 3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afnkq"]
-bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
-border_width_left = 3
-border_width_top = 3
-border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
-corner_radius_top_left = 3
-expand_margin_left = 4.0
-expand_margin_right = 4.0
-shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
-shadow_size = 3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2n4f"]
-bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
-border_width_left = 3
-border_width_top = 3
-border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
-corner_radius_top_left = 3
-expand_margin_left = 4.0
-expand_margin_right = 4.0
-shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
-shadow_size = 3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8125u"]
-bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
-border_width_left = 3
-border_width_top = 3
-border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
-corner_radius_top_left = 3
-expand_margin_left = 4.0
-expand_margin_right = 4.0
-shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
-shadow_size = 3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pkrv"]
-bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
-shadow_size = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntdy2"]
-bg_color = Color(0.6, 0.6, 0.6, 0.023529412)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ne71y"]
-bg_color = Color(0.36647415, 0.41772693, 0.40837803, 0.80784315)
-corner_radius_top_left = 2
-shadow_size = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qewb"]
-bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
-border_width_left = 3
-border_width_bottom = 3
-border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
-corner_radius_bottom_left = 3
-expand_margin_top = 5.0
-expand_margin_right = 1.0
-expand_margin_bottom = 5.0
-shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
-shadow_size = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jswg8"]
-bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
-border_width_left = 3
-border_width_bottom = 3
-border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
-corner_radius_bottom_left = 3
-expand_margin_top = 5.0
-expand_margin_right = 1.0
-expand_margin_bottom = 5.0
-shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
-shadow_size = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do4pv"]
-bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
-border_width_left = 3
-border_width_bottom = 3
-border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
-corner_radius_bottom_left = 3
-expand_margin_top = 5.0
-expand_margin_right = 1.0
-expand_margin_bottom = 5.0
-shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
-shadow_size = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6ec8"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fok22"]
-bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
-border_width_left = 3
-border_width_bottom = 3
-border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
-corner_radius_bottom_left = 3
-expand_margin_top = 5.0
-expand_margin_right = 1.0
-expand_margin_bottom = 5.0
-shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
-shadow_size = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otepx"]
-bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
-border_width_left = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-expand_margin_left = 25.0
-expand_margin_top = 7.0
-expand_margin_right = 25.0
-expand_margin_bottom = 7.0
-shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
-shadow_size = 5
-
-[sub_resource type="LabelSettings" id="LabelSettings_w7kh3"]
-font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_e3hyu"]
-font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2itkv"]
-content_margin_left = 15.0
-content_margin_right = 15.0
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
 bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
-border_width_right = 3
-border_width_bottom = 3
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
 border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
-corner_radius_bottom_right = 3
-expand_margin_left = 8.0
-expand_margin_right = 9.0
-shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
-shadow_size = 5
+corner_radius_bottom_right = 24
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_size = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
+font_size = 24
 font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jhx03"]
+font_size = 24
 font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_o8fc1"]
+font_size = 24
 font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otepx"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_size = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_w7kh3"]
+font_size = 30
+font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6pkrv"]
+font_size = 24
+font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do4pv"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_do4pv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6ec8"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_top_right = 24
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_size = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pkrv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ne71y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2w4nd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2w4nd"]
 bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
-border_width_top = 8
-border_width_right = 8
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
 border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
-corner_radius_top_right = 5
-shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
-shadow_size = 8
 shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3esv6"]
@@ -205,268 +126,227 @@ outline_color = Color(0, 0, 0, 1)
 bg_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
 expand_margin_top = 1.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pkrv"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_top_left = 24
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_size = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ij283"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntdy2"]
+bg_color = Color(0.6, 0.6, 0.6, 0.023529412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ne71y"]
+bg_color = Color(0.36647415, 0.41772693, 0.40837803, 0.80784315)
+corner_radius_top_left = 2
+shadow_size = 1
+
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_cjm6u")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
 
-[node name="HUDUI" type="Control" parent="MarginContainer"]
+[node name="TopLeft" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+offset_right = 520.0
+offset_bottom = 80.0
+
+[node name="Box" type="PanelContainer" parent="HUD/TopLeft"]
+custom_minimum_size = Vector2(520, 80)
 layout_mode = 2
-mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2itkv")
 
-[node name="Buttons" type="Control" parent="MarginContainer/HUDUI"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CenterContainer" type="CenterContainer" parent="HUD/TopLeft/Box"]
+layout_mode = 2
 
-[node name="NextTurn" type="Button" parent="MarginContainer/HUDUI/Buttons"]
-unique_name_in_owner = true
+[node name="GridContainer" type="GridContainer" parent="HUD/TopLeft/Box/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="Food" parent="HUD/TopLeft/Box/CenterContainer/GridContainer" instance=ExtResource("2_cjm6u")]
+layout_mode = 2
+text = "Food: XXX"
+label_settings = SubResource("LabelSettings_q5onr")
+
+[node name="Electricity" parent="HUD/TopLeft/Box/CenterContainer/GridContainer" instance=ExtResource("2_cjm6u")]
+layout_mode = 2
+text = "Electricity: XXX"
+label_settings = SubResource("LabelSettings_jhx03")
+resource = 1
+
+[node name="Iron" parent="HUD/TopLeft/Box/CenterContainer/GridContainer" instance=ExtResource("2_cjm6u")]
+layout_mode = 2
+text = "Iron: XXX"
+label_settings = SubResource("LabelSettings_o8fc1")
+resource = 2
+
+[node name="TopMid" type="MarginContainer" parent="HUD"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1684.0
-offset_top = 944.0
-offset_right = 1770.0
-offset_bottom = 984.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(2, 2)
-focus_mode = 0
-theme_override_colors/font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_ij283")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_afnkq")
-theme_override_styles/hover = SubResource("StyleBoxFlat_v2n4f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_8125u")
-theme_override_styles/focus = SubResource("StyleBoxFlat_6pkrv")
-text = "Next Turn"
-script = ExtResource("2_ntdy2")
-
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HUDUI/Buttons/NextTurn"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.011627907
-anchor_top = 0.075
-anchor_right = 1.0465117
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -260.0
+offset_right = 260.0
+offset_bottom = 102.0
 grow_horizontal = 2
-grow_vertical = 2
-mouse_default_cursor_shape = 8
-theme_override_styles/background = SubResource("StyleBoxFlat_ntdy2")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ne71y")
-show_percentage = false
-metadata/_edit_use_anchors_ = true
 
-[node name="Settings" type="Button" parent="MarginContainer/HUDUI/Buttons"]
+[node name="Box" type="PanelContainer" parent="HUD/TopMid"]
+texture_filter = 2
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_otepx")
+
+[node name="VBox" type="VBoxContainer" parent="HUD/TopMid/Box"]
+layout_mode = 2
+
+[node name="TurnCounter" type="Label" parent="HUD/TopMid/Box/VBox"]
+layout_mode = 2
+text = "TURN"
+label_settings = SubResource("LabelSettings_w7kh3")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_xgrr2")
+
+[node name="Population" type="Label" parent="HUD/TopMid/Box/VBox"]
+layout_mode = 2
+text = "Population"
+label_settings = SubResource("LabelSettings_6pkrv")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_a6ec8")
+resource = 3
+
+[node name="TopRight" type="MarginContainer" parent="HUD"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1825.0
-offset_top = -13.0
-offset_right = 1895.0
-offset_bottom = 43.0
+offset_left = -80.0
+offset_bottom = 80.0
 grow_horizontal = 0
-scale = Vector2(0.55, 0.55)
-focus_mode = 0
-accessibility_name = "Settings Button"
-accessibility_description = "Opens the settings menu"
+
+[node name="Box" type="PanelContainer" parent="HUD/TopRight"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_do4pv")
+
+[node name="Settings" type="Button" parent="HUD/TopRight/Box"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
 theme_override_colors/icon_normal_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_5qewb")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jswg8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_do4pv")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_a6ec8")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fok22")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_do4pv")
 icon = ExtResource("3_otepx")
 icon_alignment = 1
 
-[node name="SystemButtons" type="HBoxContainer" parent="MarginContainer/HUDUI/Buttons"]
-unique_name_in_owner = true
+[node name="BotLeft" type="MarginContainer" parent="HUD"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.6
-anchor_top = 19.4
-anchor_right = 7.8
-anchor_bottom = 21.4
-offset_right = -144.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
 
-[node name="TechTree" type="Button" parent="MarginContainer/HUDUI/Buttons/SystemButtons"]
+[node name="Box" type="PanelContainer" parent="HUD/BotLeft"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a6ec8")
+
+[node name="VBox" type="VBoxContainer" parent="HUD/BotLeft/Box"]
+layout_mode = 2
+
+[node name="TabButtons" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TechTree" type="Button" parent="HUD/BotLeft/Box/VBox/TabButtons"]
 texture_filter = 1
-custom_minimum_size = Vector2(43, 41)
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 focus_mode = 0
 accessibility_name = "Tech Tree Button"
 accessibility_description = "Opens the tech tree"
 theme_override_colors/icon_normal_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-theme_override_colors/icon_focus_color = Color(0.34509805, 0.5019608, 0.47843137, 1)
-theme_override_colors/icon_pressed_color = Color(0.34575823, 0.50253403, 0.4785378, 1)
-theme_override_colors/icon_hover_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_6pkrv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6pkrv")
-theme_override_styles/hover = SubResource("StyleBoxFlat_6pkrv")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_6pkrv")
-theme_override_styles/focus = SubResource("StyleBoxFlat_6pkrv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6pkrv")
 toggle_mode = true
 action_mode = 0
 icon = ExtResource("4_2itkv")
 icon_alignment = 1
 expand_icon = true
 
-[node name="BuildingManager" type="Button" parent="MarginContainer/HUDUI/Buttons/SystemButtons"]
+[node name="BuildingManager" type="Button" parent="HUD/BotLeft/Box/VBox/TabButtons"]
 texture_filter = 1
-custom_minimum_size = Vector2(43, 41)
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 focus_mode = 0
 accessibility_name = "Building Manager Button"
 accessibility_description = "Opens the building manager"
 theme_override_colors/icon_normal_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-theme_override_colors/icon_focus_color = Color(0.34509805, 0.5019608, 0.47843137, 1)
-theme_override_colors/icon_pressed_color = Color(0.34509805, 0.5019608, 0.47843137, 1)
-theme_override_colors/icon_hover_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_6pkrv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6pkrv")
-theme_override_styles/hover = SubResource("StyleBoxFlat_6pkrv")
-theme_override_styles/focus = SubResource("StyleBoxFlat_6pkrv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ne71y")
 toggle_mode = true
 action_mode = 0
 icon = ExtResource("5_fok22")
 icon_alignment = 1
 expand_icon = true
 
-[node name="BotManager" type="Button" parent="MarginContainer/HUDUI/Buttons/SystemButtons"]
-custom_minimum_size = Vector2(43, 41)
+[node name="BotManager" type="Button" parent="HUD/BotLeft/Box/VBox/TabButtons"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 focus_mode = 0
 accessibility_name = "Bot Manager Button"
 accessibility_description = "Opens the bot manager"
 theme_override_colors/icon_normal_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-theme_override_colors/icon_focus_color = Color(0.34509805, 0.5019608, 0.47843137, 1)
-theme_override_colors/icon_pressed_color = Color(0.34509805, 0.5019608, 0.47843137, 1)
-theme_override_colors/icon_hover_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_6pkrv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6pkrv")
-theme_override_styles/hover = SubResource("StyleBoxFlat_6pkrv")
-theme_override_styles/focus = SubResource("StyleBoxFlat_6pkrv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2w4nd")
 toggle_mode = true
 action_mode = 0
 icon = ExtResource("6_5qewb")
 expand_icon = true
 
-[node name="TurnPopPanel" type="PanelContainer" parent="MarginContainer/HUDUI"]
-texture_filter = 2
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -136.0
-offset_top = -2.0
-offset_right = 3.0
-offset_bottom = 46.0
-grow_horizontal = 2
-scale = Vector2(2, 2)
-theme_override_styles/panel = SubResource("StyleBoxFlat_otepx")
-
-[node name="VBox" type="VBoxContainer" parent="MarginContainer/HUDUI/TurnPopPanel"]
-layout_mode = 2
-
-[node name="TurnCounter" type="Label" parent="MarginContainer/HUDUI/TurnPopPanel/VBox"]
-layout_mode = 2
-text = "TURN"
-label_settings = SubResource("LabelSettings_w7kh3")
-horizontal_alignment = 1
-script = ExtResource("1_xgrr2")
-
-[node name="Population" parent="MarginContainer/HUDUI/TurnPopPanel/VBox" instance=ExtResource("2_cjm6u")]
-layout_mode = 2
-text = "Population"
-label_settings = SubResource("LabelSettings_e3hyu")
-horizontal_alignment = 1
-resource = 3
-
-[node name="ResourcePanel" type="PanelContainer" parent="MarginContainer/HUDUI"]
-layout_mode = 1
-offset_top = -16.0
-offset_right = 291.0
-offset_bottom = 24.0
-scale = Vector2(2, 2)
-theme_override_styles/panel = SubResource("StyleBoxFlat_2itkv")
-
-[node name="HBox" type="HBoxContainer" parent="MarginContainer/HUDUI/ResourcePanel"]
-layout_mode = 2
-
-[node name="Food" parent="MarginContainer/HUDUI/ResourcePanel/HBox" instance=ExtResource("2_cjm6u")]
-layout_mode = 2
-text = "Food"
-label_settings = SubResource("LabelSettings_q5onr")
-
-[node name="Electricity" parent="MarginContainer/HUDUI/ResourcePanel/HBox" instance=ExtResource("2_cjm6u")]
-layout_mode = 2
-text = "Electricity"
-label_settings = SubResource("LabelSettings_jhx03")
-resource = 1
-
-[node name="Iron" parent="MarginContainer/HUDUI/ResourcePanel/HBox" instance=ExtResource("2_cjm6u")]
-layout_mode = 2
-text = "Iron"
-label_settings = SubResource("LabelSettings_o8fc1")
-resource = 2
-
-[node name="InspectorPanel" type="PanelContainer" parent="MarginContainer/HUDUI"]
+[node name="InspectorPanel" type="PanelContainer" parent="HUD/BotLeft/Box/VBox"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -192.0
-offset_right = 672.0
-offset_bottom = 16.0
-grow_vertical = 0
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2w4nd")
 
-[node name="TechInspector" type="PanelContainer" parent="MarginContainer/HUDUI/InspectorPanel"]
+[node name="TechInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HUDUI/InspectorPanel/TechInspector"]
+[node name="Label" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/TechInspector"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "TODO TECH (?)
 or just open tech tree?"
 
-[node name="BuildingInspector" type="PanelContainer" parent="MarginContainer/HUDUI/InspectorPanel"]
+[node name="BuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3esv6")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector"]
 custom_minimum_size = Vector2(100, 0)
 layout_direction = 2
 layout_mode = 2
 
-[node name="Costs" type="VBoxContainer" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer"]
+[node name="Costs" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer"]
 layout_mode = 2
 
-[node name="BuildingCost" type="Label" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer/Costs"]
+[node name="BuildingCost" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/Costs"]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_styles/normal = SubResource("StyleBoxFlat_haqli")
@@ -477,61 +357,101 @@ text = "Costs Placeholder:
 - 3 Residents Required"
 label_settings = SubResource("LabelSettings_5qewb")
 
-[node name="Panel" type="Panel" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer"]
+[node name="Panel" type="Panel" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7utte")
 
-[node name="BuildingButtons" type="VBoxContainer" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer"]
+[node name="BuildingButtons" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 script = ExtResource("9_do4pv")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons"]
 layout_mode = 2
 
-[node name="Residential" type="Button" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer"]
+[node name="Residential" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 text = "Residential"
 script = ExtResource("9_jswg8")
 building_type = 4
 
-[node name="Refinery" type="Button" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer"]
+[node name="Refinery" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 text = "Refinery"
 script = ExtResource("9_jswg8")
 building_type = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons"]
 layout_mode = 2
 
-[node name="Reactor" type="Button" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer2"]
+[node name="Reactor" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
 text = "Reactor"
 script = ExtResource("9_jswg8")
 building_type = 3
 
-[node name="Farm" type="Button" parent="MarginContainer/HUDUI/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer2"]
+[node name="Farm" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
 text = "Farm"
 script = ExtResource("9_jswg8")
 
-[node name="BotInspector" type="PanelContainer" parent="MarginContainer/HUDUI/InspectorPanel"]
+[node name="BotInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HUDUI/InspectorPanel/BotInspector"]
+[node name="Label" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BotInspector"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "TODO BOTS"
 
-[connection signal="pressed" from="MarginContainer/HUDUI/Buttons/NextTurn" to="." method="_on_next_turn_pressed"]
-[connection signal="pressed" from="MarginContainer/HUDUI/Buttons/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="MarginContainer/HUDUI/Buttons/SystemButtons/TechTree" to="." method="_on_tech_tree_pressed"]
-[connection signal="pressed" from="MarginContainer/HUDUI/Buttons/SystemButtons/BuildingManager" to="." method="_on_building_manager_pressed"]
-[connection signal="pressed" from="MarginContainer/HUDUI/Buttons/SystemButtons/BotManager" to="." method="_on_bot_manager_pressed"]
+[node name="BotRight" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Box" type="PanelContainer" parent="HUD/BotRight"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6pkrv")
+
+[node name="NextTurn" type="Button" parent="HUD/BotRight/Box"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ij283")
+text = "Next Turn"
+script = ExtResource("2_ntdy2")
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD/BotRight/Box/NextTurn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_ntdy2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ne71y")
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="HUD/TopRight/Box/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="HUD/BotLeft/Box/VBox/TabButtons/TechTree" to="." method="_on_tech_tree_pressed"]
+[connection signal="pressed" from="HUD/BotLeft/Box/VBox/TabButtons/BuildingManager" to="." method="_on_building_manager_pressed"]
+[connection signal="pressed" from="HUD/BotLeft/Box/VBox/TabButtons/BotManager" to="." method="_on_bot_manager_pressed"]
+[connection signal="pressed" from="HUD/BotRight/Box/NextTurn" to="." method="_on_next_turn_pressed"]

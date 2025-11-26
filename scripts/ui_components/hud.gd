@@ -5,9 +5,9 @@ enum Systems {TECH, BUILDING, BOT}
 
 @onready var next_turn_button:Button = %NextTurn
 @onready var system_buttons: Array[Button] = [
-	%SystemButtons/TechTree,
-	%SystemButtons/BuildingManager,
-	%SystemButtons/BotManager
+	%TabButtons/TechTree,
+	%TabButtons/BuildingManager,
+	%TabButtons/BotManager
 ]
 @onready var system_panels: Array[PanelContainer] = [
 	%InspectorPanel/TechInspector,

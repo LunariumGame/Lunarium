@@ -34,9 +34,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="HUD" parent="UI" instance=ExtResource("2_4mrxx")]
+
 [node name="PopupWindowHolder" type="Node" parent="UI"]
 
-[node name="HUD" parent="UI" instance=ExtResource("2_4mrxx")]
+[node name="MainMenuHolder" type="Node" parent="UI"]
 
 [node name="Audio" type="Node" parent="."]
 
