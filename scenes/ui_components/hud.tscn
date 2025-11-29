@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bk2c6el5gj6vm" path="res://scripts/ui_components/resource_display.gd" id="4_a6ec8"]
 [ext_resource type="Texture2D" uid="uid://mjkrxk6sjcvc" path="res://assets/sprites/building.png" id="5_fok22"]
 [ext_resource type="Texture2D" uid="uid://fqnxvku6ehk1" path="res://assets/sprites/icon_robot.png" id="6_5qewb"]
+[ext_resource type="LabelSettings" uid="uid://dte7ki6on48e4" path="res://resources/ui/label_settings_regular.tres" id="7_a6ec8"]
 [ext_resource type="Script" uid="uid://4lk24jcuaq6g" path="res://scripts/ui_components/building/active_button_tracker.gd" id="9_do4pv"]
 [ext_resource type="Script" uid="uid://b2eoxpgf2ve3o" path="res://scripts/ui_components/building/building_button.gd" id="9_jswg8"]
 
