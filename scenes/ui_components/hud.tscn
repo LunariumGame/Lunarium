@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=31 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dbxx8xh1go5g8" path="res://assets/sprites/wrench.png" id="4_2itkv"]
 [ext_resource type="Texture2D" uid="uid://mjkrxk6sjcvc" path="res://assets/sprites/building.png" id="5_fok22"]
 [ext_resource type="Texture2D" uid="uid://fqnxvku6ehk1" path="res://assets/sprites/icon_robot.png" id="6_5qewb"]
+[ext_resource type="LabelSettings" uid="uid://dte7ki6on48e4" path="res://resources/ui/label_settings_regular.tres" id="7_a6ec8"]
 [ext_resource type="Script" uid="uid://4lk24jcuaq6g" path="res://scripts/ui_components/building/active_button_tracker.gd" id="9_do4pv"]
 [ext_resource type="Script" uid="uid://b2eoxpgf2ve3o" path="res://scripts/ui_components/building/building_button.gd" id="9_jswg8"]
 
@@ -149,12 +150,6 @@ expand_margin_bottom = 7.0
 shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
 shadow_size = 5
 
-[sub_resource type="LabelSettings" id="LabelSettings_w7kh3"]
-font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_e3hyu"]
-font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2itkv"]
 content_margin_left = 15.0
 content_margin_right = 15.0
@@ -167,15 +162,6 @@ expand_margin_left = 8.0
 expand_margin_right = 9.0
 shadow_color = Color(0.19607843, 0.23529412, 0.22352941, 0.72156864)
 shadow_size = 5
-
-[sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
-font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_jhx03"]
-font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_o8fc1"]
-font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2w4nd"]
 bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
@@ -391,14 +377,13 @@ layout_mode = 2
 [node name="TurnCounter" type="Label" parent="MarginContainer/HUDUI/TurnPopPanel/VBox"]
 layout_mode = 2
 text = "TURN"
-label_settings = SubResource("LabelSettings_w7kh3")
+label_settings = ExtResource("7_a6ec8")
 horizontal_alignment = 1
 script = ExtResource("1_xgrr2")
 
 [node name="Population" parent="MarginContainer/HUDUI/TurnPopPanel/VBox" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Population"
-label_settings = SubResource("LabelSettings_e3hyu")
 horizontal_alignment = 1
 resource = 3
 
@@ -416,18 +401,15 @@ layout_mode = 2
 [node name="Food" parent="MarginContainer/HUDUI/ResourcePanel/HBox" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Food"
-label_settings = SubResource("LabelSettings_q5onr")
 
 [node name="Electricity" parent="MarginContainer/HUDUI/ResourcePanel/HBox" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Electricity"
-label_settings = SubResource("LabelSettings_jhx03")
 resource = 1
 
 [node name="Iron" parent="MarginContainer/HUDUI/ResourcePanel/HBox" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Iron"
-label_settings = SubResource("LabelSettings_o8fc1")
 resource = 2
 
 [node name="InspectorPanel" type="PanelContainer" parent="MarginContainer/HUDUI"]
