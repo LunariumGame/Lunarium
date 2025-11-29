@@ -16,12 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://cxyv2mu47njhb" path="res://assets/sprites/buildings/u1/power_plant_1.svg" id="11_roewu"]
 [ext_resource type="Texture2D" uid="uid://b8l6wvk1hm4oh" path="res://assets/sprites/buildings/u2/power_plant_2.svg" id="12_wmosa"]
 [ext_resource type="Texture2D" uid="uid://c7s3un541u0so" path="res://assets/sprites/buildings/u3/power_plant_3.svg" id="13_2kyse"]
-[ext_resource type="Texture2D" uid="uid://chxk5hge7yyve" path="res://assets/sprites/buildings/u1/residence_building_1.svg" id="14_dkp5e"]
+[ext_resource type="Texture2D" uid="uid://chxk5hge7yyve" path="res://assets/sprites/buildings/u1/residence_1.svg" id="14_dkp5e"]
 [ext_resource type="Script" uid="uid://c5b1sl2n2lqnr" path="res://scripts/core/resource_templates/asset_db.gd" id="14_rif6l"]
 [ext_resource type="PackedScene" uid="uid://bmcgkpbcwft3l" path="res://scenes/buildings/power_plant.tscn" id="14_wmosa"]
-[ext_resource type="Texture2D" uid="uid://bkiott3u4b8gq" path="res://assets/sprites/buildings/u2/residence_building_2.svg" id="15_uktel"]
-[ext_resource type="Texture2D" uid="uid://c3j2npcase1lg" path="res://assets/sprites/buildings/u3/residence_building_3.svg" id="16_8hh8s"]
-[ext_resource type="PackedScene" uid="uid://62tr4h246vw0" path="res://scenes/buildings/residential_building.tscn" id="18_2kyse"]
+[ext_resource type="Texture2D" uid="uid://bkiott3u4b8gq" path="res://assets/sprites/buildings/u2/residence_2.svg" id="15_uktel"]
+[ext_resource type="Texture2D" uid="uid://c3j2npcase1lg" path="res://assets/sprites/buildings/u3/residence_3.svg" id="16_8hh8s"]
+[ext_resource type="PackedScene" uid="uid://62tr4h246vw0" path="res://scenes/buildings/residential.tscn" id="18_2kyse"]
 
 [sub_resource type="Resource" id="Resource_0murn"]
 script = ExtResource("1_0murn")

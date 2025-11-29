@@ -7,7 +7,7 @@ var height: float
 
 var tile_size: Vector2
 
-var building_scene = null
+var building_scene: PackedScene = null
 
 
 # determine what building should be placed in the world
@@ -21,8 +21,8 @@ func initialize_building(building_type: GameData.BuildingType) -> void:
 			building_scene = preload("res://scenes/buildings/mech_quarter.tscn")
 		GameData.BuildingType.POWER_PLANT:
 			building_scene = preload("res://scenes/buildings/power_plant.tscn")
-		GameData.BuildingType.RESIDENCE_BUILDING:
-			building_scene = preload("res://scenes/buildings/residential_building.tscn")
+		GameData.BuildingType.RESIDENCE:
+			building_scene = preload("res://scenes/buildings/residential.tscn")
 		_:
 			push_error("attempted to place unrecognized building in world")
 	print("building selected: ", building_scene.resource_path)
@@ -36,16 +36,6 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	global_position = get_tree().root.get_canvas_transform() * _placement_target_world_pos()
-
-
-func _unhandled_input(event: InputEvent) -> void:
-		if event.is_action_pressed("cancel_building_button"):
-			get_viewport().set_input_as_handled()
-			queue_free()
-		elif event.is_action_pressed("engage_building_button"):
-			get_viewport().set_input_as_handled()
-			_place_building()
-			call_deferred("queue_free")
 
 
 func _place_building() -> void:

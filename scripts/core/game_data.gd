@@ -8,7 +8,7 @@ enum BuildingType {
 	IRON_REFINERY,
 	MECH_QUARTER,
 	POWER_PLANT,
-	RESIDENCE_BUILDING
+	RESIDENCE
 }
 
 var asset_db: AssetDatabase = preload("res://resources/asset_db.tres")
