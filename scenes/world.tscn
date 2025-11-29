@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bvqdwlryncc6q" path="res://scenes/player.tscn" id="7_7r4gi"]
 [ext_resource type="Script" uid="uid://dm3fhxjge8xxk" path="res://scripts/camera/position_lock.gd" id="8_4mrxx"]
 [ext_resource type="Script" uid="uid://dm1gqee5hpi86" path="res://scripts/ui_components/tech_tree_node.gd" id="11_e3hyu"]
-[ext_resource type="Script" uid="uid://cpssjgiarinl8" path="res://scripts/ui_components/building/placed_buildings.gd" id="11_jhx03"]
+[ext_resource type="Script" path="res://scripts/ui_components/building/placed_buildings.gd" id="11_jhx03"]
 [ext_resource type="Resource" uid="uid://2hdhlbnrajfh" path="res://resources/tech_tree_upgrades/resource_boost.tres" id="12_q5onr"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7r4gi"]
@@ -25,14 +25,7 @@ stream_1/stream = ExtResource("7_4mrxx")
 process_mode = 1
 script = ExtResource("1_nnsk1")
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="UI" type="Node" parent="."]
 
 [node name="HUD" parent="UI" instance=ExtResource("2_4mrxx")]
 

@@ -46,5 +46,7 @@ func _populate_cursor_on_click() -> void:
 	
 	add_child(building_canvas)
 	
-	# set building type for world instantiation
-	building_instance.initialize_building(building_type)
+	# set building scene for world instantiation
+	building_instance.building_scene = ( 
+		game_data.get_building_scene(building_type)
+	)
