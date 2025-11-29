@@ -19,9 +19,9 @@ func _ready() -> void:
 
 # create a child of cursor that is a preview of the building clicked. follows cursor
 func _populate_cursor_on_click() -> void:
-	# if the BuildingCursor already exists, return
-	var existing_cursor: BuildingCursor = (
-		get_node_or_null(^"BuildingCursor")
+	# if the BuildingCanvas already exists, return
+	var existing_cursor: BuildingCanvas = (
+		get_node_or_null(^"BuildingCanvas")
 	)
 	
 	if existing_cursor and is_instance_valid(existing_cursor):
