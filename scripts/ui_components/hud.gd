@@ -5,15 +5,21 @@ enum Systems {TECH, BUILDING, BOT}
 
 @onready var next_turn_button:Button = %NextTurn
 @onready var system_buttons: Array[Button] = [
-	%SystemButtons/TechTree,
-	%SystemButtons/BuildingManager,
-	%SystemButtons/BotManager
+	%TabButtons/TechTree,
+	%TabButtons/BuildingManager,
+	%TabButtons/BotManager
 ]
 @onready var system_panels: Array[PanelContainer] = [
 	%InspectorPanel/TechInspector,
 	%InspectorPanel/BuildingInspector,
 	%InspectorPanel/BotInspector
 ]
+
+
+func _ready() -> void:
+	print("layers value: ", layers.order.HUD)
+	layer = layers.order.HUD
+
 
 func _on_settings_pressed() -> void:
 	Signals.settings_opened.emit()

@@ -1,368 +1,10 @@
-[gd_scene load_steps=64 format=3 uid="uid://bo383rljnyhxr"]
+[gd_scene load_steps=10 format=3 uid="uid://bo383rljnyhxr"]
 
 [ext_resource type="Script" uid="uid://eqg0rjagl3i7" path="res://scripts/screens/settings.gd" id="1_emdcu"]
-[ext_resource type="Texture2D" uid="uid://b38ydovtwkyyw" path="res://assets/sprites/lunarium_title.png" id="2_a6gug"]
+[ext_resource type="PackedScene" uid="uid://b84cp341mhqdb" path="res://scenes/ui_components/logo_h_box.tscn" id="2_a6gug"]
 [ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="2_jljg7"]
 [ext_resource type="Texture2D" uid="uid://b6k7dd38rgif8" path="res://assets/sprites/moon_16x16.png" id="3_q3kmr"]
-[ext_resource type="Texture2D" uid="uid://b0twi2t3k4cmh" path="res://assets/sprites/rotating_moon.png" id="6_3otaf"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3otaf"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ap0kp"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ct2w"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wddno"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ph2hq"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mqls8"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_satey"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_744yl"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nelo7"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y6yxv"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ota7p"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b5s3t"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ue7e"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u66bn"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b65qj"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(128, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o2s5u"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(160, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8wxcu"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(192, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fpvsv"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(224, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rarwf"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(256, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iksyc"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(288, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oe8rl"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lvunq"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_liny5"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eovkb"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(96, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n0jfw"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(128, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cnd1t"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(160, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4d00m"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(192, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yln8d"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(224, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0gv4i"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(256, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6mod2"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(288, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6pk7i"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m5udj"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(32, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tdiq7"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(64, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2lkcb"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(96, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bex07"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(128, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jkpc4"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(160, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7efog"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(192, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_do477"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(224, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3wjsr"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(256, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jfnve"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(288, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wuox1"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(0, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sfo5g"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(32, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hxvus"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(64, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ojt22"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(96, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ia615"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(128, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7e1k4"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(160, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sxjk7"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(192, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gy5ey"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(224, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e6w5s"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(256, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_84f52"]
-atlas = ExtResource("6_3otaf")
-region = Rect2(288, 128, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_18liy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3otaf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ap0kp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0ct2w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wddno")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ph2hq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mqls8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_satey")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_744yl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nelo7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y6yxv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ota7p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b5s3t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7ue7e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u66bn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b65qj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o2s5u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8wxcu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fpvsv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rarwf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iksyc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oe8rl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lvunq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_liny5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eovkb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n0jfw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cnd1t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4d00m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yln8d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0gv4i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6mod2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6pk7i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m5udj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tdiq7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2lkcb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bex07")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jkpc4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7efog")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_do477")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3wjsr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jfnve")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wuox1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sfo5g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hxvus")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ojt22")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ia615")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7e1k4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sxjk7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gy5ey")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e6w5s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_84f52")
-}],
-"loop": true,
-"name": &"rotate",
-"speed": 6.0
-}]
+[ext_resource type="PackedScene" uid="uid://caqswmbla1t2u" path="res://scenes/ui_components/quit_game_button.tscn" id="6_ap0kp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_emdcu"]
 font = ExtResource("2_jljg7")
@@ -389,39 +31,6 @@ corner_radius_bottom_left = 5
 shadow_color = Color(1, 1, 1, 0.6)
 anti_aliasing_size = 0.55
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6gug"]
-bg_color = Color(0.29586652, 0.29586652, 0.29586637, 0.49803922)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 8.0
-expand_margin_top = 4.0
-expand_margin_right = 8.0
-expand_margin_bottom = 8.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ct2w"]
-bg_color = Color(0.14767182, 0.14767179, 0.14767185, 0.6784314)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 8.0
-expand_margin_top = 4.0
-expand_margin_right = 8.0
-expand_margin_bottom = 8.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ap0kp"]
-bg_color = Color(0.5132329, 0.51323295, 0.51323277, 0.63529414)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 8.0
-expand_margin_top = 4.0
-expand_margin_right = 8.0
-expand_margin_bottom = 8.0
-
 [node name="Settings" type="CanvasLayer"]
 process_mode = 3
 layer = 100
@@ -444,61 +53,55 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.7921569)
 
-[node name="LunariumTitle" type="Sprite2D" parent="Settings"]
-modulate = Color(1, 1, 1, 0.77254903)
-position = Vector2(839.56, 214.72)
-scale = Vector2(0.52, 0.52)
-texture = ExtResource("2_a6gug")
-
-[node name="RotatingMoon" type="AnimatedSprite2D" parent="Settings"]
-modulate = Color(0.79607844, 0.7882353, 0.67058825, 0.7647059)
-texture_filter = 1
-position = Vector2(1390.6, 206.72)
-scale = Vector2(5.42, 5.42)
-sprite_frames = SubResource("SpriteFrames_18liy")
-animation = &"rotate"
-autoplay = "rotate"
-frame_progress = 0.8968328
-
-[node name="PausedText" type="Label" parent="Settings"]
+[node name="MainVBox" type="VBoxContainer" parent="Settings"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -168.0
-offset_top = -156.0
-offset_right = 168.0
-offset_bottom = -76.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="LogoHBox" parent="Settings/MainVBox" instance=ExtResource("2_a6gug")]
+layout_mode = 2
+
+[node name="VSpace" type="Control" parent="Settings/MainVBox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="PausedTxtHBox" type="HBoxContainer" parent="Settings/MainVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="PausedText" type="Label" parent="Settings/MainVBox/PausedTxtHBox"]
+layout_mode = 2
 text = "Paused
 Press ESC to resume"
 label_settings = SubResource("LabelSettings_emdcu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioSettings" type="VBoxContainer" parent="Settings"]
-layout_mode = 0
-offset_left = 832.0
-offset_top = 488.0
-offset_right = 1088.0
-offset_bottom = 676.0
+[node name="VSpace2" type="Control" parent="Settings/MainVBox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="AudioSettings" type="VBoxContainer" parent="Settings/MainVBox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Audio" type="Label" parent="Settings/AudioSettings"]
+[node name="Audio" type="Label" parent="Settings/MainVBox/AudioSettings"]
 layout_mode = 2
 text = "Audio"
 label_settings = SubResource("LabelSettings_jljg7")
 
-[node name="Master" type="Label" parent="Settings/AudioSettings"]
+[node name="Master" type="Label" parent="Settings/MainVBox/AudioSettings"]
 layout_mode = 2
 text = "Master"
 label_settings = SubResource("LabelSettings_q3kmr")
 
-[node name="MasterVolume" type="HSlider" parent="Settings/AudioSettings"]
+[node name="MasterVolume" type="HSlider" parent="Settings/MainVBox/AudioSettings"]
 texture_filter = 1
 layout_mode = 2
 theme_override_icons/grabber = ExtResource("3_q3kmr")
@@ -508,12 +111,12 @@ theme_override_styles/slider = SubResource("StyleBoxFlat_3otaf")
 max_value = 1.0
 step = 0.01
 
-[node name="Music" type="Label" parent="Settings/AudioSettings"]
+[node name="Music" type="Label" parent="Settings/MainVBox/AudioSettings"]
 layout_mode = 2
 text = "Music"
 label_settings = SubResource("LabelSettings_q3kmr")
 
-[node name="MusicVolume" type="HSlider" parent="Settings/AudioSettings"]
+[node name="MusicVolume" type="HSlider" parent="Settings/MainVBox/AudioSettings"]
 texture_filter = 1
 layout_mode = 2
 theme_override_icons/grabber = ExtResource("3_q3kmr")
@@ -523,12 +126,12 @@ theme_override_styles/slider = SubResource("StyleBoxFlat_3otaf")
 max_value = 1.0
 step = 0.01
 
-[node name="Effects" type="Label" parent="Settings/AudioSettings"]
+[node name="Effects" type="Label" parent="Settings/MainVBox/AudioSettings"]
 layout_mode = 2
 text = "Effects"
 label_settings = SubResource("LabelSettings_q3kmr")
 
-[node name="EffectsVolume" type="HSlider" parent="Settings/AudioSettings"]
+[node name="EffectsVolume" type="HSlider" parent="Settings/MainVBox/AudioSettings"]
 texture_filter = 1
 layout_mode = 2
 theme_override_icons/grabber = ExtResource("3_q3kmr")
@@ -538,28 +141,22 @@ theme_override_styles/slider = SubResource("StyleBoxFlat_3otaf")
 max_value = 1.0
 step = 0.01
 
-[node name="QuitGame" type="Button" parent="Settings"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -78.5
-offset_top = -343.0
-offset_right = 74.5
-offset_bottom = -305.0
-grow_horizontal = 2
-grow_vertical = 0
-focus_mode = 0
-theme_override_fonts/font = ExtResource("2_jljg7")
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_a6gug")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_0ct2w")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ap0kp")
-text = "Quit Game"
+[node name="VSpace3" type="Control" parent="Settings/MainVBox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 
-[connection signal="value_changed" from="Settings/AudioSettings/MasterVolume" to="." method="_on_master_volume_value_changed"]
-[connection signal="value_changed" from="Settings/AudioSettings/MusicVolume" to="." method="_on_music_volume_value_changed"]
-[connection signal="value_changed" from="Settings/AudioSettings/EffectsVolume" to="." method="_on_effects_volume_value_changed"]
-[connection signal="pressed" from="Settings/QuitGame" to="." method="_on_quit_game_pressed"]
+[node name="QuitBox" type="HBoxContainer" parent="Settings/MainVBox"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+alignment = 1
+
+[node name="QuitCenter" type="CenterContainer" parent="Settings/MainVBox/QuitBox"]
+layout_mode = 2
+
+[node name="QuitGame" parent="Settings/MainVBox/QuitBox/QuitCenter" instance=ExtResource("6_ap0kp")]
+layout_mode = 2
+
+[connection signal="value_changed" from="Settings/MainVBox/AudioSettings/MasterVolume" to="." method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="Settings/MainVBox/AudioSettings/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="Settings/MainVBox/AudioSettings/EffectsVolume" to="." method="_on_effects_volume_value_changed"]
+[connection signal="pressed" from="Settings/MainVBox/QuitBox/QuitCenter/QuitGame" to="." method="_on_quit_game_pressed"]
