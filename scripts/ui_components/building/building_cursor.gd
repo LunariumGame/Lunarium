@@ -21,10 +21,10 @@ func place_building() -> void:
 	)
 	colony_buildings_node.add_child(building_instance)
 
-	building_instance.global_position = _placement_target_world_pos()
+	building_instance.global_position = global_position
 
 	print("successfully added to colony: ", building_instance.name)
-	
+
 
 func _ready() -> void:
 	width = texture.get_width() * scale.x
@@ -33,12 +33,6 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	global_position = get_tree().root.get_canvas_transform() * _placement_target_world_pos()
-
-
-func _world_target_pos() -> Vector2:
-	return get_tree().root.get_canvas_transform().inverse() * get_viewport().get_mouse_position()
-
-
-func _placement_target_world_pos() -> Vector2:
-	return _world_target_pos().snapped(tile_size)
+	global_position = (
+		get_global_mouse_position().snapped(tile_size)
+	)
