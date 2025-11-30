@@ -4,6 +4,16 @@ extends Node
 const WIDTH: int = 10
 const HEIGHT: int = 10
 
+enum BuildingType {
+	EMPTY,
+	HEADQUARTERS,
+	ECO_DOME,
+	IRON_REFINERY,
+	MECH_QUARTER,
+	POWER_PLANT,
+	RESIDENCE
+}
+
 const DIRECTIONS = [
 	Vector2i(1, 0), 
 	Vector2i(-1, 0),
@@ -14,16 +24,6 @@ const DIRECTIONS = [
 	Vector2i(1, -1), 
 	Vector2i(-1, -1),
 ]
-
-enum BuildingType {
-	EMPTY,
-	HEADQUARTERS,
-	ECO_DOME,
-	IRON_REFINERY,
-	MECH_QUARTER,
-	POWER_PLANT,
-	RESIDENCE,
-}
 
 var _building_id_counter := 0
 

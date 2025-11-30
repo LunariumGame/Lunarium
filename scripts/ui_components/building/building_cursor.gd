@@ -10,6 +10,9 @@ var tile_size: Vector2
 var building_scene: PackedScene = null
 
 
+func is_placeable() -> bool:
+	return true	
+
 func place_building() -> void:
 	var building_instance: Building = building_scene.instantiate()
 
@@ -20,9 +23,13 @@ func place_building() -> void:
 		get_tree().get_root().get_node("World/PlacedBuildings")
 	)
 	colony_buildings_node.add_child(building_instance)
+	
+	#print("buildings world array prior to update: ", building_manager.buildings)
 
 	building_instance.global_position = global_position
-
+	
+	#print("buildings world array after update: ", building_manager.buildings)
+	
 	print("successfully added to colony: ", building_instance.name)
 
 

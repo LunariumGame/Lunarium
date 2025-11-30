@@ -376,14 +376,14 @@ layout_mode = 2
 focus_mode = 0
 text = "Residential"
 script = ExtResource("9_jswg8")
-building_type = 4
+building_type = 6
 
 [node name="Refinery" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 text = "Refinery"
 script = ExtResource("9_jswg8")
-building_type = 1
+building_type = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons"]
 layout_mode = 2
@@ -393,13 +393,14 @@ layout_mode = 2
 focus_mode = 0
 text = "Reactor"
 script = ExtResource("9_jswg8")
-building_type = 3
+building_type = 5
 
 [node name="Farm" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
 text = "Farm"
 script = ExtResource("9_jswg8")
+building_type = 2
 
 [node name="BotInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
 visible = false

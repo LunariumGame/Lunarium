@@ -15,5 +15,7 @@ func _input(event: InputEvent) -> void:
 			queue_free()
 		elif event.is_action_pressed("engage_building_button"):
 			get_viewport().set_input_as_handled()
-			building_cursor.place_building()
+			# check if no existing membership in Building 2D Array
+			if building_cursor.is_placeable():
+				building_cursor.place_building()
 			call_deferred("queue_free")

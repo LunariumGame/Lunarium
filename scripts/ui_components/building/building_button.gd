@@ -9,7 +9,7 @@ const BUILDING_CANVAS = (
 var building_canvas: BuildingCanvas = null
 var building_instance: BuildingCursor = null
 
-@export var building_type: GameData.BuildingType
+@export var building_type: build_man.BuildingType
 
 
 func _ready() -> void:
@@ -45,6 +45,8 @@ func _populate_cursor_on_click() -> void:
 	building_instance.modulate.a = 0.5
 	
 	add_child(building_canvas)
+	
+	print("Adding ", building_type," child with button: ", name)
 	
 	# set building scene for world instantiation
 	building_instance.building_scene = ( 
