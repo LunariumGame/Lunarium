@@ -12,8 +12,8 @@ var building_scene: PackedScene = null
 var type_to_place: build_man.BuildingType = build_man.BuildingType.EMPTY
 
 
-func not_placeable() -> bool:
-	return build_man.placed_buildings.has(_get_grid_coordinates())
+func is_placeable() -> bool:
+	return not build_man.placed_buildings.has(_get_grid_coordinates())
 
 
 func place_building() -> void:

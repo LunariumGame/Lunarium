@@ -2,4 +2,4 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	layer = layers.order.HUD
+	layer = layers.order.BUILDINGS

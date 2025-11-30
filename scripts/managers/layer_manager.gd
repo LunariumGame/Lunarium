@@ -3,7 +3,9 @@ extends Node
 
 # enum order: lower layer -> top layer
 enum order {
-	HUD,
+	BUILDINGS,
 	CURSOR,
-	SETTINGS
+	HUD,
+	SETTINGS,
+	MAIN_MENU
 }

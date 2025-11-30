@@ -7,7 +7,7 @@ var building_cursor: BuildingCursor
 func _ready() -> void:
 	layer = layers.order.CURSOR
 	building_cursor = $BuildingCursor
-	
+
 
 func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("cancel_building_button"):
@@ -15,6 +15,9 @@ func _input(event: InputEvent) -> void:
 			queue_free()
 		elif event.is_action_pressed("engage_building_button"):
 			get_viewport().set_input_as_handled()
-			if !building_cursor.not_placeable():
+			if building_cursor.is_placeable():
 				building_cursor.place_building()
-			call_deferred("queue_free")
+				call_deferred("queue_free")
+			else:
+				pass
+				
