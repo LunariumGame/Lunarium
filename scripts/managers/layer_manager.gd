@@ -4,8 +4,8 @@ extends Node
 # enum order: lowest layer -> topmost layer
 enum order {
 	BUILDINGS,
-	CURSOR,
 	HUD,
+	CURSOR,
 	SETTINGS,
 	MAIN_MENU
 }
