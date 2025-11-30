@@ -9,7 +9,7 @@ func _ready() -> void:
 	building_cursor = $BuildingCursor
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 		if event.is_action_pressed("cancel_building_button"):
 			get_viewport().set_input_as_handled()
 			queue_free()
