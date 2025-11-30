@@ -44,6 +44,8 @@ func _populate_cursor_on_click() -> void:
 	# assign BuildingCursor transparency to 50%
 	building_instance.modulate.a = 0.5
 	
+	building_instance.type_to_place = building_type
+	
 	add_child(building_canvas)
 	
 	print("Adding ", building_type," child with button: ", name)
@@ -52,9 +54,3 @@ func _populate_cursor_on_click() -> void:
 	building_instance.building_scene = ( 
 		game_data.get_building_scene(building_type)
 	)
-	print("buildings world array prior to update: ", build_man.placed_buildings)
-	# log building in build manager array
-	build_man.register_building(
-					building_type, building_instance._get_grid_coordinates(), 
-	)
-	print("buildings world array after update: ", build_man.placed_buildings)
