@@ -10,12 +10,12 @@ var tile_size: Vector2
 var building_scene: PackedScene = null
 
 
-func is_placeable() -> bool:
-	return true	
+func not_placeable() -> bool:
+	return build_man.placed_buildings.has(_get_grid_coordinates())
+
 
 func place_building() -> void:
 	var building_instance: Building = building_scene.instantiate()
-
 	if (building_instance == null):
 		push_error("building was not initialized prior to instantiation")
 

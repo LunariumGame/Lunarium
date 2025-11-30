@@ -52,10 +52,9 @@ func _populate_cursor_on_click() -> void:
 	building_instance.building_scene = ( 
 		game_data.get_building_scene(building_type)
 	)
-	print("buildings world array prior to update: ", build_man.buildings)
+	print("buildings world array prior to update: ", build_man.placed_buildings)
 	# log building in build manager array
-	build_man.build(
+	build_man.register_building(
 					building_type, building_instance._get_grid_coordinates(), 
-					building_instance.width, building_instance.height
 	)
-	print("buildings world array after update: ", build_man.buildings)
+	print("buildings world array after update: ", build_man.placed_buildings)
