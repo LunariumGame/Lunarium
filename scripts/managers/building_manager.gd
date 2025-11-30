@@ -1,8 +1,8 @@
 class_name BuildingManager
 extends Node
 
-const WIDTH: int = 10
-const HEIGHT: int = 10
+const WIDTH: int = 50
+const HEIGHT: int = 50
 
 enum BuildingType {
 	EMPTY,
@@ -40,7 +40,10 @@ func _ready() -> void:
 		buildings.append(row)
 
 
-func build(building_type: BuildingType, position: Vector2i, width: int, height: int) -> void:
+func build(
+		   building_type: BuildingType, position: Vector2i, 
+		   width: int, height: int
+) -> void:
 	
 	# Bounds check
 	if (position.x < 0 or position.x + width > WIDTH or 

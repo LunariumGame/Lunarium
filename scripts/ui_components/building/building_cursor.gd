@@ -24,13 +24,20 @@ func place_building() -> void:
 	)
 	colony_buildings_node.add_child(building_instance)
 	
-	#print("buildings world array prior to update: ", building_manager.buildings)
 
 	building_instance.global_position = global_position
 	
-	#print("buildings world array after update: ", building_manager.buildings)
+	print("raw position: ", building_instance.global_position)
+	print("transformed grid position: ", _get_grid_coordinates())
+	
 	
 	print("successfully added to colony: ", building_instance.name)
+	
+
+func _get_grid_coordinates() -> Vector2i:
+	var grid_x: int = int(global_position.x / tile_size.x)
+	var grid_y: int = int(global_position.y / tile_size.y)
+	return Vector2i(grid_x, grid_y)
 
 
 func _ready() -> void:
