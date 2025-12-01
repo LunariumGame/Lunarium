@@ -19,5 +19,4 @@ func _unhandled_input(event: InputEvent) -> void:
 				building_cursor.place_building()
 				call_deferred("queue_free")
 			else:
-				pass
-				
+				building_cursor.notify_not_placeable()

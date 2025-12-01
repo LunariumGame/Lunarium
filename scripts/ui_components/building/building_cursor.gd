@@ -2,18 +2,26 @@
 class_name BuildingCursor
 extends Sprite2D
 
+@export var red_cursor_duration: float = 0.5
+
 var width: float
 var height: float
 
 var tile_size: Vector2
 
 var building_scene: PackedScene = null
-
 var type_to_place: build_man.BuildingType = build_man.BuildingType.EMPTY
 
 
 func is_placeable() -> bool:
 	return not build_man.placed_buildings.has(_get_grid_coordinates())
+
+
+# modulate BuildingCursor to indicate it is not placeable
+func notify_not_placeable() -> void:
+	modulate = Color.CRIMSON
+	await get_tree().create_timer(red_cursor_duration).timeout
+	modulate = Color.WHITE
 
 
 func place_building() -> void:
