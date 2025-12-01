@@ -13,17 +13,19 @@ var building_scene: PackedScene = null
 var type_to_place: build_man.BuildingType = build_man.BuildingType.EMPTY
 
 
+## returns `true` if the cursor location's grid coordinates are not tabled in building manager
 func is_placeable() -> bool:
 	return not build_man.placed_buildings.has(_get_grid_coordinates())
 
 
-# modulate BuildingCursor to indicate it is not placeable
+## modulate BuildingCursor to indicate it is not placeable
 func notify_not_placeable() -> void:
 	modulate = Color.CRIMSON
 	await get_tree().create_timer(red_cursor_duration).timeout
 	modulate = Color.WHITE
 
 
+## add a Building node to the colony from a BuildingButton event
 func place_building() -> void:
 	var building_instance: Building = building_scene.instantiate()
 	if (building_instance == null):
@@ -47,6 +49,7 @@ func place_building() -> void:
 	print("buildings world array after update: ", build_man.placed_buildings)
 
 
+## translate raw global_position to whole integer grid coordinates
 func _get_grid_coordinates() -> Vector2i:
 	var grid_x: int = int(global_position.x / tile_size.x)
 	var grid_y: int = int(global_position.y / tile_size.y)
