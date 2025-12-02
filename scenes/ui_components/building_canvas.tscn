@@ -5,6 +5,7 @@
 
 [node name="BuildingCanvas" type="CanvasLayer"]
 layer = 0
+follow_viewport_enabled = true
 script = ExtResource("1_eossf")
 
 [node name="BuildingCursor" type="Sprite2D" parent="."]

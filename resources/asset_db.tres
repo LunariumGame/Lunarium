@@ -33,6 +33,18 @@ upgrade_2 = ExtResource("3_oxstp")
 upgrade_3 = ExtResource("4_dkp5e")
 metadata/_custom_type_script = "uid://deat5lcce5vve"
 
+[sub_resource type="Resource" id="Resource_4qkwl"]
+script = ExtResource("1_0murn")
+metadata/_custom_type_script = "uid://deat5lcce5vve"
+
+[sub_resource type="Resource" id="Resource_rif6l"]
+script = ExtResource("1_0murn")
+building_scene = ExtResource("22_roewu")
+upgrade_1 = ExtResource("23_wmosa")
+upgrade_2 = ExtResource("23_wmosa")
+upgrade_3 = ExtResource("23_wmosa")
+metadata/_custom_type_script = "uid://deat5lcce5vve"
+
 [sub_resource type="Resource" id="Resource_q57ne"]
 script = ExtResource("1_0murn")
 building_scene = ExtResource("6_jfw5p")
@@ -63,18 +75,6 @@ building_scene = ExtResource("18_4qkwl")
 upgrade_1 = ExtResource("19_jfw5p")
 upgrade_2 = ExtResource("20_roewu")
 upgrade_3 = ExtResource("21_wmosa")
-metadata/_custom_type_script = "uid://deat5lcce5vve"
-
-[sub_resource type="Resource" id="Resource_4qkwl"]
-script = ExtResource("1_0murn")
-metadata/_custom_type_script = "uid://deat5lcce5vve"
-
-[sub_resource type="Resource" id="Resource_rif6l"]
-script = ExtResource("1_0murn")
-building_scene = ExtResource("22_roewu")
-upgrade_1 = ExtResource("23_wmosa")
-upgrade_2 = ExtResource("23_wmosa")
-upgrade_3 = ExtResource("23_wmosa")
 metadata/_custom_type_script = "uid://deat5lcce5vve"
 
 [resource]

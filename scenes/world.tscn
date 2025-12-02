@@ -65,6 +65,7 @@ spec = ExtResource("12_q5onr")
 metadata/_custom_type_script = "uid://dm1gqee5hpi86"
 
 [node name="PlacedBuildings" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 script = ExtResource("11_jhx03")
 
 [node name="BuildingFinder" type="ShapeCast2D" parent="."]
