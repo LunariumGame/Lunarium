@@ -3,19 +3,20 @@ class_name BuildingCursor
 extends Sprite2D
 
 @export var red_cursor_duration: float = 0.5
+@export var tile_size := Vector2i(16, 16)
 
-var width: float
-var height: float
-
-var tile_size: Vector2
+var width: int
+var height: int
 
 var building_scene: PackedScene = null
 var type_to_place: build_man.BuildingType = build_man.BuildingType.EMPTY
 
 
-## returns `true` if the cursor location's grid coordinates are not tabled in building manager
+## returns `true` if the cursor location's grid coordinates are labelled empty
+## refactor: check against entirety of dimension (starting from top left)
 func is_placeable() -> bool:
-	return not build_man.placed_buildings.has(_get_grid_coordinates())
+	var idx: Vector2i = _get_grid_coordinates()
+	return build_man._buildings[idx.x][idx.y] == build_man.BuildingType.EMPTY
 
 
 ## modulate BuildingCursor to indicate it is not placeable
@@ -41,25 +42,24 @@ func place_building() -> void:
 	
 	print("successfully added to colony: ", building_instance.name)
 	
-	print("buildings world array prior to update: ", build_man.placed_buildings)
 	# log building in build manager array (also returns building ID
-	build_man.register_building(
-		type_to_place, _get_grid_coordinates() 
+	build_man.build(
+		type_to_place, _get_grid_coordinates(),
+		width, height
 	)
-	print("buildings world array after update: ", build_man.placed_buildings)
 
 
-## translate raw global_position to whole integer grid coordinates
+## translate raw global_position to whole integer grid coordinates.
+## raw global_position is top_left of texture
 func _get_grid_coordinates() -> Vector2i:
-	var grid_x: int = int(global_position.x / tile_size.x)
-	var grid_y: int = int(global_position.y / tile_size.y)
+	var grid_x := int(global_position.x - (width / 2))
+	var grid_y := int(global_position.y - (height / 2))
 	return Vector2i(grid_x, grid_y)
 
 
 func _ready() -> void:
 	width = texture.get_width() * scale.x
 	height = texture.get_height() * scale.y
-	tile_size = Vector2(width, height)
 
 
 func _physics_process(_delta: float) -> void:

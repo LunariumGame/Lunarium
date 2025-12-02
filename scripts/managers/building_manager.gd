@@ -1,47 +1,62 @@
 class_name BuildingManager
 extends Node
 
-const WIDTH: int = 10
-const HEIGHT: int = 10
+const WIDTH: int = 1000
+const HEIGHT: int = 1000
+
+const DIRECTIONS = [
+	Vector2i(1, 0), 
+	Vector2i(-1, 0),
+	Vector2i(0, 1), 
+	Vector2i(0, -1),
+	Vector2i(1, 1), 
+	Vector2i(-1, 1),
+	Vector2i(1, -1), 
+	Vector2i(-1, -1),
+]
 
 enum BuildingType {
-	# default value
-	EMPTY = 0,
+	# result to empty is 0
+	EMPTY,
 	HEADQUARTERS,
 	ECO_DOME,
 	IRON_REFINERY,
 	MECH_QUARTER,
 	POWER_PLANT,
-	RESIDENCE
+	RESIDENCE,
 }
 
-const DIRECTIONS = [
-	Vector2i(1, 0), Vector2i(-1, 0),
-	Vector2i(0, 1), Vector2i(0, -1),
-	Vector2i(1, 1), Vector2i(-1, 1),
-	Vector2i(1, -1), Vector2i(-1, -1),
-]
-
+var _buildings: Array = []
+var _id_to_type = {}
 var _building_id_counter := 1
 
-# default values initialized to 0
-var placed_buildings: Dictionary = {}
-var id_to_type: Dictionary = {}
+
+func _ready() -> void:
+	# Populate buildings array with empty type
+	for y in range(HEIGHT):
+		var row: Array[BuildingType] = []
+		for x in range(WIDTH):
+			row.append(BuildingType.EMPTY)
+		_buildings.append(row)
 
 
-func register_building(
-		   building_type: BuildingType, position: Vector2i, 
-) -> int:
-		
-	var new_id: int = _building_id_counter
+func build(building_type: BuildingType, position: Vector2i, width: int, height: int) -> void:
 	
-	placed_buildings[position] = new_id
-	id_to_type[new_id] = building_type
+	# Bounds check
+	if (position.x < 0 or position.x + width > WIDTH or 
+				position.y < 0 or position.y + height > HEIGHT):
+		print_debug("build call out of bounds!")
+		return
+	
+	# Fill buildings array
+	for x in range(position.x, position.x + width):
+		for y in range(position.y, position.y + height):
+			_buildings[y][x] = _building_id_counter
+	
+	# Create mapping
+	_id_to_type[_building_id_counter] = building_type
 	
 	_building_id_counter += 1
-	
-	return new_id
-
 
 # Returns a list of vector2i's surrounding a single tile
 func get_adjacent_positions_single(position: Vector2i) -> Array[Vector2i]:
@@ -70,15 +85,20 @@ func get_adjacent_positions(position: Vector2i) -> Array[Vector2i]:
 	# Get original type
 	var my_building_id: int = get_building_id(position)
 	
-	if my_building_id == BuildingType.EMPTY:
-		return []
+	# Create seen board
+	var seen: Array = []
+	for y in range(HEIGHT):
+		var row: Array[bool] = []
+		for x in range(WIDTH):
+			row.append(false)
+		seen.append(row)
 	
 	# Final list of adjacent positions
 	var adjacent_positions: Array[Vector2i] = []
-	# List of positions to check out
-	var to_look_at: Array[Vector2i] = [position]
 	
-	var seen: Dictionary = {position: true}
+	# List of positions to check out
+	var to_look_at: Array[Vector2i] = []
+	to_look_at.append(position)
 	
 	while not to_look_at.is_empty():
 		var current: Vector2i = to_look_at.pop_front()
@@ -86,16 +106,15 @@ func get_adjacent_positions(position: Vector2i) -> Array[Vector2i]:
 		
 		for pos in surrounding:
 			
-			if seen.has(pos):
+			if seen[pos.y][pos.x]:
 				continue
-				
 				
 			if get_building_id(pos) == my_building_id:
 				to_look_at.append(pos)
 			else:
 				adjacent_positions.append(pos)
 			
-			seen[pos] = true
+			seen[pos.y][pos.x] = true
 	
 	return adjacent_positions
 
@@ -110,22 +129,38 @@ func get_adjacent_buildings(position: Vector2i) -> Array[BuildingType]:
 	return adjacent_buildings
 
 
+# Returns the building_id at a position or -1 if out of bounds
 func get_building_id(position: Vector2i) -> int:
-	# World boundaries check
-	if (position.x < 0 or position.x > WIDTH or 
-				position.y < 0 or position.y > HEIGHT):
+	# Bounds check
+	if (position.x < 0 or position.x >= WIDTH or 
+				position.y < 0 or position.y >= HEIGHT):
 		print_debug("requesting building id from out of bounds!")
-		return 0
-
-	# return key. if it doesn't exist, return empty 0 value		
-	return placed_buildings.get(position, BuildingType.EMPTY)
+		return -1
+		
+	return _buildings[position.y][position.x]
 
 
 func get_building_type(position: Vector2i) -> BuildingType:
+	# Bounds check
+	if (position.x < 0 or position.x >= WIDTH or 
+				position.y < 0 or position.y >= HEIGHT):
+		print_debug("requesting building type from out of bounds!")
+		return BuildingType.EMPTY
+		
 	var id: int = get_building_id(position)
+	return _id_to_type[id]
+
+
+# Returns the total number of buildings built if the type is not specified
+# Returns the total number of buildings of a specified type otherwise
+func get_num_buildings(type: BuildingType = BuildingType.EMPTY) -> int:
 	
-	if id == BuildingType.EMPTY:
-		return BuildingType.EMPTY;
+	if type == BuildingType.EMPTY:
+		return _building_id_counter
 	
-	# if ID exists, return type. otherwise empty value
-	return id_to_type.get(id, BuildingType.EMPTY)
+	var count: int = 0
+	for id in _id_to_type.keys():
+		if _id_to_type[id] == type:
+			count += 1
+	
+	return count
