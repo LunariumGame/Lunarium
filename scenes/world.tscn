@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=15 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bpc6gps3lk4ac" path="res://scenes/ui_components/hud.tscn" id="2_4mrxx"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dm3fhxjge8xxk" path="res://scripts/camera/position_lock.gd" id="8_4mrxx"]
 [ext_resource type="Script" uid="uid://dm1gqee5hpi86" path="res://scripts/ui_components/tech_tree_node.gd" id="11_e3hyu"]
 [ext_resource type="Script" path="res://scripts/ui_components/building/placed_buildings.gd" id="11_jhx03"]
+[ext_resource type="PackedScene" uid="uid://dm14ilgwf2f0r" path="res://scenes/buildings/shuttle.tscn" id="12_jhx03"]
 [ext_resource type="Resource" uid="uid://2hdhlbnrajfh" path="res://resources/tech_tree_upgrades/resource_boost.tres" id="12_q5onr"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7r4gi"]
@@ -66,6 +67,8 @@ metadata/_custom_type_script = "uid://dm1gqee5hpi86"
 
 [node name="PlacedBuildings" type="CanvasLayer" parent="."]
 script = ExtResource("11_jhx03")
+
+[node name="Shuttle" parent="PlacedBuildings" instance=ExtResource("12_jhx03")]
 
 [node name="BuildingFinder" type="ShapeCast2D" parent="."]
 shape = SubResource("RectangleShape2D_e3hyu")
