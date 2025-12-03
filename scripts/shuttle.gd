@@ -1,4 +1,4 @@
-extends Building
+extends Node
 
 const BASE_TURNS_BETWEEN_SHUTTLES:int = 3
 
@@ -8,12 +8,10 @@ var turns_to_shuttle:int = BASE_TURNS_BETWEEN_SHUTTLES
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	super()
+	Signals.turn_started.connect(_on_turn_started)
 
 
 func _on_turn_started(_turn_number:int) -> void:
-	super(_turn_number)
-	
 	turns_to_shuttle -= 1
 	if turns_to_shuttle <= 0:
 		turns_to_shuttle = get_turns_between_shuttles()
