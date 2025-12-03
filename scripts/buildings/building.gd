@@ -1,3 +1,4 @@
+# not abstract: otherwise children cannot invoke parent methods, or use super()
 class_name Building
 extends Node2D
 

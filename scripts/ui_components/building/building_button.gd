@@ -2,10 +2,11 @@
 class_name BuildingButton
 extends Button
 
-const BUILDING_CURSOR = (
-	preload("res://scenes/ui_components/BuildingCursor.tscn")
+const BUILDING_CANVAS = (
+	preload("res://scenes/ui_components/building_canvas.tscn")
 )
 
+var building_canvas: BuildingCanvas = null
 var building_instance: BuildingCursor = null
 
 @export var building_type: GameData.BuildingType
@@ -18,9 +19,9 @@ func _ready() -> void:
 
 # create a child of cursor that is a preview of the building clicked. follows cursor
 func _populate_cursor_on_click() -> void:
-	# if the BuildingCursor already exists, return
-	var existing_cursor: BuildingCursor = (
-		get_node_or_null(^"BuildingCursor")
+	# if the BuildingCanvas already exists, return
+	var existing_cursor: BuildingCanvas = (
+		get_node_or_null(^"BuildingCanvas")
 	)
 	
 	if existing_cursor and is_instance_valid(existing_cursor):
@@ -35,13 +36,17 @@ func _populate_cursor_on_click() -> void:
 	
 	if not preview_texture:
 		return
+
+	building_canvas = BUILDING_CANVAS.instantiate()	
+	building_instance = building_canvas.get_node("BuildingCursor")
 	
-	building_instance = BUILDING_CURSOR.instantiate()
 	building_instance.texture = preview_texture
 	# assign BuildingCursor transparency to 50%
 	building_instance.modulate.a = 0.5
-
-	add_child(building_instance)
 	
-	# set building type for world instantiation
-	building_instance.initialize_building(building_type)
+	add_child(building_canvas)
+	
+	# set building scene for world instantiation
+	building_instance.building_scene = ( 
+		game_data.get_building_scene(building_type)
+	)

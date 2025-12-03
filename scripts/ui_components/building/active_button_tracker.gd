@@ -18,8 +18,8 @@ func button_activated(active_button: BuildingButton) -> void:
 
 
 func _free_cursor(target_button: BuildingButton) -> bool:
-	var node_to_free: BuildingCursor = ( 
-		target_button.get_node_or_null(^"BuildingCursor")
+	var node_to_free: BuildingCanvas = ( 
+		target_button.get_node_or_null(^"BuildingCanvas")
 	)
 
 	# is_instance_valid prevents double free

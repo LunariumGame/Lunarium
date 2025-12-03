@@ -7,13 +7,14 @@ extends CanvasLayer
 var _time := 0.0
 var hud : CanvasLayer 
 
-@onready var rotating_moon: AnimatedSprite2D = $Settings/RotatingMoon
-@onready var title: Sprite2D = $Settings/LunariumTitle
-@onready var master_volume: HSlider = $"Settings/AudioSettings/MasterVolume"
-@onready var music_volume: HSlider = $"Settings/AudioSettings/MusicVolume"
-@onready var effects_volume: HSlider = $"Settings/AudioSettings/EffectsVolume"
+@onready var rotating_moon: AnimatedSprite2D = $Settings/MainVBox/LogoHBox/Moon/RotatingMoon
+@onready var title: Sprite2D = $Settings/MainVBox/LogoHBox/Title/LunariumTitle
+@onready var master_volume: HSlider = $"Settings/MainVBox/AudioSettings/MasterVolume"
+@onready var music_volume: HSlider = $"Settings/MainVBox/AudioSettings/MusicVolume"
+@onready var effects_volume: HSlider = $"Settings/MainVBox/AudioSettings/EffectsVolume"
 
 func _ready():
+	layer = layers.order.SETTINGS
 	master_volume.value = settings_data.volume_value_master
 	music_volume.value = settings_data.volume_value_music
 	effects_volume.value = settings_data.volume_value_effects
@@ -29,6 +30,12 @@ func close():
 	queue_free()
 
 
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		close()
+		get_viewport().set_input_as_handled()
+
+
 func _process(delta):
 	#region Fluctuate alpha of title and rotating moon
 	_time += delta * alpha_speed
@@ -37,12 +44,6 @@ func _process(delta):
 	title.modulate = Color(title.modulate.r, title.modulate.g, title.modulate.b, alpha)
 	rotating_moon.modulate = Color(rotating_moon.modulate.r, rotating_moon.modulate.g, rotating_moon.modulate.b, alpha)
 	#endregion
-
-
-func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel"):
-		close()
-		get_viewport().set_input_as_handled()
 
 
 func _on_master_volume_value_changed(value: float) -> void:

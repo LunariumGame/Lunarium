@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://62tr4h246vw0"]
+
+[ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_e3wr7"]
+[ext_resource type="Script" uid="uid://cnl1jwpsm0ofq" path="res://scripts/buildings/residential.gd" id="2_4f3d3"]
+[ext_resource type="Texture2D" uid="uid://chxk5hge7yyve" path="res://assets/sprites/buildings/u1/residence_1.svg" id="3_0exew"]
+
+[node name="Residential" instance=ExtResource("1_e3wr7")]
+script = ExtResource("2_4f3d3")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_0exew")
