@@ -16,15 +16,22 @@ func purchase() -> bool:
 	if not is_purchasable():
 		return false
 	
-	# Subtract cost
+	# Check cost
 	var cost := spec.cost
+	for resource_type in cost.keys():
+		var resource_cost:float = cost[resource_type]
+		var current_amount: float = resource_manager.get_resource(resource_type)
+		if current_amount < resource_cost:
+			return false
+	
+	# Subtract cost
 	for resource_type in cost.keys():
 		var resource_cost:float = cost[resource_type]
 		resource_manager.add_precalculated(resource_type, -resource_cost)
 	
 	# Prevent from buying again
 	bought = true
-	print_debug("Purchase upgraded: ", spec.name)
+	print_debug("Upgrade Purchased: ", spec.name)
 	
 	# Activate all effects of the upgrade
 	for modifier in spec.modifier_list:
