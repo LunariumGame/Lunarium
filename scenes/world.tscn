@@ -66,11 +66,6 @@ metadata/_custom_type_script = "uid://dm1gqee5hpi86"
 
 [node name="PlacedBuildings" type="Node" parent="."]
 
-[node name="IronRefinery" parent="." instance=ExtResource("11_q5onr")]
-position = Vector2(569, 230)
-script = null
-
-[node name="BuildingFinder" type="ShapeCast2D" parent="."]
 shape = SubResource("RectangleShape2D_e3hyu")
 target_position = Vector2(0, 0)
 max_results = 9999999
