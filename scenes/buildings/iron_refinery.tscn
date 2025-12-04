@@ -11,7 +11,7 @@ script = ExtResource("3_gymdt")
 cost = Dictionary[int, float]({
 0: 5.0,
 1: 5.0,
-2: 0.0,
+2: 5.0,
 3: 0.0
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"

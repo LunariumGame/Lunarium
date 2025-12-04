@@ -39,7 +39,7 @@ func _ready() -> void:
 	_id_to_type[0] = BuildingType.EMPTY
 
 
-# returns true if built successfully, false otherwise
+## returns true if built successfully, false otherwise, based on cost and adjacency to other Building nodes
 func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> bool:
 	# If no cost spec, don't place
 	if building_spec.cost_levels.size() == 0:
@@ -172,8 +172,8 @@ func get_building_type(position: Vector2i) -> BuildingType:
 	return _id_to_type[id]
 
 
-# Returns the total number of buildings built if the type is not specified
-# Returns the total number of buildings of a specified type otherwise
+## Returns the total number of buildings built if the type is not specified
+## Otherwise, returns the total number of buildings of a specified type otherwise
 func get_num_buildings(type: BuildingType = BuildingType.EMPTY) -> int:
 	
 	if type == BuildingType.EMPTY:
