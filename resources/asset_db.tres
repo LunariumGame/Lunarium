@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AssetDatabase" load_steps=28 format=3 uid="uid://dufasrvxhjc2n"]
+[gd_resource type="Resource" script_class="AssetDatabase" load_steps=32 format=3 uid="uid://dufasrvxhjc2n"]
 
 [ext_resource type="Script" uid="uid://deat5lcce5vve" path="res://scripts/core/resource_templates/building_db.gd" id="1_0murn"]
 [ext_resource type="PackedScene" uid="uid://dgfq7odjk1hcx" path="res://scenes/buildings/eco_dome.tscn" id="2_4qkwl"]
@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://chxk5hge7yyve" path="res://assets/sprites/buildings/u1/residence_1.svg" id="19_jfw5p"]
 [ext_resource type="Texture2D" uid="uid://bkiott3u4b8gq" path="res://assets/sprites/buildings/u2/residence_2.svg" id="20_roewu"]
 [ext_resource type="Texture2D" uid="uid://c3j2npcase1lg" path="res://assets/sprites/buildings/u3/residence_3.svg" id="21_wmosa"]
+[ext_resource type="PackedScene" uid="uid://cvurq12vfgtbk" path="res://scenes/buildings/headquarters.tscn" id="22_roewu"]
+[ext_resource type="Texture2D" uid="uid://yqvs0ef5fegx" path="res://assets/sprites/buildings/headquarters.svg" id="23_wmosa"]
 
 [sub_resource type="Resource" id="Resource_0murn"]
 script = ExtResource("1_0murn")
@@ -29,6 +31,18 @@ building_scene = ExtResource("2_4qkwl")
 upgrade_1 = ExtResource("2_q57ne")
 upgrade_2 = ExtResource("3_oxstp")
 upgrade_3 = ExtResource("4_dkp5e")
+metadata/_custom_type_script = "uid://deat5lcce5vve"
+
+[sub_resource type="Resource" id="Resource_4qkwl"]
+script = ExtResource("1_0murn")
+metadata/_custom_type_script = "uid://deat5lcce5vve"
+
+[sub_resource type="Resource" id="Resource_rif6l"]
+script = ExtResource("1_0murn")
+building_scene = ExtResource("22_roewu")
+upgrade_1 = ExtResource("23_wmosa")
+upgrade_2 = ExtResource("23_wmosa")
+upgrade_3 = ExtResource("23_wmosa")
 metadata/_custom_type_script = "uid://deat5lcce5vve"
 
 [sub_resource type="Resource" id="Resource_q57ne"]
@@ -67,6 +81,8 @@ metadata/_custom_type_script = "uid://deat5lcce5vve"
 script = ExtResource("14_rif6l")
 building_data = Dictionary[String, ExtResource("1_0murn")]({
 "ECO_DOME": SubResource("Resource_0murn"),
+"EMPTY": SubResource("Resource_4qkwl"),
+"HEADQUARTERS": SubResource("Resource_rif6l"),
 "IRON_REFINERY": SubResource("Resource_q57ne"),
 "MECH_QUARTER": SubResource("Resource_oxstp"),
 "POWER_PLANT": SubResource("Resource_dkp5e"),

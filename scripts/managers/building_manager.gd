@@ -1,8 +1,8 @@
 class_name BuildingManager
 extends Node
 
-const WIDTH: int = 10
-const HEIGHT: int = 10
+const WIDTH: int = 5000
+const HEIGHT: int = 5000
 
 const DIRECTIONS = [
 	Vector2i(1, 0), Vector2i(-1, 0),
@@ -12,6 +12,7 @@ const DIRECTIONS = [
 ]
 
 enum BuildingType {
+	# result to empty is 0
 	EMPTY,
 	HEADQUARTERS,
 	ECO_DOME,
@@ -25,6 +26,7 @@ var _buildings: Array = []
 var _id_to_type = {}
 var _building_id_counter := 1
 
+
 func _ready() -> void:
 	# Populate buildings array with empty type
 	for y in range(HEIGHT):
@@ -37,36 +39,39 @@ func _ready() -> void:
 	_id_to_type[0] = BuildingType.EMPTY
 
 
-func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> void:
-	# Check spec
-	if building_spec.cost.size() == 0:
-		return
+## returns true if built successfully, false otherwise, based on cost and adjacency to other Building nodes
+func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> bool:
+	# If no cost spec, don't place
+	if building_spec.cost_levels.size() == 0:
+		return false
 	
 	# Check cost
-	var cost := building_spec.cost[0]
-	for resource_type in cost.keys():
-		var resource_cost:float = cost[resource_type]
+	var cost_spec := building_spec.cost_levels[0]
+	var cost_dict: Dictionary = cost_spec.cost
+	for resource_type in cost_dict.keys():
+		var resource_cost:float = cost_dict[resource_type]
 		var current_amount: float = resource_manager.get_resource(resource_type)
 		if current_amount < resource_cost:
-			return
-	
-	# Subtract cost
-	for resource_type in cost.keys():
-		var resource_cost:float = cost[resource_type]
-		resource_manager.add_precalculated(resource_type, -resource_cost)
-	
+			return false
+
+
 	# Bounds check
 	if (position.x < 0 or position.x + width > WIDTH or 
 				position.y < 0 or position.y + height > HEIGHT):
 		print_debug("build call out of bounds!")
-		return
-	
+		return false
+
 	# Check for existing buildings
 	for x in range(position.x, position.x + width):
 		for y in range(position.y, position.y + height):
 			if _buildings[y][x] != BuildingType.EMPTY:
 				print_debug("trying to place on existing building")
-				return
+				return false
+
+	# Subtract cost
+	for resource_type in cost_dict.keys():
+		var resource_cost:float = cost_dict[resource_type]
+		resource_manager.add_precalculated(resource_type, -resource_cost)
 	
 	# Fill buildings array
 	for x in range(position.x, position.x + width):
@@ -77,6 +82,8 @@ func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: 
 	_id_to_type[_building_id_counter] = building_spec.type
 	
 	_building_id_counter += 1
+	return true
+
 
 # Returns a list of vector2i's surrounding a single tile
 func get_adjacent_positions_single(position: Vector2i) -> Array[Vector2i]:
@@ -165,8 +172,8 @@ func get_building_type(position: Vector2i) -> BuildingType:
 	return _id_to_type[id]
 
 
-# Returns the total number of buildings built if the type is not specified
-# Returns the total number of buildings of a specified type otherwise
+## Returns the total number of buildings built if the type is not specified
+## Otherwise, returns the total number of buildings of a specified type otherwise
 func get_num_buildings(type: BuildingType = BuildingType.EMPTY) -> int:
 	
 	if type == BuildingType.EMPTY:

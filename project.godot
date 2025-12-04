@@ -29,6 +29,7 @@ settings_data="*res://scripts/core/settings_data.gd"
 UiScaleManager="*res://scripts/managers/ui_scale_manager.gd"
 game_data="*res://scripts/core/game_data.gd"
 layers="*res://scripts/managers/layer_manager.gd"
+build_man="*res://scripts/managers/building_manager.gd"
 Shuttle="*res://scripts/shuttle.gd"
 ScreenTriggers="*res://scripts/screen_triggers.gd"
 
@@ -114,4 +115,5 @@ engage_building_button={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"

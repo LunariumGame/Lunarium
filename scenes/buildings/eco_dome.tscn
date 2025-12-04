@@ -1,11 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgfq7odjk1hcx"]
+[gd_scene load_steps=8 format=3 uid="uid://dgfq7odjk1hcx"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_sid64"]
-[ext_resource type="Texture2D" uid="uid://dholdk43r0udg" path="res://assets/sprites/buildings/u1/eco_dome_1.svg" id="2_e5dil"]
 [ext_resource type="Script" uid="uid://cap1i0rek2d6n" path="res://scripts/buildings/eco_dome.gd" id="2_hww1b"]
+[ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="3_j3rju"]
+[ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="4_8kgej"]
+[ext_resource type="Texture2D" uid="uid://cdscvmm34rvis" path="res://assets/sprites/buildings/eco_domes/eco_dome_spritesheet.png" id="5_j3rju"]
+
+[sub_resource type="Resource" id="Resource_j3rju"]
+script = ExtResource("3_j3rju")
+cost = Dictionary[int, float]({
+0: 5.0,
+1: 5.0,
+2: 5.0,
+3: 0.0
+})
+metadata/_custom_type_script = "uid://0leikb15bp7y"
+
+[sub_resource type="Resource" id="Resource_v4082"]
+script = ExtResource("4_8kgej")
+cost_levels = Array[ExtResource("3_j3rju")]([SubResource("Resource_j3rju")])
+type = 2
+metadata/_custom_type_script = "uid://cy4nkunttcuy5"
 
 [node name="EcoDome" instance=ExtResource("1_sid64")]
 script = ExtResource("2_hww1b")
+building_spec = SubResource("Resource_v4082")
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_e5dil")
+scale = Vector2(4, 4)
+texture = ExtResource("5_j3rju")
+region_enabled = true
+region_rect = Rect2(75.14392, 18.857883, 57.99083, 51.61822)

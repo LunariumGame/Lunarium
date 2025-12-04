@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://bk2c6el5gj6vm" path="res://scripts/ui_components/resource_display.gd" id="4_a6ec8"]
 [ext_resource type="Texture2D" uid="uid://mjkrxk6sjcvc" path="res://assets/sprites/building.png" id="5_fok22"]
 [ext_resource type="Texture2D" uid="uid://fqnxvku6ehk1" path="res://assets/sprites/icon_robot.png" id="6_5qewb"]
-[ext_resource type="LabelSettings" uid="uid://dte7ki6on48e4" path="res://resources/ui/label_settings_regular.tres" id="7_a6ec8"]
 [ext_resource type="Script" uid="uid://4lk24jcuaq6g" path="res://scripts/ui_components/building/active_button_tracker.gd" id="9_do4pv"]
 [ext_resource type="Script" uid="uid://b2eoxpgf2ve3o" path="res://scripts/ui_components/building/building_button.gd" id="9_jswg8"]
 [ext_resource type="Theme" uid="uid://daewuul3ri2pl" path="res://resources/ui/hud_theme.tres" id="11_6pkrv"]
@@ -163,6 +162,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="TopLeft" type="MarginContainer" parent="HUD"]
 layout_mode = 1
@@ -378,14 +378,14 @@ layout_mode = 2
 focus_mode = 0
 text = "Residential"
 script = ExtResource("9_jswg8")
-building_type = 4
+building_type = 6
 
 [node name="Refinery" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 text = "Refinery"
 script = ExtResource("9_jswg8")
-building_type = 1
+building_type = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons"]
 layout_mode = 2
@@ -395,13 +395,14 @@ layout_mode = 2
 focus_mode = 0
 text = "Reactor"
 script = ExtResource("9_jswg8")
-building_type = 3
+building_type = 5
 
 [node name="Farm" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
 text = "Farm"
 script = ExtResource("9_jswg8")
+building_type = 2
 
 [node name="BotInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
 visible = false

@@ -1,9 +1,11 @@
 # global script that enforces a hierarchical ordering constraint for CanvasLayer nodes
 extends Node
 
-# enum order: lower layer -> top layer
+# enum order: lowest layer -> topmost layer
 enum order {
+	BUILDINGS,
 	HUD,
 	CURSOR,
-	SETTINGS
+	SETTINGS,
+	MAIN_MENU
 }

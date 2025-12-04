@@ -1,8 +1,9 @@
 class_name MainMenuScene
 extends CanvasLayer
 
+
 func _ready() -> void:
-	pass
+	layer = layers.order.MAIN_MENU
 
 
 func _on_start_game_pressed() -> void:

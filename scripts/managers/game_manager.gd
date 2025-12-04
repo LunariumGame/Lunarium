@@ -31,8 +31,9 @@ func end_turn() -> void:
 	Signals.turn_ended.emit(turn)
 	
 	# Handle electricity calculations
-	resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
-	Signals.turn_electricity_generation.emit(turn)
+	# NOTE: FIX ME! TEMPORARILY COMMENTED OUT FOR DEMO
+	#resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
+	#Signals.turn_electricity_generation.emit(turn)
 	
 	_logic_food_consumption_and_starvation()
 	

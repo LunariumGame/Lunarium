@@ -5,8 +5,10 @@
 
 [node name="BuildingCanvas" type="CanvasLayer"]
 layer = 0
+follow_viewport_enabled = true
 script = ExtResource("1_eossf")
 
 [node name="BuildingCursor" type="Sprite2D" parent="."]
 script = ExtResource("2_km2rk")
+tile_size = Vector2i(32, 32)
 metadata/_custom_type_script = "uid://bwsftqdqm0a8c"

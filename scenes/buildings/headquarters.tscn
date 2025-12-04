@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvurq12vfgtbk"]
+[gd_scene load_steps=4 format=3 uid="uid://cvurq12vfgtbk"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_jg0xg"]
 [ext_resource type="Script" uid="uid://boy2uvs8rqry" path="res://scripts/buildings/headquarters.gd" id="2_7kgpa"]
+[ext_resource type="Texture2D" uid="uid://dhgnj0v4745eg" path="res://assets/sprites/buildings/headquarters/headquarters_spritesheet.png" id="3_5ctyw"]
 
 [node name="HeadQuarters" instance=ExtResource("1_jg0xg")]
 script = ExtResource("2_7kgpa")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(5, 5)
+texture = ExtResource("3_5ctyw")
+region_enabled = true
+region_rect = Rect2(111.30674, 16.581884, 76.47143, 79.65773)
