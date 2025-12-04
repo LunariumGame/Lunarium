@@ -22,18 +22,12 @@ enum BuildingType {
 	RESIDENCE,
 }
 
-var _buildings: Array = []
+var _buildings: Dictionary[Vector2i, int] = {}
 var _id_to_type = {}
 var _building_id_counter := 1
 
 
 func _ready() -> void:
-	# Populate buildings array with empty type
-	for y in range(HEIGHT):
-		var row: Array[BuildingType] = []
-		for x in range(WIDTH):
-			row.append(BuildingType.EMPTY)
-		_buildings.append(row)
 	
 	# 0 = EMPTY
 	_id_to_type[0] = BuildingType.EMPTY
@@ -64,7 +58,7 @@ func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: 
 	# Check for existing buildings
 	for x in range(position.x, position.x + width):
 		for y in range(position.y, position.y + height):
-			if _buildings[y][x] != BuildingType.EMPTY:
+			if get_building(x, y) != BuildingType.EMPTY:
 				print_debug("trying to place on existing building")
 				return false
 
@@ -76,7 +70,7 @@ func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: 
 	# Fill buildings array
 	for x in range(position.x, position.x + width):
 		for y in range(position.y, position.y + height):
-			_buildings[y][x] = _building_id_counter
+			_set_building(x, y, _building_id_counter)
 	
 	# Create mapping
 	_id_to_type[_building_id_counter] = building_spec.type
@@ -164,7 +158,7 @@ func get_building_id(position: Vector2i) -> int:
 		print_debug("requesting building from out of bounds!")
 		return -1
 		
-	return _buildings[position.y][position.x]
+	return get_building(position.x, position.y)
 
 
 func get_building_type(position: Vector2i) -> BuildingType:
@@ -185,3 +179,11 @@ func get_num_buildings(type: BuildingType = BuildingType.EMPTY) -> int:
 			count += 1
 	
 	return count
+
+
+func get_building(x:int, y:int) -> int:
+	return _buildings.get(Vector2i(x, y), 0)
+
+
+func _set_building(x:int, y:int, id:int) -> void:
+	_buildings.set(Vector2i(x, y), id)
