@@ -68,7 +68,6 @@ metadata/_custom_type_script = "uid://dm1gqee5hpi86"
 follow_viewport_enabled = true
 script = ExtResource("11_jhx03")
 
-[node name="BuildingFinder" type="ShapeCast2D" parent="."]
 shape = SubResource("RectangleShape2D_e3hyu")
 target_position = Vector2(0, 0)
 max_results = 9999999

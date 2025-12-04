@@ -5,14 +5,10 @@ const WIDTH: int = 1000
 const HEIGHT: int = 1000
 
 const DIRECTIONS = [
-	Vector2i(1, 0), 
-	Vector2i(-1, 0),
-	Vector2i(0, 1), 
-	Vector2i(0, -1),
-	Vector2i(1, 1), 
-	Vector2i(-1, 1),
-	Vector2i(1, -1), 
-	Vector2i(-1, -1),
+	Vector2i(1, 0), Vector2i(-1, 0),
+	Vector2i(0, 1), Vector2i(0, -1),
+	Vector2i(1, 1), Vector2i(-1, 1),
+	Vector2i(1, -1), Vector2i(-1, -1),
 ]
 
 enum BuildingType {
@@ -38,9 +34,28 @@ func _ready() -> void:
 		for x in range(WIDTH):
 			row.append(BuildingType.EMPTY)
 		_buildings.append(row)
+	
+	# 0 = EMPTY
+	_id_to_type[0] = BuildingType.EMPTY
 
 
-func build(building_type: BuildingType, position: Vector2i, width: int, height: int) -> void:
+func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> void:
+	# Check spec
+	if building_spec.cost.size() == 0:
+		return
+	
+	# Check cost
+	var cost := building_spec.cost[0]
+	for resource_type in cost.keys():
+		var resource_cost:float = cost[resource_type]
+		var current_amount: float = resource_manager.get_resource(resource_type)
+		if current_amount < resource_cost:
+			return
+	
+	# Subtract cost
+	for resource_type in cost.keys():
+		var resource_cost:float = cost[resource_type]
+		resource_manager.add_precalculated(resource_type, -resource_cost)
 	
 	# Bounds check
 	if (position.x < 0 or position.x + width > WIDTH or 
@@ -48,13 +63,20 @@ func build(building_type: BuildingType, position: Vector2i, width: int, height: 
 		print_debug("build call out of bounds!")
 		return
 	
+	# Check for existing buildings
+	for x in range(position.x, position.x + width):
+		for y in range(position.y, position.y + height):
+			if _buildings[y][x] != BuildingType.EMPTY:
+				print_debug("trying to place on existing building")
+				return
+	
 	# Fill buildings array
 	for x in range(position.x, position.x + width):
 		for y in range(position.y, position.y + height):
 			_buildings[y][x] = _building_id_counter
 	
 	# Create mapping
-	_id_to_type[_building_id_counter] = building_type
+	_id_to_type[_building_id_counter] = building_spec.type
 	
 	_building_id_counter += 1
 
@@ -134,19 +156,13 @@ func get_building_id(position: Vector2i) -> int:
 	# Bounds check
 	if (position.x < 0 or position.x >= WIDTH or 
 				position.y < 0 or position.y >= HEIGHT):
-		print_debug("requesting building id from out of bounds!")
+		print_debug("requesting building from out of bounds!")
 		return -1
 		
 	return _buildings[position.y][position.x]
 
 
 func get_building_type(position: Vector2i) -> BuildingType:
-	# Bounds check
-	if (position.x < 0 or position.x >= WIDTH or 
-				position.y < 0 or position.y >= HEIGHT):
-		print_debug("requesting building type from out of bounds!")
-		return BuildingType.EMPTY
-		
 	var id: int = get_building_id(position)
 	return _id_to_type[id]
 
@@ -156,7 +172,7 @@ func get_building_type(position: Vector2i) -> BuildingType:
 func get_num_buildings(type: BuildingType = BuildingType.EMPTY) -> int:
 	
 	if type == BuildingType.EMPTY:
-		return _building_id_counter
+		return _building_id_counter - 1
 	
 	var count: int = 0
 	for id in _id_to_type.keys():

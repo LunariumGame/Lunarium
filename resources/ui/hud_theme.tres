@@ -1,0 +1,8 @@
+[gd_resource type="Theme" script_class="ScaleAwareTheme" load_steps=2 format=3 uid="uid://daewuul3ri2pl"]
+
+[ext_resource type="Script" uid="uid://cpnn4ftit3uje" path="res://scripts/scale_aware_theme.gd" id="1_28gy7"]
+
+[resource]
+default_font_size = 24
+script = ExtResource("1_28gy7")
+base_font_size = 24

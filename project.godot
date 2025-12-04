@@ -30,6 +30,7 @@ UiScaleManager="*res://scripts/managers/ui_scale_manager.gd"
 game_data="*res://scripts/core/game_data.gd"
 layers="*res://scripts/managers/layer_manager.gd"
 build_man="*res://scripts/managers/building_manager.gd"
+Shuttle="*res://scripts/shuttle.gd"
 
 [display]
 

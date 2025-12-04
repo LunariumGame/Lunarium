@@ -14,3 +14,13 @@ signal turn_electricity_generation(previous_turn_number:int)
 signal resource_value_changed(resource:ResourceManager.ResourceType, value:float)
 
 signal settings_opened()
+
+
+## Emitted when the game is won
+signal game_won()
+
+## Emitted when the game is lost
+signal game_lost()
+
+## Emitted when a shuttle arrives
+signal shuttle_arrived()

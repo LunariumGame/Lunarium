@@ -6,10 +6,15 @@ extends ResourceModifier
 @export var amount: float
 @export var priority: ResourceEngine.Priority
 @export var apply_time: ResourceEngine.ApplyTime
+@export var conditions: Array[ResourceModifierCondition] = []
 
 
 # The resource engine handles apply time 
-func apply(_actor:Object, value:float) -> float:
+func apply(actor:Object, value:float) -> float:
+	for condition in conditions:
+		if not condition.is_satisfied(actor, value):
+			return value
+	
 	match priority:
 		ResourceEngine.Priority.SUBTRACTIVE_NONNEGATIVE:
 			value -= amount
