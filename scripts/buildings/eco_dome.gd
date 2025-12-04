@@ -3,6 +3,11 @@ extends Building
 
 const BASE_FOOD_PRODUCTION:int = 10
 
+
+func _ready() -> void:
+	super()
+
+
 func _on_turn_started(_turn_number:int) -> void:
 	resource_manager.calculate_and_update(
 		ResourceManager.ResourceType.FOOD,

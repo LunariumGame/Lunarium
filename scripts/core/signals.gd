@@ -21,3 +21,6 @@ signal game_won()
 
 ## Emitted when the game is lost
 signal game_lost()
+
+## Emitted when a shuttle arrives
+signal shuttle_arrived()

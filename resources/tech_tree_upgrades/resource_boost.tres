@@ -28,12 +28,6 @@ metadata/_custom_type_script = "uid://dx0koo4fgwe6x"
 
 [resource]
 script = ExtResource("2_ew5ac")
-cost = Dictionary[int, float]({
-0: 0.0,
-1: 0.0,
-2: 50.0,
-3: 0.0
-})
 name = "Resource Boost"
 modifier_list = Array[ExtResource("1_ew5ac")]([SubResource("Resource_xvuom"), SubResource("Resource_sagdq")])
 metadata/_custom_type_script = "uid://bn5lwxvevygb0"
