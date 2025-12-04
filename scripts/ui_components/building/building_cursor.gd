@@ -15,6 +15,7 @@ func notify_not_placeable() -> void:
 	modulate = Color.CRIMSON
 	await get_tree().create_timer(red_cursor_duration).timeout
 	modulate = Color.WHITE
+	modulate.a = 0.5
 
 
 ## add a Building node to the colony from a BuildingButton event.
@@ -31,7 +32,6 @@ func place_building() -> bool:
 	var colony_buildings_node: Node = (
 		get_tree().get_root().get_node("World/PlacedBuildings")
 	)
-	colony_buildings_node.add_child(building_instance)
 	
 
 	building_instance.global_position = global_position
@@ -45,6 +45,10 @@ func place_building() -> bool:
 		width, height
 	)
 	
+	# only add child if placement is successful
+	if is_built:
+		colony_buildings_node.add_child(building_instance)
+		
 	return is_built
 
 
@@ -59,6 +63,8 @@ func _get_grid_coordinates() -> Vector2i:
 func _ready() -> void:
 	width = texture.get_width() * scale.x
 	height = texture.get_height() * scale.y
+	# assign BuildingCursor transparency to 50%
+	modulate.a = 0.5
 
 
 func _physics_process(_delta: float) -> void:

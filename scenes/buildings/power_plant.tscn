@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://0leikb15bp7y"
 
 [sub_resource type="Resource" id="Resource_pap3h"]
 script = ExtResource("4_e41u7")
-cost = Array[ExtResource("3_jn2df")]([SubResource("Resource_jn2df")])
+cost_levels = Array[ExtResource("3_jn2df")]([SubResource("Resource_jn2df")])
 type = 5
 metadata/_custom_type_script = "uid://cy4nkunttcuy5"
 

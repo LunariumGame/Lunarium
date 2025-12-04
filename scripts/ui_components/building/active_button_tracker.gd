@@ -26,7 +26,7 @@ func _free_cursor(target_button: BuildingButton) -> bool:
 	if node_to_free and is_instance_valid(node_to_free):
 		print("freeing ", node_to_free, " from ", target_button)
 		node_to_free.queue_free()
-		target_button.building_instance = null
+		target_button.cursor_instance = null
 		return true
 	
 	return false

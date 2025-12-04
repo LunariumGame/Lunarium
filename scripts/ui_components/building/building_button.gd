@@ -41,8 +41,6 @@ func _populate_cursor_on_click() -> void:
 	cursor_instance = building_canvas.get_node("BuildingCursor")
 	
 	cursor_instance.texture = preview_texture
-	# assign BuildingCursor transparency to 50%
-	cursor_instance.modulate.a = 0.5
 	
 	add_child(building_canvas)
 	

@@ -14,7 +14,7 @@ var _trackers:Dictionary[ResourceType, ResourceTracker]
 func _ready() -> void:
 	_trackers = {
 		ResourceType.FOOD: ResourceTracker.new(100),
-		ResourceType.ELECTRICITY: ResourceTracker.new(),
+		ResourceType.ELECTRICITY: ResourceTracker.new(100),
 		ResourceType.IRON: ResourceTracker.new(100),
 		ResourceType.POPULATION: ResourceTracker.new(1),
 	}

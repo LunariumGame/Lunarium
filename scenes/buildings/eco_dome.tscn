@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="3_j3rju"]
 [ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="4_8kgej"]
 
-[sub_resource type="Resource" id="Resource_fo458"]
+[sub_resource type="Resource" id="Resource_j3rju"]
 script = ExtResource("3_j3rju")
 cost = Dictionary[int, float]({
 0: 5.0,
@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://0leikb15bp7y"
 
 [sub_resource type="Resource" id="Resource_v4082"]
 script = ExtResource("4_8kgej")
-cost = Array[ExtResource("3_j3rju")]([SubResource("Resource_fo458")])
+cost_levels = Array[ExtResource("3_j3rju")]([SubResource("Resource_j3rju")])
 type = 2
 metadata/_custom_type_script = "uid://cy4nkunttcuy5"
 

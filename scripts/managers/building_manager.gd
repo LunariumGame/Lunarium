@@ -42,34 +42,36 @@ func _ready() -> void:
 # returns true if built successfully, false otherwise
 func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> bool:
 	# If no cost spec, don't place
-	if building_spec.cost.size() == 0:
+	if building_spec.cost_levels.size() == 0:
 		return false
 	
 	# Check cost
-	var cost := building_spec.cost[0]
-	for resource_type in cost.keys():
-		var resource_cost:float = cost[resource_type]
+	var cost_spec := building_spec.cost_levels[0]
+	var cost_dict: Dictionary = cost_spec.cost
+	for resource_type in cost_dict.keys():
+		var resource_cost:float = cost_dict[resource_type]
 		var current_amount: float = resource_manager.get_resource(resource_type)
 		if current_amount < resource_cost:
 			return false
-	
-	# Subtract cost
-	for resource_type in cost.keys():
-		var resource_cost:float = cost[resource_type]
-		resource_manager.add_precalculated(resource_type, -resource_cost)
-	
+
+
 	# Bounds check
 	if (position.x < 0 or position.x + width > WIDTH or 
 				position.y < 0 or position.y + height > HEIGHT):
 		print_debug("build call out of bounds!")
 		return false
-	
+
 	# Check for existing buildings
 	for x in range(position.x, position.x + width):
 		for y in range(position.y, position.y + height):
 			if _buildings[y][x] != BuildingType.EMPTY:
 				print_debug("trying to place on existing building")
 				return false
+
+	# Subtract cost
+	for resource_type in cost_dict.keys():
+		var resource_cost:float = cost_dict[resource_type]
+		resource_manager.add_precalculated(resource_type, -resource_cost)
 	
 	# Fill buildings array
 	for x in range(position.x, position.x + width):
