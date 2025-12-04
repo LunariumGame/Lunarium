@@ -9,15 +9,6 @@ var width: int
 var height: int
 
 var building_scene: PackedScene = null
-var type_to_place: build_man.BuildingType = build_man.BuildingType.EMPTY
-
-
-## returns `true` if the cursor location's grid coordinates are labelled empty
-## refactor: check against entirety of dimension (starting from top left)
-func is_placeable() -> bool:
-	var idx: Vector2i = _get_grid_coordinates()
-	return build_man._buildings[idx.x][idx.y] == build_man.BuildingType.EMPTY
-
 
 ## modulate BuildingCursor to indicate it is not placeable
 func notify_not_placeable() -> void:
@@ -26,11 +17,16 @@ func notify_not_placeable() -> void:
 	modulate = Color.WHITE
 
 
-## add a Building node to the colony from a BuildingButton event
-func place_building() -> void:
+## add a Building node to the colony from a BuildingButton event.
+## returns a bool as defined in BuildingManager.build()
+func place_building() -> bool:
+	var is_built := false
+	
 	var building_instance: Building = building_scene.instantiate()
 	if (building_instance == null):
-		push_error("building was not initialized prior to instantiation")
+		print_debug("building was not initialized prior to instantiation")
+		return is_built
+		
 
 	var colony_buildings_node: Node = (
 		get_tree().get_root().get_node("World/PlacedBuildings")
@@ -43,10 +39,13 @@ func place_building() -> void:
 	print("successfully added to colony: ", building_instance.name)
 	
 	# log building in build manager array (also returns building ID
-	build_man.build(
-		type_to_place, _get_grid_coordinates(),
+	# also notifies if placement was a success
+	is_built = build_man.build(
+		building_instance.building_spec, _get_grid_coordinates(),
 		width, height
 	)
+	
+	return is_built
 
 
 ## translate raw global_position to whole integer grid coordinates.

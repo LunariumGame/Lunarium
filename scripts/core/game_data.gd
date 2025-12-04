@@ -7,7 +7,7 @@ var asset_db: AssetDatabase = preload("res://resources/asset_db.tres")
 
 
 # upgrade level 1 by default (can be modified on a call in game manager)
-func get_building_texture(type: build_man.BuildingType, level: int = 1) -> Texture2D:
+func get_building_texture(type: BuildingManager.BuildingType, level: int = 1) -> Texture2D:
 	var building_name: String = _get_building_name(type)
 	
 	var data: BuildingData = asset_db.building_data[building_name]
@@ -22,7 +22,7 @@ func get_building_texture(type: build_man.BuildingType, level: int = 1) -> Textu
 
 
 # return building scene associated with type
-func get_building_scene(type: build_man.BuildingType) -> PackedScene:
+func get_building_scene(type: BuildingManager.BuildingType) -> PackedScene:
 	var building_name: String = _get_building_name(type)
 	
 	var data: BuildingData = asset_db.building_data[building_name]
@@ -30,8 +30,8 @@ func get_building_scene(type: build_man.BuildingType) -> PackedScene:
 	return data.building_scene
 	
 	
-func _get_building_name(type: build_man.BuildingType) -> String:
-	var building_name: String = build_man.BuildingType.find_key(type)
+func _get_building_name(type: BuildingManager.BuildingType) -> String:
+	var building_name: String = BuildingManager.BuildingType.find_key(type)
 	
 	if not asset_db.building_data.has(building_name):
 		push_error("no building data associated with: " + building_name)
