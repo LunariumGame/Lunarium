@@ -9,7 +9,7 @@ func _ready() -> void:
 
 
 func get_power_draw() -> float:
-	return 5
+	return 10
 
 
 func _on_turn_started(_turn_number:int) -> void:
