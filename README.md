@@ -30,11 +30,18 @@ If you used tutorials or other intellectual guidance to create aspects of your p
 
 ## Color Vision Deficiency Matrices
 
+All code for the CVD plugin was written in-house by Wen Kai.
+
 The color deficiency simulation matrices for our CVD Simulator plugin (`addons/cvd_sim) were based on the full strength CVD matrices from
 [*A Physiologically-based Model for Simulation of Color Vision Deficiency*](https://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html).
 That paper was found through the [Firefox Source Docs](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/simulation/index.html).
 
 The matrix for achromatopsia (monochrome vision) was based on [the GIMP luminance equation](https://docs.gimp.org/2.10/en/gimp-filter-desaturate.html).
+
+## Label/Button scaling
+
+The article ["The simplest way to scale UI in Godot"](https://humnom.net/thoughts/67b7374e-the-simplest-way-to-scale-ui-in-godot.html) was referenced when researching approaches to text scaling.
+We ultimately took a different approach for scaling.
 
 # Main Roles #
 
