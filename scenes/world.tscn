@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=18 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bpc6gps3lk4ac" path="res://scenes/ui_components/hud.tscn" id="2_4mrxx"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://2hdhlbnrajfh" path="res://resources/tech_tree_upgrades/resource_boost.tres" id="12_q5onr"]
 [ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="13_jhx03"]
 [ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="13_o8fc1"]
+[ext_resource type="PackedScene" uid="uid://bwq4nvmg3wux7" path="res://scenes/craters.tscn" id="15_xo05s"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7r4gi"]
 random_pitch = 1.1
@@ -79,3 +80,6 @@ shape = SubResource("RectangleShape2D_e3hyu")
 [node name="HeadQuarters" parent="." instance=ExtResource("12_jhx03")]
 position = Vector2(604, 409)
 building_spec = SubResource("Resource_o8fc1")
+
+[node name="Craters" parent="." instance=ExtResource("15_xo05s")]
+crater_count = 500

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d23uxg6wsi6f3"]
+
+[ext_resource type="Texture2D" uid="uid://dhkxdxtwmupd7" path="res://assets/sprites/world/craters.webp" id="1_i7sh2"]
+[ext_resource type="Script" uid="uid://bru1hb32m28s7" path="res://scripts/crater.gd" id="2_arkor"]
+
+[node name="Crater" type="Sprite2D"]
+texture = ExtResource("1_i7sh2")
+region_enabled = true
+region_rect = Rect2(0, 258, 128, 128)
+script = ExtResource("2_arkor")
