@@ -6,7 +6,7 @@ const ANIMATION_NAME = "off_u1"
 const FRAME_INDEX = 0
 
 @export var red_cursor_duration: float = 0.5
-@export var tile_size := Vector2i(16, 16)
+@export var tile_size := Vector2i(32, 32)
 
 var width: int
 var height: int
@@ -71,6 +71,10 @@ func set_cursor_texture():
 	# scale texture per building.gd specification
 	scale = building_instance.building_scale
 	texture = sprite_frame.get_frame_texture(ANIMATION_NAME, FRAME_INDEX)
+	
+	# width and height of BuildingCursor in the manager coordinate grid 
+	width = texture.get_width() * scale.x
+	height = texture.get_height() * scale.y
 
 
 ## translate raw global_position to whole integer grid coordinates.
@@ -82,8 +86,6 @@ func _get_grid_coordinates() -> Vector2i:
 
 
 func _ready() -> void:
-	width = texture.get_width() * scale.x
-	height = texture.get_height() * scale.y
 	# assign BuildingCursor transparency to 50%
 	modulate.a = 0.5
 
