@@ -1,7 +1,7 @@
 class_name PowerPlant
 extends Building
 
-const BASE_POWER_GENERATION:float = 10
+const BASE_POWER_GENERATION:float = 30
 
 
 func _ready() -> void:
