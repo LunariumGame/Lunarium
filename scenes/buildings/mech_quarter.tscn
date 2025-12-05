@@ -105,4 +105,3 @@ building_spec = SubResource("Resource_3rv3x")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_ye1a8")
-animation = &"idle_u1"

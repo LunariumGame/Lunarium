@@ -2,13 +2,17 @@
 class_name BuildingCursor
 extends Sprite2D
 
+const ANIMATION_NAME = "off_u1"
+const FRAME_INDEX = 0
+
 @export var red_cursor_duration: float = 0.5
 @export var tile_size := Vector2i(16, 16)
 
 var width: int
 var height: int
 
-var building_scene: PackedScene = null
+var building_instance: Building = null
+
 
 ## modulate BuildingCursor to indicate it is not placeable
 func notify_not_placeable() -> void:
@@ -23,7 +27,6 @@ func notify_not_placeable() -> void:
 func place_building() -> bool:
 	var is_built := false
 	
-	var building_instance: Building = building_scene.instantiate()
 	if (building_instance == null):
 		print_debug("building was not initialized prior to instantiation")
 		return is_built
@@ -50,6 +53,24 @@ func place_building() -> bool:
 		colony_buildings_node.add_child(building_instance)
 		
 	return is_built
+
+
+## Set texture of BuildingCursor based on PackedScene "off" frame retrieved in BuildingButton
+func set_cursor_texture():
+	if building_instance == null:
+		push_error("No instance to fetch texture from")
+		return
+	
+	var animated_sprite = building_instance.get_node("AnimatedSprite2D")
+	
+	if not is_instance_valid(animated_sprite):
+		push_error("No AnimatedSprite2D to fetch texture for cursor")
+		return
+		
+	var sprite_frame = animated_sprite.sprite_frames
+	# scale texture per building.gd specification
+	scale = building_instance.building_scale
+	texture = sprite_frame.get_frame_texture(ANIMATION_NAME, FRAME_INDEX)
 
 
 ## translate raw global_position to whole integer grid coordinates.

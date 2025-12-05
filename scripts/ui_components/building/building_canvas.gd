@@ -20,4 +20,4 @@ func _unhandled_input(event: InputEvent) -> void:
 				call_deferred("queue_free")
 			# otherwise cursor flashes red
 			else:
-				building_cursor.notify_not_placeable()
+				building_cursor.notify_not_placeable()	

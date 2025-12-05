@@ -5,6 +5,8 @@ extends Node2D
 
 @export var building_spec: BuildingSpec
 @export var max_level: int
+# NOTE: scale all inherited building sprites here across the entire game
+@export var building_scale := Vector2(4, 4)
 
 
 var is_powered:bool
@@ -14,6 +16,7 @@ var current_level:int = 1
 func _ready() -> void:
 	Signals.turn_started.connect(_on_turn_started)
 	Signals.turn_ended.connect(_on_turn_ended)
+	scale = building_scale
 
 
 func get_power_draw() -> float:

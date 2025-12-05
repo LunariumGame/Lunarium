@@ -9,7 +9,7 @@ const BUILDING_CANVAS = (
 var building_canvas: BuildingCanvas = null
 var cursor_instance: BuildingCursor = null
 
-@export var building_type: BuildingManager.BuildingType
+@export var building_scene: PackedScene
 
 
 func _ready() -> void:
@@ -23,30 +23,24 @@ func _populate_cursor_on_click() -> void:
 	var existing_cursor: BuildingCanvas = (
 		get_node_or_null(^"BuildingCanvas")
 	)
-	
 	if existing_cursor and is_instance_valid(existing_cursor):
+		return
+		
+	# return if scene was not assigned
+	if building_scene == null:
+		push_error("Assign a PackedScene to this BuildingButton")
 		return
 	
 	# let other building buttons know this button has taken activity priority
 	get_tree().call_group("tracker", "button_activated", self)
 	
-	var preview_texture: Texture2D = (
-		game_data.get_building_texture(building_type)
-	)
-	
-	if not preview_texture:
-		return
-
 	building_canvas = BUILDING_CANVAS.instantiate()	
 	cursor_instance = building_canvas.get_node("BuildingCursor")
 	
-	cursor_instance.texture = preview_texture
+	# expose building scene to cursor, and set texture as "off" frame
+	cursor_instance.building_instance = building_scene.instantiate()
+	cursor_instance.set_cursor_texture()
 	
 	add_child(building_canvas)
 	
-	print("Adding ", building_type," child with button: ", name)
-	
-	# set building scene for world instantiation
-	cursor_instance.building_scene = ( 
-		game_data.get_building_scene(building_type)
-	)
+	print("Adding ", building_scene," child with button: ", name)	
