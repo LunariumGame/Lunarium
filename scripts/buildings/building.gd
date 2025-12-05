@@ -22,7 +22,7 @@ func get_power_draw() -> float:
 
 ## Overriding implementations should call super() at the beginning .
 func _on_turn_started(_turn_number:int) -> void:
-	var power_draw:float = get_power_draw()
+	var power_draw:float = self.get_power_draw()
 	var available_electricity:float = resource_manager.get_resource(
 			ResourceManager.ResourceType.ELECTRICITY)
 	
