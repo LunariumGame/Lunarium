@@ -1,13 +1,95 @@
-[gd_scene load_steps=3 format=3 uid="uid://sr08scun8ys1"]
+[gd_scene load_steps=5 format=3 uid="uid://sr08scun8ys1"]
 
 [ext_resource type="Script" uid="uid://6myfee53w1xy" path="res://scripts/buildings/building.gd" id="1_a3sb6"]
+[ext_resource type="Script" uid="uid://b37pt6y4150c6" path="res://scripts/buildings/building_animations.gd" id="2_64dnl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a3sb6"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"buffed_u1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"buffed_u2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"buffed_u3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"create_u1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"create_u2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"create_u3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"delete_u1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"delete_u2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"delete_u3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_u1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_u2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_u3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"off_u1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"off_u2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"off_u3",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27e8i"]
 
 [node name="Building" type="Node2D"]
 script = ExtResource("1_a3sb6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a3sb6")
+animation = &"idle_u1"
+script = ExtResource("2_64dnl")
 
 [node name="Area2D" type="Area2D" parent="."]
 
