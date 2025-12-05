@@ -7,6 +7,8 @@ const FRAME_INDEX = 0
 
 @export var red_cursor_duration: float = 0.5
 @export var tile_size := Vector2i(32, 32)
+@export var outline_color: Color = Color(0.0, 0.0, 0.0, 1.0) # Default Red
+@export var outline_thickness: float = 2.0
 
 var width: int
 var height: int
@@ -68,14 +70,20 @@ func set_cursor_texture():
 		return
 		
 	var sprite_frame = animated_sprite.sprite_frames
-	# scale texture per building.gd specification
+	# scale texture per the building.gd specification
 	scale = building_instance.building_scale
 	texture = sprite_frame.get_frame_texture(ANIMATION_NAME, FRAME_INDEX)
 	
 	# width and height of BuildingCursor in the manager coordinate grid 
-	width = texture.get_width() * scale.x
-	height = texture.get_height() * scale.y
+	width = texture.get_width() #* scale.x
+	height = texture.get_height() #* scale.y
+	
 
+## Outline BuildingCursor with SpriteFrame dimensions
+func _draw():
+	var rect_size = Vector2(width, height)
+	var rect = Rect2(Vector2.ZERO, rect_size)
+	draw_rect(rect, outline_color, false, outline_thickness)
 
 ## translate raw global_position to whole integer grid coordinates.
 ## raw global_position is top_left of texture
@@ -88,6 +96,8 @@ func _get_grid_coordinates() -> Vector2i:
 func _ready() -> void:
 	# assign BuildingCursor transparency to 50%
 	modulate.a = 0.5
+	# call _draw()
+	queue_redraw()
 
 
 func _physics_process(_delta: float) -> void:
