@@ -92,6 +92,13 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
 
+## Wen Kai Yiang ([wk-y](https://github.com/wk-y))
+
+* [Building debug overlay](https://github.com/LunariumGame/Lunarium/pull/138)
+* Electricity generation mechanics:
+  * [Implementation](https://github.com/LunariumGame/Lunarium/pull/80)
+  * [Configuration](https://github.com/LunariumGame/Lunarium/pull/137)
+
 # Sub-Roles
 
 ## Audio
