@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://sr08scun8ys1"]
+[gd_scene load_steps=4 format=3 uid="uid://sr08scun8ys1"]
 
 [ext_resource type="Script" uid="uid://6myfee53w1xy" path="res://scripts/buildings/building.gd" id="1_a3sb6"]
+[ext_resource type="Script" uid="uid://dxx0x0ph2itdh" path="res://scripts/buildings/building_debugger.gd" id="2_64dnl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27e8i"]
 
@@ -13,3 +14,9 @@ script = ExtResource("1_a3sb6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_27e8i")
+
+[node name="BuildingDebugger" type="Label" parent="." node_paths=PackedStringArray("target")]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("2_64dnl")
+target = NodePath("..")
