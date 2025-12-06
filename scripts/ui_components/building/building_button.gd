@@ -20,9 +20,8 @@ func _ready() -> void:
 
 # populate with PackedScene building and follow cursor
 func _populate_cursor_on_click() -> void:
-	# if the BuildingCanvas already exists, return
-	var existing_cursor: Building = get_node_or_null(^"BuildingCursor")
-	if existing_cursor and is_instance_valid(existing_cursor):
+	# if a building cursor already exists, return
+	if cursor_instance != null and is_instance_valid(cursor_instance):
 		return
 		
 	# set as active building button
@@ -34,10 +33,13 @@ func _populate_cursor_on_click() -> void:
 
 # instanatiate building as a cursor with characteristics
 func _instantiate_cursor() -> void:
+	var colony_buildings_node: Node = (
+		get_tree().get_root().get_node("World/PlacedBuildings")
+	)
 	cursor_instance = building_cursor.instantiate()
 	cursor_instance.set_cursor_mode(true)
 	cursor_instance.name = "BuildingCursor"
-	add_child(cursor_instance)
+	colony_buildings_node.add_child(cursor_instance)
 	
 	cursor_sprite = cursor_instance.get_node("AnimatedSprite2D")
 	cursor_sprite.modulate.a = 0.5
@@ -49,14 +51,16 @@ func _instantiate_cursor() -> void:
 # follow cursor
 func _process(_delta: float) -> void:
 	if cursor_instance != null and is_instance_valid(cursor_instance):
-		cursor_instance.global_position = (
-			get_global_mouse_position().snapped(tile_size)
-		)
+		
+		# cumbersome: translate BuildingCursor coords from canvas -> world on mouse pos
+		var canvas_to_world_transform: Transform2D = get_viewport().get_canvas_transform().affine_inverse()
+		var mouse_pos_world: Vector2 = canvas_to_world_transform * get_global_mouse_position()
 
-		ptr = cursor_instance.global_position.snapped(tile_size)
-		# if it returns a valid building id, can't place here
-		# if it doesn't exist yet, can place
-		if build_man._buildings.get(ptr, 0):
+		cursor_instance.global_position = mouse_pos_world.snapped(tile_size)
+		ptr = Vector2i(cursor_instance.global_position)
+
+		# if collision, notify 
+		if cursor_area.is_overlapping():
 			cursor_instance.modulate = Color.RED
 		else:
 			cursor_instance.modulate = Color.WHITE
@@ -66,7 +70,7 @@ func _process(_delta: float) -> void:
 ## log location in BuildingManager for other in-game uses.
 func _place_building() -> void:
 	
-	if build_man._buildings.get(ptr, 0):
+	if cursor_area.is_overlapping():
 		return
 	
 	var colony_buildings_node: Node = (
@@ -86,13 +90,6 @@ func _place_building() -> void:
 	)
 	
 	cursor_instance.reparent(colony_buildings_node, true)
-	# I hate this, but necessary evil here
-	cursor_instance.global_position = (
-		get_viewport().get_canvas_transform().affine_inverse() 
-		* 
-		get_global_mouse_position().snapped(tile_size)
-	)
-	
 	cursor_instance.set_cursor_mode(false)
 	cursor_instance.name = (
 		cursor_instance.get_script().get_global_name() + "-" + str(building_id)
