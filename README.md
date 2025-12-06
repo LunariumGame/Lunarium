@@ -94,10 +94,33 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Wen Kai Yiang ([wk-y](https://github.com/wk-y))
 
-* [Building debug overlay](https://github.com/LunariumGame/Lunarium/pull/138)
-* Electricity generation mechanics:
+### Systems and Tools Engineer
+
+* Colorblindness simulator plugin - for use by UI, Asset, and Accessibility roles:
+  * [Colorblindness simulator implementation](https://github.com/LunariumGame/Lunarium/pull/39)
+  * [Refactor into an editor plugin](https://github.com/LunariumGame/Lunarium/pull/45)
+* Resource engine - stores and updates player's resource counts, handles upgrade modifiers
+  * [Resource engine](https://github.com/LunariumGame/Lunarium/pull/41) - implementation of engine and framework for upgrade modifiers 
+  * [Conditional modifiers](https://github.com/LunariumGame/Lunarium/pull/87) - framework for modifier conditions, implements a modifier to apply based on class
+* Electricity generation mechanics
   * [Implementation](https://github.com/LunariumGame/Lunarium/pull/80)
-  * [Configuration](https://github.com/LunariumGame/Lunarium/pull/137)
+  * [Configuration](https://github.com/LunariumGame/Lunarium/pull/137) - 
+  * [Building debug overlay](https://github.com/LunariumGame/Lunarium/pull/138) - used to debug power status
+* UI Scaling System
+   * [Label scaling](https://github.com/LunariumGame/Lunarium/pull/64) - scales labels
+   * [Button scaling](https://github.com/LunariumGame/Lunarium/pull/102) - scales buttons using the theme
+
+### Accessibility and Usability Design
+
+* UI Scaling
+   * [Label scaling](https://github.com/LunariumGame/Lunarium/pull/64) - scaling of labels in the HUD
+   * [Button scaling](https://github.com/LunariumGame/Lunarium/pull/102) - scaling of the next turn button
+
+### Core game mechanics
+* [Population growth shuttle](https://github.com/LunariumGame/Lunarium/pull/113) - provides the colony with population increases
+* [Starvation](https://github.com/LunariumGame/Lunarium/pull/109) - kills colonists when food runs out
+* [Win condition check](https://github.com/LunariumGame/Lunarium/pull/107) - win when population target is met
+* [Game loop](https://github.com/LunariumGame/Lunarium/pull/55) - handles game updates between turns
 
 # Sub-Roles
 
