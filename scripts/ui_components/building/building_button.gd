@@ -48,12 +48,12 @@ func _instantiate_cursor() -> void:
 
 # follow cursor
 func _process(_delta: float) -> void:
-	if has_node(^"BuildingCursor"):
+	if cursor_instance != null and is_instance_valid(cursor_instance):
 		cursor_instance.global_position = (
 			get_global_mouse_position().snapped(tile_size)
 		)
 
-		ptr = cursor_instance.global_position
+		ptr = cursor_instance.global_position.snapped(tile_size)
 		# if it returns a valid building id, can't place here
 		# if it doesn't exist yet, can place
 		if build_man._buildings.get(ptr, 0):

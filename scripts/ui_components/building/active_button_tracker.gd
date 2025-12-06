@@ -24,14 +24,16 @@ func button_activated(inc_active_button: BuildingButton) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not active_button:
 		return
+	
+	var cursor: Building = active_button.cursor_instance
 	if event.is_action_pressed("cancel_building_button"):
 		_free_cursor(active_button)
 		active_button = null
 		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("engage_building_button"):
-		var cursor: Building = active_button.get_node_or_null(^"BuildingCursor")
 		if cursor and is_instance_valid(cursor):
 			active_button._place_building()
+			active_button.cursor_instance = null
 			active_button = null
 			
 		get_viewport().set_input_as_handled()
@@ -39,7 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _free_cursor(target_button: BuildingButton) -> bool:
 	var node_to_free: Building = ( 
-		target_button.get_node_or_null(^"BuildingCursor")
+		target_button.cursor_instance
 	)
 
 	# is_instance_valid prevents double free
