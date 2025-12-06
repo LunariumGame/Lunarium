@@ -19,6 +19,6 @@ func _ready() -> void:
 		collision_shape.shape.extents *= tune_extents
 
 
-# test: better functionality with building manager? see build_button
+## Returns true if self Building is overlapping with one or more other Buildings
 func is_overlapping() -> bool:
 	return not get_overlapping_areas().is_empty()

@@ -36,9 +36,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("engage_building_button"):
 		if cursor and is_instance_valid(cursor):
-			active_button._place_building()
-			active_button.cursor_instance = null
-			active_button = null
+			var cursor_area := cursor.get_node("Area2D")
+			if not cursor_area.is_overlapping():
+				active_button._place_building()
+				# only making button null if successfully places
+				active_button.cursor_instance = null
+				active_button = null
 			
 		get_viewport().set_input_as_handled()
 
