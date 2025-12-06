@@ -46,7 +46,7 @@ jobs:
 
         # butler push to dev channel, but only when there is a push to dev (a PR is approved)
       - name: Upload to itch.io
-        if: github.event_name == 'push' && github.ref_name == 'dev'
+        if: github.event_name == 'push'
         run: butler push build/web/lunarium.zip hawkhobo/lunarium:${{ env.BRANCH_NAME }}
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
