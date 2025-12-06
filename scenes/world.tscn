@@ -77,5 +77,5 @@ metadata/_custom_type_script = "uid://dm1gqee5hpi86"
 shape = SubResource("RectangleShape2D_e3hyu")
 
 [node name="HeadQuarters" parent="." instance=ExtResource("12_jhx03")]
-position = Vector2(615, 409)
+position = Vector2(604, 409)
 building_spec = SubResource("Resource_o8fc1")
