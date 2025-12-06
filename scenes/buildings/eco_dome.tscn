@@ -10,7 +10,7 @@
 script = ExtResource("3_j3rju")
 cost = Dictionary[int, float]({
 0: 5.0,
-1: 5.0,
+1: 0.0,
 2: 5.0,
 3: 0.0
 })
@@ -604,3 +604,6 @@ building_spec = SubResource("Resource_v4082")
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_aqbxp")
 animation = &"off_u3"
+
+[node name="BuildingDebugger" parent="." index="2" node_paths=PackedStringArray("target")]
+target = NodePath("..")

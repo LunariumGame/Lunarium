@@ -172,3 +172,6 @@ script = ExtResource("2_7kgpa")
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_3ss73")
 animation = &"idle_u1"
+
+[node name="BuildingDebugger" parent="." index="2" node_paths=PackedStringArray("target")]
+target = NodePath("..")

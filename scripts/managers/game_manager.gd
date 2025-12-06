@@ -9,7 +9,7 @@ enum GameState {
 }
 
 
-const WIN_CONDITION_MIN_POPULATION:int = 500
+const WIN_CONDITION_MIN_POPULATION:int = 100
 
 const COLONIST_CONSUMPTION_PER_TURN:float = 1
 const STARVING_COLONIST_DEATH_RATE_PER_TURN:float = 0.5
@@ -31,9 +31,8 @@ func end_turn() -> void:
 	Signals.turn_ended.emit(turn)
 	
 	# Handle electricity calculations
-	# NOTE: FIX ME! TEMPORARILY COMMENTED OUT FOR DEMO
-	#resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
-	#Signals.turn_electricity_generation.emit(turn)
+	resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
+	Signals.turn_electricity_generation.emit(turn)
 	
 	_logic_food_consumption_and_starvation()
 	

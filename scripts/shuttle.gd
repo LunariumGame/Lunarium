@@ -1,8 +1,8 @@
 extends Node
 
-const BASE_TURNS_BETWEEN_SHUTTLES:int = 3
+const BASE_TURNS_BETWEEN_SHUTTLES:int = 5
 
-@export var colonists_per_shuttle:int = 10
+@export var colonists_per_shuttle:int = 20
 
 var turns_to_shuttle:int = BASE_TURNS_BETWEEN_SHUTTLES
 

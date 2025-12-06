@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://sr08scun8ys1"]
+[gd_scene load_steps=7 format=3 uid="uid://sr08scun8ys1"]
 
 [ext_resource type="Script" uid="uid://6myfee53w1xy" path="res://scripts/buildings/building.gd" id="1_a3sb6"]
 [ext_resource type="Script" uid="uid://b37pt6y4150c6" path="res://scripts/buildings/building_animations.gd" id="2_64dnl"]
 [ext_resource type="Script" uid="uid://dh3go6ocensfh" path="res://scripts/buildings/building_collider.gd" id="3_qcxio"]
+[ext_resource type="Script" uid="uid://dxx0x0ph2itdh" path="res://scripts/buildings/building_debugger.gd" id="4_daisx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3sb6"]
 animations = [{
@@ -98,3 +99,9 @@ script = ExtResource("3_qcxio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_27e8i")
+
+[node name="BuildingDebugger" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
+script = ExtResource("4_daisx")
