@@ -74,6 +74,7 @@ metadata/_custom_type_script = "uid://dm1gqee5hpi86"
 [node name="PlacedBuildings" type="Node2D" parent="."]
 
 [node name="BuildingFinder" type="ShapeCast2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_e3hyu")
 
 [node name="HeadQuarters" parent="." instance=ExtResource("12_jhx03")]
