@@ -6,6 +6,6 @@ enum order {
 	BUILDINGS,
 	HUD,
 	CURSOR,
+	MAIN_MENU,
 	SETTINGS,
-	MAIN_MENU
 }
