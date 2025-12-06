@@ -64,3 +64,7 @@ func _on_effects_volume_value_changed(value: float) -> void:
 
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_resume_pressed() -> void:
+	close()
