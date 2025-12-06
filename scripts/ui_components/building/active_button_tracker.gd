@@ -8,8 +8,11 @@ func _ready() -> void:
 
 # only one active button at a time	
 func button_activated(inc_active_button: BuildingButton) -> void:
-	# check if active_button is already active	
-	if _free_cursor(inc_active_button):
+	# check if active_button is already active
+	if active_button and is_instance_valid(active_button) and active_button == inc_active_button:
+		#if cursor was freed, no longer active
+		if _free_cursor(inc_active_button):
+			active_button = null
 		return
 
 	# for all non-active buttons with cursor, clear to prioritize active button		
@@ -22,7 +25,8 @@ func button_activated(inc_active_button: BuildingButton) -> void:
 
 ## Given InputEvent unhandled by UI, check for active BuildingCursor
 func _unhandled_input(event: InputEvent) -> void:
-	if not active_button:
+	if not active_button or not is_instance_valid(active_button):
+		active_button = null
 		return
 	
 	var cursor: Building = active_button.cursor_instance
