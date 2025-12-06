@@ -3,7 +3,7 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	layer = layers.order.MAIN_MENU
+	layer = order_man.order.MAIN_MENU
 	Signals.settings_closed.connect(_on_settings_closed)
 
 

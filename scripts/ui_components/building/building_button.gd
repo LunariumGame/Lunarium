@@ -2,51 +2,97 @@
 class_name BuildingButton
 extends Button
 
-const BUILDING_CANVAS = (
-	preload("res://scenes/ui_components/building_canvas.tscn")
-)
+@export var tile_size := Vector2i(32, 32)
 
-var building_canvas: BuildingCanvas = null
-var cursor_instance: BuildingCursor = null
+@export var building_cursor: PackedScene
+var cursor_instance: Building
+var cursor_sprite: AnimatedSprite2D
+var cursor_area: Area2D
 
-@export var building_type: BuildingManager.BuildingType
+# current position of cursor in building manager coords
+var ptr: Vector2i
 
 
 func _ready() -> void:
 	add_to_group("building_buttons")
 	pressed.connect(_populate_cursor_on_click)
+	
 
-
-# create a child of cursor that is a preview of the building clicked. follows cursor
+# populate with PackedScene building and follow cursor
 func _populate_cursor_on_click() -> void:
-	# if the BuildingCanvas already exists, return
-	var existing_cursor: BuildingCanvas = (
-		get_node_or_null(^"BuildingCanvas")
-	)
-	
-	if existing_cursor and is_instance_valid(existing_cursor):
+	# if a building cursor already exists, return
+	if cursor_instance != null and is_instance_valid(cursor_instance):
 		return
-	
-	# let other building buttons know this button has taken activity priority
+		
+	# set as active building button
 	get_tree().call_group("tracker", "button_activated", self)
 	
-	var preview_texture: Texture2D = (
-		game_data.get_building_texture(building_type)
-	)
-	
-	if not preview_texture:
-		return
+	_instantiate_cursor()
+	print("Adding ", cursor_instance," child with button: ", name)
 
-	building_canvas = BUILDING_CANVAS.instantiate()	
-	cursor_instance = building_canvas.get_node("BuildingCursor")
-	
-	cursor_instance.texture = preview_texture
-	
-	add_child(building_canvas)
-	
-	print("Adding ", building_type," child with button: ", name)
-	
-	# set building scene for world instantiation
-	cursor_instance.building_scene = ( 
-		game_data.get_building_scene(building_type)
+
+# instanatiate building as a cursor with characteristics
+func _instantiate_cursor() -> void:
+	var colony_buildings_node: Node = (
+		get_tree().get_root().get_node("World/PlacedBuildings")
 	)
+	cursor_instance = building_cursor.instantiate()
+	cursor_instance.set_cursor_mode(true)
+	cursor_instance.name = "BuildingCursor"
+	colony_buildings_node.add_child(cursor_instance)
+	
+	cursor_sprite = cursor_instance.get_node("AnimatedSprite2D")
+	cursor_sprite.modulate.a = 0.5
+	cursor_sprite.play("off_u1")
+	
+	cursor_area = cursor_instance.get_node("Area2D")
+
+
+# follow cursor
+func _process(_delta: float) -> void:
+	if cursor_instance != null and is_instance_valid(cursor_instance):
+		
+		# cumbersome: translate BuildingCursor coords from canvas -> world on mouse pos
+		var canvas_to_world_transform: Transform2D = get_viewport().get_canvas_transform().affine_inverse()
+		var mouse_pos_world: Vector2 = canvas_to_world_transform * get_global_mouse_position()
+
+		cursor_instance.global_position = mouse_pos_world.snapped(tile_size)
+		ptr = Vector2i(cursor_instance.global_position)
+
+		# if collision, notify 
+		if cursor_area.is_overlapping():
+			cursor_instance.modulate = Color.RED
+		else:
+			cursor_instance.modulate = Color.WHITE
+
+
+## add a Building node to the colony from a BuildingButton event.
+## log location in BuildingManager for other in-game uses.
+func _place_building() -> void:
+	
+	if cursor_area.is_overlapping():
+		return
+	
+	var colony_buildings_node: Node = (
+		get_tree().get_root().get_node("World/PlacedBuildings")
+	)
+	
+	var frame_size: Vector2 = cursor_instance.get_frame_wh()
+	var top_left_pos := (
+		Vector2i(cursor_instance.global_position.x - (frame_size.x / 2),
+				 cursor_instance.global_position.y - (frame_size.y / 2))
+	)
+
+	# log building in build manager array
+	var building_id = build_man.build(
+		cursor_instance.building_spec, top_left_pos,
+		frame_size.x, frame_size.y
+	)
+	
+	cursor_instance.reparent(colony_buildings_node, true)
+	cursor_instance.set_cursor_mode(false)
+	cursor_instance.name = (
+		cursor_instance.get_script().get_global_name() + "-" + str(building_id)
+	)
+	cursor_sprite.play("idle_u1")
+	cursor_sprite.modulate.a = 1.0
