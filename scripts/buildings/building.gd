@@ -8,6 +8,10 @@ extends Node2D
 # NOTE: scale all inherited building sprites here across the entire game
 @export var building_scale := Vector2(4, 4)
 
+@export var outline_color: Color = Color(0.0, 0.0, 0.0, 0.5)
+@export var outline_thickness: float = 2.0
+
+var is_cursor: bool = false
 
 var is_powered:bool
 var current_level:int = 1
@@ -17,13 +21,15 @@ func _ready() -> void:
 	Signals.turn_started.connect(_on_turn_started)
 	Signals.turn_ended.connect(_on_turn_ended)
 	scale = building_scale
+	z_index = order_man.order.BUILDINGS
+	queue_redraw()
 
 
 func get_power_draw() -> float:
 	return 0
 
 
-## Overriding implementations should call super() at the beginning .
+## Overriding implementations should call super() at the beginning
 func _on_turn_started(_turn_number:int) -> void:
 	var power_draw:float = get_power_draw()
 	var available_electricity:float = resource_manager.get_resource(
@@ -35,7 +41,7 @@ func _on_turn_started(_turn_number:int) -> void:
 				ResourceManager.ResourceType.ELECTRICITY, -power_draw)
 
 
-## Overriding implementations should call super() at the beginning .
+## Overriding implementations should call super() at the beginning
 func _on_turn_ended(_turn_number:int) -> void:
 	pass
 
@@ -59,3 +65,34 @@ func get_upgrade_cost(level: int) -> Cost:
 
 func get_type() -> BuildingManager.BuildingType:
 	return building_spec.type
+	
+
+## draw outline around building in cursor mode
+func _draw():
+	if not is_cursor:
+		return
+
+	var dim := get_frame_wh()
+	var rect = Rect2(-dim / 2, dim)
+	draw_rect(rect, outline_color, false, outline_thickness)
+
+
+func set_cursor_mode(enabled: bool) -> void:
+	is_cursor = enabled
+	queue_redraw()
+	
+	if is_cursor:
+		z_index = order_man.order.CURSOR
+	else:
+		z_index = order_man.order.BUILDINGS
+
+
+# adapted from: https://godotforums.org/d/19253-get-size-of-an-animated-sprite/9
+## Get width x height of first frame of current animation
+func get_frame_wh() -> Vector2:
+	var anim_sprite := $AnimatedSprite2D
+	var sprite_frames = anim_sprite.sprite_frames
+	var texture = sprite_frames.get_frame_texture(anim_sprite.animation, 0)
+	var texture_size = texture.get_size()
+	var as2d_size = texture_size * anim_sprite.get_scale()
+	return Vector2(as2d_size.x, as2d_size.y)

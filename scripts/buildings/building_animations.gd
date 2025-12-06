@@ -3,9 +3,9 @@ extends AnimatedSprite2D
 
 
 func _ready() -> void:
+	play("idle_u1")
 	pass
 
 
 func _process(delta: float) -> void:
-	# default idle animation
-	play("idle_u1")
+	pass

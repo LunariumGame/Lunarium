@@ -382,14 +382,14 @@ layout_mode = 2
 focus_mode = 0
 text = "Residential"
 script = ExtResource("9_jswg8")
-building_scene = ExtResource("11_ne71y")
+building_cursor = ExtResource("11_ne71y")
 
 [node name="Refinery" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 text = "Refinery"
 script = ExtResource("9_jswg8")
-building_scene = ExtResource("12_2w4nd")
+building_cursor = ExtResource("12_2w4nd")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons"]
 layout_mode = 2
@@ -399,14 +399,14 @@ layout_mode = 2
 focus_mode = 0
 text = "Reactor"
 script = ExtResource("9_jswg8")
-building_scene = ExtResource("13_ij283")
+building_cursor = ExtResource("13_ij283")
 
 [node name="Farm" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
 text = "Farm"
 script = ExtResource("9_jswg8")
-building_scene = ExtResource("14_afnkq")
+building_cursor = ExtResource("14_afnkq")
 
 [node name="BotInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
 visible = false
