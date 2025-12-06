@@ -27,6 +27,7 @@ func close():
 	get_tree().paused = false
 	hud.visible = true
 	window_manager.pop()
+	Signals.settings_closed.emit()
 	queue_free()
 
 
