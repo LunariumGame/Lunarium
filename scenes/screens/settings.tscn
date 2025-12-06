@@ -137,6 +137,33 @@ theme_override_styles/slider = SubResource("StyleBoxFlat_3otaf")
 max_value = 1.0
 step = 0.01
 
+[node name="ScaleSettings" type="VBoxContainer" parent="Settings/MainVBox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="UI" type="Label" parent="Settings/MainVBox/ScaleSettings"]
+layout_mode = 2
+text = "UI"
+label_settings = SubResource("LabelSettings_jljg7")
+
+[node name="Scale" type="Label" parent="Settings/MainVBox/ScaleSettings"]
+layout_mode = 2
+text = "Scale"
+label_settings = SubResource("LabelSettings_q3kmr")
+
+[node name="ScaleSlider" type="HSlider" parent="Settings/MainVBox/ScaleSettings"]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("3_q3kmr")
+theme_override_icons/grabber_highlight = ExtResource("3_q3kmr")
+theme_override_icons/grabber_disabled = ExtResource("3_q3kmr")
+theme_override_styles/slider = SubResource("StyleBoxFlat_3otaf")
+min_value = 0.5
+max_value = 2.0
+step = 0.5
+value = 1.0
+
 [node name="Buttons" type="VBoxContainer" parent="Settings/MainVBox"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
@@ -164,5 +191,6 @@ layout_mode = 2
 [connection signal="value_changed" from="Settings/MainVBox/AudioSettings/MasterVolume" to="." method="_on_master_volume_value_changed"]
 [connection signal="value_changed" from="Settings/MainVBox/AudioSettings/MusicVolume" to="." method="_on_music_volume_value_changed"]
 [connection signal="value_changed" from="Settings/MainVBox/AudioSettings/EffectsVolume" to="." method="_on_effects_volume_value_changed"]
+[connection signal="value_changed" from="Settings/MainVBox/ScaleSettings/ScaleSlider" to="." method="_on_scale_slider_value_changed"]
 [connection signal="pressed" from="Settings/MainVBox/Buttons/ResumeCenter/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Settings/MainVBox/Buttons/QuitCenter/QuitGame" to="." method="_on_quit_game_pressed"]
