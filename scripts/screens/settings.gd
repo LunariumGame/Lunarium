@@ -14,7 +14,7 @@ var hud : CanvasLayer
 @onready var effects_volume: HSlider = $"Settings/MainVBox/AudioSettings/EffectsVolume"
 
 func _ready():
-	layer = layers.order.SETTINGS
+	layer = order_man.order.SETTINGS
 	master_volume.value = settings_data.volume_value_master
 	music_volume.value = settings_data.volume_value_music
 	effects_volume.value = settings_data.volume_value_effects
