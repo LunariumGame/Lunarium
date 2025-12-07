@@ -109,21 +109,21 @@ player = NodePath("../CameraController")
 
 [node name="WorldBounds" type="StaticBody2D" parent="Camera"]
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Camera/WorldBounds"]
+[node name="TopWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
 position = Vector2(24, -3905)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_xo05s")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera/WorldBounds"]
+[node name="BottomWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
 position = Vector2(-4, 3787)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_dss4m")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera/WorldBounds"]
+[node name="LeftWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
 position = Vector2(-3177, -59)
 shape = SubResource("RectangleShape2D_7t5mc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/WorldBounds"]
+[node name="RightWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
 position = Vector2(3076, 2)
 shape = SubResource("RectangleShape2D_o8fc1")
 
