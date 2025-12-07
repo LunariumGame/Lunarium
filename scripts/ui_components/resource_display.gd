@@ -30,4 +30,9 @@ func _update_display() -> void:
 		var capacity := game_manager.get_electricity_capacity()
 		text = "%d / %d" % [usage, capacity]
 		return
+	if resource == ResourceManager.ResourceType.POPULATION:
+		var population := resource_manager.get_resource(ResourceManager.ResourceType.POPULATION)
+		var housing_capacity := game_manager.get_total_housing_capacity()
+		text = "%d / %d" % [population, housing_capacity]
+		return
 	text = "%d" % [resource_manager.get_resource(resource)]
