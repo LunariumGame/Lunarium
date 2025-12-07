@@ -90,6 +90,7 @@ visible = false
 position = Vector2(614, 406)
 
 [node name="Camera" type="Camera2D" parent="Camera" node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
 position = Vector2(614, 406)
 script = ExtResource("8_4mrxx")
 player = NodePath("../CameraController")

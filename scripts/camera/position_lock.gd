@@ -4,7 +4,7 @@ extends Camera2D
 
 @export var player:CharacterBody2D
 @export var zoom_speed: float = 0.1
-@export var min_zoom: float = 0.5
+@export var min_zoom: float = 0.3
 @export var max_zoom: float = 5.0
 
 # Called when the node enters the scene tree for the first time.

@@ -2,8 +2,9 @@ class_name Player
 extends CharacterBody2D
 
 func _physics_process(_delta: float) -> void:
-	var default_speed:float  = settings_data.default_speed
-	var sprint_speed:float = settings_data.default_speed * 3
+	var default_speed: float = settings_data.default_speed * clamp(1 / %Camera.zoom.x, 1, 3)
+	#var default_speed: float = settings_data.default_speed
+	var sprint_speed:float = default_speed * 3
 	var speed:float = default_speed
 	
 	# Get the input direction and handle the movement/deceleration.
