@@ -51,6 +51,7 @@ func end_turn() -> void:
 	# electricity recomputation handles reactors
 	recompute_electricity(null)
 	
+	Signals.turn_started_power_plant.emit(turn)
 	Signals.turn_started_eco_dome.emit(turn)
 	Signals.turn_started_refinery.emit(turn)
 	Signals.turn_started_residential.emit(turn)
@@ -106,7 +107,7 @@ func get_resource_cap(resource:ResourceManager.ResourceType) -> float:
 
 func recompute_electricity(building: Building) -> void:
 	resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
-	Signals.turn_started_power_plant.emit(turn)
+	Signals.recompute_power_plants.emit()
 	_computed_electricity_capacity = resource_manager.get_resource(ResourceManager.ResourceType.ELECTRICITY)
 	Signals.turn_process_power_draw.emit(turn)
 	Signals.resource_value_changed.emit()
