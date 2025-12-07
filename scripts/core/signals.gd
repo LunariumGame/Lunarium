@@ -3,6 +3,7 @@ extends Node
 ## Fires at the start of a turn.
 signal turn_started(turn_number:int)
 signal turn_started_power_plant(turn_number:int)
+signal turn_process_power_draw(turn_number:int)
 signal turn_started_eco_dome(turn_number:int)
 signal turn_started_refinery(turn_number:int)
 signal turn_started_residential(turn_number:int)

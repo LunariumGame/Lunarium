@@ -24,8 +24,6 @@ func get_power_draw() -> float:
 
 
 func _on_turn_started(_turn_number:int) -> void:
-	super(_turn_number)
-
 	resource_manager.calculate_and_update(
 		ResourceManager.ResourceType.ELECTRICITY,
 		self,

@@ -21,6 +21,8 @@ var current_level: int = 1
 
 
 func _ready() -> void:
+	Signals.turn_process_power_draw.connect(_process_power_draw)
+	
 	clickable_area.input_event.connect(_on_Area2D_input_event)
 	scale = building_scale
 	z_index = order_man.order.BUILDINGS
@@ -31,8 +33,7 @@ func get_power_draw() -> float:
 	return 0
 
 
-## Overriding implementations should call super() at the beginning
-func _on_turn_started(_turn_number:int) -> void:
+func _process_power_draw(_turn_number:int) -> void:
 	var power_draw:float = self.get_power_draw()
 	var available_electricity:float = resource_manager.get_resource(
 			ResourceManager.ResourceType.ELECTRICITY)
