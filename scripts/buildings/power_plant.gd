@@ -12,6 +12,8 @@ const PRODUCTION_TABLE := [
 func _ready() -> void:
 	Signals.turn_started_power_plant.connect(_on_turn_started)
 	Signals.turn_ended_power_plant.connect(_on_turn_ended)
+	
+	Signals.recompute_power_plants.connect(_compute_electricity_gen)
 	super()
 
 
@@ -23,17 +25,22 @@ func get_power_draw() -> float:
 	return 0
 
 
+func _on_turn_ended(_turn_number:int) -> void:
+	super(_turn_number)
+	_compute_electricity_gen()
+
+
 func _on_turn_started(_turn_number:int) -> void:
+	super(_turn_number)
+
+
+func _compute_electricity_gen() -> void:
 	resource_manager.calculate_and_update(
 		ResourceManager.ResourceType.ELECTRICITY,
 		self,
 		_get_production_rate(),
 		ResourceEngine.ApplyTime.ON_TURN_STARTED
 	)
-
-
-func _on_turn_ended(_turn_number:int) -> void:
-	super(_turn_number)
 
 
 func _get_selection_payload() -> Dictionary:

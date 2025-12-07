@@ -35,7 +35,7 @@ func get_power_draw() -> float:
 
 
 func _on_turn_started(_turn_number:int) -> void:
-	pass
+	super(_turn_number)
 
 
 func _on_turn_ended(_turn_number:int) -> void:
@@ -45,6 +45,7 @@ func _on_turn_ended(_turn_number:int) -> void:
 func _get_selection_payload() -> Dictionary:
 	return {
 		"Level": current_level,
+		"Powered": "Yes" if is_powered else "No",
 		"Housing Capacity": get_housing_capacity(),
 	}
 

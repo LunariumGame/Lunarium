@@ -33,6 +33,10 @@ func get_power_draw() -> float:
 	return POWER_TABLE[-1]
 
 
+func _on_turn_ended(_turn_number:int) -> void:
+	super(_turn_number)
+
+
 func _on_turn_started(_turn_number:int) -> void:
 	if is_powered:
 		resource_manager.calculate_and_update(
@@ -43,13 +47,10 @@ func _on_turn_started(_turn_number:int) -> void:
 		)
 
 
-func _on_turn_ended(_turn_number:int) -> void:
-	super(_turn_number)
-
-
 func _get_selection_payload() -> Dictionary:
 	return {
 		"Level": current_level,
+		"Powered": "Yes" if is_powered else "No",
 		"Iron Production": str(_get_production_rate()) + "/turn",
 	}
 
