@@ -19,13 +19,34 @@ const POWER_TABLE := [
 
 
 func _ready() -> void:
+	Signals.turn_started_residential.connect(_on_turn_started)
+	Signals.turn_ended_residential.connect(_on_turn_ended)
 	super()
+
+
+func emit_built_signal() -> void:
+	Signals.built_residential.emit()
 
 
 func get_power_draw() -> float:
 	if current_level < POWER_TABLE.size():
 		return POWER_TABLE[current_level]
 	return POWER_TABLE[-1]
+
+
+func _on_turn_started(_turn_number:int) -> void:
+	super(_turn_number)
+
+
+func _on_turn_ended(_turn_number:int) -> void:
+	super(_turn_number)
+
+
+func _get_selection_payload() -> Dictionary:
+	return {
+		"Level": current_level,
+		"Housing Capacity": get_housing_capacity(),
+	}
 
 
 func get_housing_capacity() -> int:

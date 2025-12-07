@@ -91,6 +91,7 @@ func _place_building() -> void:
 	
 	cursor_instance.reparent(colony_buildings_node, true)
 	cursor_instance.set_cursor_mode(false)
+	cursor_instance.emit_built_signal()
 	cursor_instance.name = (
 		cursor_instance.get_script().get_global_name() + "-" + str(building_id)
 	)

@@ -9,9 +9,9 @@
 [sub_resource type="Resource" id="Resource_j3rju"]
 script = ExtResource("3_j3rju")
 cost = Dictionary[int, float]({
-0: 5.0,
+0: 0.0,
 1: 0.0,
-2: 5.0,
+2: 10.0,
 3: 0.0
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"
@@ -600,6 +600,7 @@ animations = [{
 [node name="EcoDome" instance=ExtResource("1_sid64")]
 script = ExtResource("2_hww1b")
 building_spec = SubResource("Resource_v4082")
+max_level = 3
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_aqbxp")

@@ -13,9 +13,9 @@ var _trackers:Dictionary[ResourceType, ResourceTracker]
 
 func _ready() -> void:
 	_trackers = {
-		ResourceType.FOOD: ResourceTracker.new(100),
-		ResourceType.ELECTRICITY: ResourceTracker.new(100),
-		ResourceType.IRON: ResourceTracker.new(100),
+		ResourceType.FOOD: ResourceTracker.new(50),
+		ResourceType.IRON: ResourceTracker.new(50),
+		ResourceType.ELECTRICITY: ResourceTracker.new(0),
 		ResourceType.POPULATION: ResourceTracker.new(1),
 	}
 	
@@ -29,7 +29,7 @@ func get_resource(resource_type:ResourceType) -> float:
 
 func set_resource(resource_type:ResourceType, value:float) -> void:
 	_trackers[resource_type].value = value
-	Signals.resource_value_changed.emit(resource_type, get_resource(resource_type))
+	Signals.resource_value_changed.emit()
 
 
 ## Applies modifiers to value before adding the value to the resource.
@@ -44,7 +44,7 @@ func calculate_and_update(resource_type:ResourceType, actor:Object, value:float,
 func add_precalculated(resource_type:ResourceType, value:float) -> void:
 	
 	_trackers[resource_type].value += value
-	Signals.resource_value_changed.emit(resource_type, get_resource(resource_type))
+	Signals.resource_value_changed.emit()
 
 
 ## Calculates gained/lost/multiplied value with modifiers applied

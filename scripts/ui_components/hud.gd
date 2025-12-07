@@ -57,7 +57,7 @@ func toggle_panel(system: Systems) -> void:
 		resetCurrInspLabel()
 
 
-func toggle_panel_selected_building(building_id: int) -> void:
+func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> void:
 	# Hide all normal system panels + unpress buttons
 	for i in Systems.values():
 		if i < system_buttons.size():
@@ -69,9 +69,21 @@ func toggle_panel_selected_building(building_id: int) -> void:
 	var panel := system_panels[selected_index]
 	panel.visible = true
 
-	var label := panel.get_node("Label")
+	# ID
+	var label := panel.get_node("VBox/Label")
 	label.text = "Selected Building ID: " + str(building_id)
-	# Set currentlyinspecting label to building type name
+
+	# payload
+	var payload_container := panel.get_node("VBox/PayloadContainer")
+	for child in payload_container.get_children():
+		child.queue_free()
+	for key in payload.keys():
+		var value = payload[key]
+		var info_label = Label.new()
+		info_label.text = str(key) + ": " + str(value)
+		payload_container.add_child(info_label)
+
+	# Currentlyinspecting label
 	var building_type_index = build_man.get_building_type_from_id(building_id)
 	var building_type_name = build_man.BuildingType.find_key(building_type_index)
 	var pretty_name = building_type_name.replace("_", " ")
@@ -88,11 +100,12 @@ func _on_building_manager_pressed() -> void:
 	toggle_panel(Systems.BUILDING)
 
 
-func _on_building_selected(building_id: int) -> void:
-	print("Toggled: ", building_id)
-	toggle_panel_selected_building(building_id)
+func _on_building_selected(building_id: int, payload: Dictionary) -> void:
+	toggle_panel_selected_building(building_id, payload)
+
 
 func resetCurrInspLabel() -> void:
 	currentlyInspectingLabel.text = ""
+
 
 #endregion
