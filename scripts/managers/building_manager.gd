@@ -1,8 +1,8 @@
 class_name BuildingManager
 extends Node
 
-const WIDTH: int = 2500
-const HEIGHT: int = 2500
+const WIDTH: int = 5000
+const HEIGHT: int = 5000
 
 const DIRECTIONS = [
 	Vector2i(1, 0), Vector2i(-1, 0),
