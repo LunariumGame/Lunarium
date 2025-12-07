@@ -14,6 +14,8 @@ const MAX_SIZE = Vector2i(128, 128)
 var shake_amount:float = 1.0
 var hue:float = 0
 
+var current_scale:float = NAN
+
 @onready var texture_rect: TextureRect = $TextureRect
 
 
@@ -41,6 +43,10 @@ func _process(delta:float) -> void:
 	# calculate cursor scale
 	var scale_factor:float = minf(1.0 * screen_size.x / BASE_WIDTH, 1.0 * screen_size.y / BASE_HEIGHT) * shake_scale
 	scale_factor = maxf(1, minf(scale_factor, max_scale))
+	
+	if scale_factor == current_scale:
+		return
+	current_scale = scale_factor
 	
 	# apply cursor scaling
 	size = NATIVE_CURSOR_SIZE * scale_factor
