@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjk23c0o3dfbf"]
+
+[sub_resource type="GDScript" id="GDScript_05o1o"]
+script/source = "# special building that follows cursor
+class_name BuildingCursor
+extends Building
+
+
+
+var width: int
+var height: int
+
+var building_instance: Building = null
+
+
+
+## Set texture of BuildingCursor based on PackedScene \"off\" frame retrieved in BuildingButton
+func set_cursor_texture():
+	if building_instance == null:
+		push_error(\"No instance to fetch texture from\")
+		return
+	
+	var animated_sprite = building_instance.get_node(\"AnimatedSprite2D\")
+	
+	if not is_instance_valid(animated_sprite):
+		push_error(\"No AnimatedSprite2D to fetch texture for cursor\")
+		return
+		
+	var sprite_frame = animated_sprite.sprite_frames
+	# scale texture per the building.gd specification
+	scale = building_instance.building_scale
+#	texture = sprite_frame.get_frame_texture(ANIMATION_NAME, FRAME_INDEX)
+	
+	# width and height of BuildingCursor in the manager coordinate grid 
+#	width = texture.get_width()
+#	height = texture.get_height()
+	
+
+
+
+
+
+
+func _ready() -> void:
+	# assign BuildingCursor transparency to 50%
+	modulate.a = 0.5
+	z_index = order_man.order.CURSOR
+	# call _draw()
+	queue_redraw()
+"
+
+[node name="BuildingCursor" type="Sprite2D"]
+script = SubResource("GDScript_05o1o")

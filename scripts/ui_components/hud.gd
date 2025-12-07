@@ -17,8 +17,7 @@ enum Systems {TECH, BUILDING, BOT}
 
 
 func _ready() -> void:
-	print("layers value: ", layers.order.HUD)
-	layer = layers.order.HUD
+	layer = order_man.order.HUD
 
 
 func _on_settings_pressed() -> void:

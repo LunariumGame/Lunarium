@@ -30,15 +30,15 @@ var _building_id_counter := 1
 
 
 func _ready() -> void:
-	
 	# 0 = EMPTY
 	_id_to_type[0] = BuildingType.EMPTY
 
 
-func can_build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> bool:
+## returns building id if built successfully, 0 otherwise, based on cost and adjacency to other Building nodes
+func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> int:
 	# If no cost spec, don't place
 	if building_spec.cost_levels.size() == 0:
-		return false
+		return 0
 	
 	# Check cost
 	var cost_spec := building_spec.cost_levels[0]
@@ -47,23 +47,21 @@ func can_build(building_spec: BuildingSpec, position: Vector2i, width: int, heig
 		var resource_cost:float = cost_dict[resource_type]
 		var current_amount: float = resource_manager.get_resource(resource_type)
 		if current_amount < resource_cost:
-			return false
-	
+			return 0
+
+
 	# Bounds check
 	if (position.x < 0 or position.x + width > WIDTH or 
 				position.y < 0 or position.y + height > HEIGHT):
-		#print_debug("build call out of bounds!")
-		return false
-	
+		print_debug("build call out of bounds!")
+		return 0
+
 	# Check for existing buildings
 	for x in range(position.x, position.x + width):
 		for y in range(position.y, position.y + height):
 			if get_building(x, y) != BuildingType.EMPTY:
-				#print_debug("trying to place on existing building")
-				return false
-	
-	return true
-
+				print_debug("trying to place on existing building")
+				return 0
 
 ## returns true if built successfully, false otherwise, based on cost and adjacency to other Building nodes
 func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> bool:
@@ -102,7 +100,7 @@ func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: 
 	get_adjacent_buildings(_building_id_counter)
 	
 	_building_id_counter += 1
-	return true
+	return _building_id_counter - 1
 
 
 # Returns a list of vector2i's surrounding a single tile

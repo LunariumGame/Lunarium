@@ -3,7 +3,7 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	layer = layers.order.MAIN_MENU
+	layer = order_man.order.MAIN_MENU
 
 
 func _on_start_game_pressed() -> void:
