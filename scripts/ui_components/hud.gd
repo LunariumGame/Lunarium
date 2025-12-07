@@ -13,6 +13,7 @@ enum Systems {TECH, BUILDING}
 	%InspectorPanel/BuildingInspector,
 	%InspectorPanel/SelectedBuildingInspector
 ]
+@onready var currentlyInspectingLabel:Label = %TabButtons/CurrentInspect
 
 func _ready() -> void:
 	layer = order_man.order.HUD
@@ -39,6 +40,7 @@ func toggle_panel(system: Systems) -> void:
 		if system < system_buttons.size():
 			system_buttons[system].button_pressed = false
 		system_panels[system].visible = false
+		resetCurrInspLabel()
 		return
 	
 	# Toggle the rest off and enable selected
@@ -47,6 +49,12 @@ func toggle_panel(system: Systems) -> void:
 		if i < system_buttons.size():
 			system_buttons[i].button_pressed = is_selected
 		system_panels[i].visible = is_selected
+
+	# Set currentinyInspecting label to the panel type
+	if system == Systems.BUILDING:
+		currentlyInspectingLabel.text = "BUILDINGS"
+	else:
+		resetCurrInspLabel()
 
 
 func toggle_panel_selected_building(building_id: int) -> void:
@@ -63,6 +71,11 @@ func toggle_panel_selected_building(building_id: int) -> void:
 
 	var label := panel.get_node("Label")
 	label.text = "Selected Building ID: " + str(building_id)
+	# Set currentlyinspecting label to building type name
+	var building_type_index = build_man.get_building_type_from_id(building_id)
+	var building_type_name = build_man.BuildingType.find_key(building_type_index)
+	var pretty_name = building_type_name.replace("_", " ")
+	currentlyInspectingLabel.text = str(pretty_name)
 
 
 func _on_tech_tree_pressed() -> void:
@@ -79,5 +92,7 @@ func _on_building_selected(building_id: int) -> void:
 	print("Toggled: ", building_id)
 	toggle_panel_selected_building(building_id)
 
+func resetCurrInspLabel() -> void:
+	currentlyInspectingLabel.text = ""
 
 #endregion

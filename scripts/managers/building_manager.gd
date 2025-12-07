@@ -171,6 +171,12 @@ func get_building_type(position: Vector2i) -> BuildingType:
 	return _id_to_type[id]
 
 
+func get_building_type_from_id(id: int) -> BuildingType:
+	if id == -1:
+		return BuildingType.HEADQUARTERS
+	return _id_to_type[id]
+
+
 ## Returns the total number of buildings built if the type is not specified
 ## Otherwise, returns the total number of buildings of a specified type otherwise
 func get_num_buildings(type: BuildingType = BuildingType.EMPTY) -> int:
