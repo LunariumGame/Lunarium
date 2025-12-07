@@ -21,8 +21,8 @@ var current_level: int = 1
 
 
 func _ready() -> void:
-	Signals.turn_started.connect(_on_turn_started)
-	Signals.turn_ended.connect(_on_turn_ended)
+	#Signals.turn_started.connect(_on_turn_started)
+	#Signals.turn_ended.connect(_on_turn_ended)
 	clickable_area.input_event.connect(_on_Area2D_input_event)
 	scale = building_scale
 	z_index = order_man.order.BUILDINGS
@@ -72,6 +72,13 @@ func get_upgrade_cost(level: int) -> Cost:
 		return null
 	
 	return building_spec.cost[level - 1]
+
+
+func upgrade_level() -> bool:
+	if current_level < max_level:
+		current_level += 1
+		return true
+	return false
 
 
 func get_type() -> BuildingManager.BuildingType:
