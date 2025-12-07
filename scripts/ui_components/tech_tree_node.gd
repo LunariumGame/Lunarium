@@ -1,12 +1,10 @@
 class_name TechTreeNode
-extends Node2D
 
 
 # Is the upgrade allowed to be purchased at this time
-var unlocked: bool 
-var bought: bool
-
-@export var spec: TechTreeNodeSpec
+var unlocked: bool = false
+var bought: bool = false
+var spec: TechTreeNodeSpec
 
 func is_purchasable() -> bool:
 	return unlocked and _resource_costs_met() and not bought
