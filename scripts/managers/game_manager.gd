@@ -100,3 +100,9 @@ func get_total_housing_capacity() -> int:
 		if building is Residential:
 			total_capacity += building.get_housing_capacity()
 	return total_capacity
+
+func get_resource_cap(resource:ResourceManager.ResourceType) -> float:
+	match resource:
+		ResourceManager.ResourceType.ELECTRICITY: return get_electricity_capacity()
+		ResourceManager.ResourceType.POPULATION: return get_total_housing_capacity()
+		_: return NAN

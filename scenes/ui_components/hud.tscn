@@ -246,6 +246,7 @@ layout_mode = 2
 text = "XXX"
 label_settings = SubResource("LabelSettings_8125u")
 resource = 1
+inverted = true
 
 [node name="TopMid" type="MarginContainer" parent="HUD"]
 layout_mode = 1
