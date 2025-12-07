@@ -159,8 +159,8 @@ theme_override_icons/grabber = ExtResource("3_q3kmr")
 theme_override_icons/grabber_highlight = ExtResource("3_q3kmr")
 theme_override_icons/grabber_disabled = ExtResource("3_q3kmr")
 theme_override_styles/slider = SubResource("StyleBoxFlat_3otaf")
-min_value = 0.5
-max_value = 2.0
+min_value = 1.0
+max_value = 3.0
 step = 0.5
 value = 1.0
 
