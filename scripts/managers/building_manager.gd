@@ -35,10 +35,10 @@ func _ready() -> void:
 
 
 ## returns building id if built successfully, 0 otherwise, based on cost and adjacency to other Building nodes
-func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> int:
+func can_build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> bool:
 	# If no cost spec, don't place
 	if building_spec.cost_levels.size() == 0:
-		return 0
+		return false
 	
 	# Check cost
 	var cost_spec := building_spec.cost_levels[0]
@@ -47,27 +47,28 @@ func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: 
 		var resource_cost:float = cost_dict[resource_type]
 		var current_amount: float = resource_manager.get_resource(resource_type)
 		if current_amount < resource_cost:
-			return 0
-
-
+			return false
+	
 	# Bounds check
 	if (position.x < 0 or position.x + width > WIDTH or 
 				position.y < 0 or position.y + height > HEIGHT):
 		print_debug("build call out of bounds!")
-		return 0
+		return false
 
 	# Check for existing buildings
 	for x in range(position.x, position.x + width):
 		for y in range(position.y, position.y + height):
 			if get_building(x, y) != BuildingType.EMPTY:
 				print_debug("trying to place on existing building")
-				return 0
+				return false
+	
+	return true
 
-## returns true if built successfully, false otherwise, based on cost and adjacency to other Building nodes
-func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> bool:
+## returns building id if built successfully, 0 otherwise, based on cost and adjacency to other Building nodes
+func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> int:
 	
 	if not can_build(building_spec, position, width, height):
-		return false
+		return 0
 	
 	var cost_spec := building_spec.cost_levels[0]
 	var cost_dict: Dictionary = cost_spec.cost
@@ -97,7 +98,7 @@ func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: 
 	building_tiles[_building_id_counter] = tiles
 	
 	# DEDBUGGG
-	get_adjacent_buildings(_building_id_counter)
+	#get_adjacent_buildings(_building_id_counter)
 	
 	_building_id_counter += 1
 	return _building_id_counter - 1
