@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bvqdwlryncc6q" path="res://scenes/player.tscn" id="7_7r4gi"]
 [ext_resource type="Script" uid="uid://dm3fhxjge8xxk" path="res://scripts/camera/position_lock.gd" id="8_4mrxx"]
 [ext_resource type="Script" uid="uid://dm1gqee5hpi86" path="res://scripts/ui_components/tech_tree_node.gd" id="11_e3hyu"]
-[ext_resource type="Script" uid="uid://cpssjgiarinl8" path="res://scripts/ui_components/building/placed_buildings.gd" id="11_jhx03"]
+[ext_resource type="Script" path="res://scripts/ui_components/building/placed_buildings.gd" id="11_jhx03"]
 [ext_resource type="PackedScene" uid="uid://cvurq12vfgtbk" path="res://scenes/buildings/headquarters.tscn" id="12_jhx03"]
 [ext_resource type="Resource" uid="uid://2hdhlbnrajfh" path="res://resources/tech_tree_upgrades/resource_boost.tres" id="12_q5onr"]
 [ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="13_jhx03"]
