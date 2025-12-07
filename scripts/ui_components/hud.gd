@@ -99,7 +99,7 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 	else:
 		same_building_in_a_row = 0
 	if same_building_in_a_row >= 15:
-		currentlyInspectingLabel.text = "Calm down lol"
+		currentlyInspectingLabel.text = "calm down lol"
 	prev_building_id = building_id
 
 
