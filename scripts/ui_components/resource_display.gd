@@ -8,6 +8,11 @@ extends Label
 	get:
 		return resource
 
+@export var inverted:bool = false:
+	set(v):
+		inverted = v
+		if is_node_ready():
+			_update_display()
 
 func _ready() -> void:
 	Signals.resource_value_changed.connect(_on_resource_value_changed)
@@ -25,10 +30,11 @@ func _on_building_built(building: Node) -> void:
 
 
 func _update_display() -> void:
-	if resource == ResourceManager.ResourceType.ELECTRICITY:
-		var usage := game_manager.get_electricity_usage()
-		var capacity := game_manager.get_electricity_capacity()
-		text = "%d / %d" % [usage, capacity]
+	var cap:float = game_manager.get_resource_cap(resource)
+	var value:float = resource_manager.get_resource(resource)
+	
+	if is_nan(cap):
+		text = "%d" % [value]
 		return
 	if resource == ResourceManager.ResourceType.POPULATION:
 		var population := resource_manager.get_resource(ResourceManager.ResourceType.POPULATION)
@@ -36,3 +42,7 @@ func _update_display() -> void:
 		text = "%d / %d" % [population, housing_capacity]
 		return
 	text = "%d" % [resource_manager.get_resource(resource)]
+	
+	if inverted:
+		value = cap - value
+	text = "%d/%d" % [value, cap]
