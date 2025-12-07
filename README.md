@@ -116,6 +116,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 * UI Scaling
    * [Label scaling](https://github.com/LunariumGame/Lunarium/pull/64) - scaling of labels in the HUD
    * [Button scaling](https://github.com/LunariumGame/Lunarium/pull/102) - scaling of the next turn button
+* [Cursor scaling](https://github.com/LunariumGame/Lunarium/pull/149)
+   * Scale cursor based on screen resolution
+   * Shake to find cursor
 
 ### Core game mechanics
 * [Population growth shuttle](https://github.com/LunariumGame/Lunarium/pull/113) - provides the colony with population increases
