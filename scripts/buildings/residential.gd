@@ -45,6 +45,7 @@ func _on_turn_ended(_turn_number:int) -> void:
 func _get_selection_payload() -> Dictionary:
 	return {
 		"Level": current_level,
+		"Powered": "Yes" if is_powered else "No",
 		"Housing Capacity": get_housing_capacity(),
 	}
 
