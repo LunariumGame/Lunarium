@@ -21,5 +21,4 @@ func _on_resource_value_changed(_resource:ResourceManager.ResourceType, value:fl
 
 
 func _update_display(value:float) -> void:
-	var resource_string: String = ResourceManager.ResourceType.keys()[resource]
-	text = "%s: %d" % [resource_string.to_pascal_case(), value]
+	text = "%d" % [value]

@@ -87,7 +87,7 @@ focus_mode = 0
 theme_override_fonts/font = ExtResource("5_e21yp")
 theme_override_font_sizes/font_size = 72
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kacuo")
-text = "Start"
+text = "START"
 
 [node name="VSpace2" type="Control" parent="UIElements/MainVBox"]
 custom_minimum_size = Vector2(0, 20)
@@ -103,7 +103,7 @@ focus_mode = 0
 theme_override_fonts/font = ExtResource("5_e21yp")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kr80i")
-text = "Settings"
+text = "SETTINGS"
 
 [node name="VSpace3" type="Control" parent="UIElements/MainVBox"]
 custom_minimum_size = Vector2(0, 20)

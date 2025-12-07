@@ -1,8 +1,9 @@
 class_name BuildingManager
 extends Node
 
-const WIDTH: int = 5000
-const HEIGHT: int = 5000
+# Arbitrarily large because camera limits the world now
+const WIDTH: int = 25000
+const HEIGHT: int = 25000
 
 const DIRECTIONS = [
 	Vector2i(1, 0), Vector2i(-1, 0),
@@ -51,8 +52,8 @@ func can_build(building_spec: BuildingSpec, position: Vector2i, width: int, heig
 			return false
 	
 	# Bounds check
-	if (position.x < 0 or position.x + width > WIDTH or 
-				position.y < 0 or position.y + height > HEIGHT):
+	if (position.x < -WIDTH or position.x + width > WIDTH or 
+				position.y < -HEIGHT or position.y + height > HEIGHT):
 		print_debug("build call out of bounds!")
 		return false
 
@@ -151,8 +152,8 @@ func get_adjacent_buildings(building_id: int) -> Array[BuildingType]:
 ## Returns the building_id at a position or -1 if out of bounds
 func get_building_id(position: Vector2i) -> int:
 	# Bounds check
-	if (position.x < 0 or position.x >= WIDTH or 
-				position.y < 0 or position.y >= HEIGHT):
+	if (position.x < -WIDTH or position.x >= WIDTH or 
+				position.y < -HEIGHT or position.y >= HEIGHT):
 		#print_debug("requesting building from out of bounds!")
 		return -1
 	
@@ -162,12 +163,18 @@ func get_building_id(position: Vector2i) -> int:
 func get_building_type(position: Vector2i) -> BuildingType:
 	
 	# Bounds check
-	if (position.x < 0 or position.x >= WIDTH or 
-				position.y < 0 or position.y >= HEIGHT):
+	if (position.x < -WIDTH or position.x >= WIDTH or 
+				position.y < -HEIGHT or position.y >= HEIGHT):
 		#print_debug("requesting building from out of bounds!")
 		return BuildingType.EMPTY
 	
 	var id: int = get_building_id(position)
+	return _id_to_type[id]
+
+
+func get_building_type_from_id(id: int) -> BuildingType:
+	if id == -1:
+		return BuildingType.HEADQUARTERS
 	return _id_to_type[id]
 
 

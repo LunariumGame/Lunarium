@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=22 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bpc6gps3lk4ac" path="res://scenes/ui_components/hud.tscn" id="2_4mrxx"]
@@ -22,6 +22,18 @@ streams_count = 2
 stream_0/stream = ExtResource("6_i7141")
 stream_1/stream = ExtResource("7_4mrxx")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo05s"]
+size = Vector2(214, 12804)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dss4m"]
+size = Vector2(214, 12804)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7t5mc"]
+size = Vector2(214, 12804)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8fc1"]
+size = Vector2(214, 12804)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3hyu"]
 
 [sub_resource type="Resource" id="Resource_o8fc1"]
@@ -42,7 +54,7 @@ script = ExtResource("1_nnsk1")
 
 [node name="Audio" type="Node" parent="."]
 
-[node name="Music" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="Music" type="AudioStreamPlayer" parent="Audio"]
 process_mode = 3
 stream = ExtResource("5_71j4m")
 autoplay = true
@@ -85,13 +97,35 @@ crater_count = 500
 [node name="Camera" type="Node" parent="."]
 
 [node name="CameraController" parent="Camera" instance=ExtResource("7_7r4gi")]
+unique_name_in_owner = true
 visible = false
 position = Vector2(614, 406)
 
 [node name="Camera" type="Camera2D" parent="Camera" node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
 position = Vector2(614, 406)
 script = ExtResource("8_4mrxx")
 player = NodePath("../CameraController")
+
+[node name="WorldBounds" type="StaticBody2D" parent="Camera"]
+
+[node name="TopWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
+position = Vector2(24, -3905)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_xo05s")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
+position = Vector2(-4, 3787)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_dss4m")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
+position = Vector2(-3177, -59)
+shape = SubResource("RectangleShape2D_7t5mc")
+
+[node name="RightWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
+position = Vector2(3076, 2)
+shape = SubResource("RectangleShape2D_o8fc1")
 
 [node name="BuildingFinder" type="ShapeCast2D" parent="."]
 visible = false
