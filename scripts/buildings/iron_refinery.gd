@@ -1,22 +1,62 @@
 class_name IronRefinery
 extends Building
 
-const PRODUCED_RESOURCE := ResourceManager.ResourceType.IRON
+const PRODUCTION_TABLE := [
+	0, # lvl 0 unused
+	4,
+	8,
+	12,
+]
+
+# Power usage per level
+const POWER_TABLE := [
+	0, # lvl 0 unused
+	10,
+	15,
+	20,
+]
 
 
 func _ready() -> void:
+	Signals.turn_started_refinery.connect(_on_turn_started)
+	Signals.turn_ended_refinery.connect(_on_turn_ended)
 	super()
 
 
+func emit_built_signal() -> void:
+	Signals.built_refinery.emit()
+
+
 func get_power_draw() -> float:
-	return 10
+	if current_level < POWER_TABLE.size():
+		return POWER_TABLE[current_level]
+	return POWER_TABLE[-1]
 
 
-func _on_turn_started(turn:int) -> void:
-	super(turn)
-	resource_manager.calculate_and_update(PRODUCED_RESOURCE, self, _production_at_level(current_level), ResourceEngine.ApplyTime.ON_TURN_STARTED)
-	print(resource_manager.get_resource(PRODUCED_RESOURCE))
+func _on_turn_started(_turn_number:int) -> void:
+	super(_turn_number)
+
+	if is_powered:
+		resource_manager.calculate_and_update(
+			ResourceManager.ResourceType.IRON,
+			self,
+			_get_production_rate(),
+			ResourceEngine.ApplyTime.ON_TURN_STARTED
+		)
 
 
-static func _production_at_level(_level:int) -> float:
-	return _level * 4
+func _on_turn_ended(_turn_number:int) -> void:
+	super(_turn_number)
+
+
+func _get_selection_payload() -> Dictionary:
+	return {
+		"Level": current_level,
+		"Iron Production": str(_get_production_rate()) + "/turn",
+	}
+
+
+func _get_production_rate() -> float:
+	if current_level < PRODUCTION_TABLE.size():
+		return PRODUCTION_TABLE[current_level]
+	return PRODUCTION_TABLE[-1]

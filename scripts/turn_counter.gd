@@ -8,4 +8,4 @@ func _ready() -> void:
 
 
 func _update_turn_number(turn:int) -> void:
-	text = "Turn %d" % turn
+	text = "TURN %d" % turn

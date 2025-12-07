@@ -12,12 +12,18 @@ var hud : CanvasLayer
 @onready var master_volume: HSlider = $"Settings/MainVBox/AudioSettings/MasterVolume"
 @onready var music_volume: HSlider = $"Settings/MainVBox/AudioSettings/MusicVolume"
 @onready var effects_volume: HSlider = $"Settings/MainVBox/AudioSettings/EffectsVolume"
+@onready var ui_scale: HSlider = $"Settings/MainVBox/UISettings/ScaleSlider"
+@onready var cam_speed_scale: HSlider = $"Settings/MainVBox/CameraSettings/CameraSpeed"
 
 func _ready():
 	layer = order_man.order.SETTINGS
 	master_volume.value = settings_data.volume_value_master
 	music_volume.value = settings_data.volume_value_music
 	effects_volume.value = settings_data.volume_value_effects
+	ui_scale.value = settings_data.scale_value
+	cam_speed_scale.value = settings_data.default_speed
+	
+	
 	hud = get_tree().get_root().get_node("World/UI/HUD")
 	hud.visible = false
 	get_tree().paused = true
@@ -27,6 +33,7 @@ func close():
 	get_tree().paused = false
 	hud.visible = true
 	window_manager.pop()
+	Signals.settings_closed.emit()
 	queue_free()
 
 
@@ -61,5 +68,18 @@ func _on_effects_volume_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(2, linear_to_db(value))
 
 
+func _on_scale_slider_value_changed(value: float) -> void:
+	settings_data.scale_value = value
+	UiScaleManager.scale = value
+
+
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_resume_pressed() -> void:
+	close()
+
+
+func _on_camera_speed_value_changed(value: float) -> void:
+	settings_data.default_speed = value

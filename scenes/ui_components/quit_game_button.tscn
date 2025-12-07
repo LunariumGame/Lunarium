@@ -10,4 +10,4 @@ focus_mode = 0
 theme_override_fonts/font = ExtResource("1_mqfw7")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mqfw7")
-text = "Quit Game"
+text = "QUIT GAME"

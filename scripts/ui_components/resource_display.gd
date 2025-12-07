@@ -4,22 +4,29 @@ extends Label
 	set(v):
 		resource = v
 		if is_node_ready():
-			_update_display(resource_manager.get_resource(resource))
+			_update_display()
 	get:
 		return resource
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Signals.resource_value_changed.connect(_on_resource_value_changed)
-	_update_display(resource_manager.get_resource(resource))
+	# for electricity usage/capacity update
+	Signals.built_power_plant.connect(_on_resource_value_changed)
+	Signals.built_eco_dome.connect(_on_resource_value_changed)
+	Signals.built_refinery.connect(_on_resource_value_changed)
+	Signals.built_residential.connect(_on_resource_value_changed)
+	_update_display()
 
 
-func _on_resource_value_changed(_resource:ResourceManager.ResourceType, value:float) -> void:
-	if _resource == resource:
-		_update_display(value)
+func _on_resource_value_changed() -> void:
+	_update_display()
 
 
-func _update_display(value:float) -> void:
-	var resource_string: String = ResourceManager.ResourceType.keys()[resource]
-	text = "%s: %d" % [resource_string.to_pascal_case(), value]
+func _update_display() -> void:
+	if resource == ResourceManager.ResourceType.ELECTRICITY:
+		var usage := game_manager.get_electricity_usage()
+		var capacity := game_manager.get_electricity_capacity()
+		text = "%d / %d" % [usage, capacity]
+		return
+	text = "%d" % [resource_manager.get_resource(resource)]

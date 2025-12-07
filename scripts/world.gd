@@ -1,7 +1,6 @@
 class_name WorldScene
 extends Node
 
-@onready var tech_upgrade:TechTreeNode = get_node("TechTreeNode")
 @onready var building_finder: ShapeCast2D = $BuildingFinder
 
 
@@ -16,9 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta:float) -> void:
-	# Test upgrade
-	tech_upgrade.unlocked = true
-	tech_upgrade.purchase()
+	pass
 
 
 func _on_end_turn_pressed() -> void:

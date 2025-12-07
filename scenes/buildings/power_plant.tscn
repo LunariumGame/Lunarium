@@ -9,9 +9,9 @@
 [sub_resource type="Resource" id="Resource_jn2df"]
 script = ExtResource("3_jn2df")
 cost = Dictionary[int, float]({
-0: 5.0,
+0: 0.0,
 1: 0.0,
-2: 5.0,
+2: 10.0,
 3: 0.0
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"
@@ -306,6 +306,7 @@ _data = {
 [node name="PowerPlant" instance=ExtResource("1_afyay")]
 script = ExtResource("2_5nqxb")
 building_spec = SubResource("Resource_pap3h")
+max_level = 3
 
 [node name="BuildingDebugger" parent="." index="1" node_paths=PackedStringArray("target")]
 target = NodePath("..")

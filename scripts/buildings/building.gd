@@ -11,15 +11,17 @@ extends Node2D
 @export var outline_color: Color = Color(0.0, 0.0, 0.0, 0.5)
 @export var outline_thickness: float = 2.0
 
+@onready var clickable_area: Area2D = $Area2D
+
 var is_cursor: bool = false
 
-var is_powered:bool
-var current_level:int = 1
+var building_id: int = -1
+var is_powered: bool
+var current_level: int = 1
 
 
 func _ready() -> void:
-	Signals.turn_started.connect(_on_turn_started)
-	Signals.turn_ended.connect(_on_turn_ended)
+	clickable_area.input_event.connect(_on_Area2D_input_event)
 	scale = building_scale
 	z_index = order_man.order.BUILDINGS
 	queue_redraw()
@@ -46,6 +48,17 @@ func _on_turn_ended(_turn_number:int) -> void:
 	pass
 
 
+func _on_Area2D_input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			Signals.building_selected.emit(building_id, _get_selection_payload())
+
+
+# override it whenever possible in derived building classes
+func _get_selection_payload() -> Dictionary:
+	return {}
+
+
 func get_build_cost() -> Cost:
 	return get_upgrade_cost(1)
 
@@ -61,6 +74,13 @@ func get_upgrade_cost(level: int) -> Cost:
 		return null
 	
 	return building_spec.cost[level - 1]
+
+
+func upgrade_level() -> bool:
+	if current_level < max_level:
+		current_level += 1
+		return true
+	return false
 
 
 func get_type() -> BuildingManager.BuildingType:
@@ -85,3 +105,8 @@ func set_cursor_mode(enabled: bool) -> void:
 		z_index = order_man.order.CURSOR
 	else:
 		z_index = order_man.order.BUILDINGS
+
+
+func emit_built_signal() -> void:
+	pass
+
