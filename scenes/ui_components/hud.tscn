@@ -217,7 +217,7 @@ resource = 2
 
 [node name="Electricity" type="HBoxContainer" parent="HUD/TopLeft/Box/CenterContainer/GridContainer"]
 layout_mode = 2
-tooltip_text = "Electricity"
+tooltip_text = "Electricity: Required / Available"
 theme_override_constants/separation = 10
 
 [node name="ElectricityIcon" type="TextureRect" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Electricity"]

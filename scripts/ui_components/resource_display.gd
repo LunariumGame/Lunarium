@@ -37,6 +37,10 @@ func _update_display() -> void:
 	if resource == ResourceManager.ResourceType.ELECTRICITY:
 		var usage := game_manager.get_electricity_usage()
 		text = "%d / %d" % [usage, cap]
+		if usage > cap:
+			modulate = Color.RED
+		else:
+			modulate = Color.WHITE
 		return
 
 	# Special-case: POPULATION uses occupied/housing capacity
