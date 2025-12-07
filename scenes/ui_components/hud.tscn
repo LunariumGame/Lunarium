@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=40 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://omx3pl3xhdw" path="res://scenes/buildings/iron_refinery.tscn" id="12_2w4nd"]
 [ext_resource type="PackedScene" uid="uid://bmcgkpbcwft3l" path="res://scenes/buildings/power_plant.tscn" id="13_ij283"]
 [ext_resource type="PackedScene" uid="uid://dgfq7odjk1hcx" path="res://scenes/buildings/eco_dome.tscn" id="14_afnkq"]
+[ext_resource type="Theme" uid="uid://ccx1tgrq1y6x3" path="res://resources/ui/oldsteam.tres" id="18_haqli"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2itkv"]
 content_margin_left = 12.0
@@ -502,12 +503,7 @@ building_cursor = ExtResource("13_ij283")
 [node name="Farm" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
-theme_override_fonts/font = ExtResource("7_7utte")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+theme = ExtResource("18_haqli")
 text = "ECO DOME"
 script = ExtResource("9_jswg8")
 tile_size = null
