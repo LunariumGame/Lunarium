@@ -12,14 +12,15 @@ extends Label
 func _ready() -> void:
 	Signals.resource_value_changed.connect(_on_resource_value_changed)
 	# for electricity usage/capacity update
-	Signals.built_power_plant.connect(_on_resource_value_changed)
-	Signals.built_eco_dome.connect(_on_resource_value_changed)
-	Signals.built_refinery.connect(_on_resource_value_changed)
-	Signals.built_residential.connect(_on_resource_value_changed)
+	Signals.building_built.connect(_on_building_built)
 	_update_display()
 
 
 func _on_resource_value_changed() -> void:
+	_update_display()
+
+
+func _on_building_built(building: Node) -> void:
 	_update_display()
 
 

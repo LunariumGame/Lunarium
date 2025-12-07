@@ -15,13 +15,10 @@ signal turn_ended_refinery(turn_number:int)
 signal turn_ended_residential(turn_number:int)
 
 # building built signals
-signal built_power_plant()
-signal built_eco_dome()
-signal built_refinery()
-signal built_residential()
+signal building_built(building: Node)
 
 ## Emitted when the amount of a resource that the player has is changed.
-signal resource_value_changed(resource:ResourceManager.ResourceType, value:float)
+signal resource_value_changed()
 
 signal settings_opened()
 signal settings_closed()
