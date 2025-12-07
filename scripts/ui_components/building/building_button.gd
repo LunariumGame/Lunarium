@@ -6,7 +6,8 @@ extends Button
 
 @export var building_cursor: PackedScene
 var cursor_instance: Building
-var cursor_sprite: AnimatedSprite2D
+var cursor_sprite: Sprite2D
+var cursor_anim: AnimationTree
 var cursor_area: Area2D
 
 # current position of cursor in building manager coords
@@ -31,7 +32,7 @@ func _populate_cursor_on_click() -> void:
 	print("Adding ", cursor_instance," child with button: ", name)
 
 
-# instanatiate building as a cursor with characteristics
+# instantiate building as a cursor with characteristics
 func _instantiate_cursor() -> void:
 	var colony_buildings_node: Node = (
 		get_tree().get_root().get_node("World/PlacedBuildings")
@@ -41,11 +42,10 @@ func _instantiate_cursor() -> void:
 	cursor_instance.name = "BuildingCursor"
 	colony_buildings_node.add_child(cursor_instance)
 	
-	cursor_sprite = cursor_instance.get_node("AnimatedSprite2D")
+	cursor_sprite = cursor_instance.get_node("Sprite2D")
 	cursor_sprite.modulate.a = 0.5
-	cursor_sprite.play("off_u1")
-	
 	cursor_area = cursor_instance.get_node("Area2D")
+	cursor_anim = cursor_instance.get_node("AnimationTree")
 
 
 # follow cursor
@@ -57,8 +57,6 @@ func _process(_delta: float) -> void:
 		var mouse_pos_world: Vector2 = canvas_to_world_transform * get_global_mouse_position()
 
 		cursor_instance.global_position = mouse_pos_world.snapped(tile_size)
-		ptr = Vector2i(cursor_instance.global_position)
-
 		# if collision, notify 
 		if cursor_area.is_overlapping():
 			cursor_instance.modulate = Color.RED
@@ -69,7 +67,6 @@ func _process(_delta: float) -> void:
 ## add a Building node to the colony from a BuildingButton event.
 ## log location in BuildingManager for other in-game uses.
 func _place_building() -> void:
-	
 	if cursor_area.is_overlapping():
 		return
 	
@@ -77,7 +74,7 @@ func _place_building() -> void:
 		get_tree().get_root().get_node("World/PlacedBuildings")
 	)
 	
-	var frame_size: Vector2 = cursor_instance.get_frame_wh()
+	var frame_size: Vector2 = cursor_sprite.get_frame_wh()
 	var top_left_pos := (
 		Vector2i(cursor_instance.global_position.x - (frame_size.x / 2),
 				 cursor_instance.global_position.y - (frame_size.y / 2))
@@ -94,5 +91,5 @@ func _place_building() -> void:
 	cursor_instance.name = (
 		cursor_instance.get_script().get_global_name() + "-" + str(building_id)
 	)
-	cursor_sprite.play("idle_u1")
 	cursor_sprite.modulate.a = 1.0
+	cursor_anim.set("parameters/conditions/place_building", true)

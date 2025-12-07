@@ -72,7 +72,7 @@ func _draw():
 	if not is_cursor:
 		return
 
-	var dim := get_frame_wh()
+	var dim: Vector2 = $Sprite2D.get_frame_wh()
 	var rect = Rect2(-dim / 2, dim)
 	draw_rect(rect, outline_color, false, outline_thickness)
 
@@ -85,14 +85,3 @@ func set_cursor_mode(enabled: bool) -> void:
 		z_index = order_man.order.CURSOR
 	else:
 		z_index = order_man.order.BUILDINGS
-
-
-# adapted from: https://godotforums.org/d/19253-get-size-of-an-animated-sprite/9
-## Get width x height of first frame of current animation
-func get_frame_wh() -> Vector2:
-	var anim_sprite := $AnimatedSprite2D
-	var sprite_frames = anim_sprite.sprite_frames
-	var texture = sprite_frames.get_frame_texture(anim_sprite.animation, 0)
-	var texture_size = texture.get_size()
-	var as2d_size = texture_size * anim_sprite.get_scale()
-	return Vector2(as2d_size.x, as2d_size.y)

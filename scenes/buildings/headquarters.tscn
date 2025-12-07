@@ -1,8 +1,39 @@
-[gd_scene load_steps=21 format=3 uid="uid://cvurq12vfgtbk"]
+[gd_scene load_steps=25 format=3 uid="uid://cvurq12vfgtbk"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_jg0xg"]
 [ext_resource type="Script" uid="uid://boy2uvs8rqry" path="res://scripts/buildings/headquarters.gd" id="2_7kgpa"]
 [ext_resource type="Texture2D" uid="uid://dhgnj0v4745eg" path="res://assets/sprites/buildings/headquarters/headquarters_spritesheet.png" id="3_5ctyw"]
+
+[sub_resource type="GDScript" id="GDScript_5ctyw"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+## Get width x height of first frame of current animation
+func get_frame_wh() -> Vector2:
+	return Vector2(
+		texture.get_width() / hframes, texture.get_height() / vframes
+	)
+"
+
+[sub_resource type="Animation" id="Animation_5ctyw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_daisx"]
 resource_name = "buffed_u1"
@@ -243,21 +274,6 @@ tracks/0/keys = {
 "values": [71]
 }
 
-[sub_resource type="Animation" id="Animation_5ctyw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7kgpa"]
 _data = {
 &"RESET": SubResource("Animation_5ctyw"),
@@ -278,6 +294,20 @@ _data = {
 &"off_u3": SubResource("Animation_4hstu")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u6fk5"]
+animation = &"idle_u1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f6oyp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5ctyw"]
+states/End/position = Vector2(347, -78)
+states/Start/position = Vector2(266, -10)
+states/idle_u1/node = SubResource("AnimationNodeAnimation_u6fk5")
+states/idle_u1/position = Vector2(443, -10)
+transitions = ["Start", "idle_u1", SubResource("AnimationNodeStateMachineTransition_f6oyp")]
+graph_offset = Vector2(0, -160.25139)
+
 [node name="HeadQuarters" instance=ExtResource("1_jg0xg")]
 script = ExtResource("2_7kgpa")
 
@@ -289,8 +319,12 @@ texture = ExtResource("3_5ctyw")
 hframes = 4
 vframes = 4
 frame = 1
+script = SubResource("GDScript_5ctyw")
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
 &"": SubResource("AnimationLibrary_7kgpa")
 }
+
+[node name="AnimationTree" parent="." index="4"]
+tree_root = SubResource("AnimationNodeStateMachine_5ctyw")
