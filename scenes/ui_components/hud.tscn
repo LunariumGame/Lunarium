@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=39 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
@@ -98,6 +98,13 @@ shadow_size = 4
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pkrv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ne71y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3esv6"]
+font_size = 24
+font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+script = ExtResource("3_v2n4f")
+base_font_size = 24
+metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2w4nd"]
 bg_color = Color(0.6745098, 0.7254902, 0.7137255, 0.8)
@@ -346,6 +353,13 @@ action_mode = 0
 icon = ExtResource("5_fok22")
 icon_alignment = 1
 expand_icon = true
+
+[node name="CurrentInspect" type="Label" parent="HUD/BotLeft/Box/VBox/TabButtons"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "CurrentInspect"
+label_settings = SubResource("LabelSettings_3esv6")
+horizontal_alignment = 2
 
 [node name="InspectorPanel" type="PanelContainer" parent="HUD/BotLeft/Box/VBox"]
 unique_name_in_owner = true
