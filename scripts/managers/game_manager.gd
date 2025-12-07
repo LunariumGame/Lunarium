@@ -15,12 +15,16 @@ const COLONIST_CONSUMPTION_PER_TURN:float = 1
 const STARVING_COLONIST_DEATH_RATE_PER_TURN:float = 0.5
 
 var turn:int = 1
+var _computed_electricity_capacity:float = 0
 
 var state := GameState.IN_PROGRESS
 
 
 func _ready() -> void:
-	pass
+	Signals.built_power_plant.connect(recompute_electricity)
+	Signals.built_eco_dome.connect(recompute_electricity)
+	Signals.built_refinery.connect(recompute_electricity)
+	Signals.built_residential.connect(recompute_electricity)
 	
 
 func end_turn() -> void:
@@ -46,7 +50,10 @@ func end_turn() -> void:
 	
 	turn += 1
 	Signals.turn_started.emit(turn)
-	Signals.turn_started_power_plant.emit(turn)
+	
+	# electricity recomputation handles reactors
+	recompute_electricity()
+	
 	Signals.turn_started_eco_dome.emit(turn)
 	Signals.turn_started_refinery.emit(turn)
 	Signals.turn_started_residential.emit(turn)
@@ -84,15 +91,6 @@ func get_electricity_usage() -> float:
 	return total_usage
 
 
-func get_electricity_capacity() -> float:
-	var total_capacity := 0.0
-	var placed_buildings := get_node("/root/World/PlacedBuildings").get_children()
-	for building in placed_buildings:
-		if building is PowerPlant:
-			total_capacity += building._get_production_rate()
-	return total_capacity
-
-
 func get_total_housing_capacity() -> int:
 	var total_capacity := 0
 	var placed_buildings := get_node("/root/World/PlacedBuildings").get_children()
@@ -101,8 +99,16 @@ func get_total_housing_capacity() -> int:
 			total_capacity += building.get_housing_capacity()
 	return total_capacity
 
+
 func get_resource_cap(resource:ResourceManager.ResourceType) -> float:
 	match resource:
-		ResourceManager.ResourceType.ELECTRICITY: return get_electricity_capacity()
+		ResourceManager.ResourceType.ELECTRICITY: return _computed_electricity_capacity
 		ResourceManager.ResourceType.POPULATION: return get_total_housing_capacity()
 		_: return NAN
+
+
+func recompute_electricity() -> void:
+	resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
+	Signals.turn_started_power_plant.emit(turn)
+	_computed_electricity_capacity = resource_manager.get_resource(ResourceManager.ResourceType.ELECTRICITY)
+	Signals.turn_process_power_draw.emit(turn)
