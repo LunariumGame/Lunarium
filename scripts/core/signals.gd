@@ -2,9 +2,15 @@ extends Node
 
 ## Fires at the start of a turn.
 signal turn_started(turn_number:int)
+signal turn_started_power_plant(turn_number:int)
+signal turn_started_eco_dome(turn_number:int)
+signal turn_started_refinery(turn_number:int)
 
 ## Fires at the end of a turn.
 signal turn_ended(turn_number:int)
+signal turn_ended_power_plant(turn_number:int)
+signal turn_ended_eco_dome(turn_number:int)
+signal turn_ended_refinery(turn_number:int)
 
 ## Fires during the electricity generation phase of the inter-turn period
 signal turn_electricity_generation(previous_turn_number:int)

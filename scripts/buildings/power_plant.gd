@@ -1,18 +1,40 @@
 class_name PowerPlant
 extends Building
 
-const BASE_POWER_GENERATION:float = 30
+const PRODUCTION_TABLE := [
+	0,   # lvl 0 unused
+	10,
+	20,
+	30,
+]
 
 
 func _ready() -> void:
+	Signals.turn_started_power_plant.connect(_on_turn_started)
+	Signals.turn_ended_power_plant.connect(_on_turn_ended)
 	super()
+
+
+func get_power_draw() -> float:
+	return 0
 
 
 func _on_turn_started(_turn_number:int) -> void:
 	super(_turn_number)
-	
+
 	resource_manager.calculate_and_update(
-			ResourceManager.ResourceType.ELECTRICITY,
-			self,
-			BASE_POWER_GENERATION,
-			ResourceEngine.ApplyTime.ON_TURN_STARTED)
+		ResourceManager.ResourceType.ELECTRICITY,
+		self,
+		_production_at_level(current_level),
+		ResourceEngine.ApplyTime.ON_TURN_STARTED
+	)
+
+
+func _on_turn_ended(_turn_number:int) -> void:
+	super(_turn_number)
+
+
+static func _production_at_level(level:int) -> float:
+	if level < PRODUCTION_TABLE.size():
+		return PRODUCTION_TABLE[level]
+	return PRODUCTION_TABLE[-1]

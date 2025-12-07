@@ -28,7 +28,10 @@ func end_turn() -> void:
 		return
 	
 	print("Ending turn ", turn)
-	Signals.turn_ended.emit(turn)
+	#Signals.turn_ended.emit(turn)
+	Signals.turn_ended_power_plant.emit(turn)
+	Signals.turn_ended_eco_dome.emit(turn)
+	Signals.turn_ended_refinery.emit(turn)
 	
 	# Handle electricity calculations
 	resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
@@ -45,6 +48,9 @@ func end_turn() -> void:
 	turn += 1
 	print("Starting turn ", turn)
 	Signals.turn_started.emit(turn)
+	Signals.turn_started_power_plant.emit(turn)
+	Signals.turn_started_eco_dome.emit(turn)
+	Signals.turn_started_refinery.emit(turn)
 
 
 func _win_condition_satisfied() -> bool:
