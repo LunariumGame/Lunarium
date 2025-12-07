@@ -51,7 +51,7 @@ func toggle_panel(system: Systems) -> void:
 		system_panels[i].visible = is_selected
 
 
-func toggle_panel_selected_building() -> void:
+func toggle_panel_selected_building(building_id: int) -> void:
 	# Hide all normal system panels + unpress buttons
 	for i in Systems.values():
 		if i < system_buttons.size():
@@ -60,8 +60,11 @@ func toggle_panel_selected_building() -> void:
 
 	# Show the selected building inspector (which is the last panel)
 	var selected_index := system_panels.size() - 1
-	system_panels[selected_index].visible = true
+	var panel := system_panels[selected_index]
+	panel.visible = true
 
+	var label := panel.get_node("Label")
+	label.text = "Selected Building ID: " + str(building_id)
 
 
 func _on_tech_tree_pressed() -> void:
@@ -81,7 +84,7 @@ func _on_bot_manager_pressed() -> void:
 
 func _on_building_selected(building_id: int) -> void:
 	print("Toggled: ", building_id)
-	toggle_panel_selected_building()
+	toggle_panel_selected_building(building_id)
 
 
 #endregion
