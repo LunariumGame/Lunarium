@@ -1,18 +1,16 @@
 class_name HUD
 extends CanvasLayer
 
-enum Systems {TECH, BUILDING, BOT}
+enum Systems {TECH, BUILDING}
 
 @onready var next_turn_button:Button = %NextTurn
 @onready var system_buttons: Array[Button] = [
 	%TabButtons/TechTree,
-	%TabButtons/BuildingManager,
-	%TabButtons/BotManager
+	%TabButtons/BuildingManager
 ]
 @onready var system_panels: Array[PanelContainer] = [
 	%InspectorPanel/TechInspector,
 	%InspectorPanel/BuildingInspector,
-	%InspectorPanel/BotInspector,
 	%InspectorPanel/SelectedBuildingInspector
 ]
 
@@ -75,11 +73,6 @@ func _on_tech_tree_pressed() -> void:
 func _on_building_manager_pressed() -> void:
 	# Untoggle other buttons
 	toggle_panel(Systems.BUILDING)
-
-
-func _on_bot_manager_pressed() -> void:
-	# Untoggle other buttons
-	toggle_panel(Systems.BOT)
 
 
 func _on_building_selected(building_id: int) -> void:
