@@ -58,10 +58,11 @@ script = ExtResource("1_nnsk1")
 [node name="Music" type="AudioStreamPlayer" parent="Audio"]
 process_mode = 3
 stream = ExtResource("5_71j4m")
+volume_db = -12.0
 autoplay = true
 bus = &"Music"
 
-[node name="Effects" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="Effects" type="AudioStreamPlayer" parent="Audio"]
 process_mode = 3
 stream = SubResource("AudioStreamRandomizer_7r4gi")
 bus = &"Effects"
