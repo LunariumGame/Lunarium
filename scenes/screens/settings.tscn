@@ -1,18 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://bo383rljnyhxr"]
+[gd_scene load_steps=11 format=3 uid="uid://bo383rljnyhxr"]
 
 [ext_resource type="Script" uid="uid://eqg0rjagl3i7" path="res://scripts/screens/settings.gd" id="1_emdcu"]
 [ext_resource type="PackedScene" uid="uid://b84cp341mhqdb" path="res://scenes/ui_components/logo_h_box.tscn" id="2_a6gug"]
 [ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="2_jljg7"]
+[ext_resource type="LabelSettings" uid="uid://dte7ki6on48e4" path="res://resources/ui/label_settings_regular.tres" id="3_ap0kp"]
 [ext_resource type="Texture2D" uid="uid://b6k7dd38rgif8" path="res://assets/sprites/moon_16x16.png" id="3_q3kmr"]
+[ext_resource type="Script" uid="uid://bj1omfohfnxvq" path="res://scripts/scale_aware_label_settings.gd" id="4_3otaf"]
 [ext_resource type="PackedScene" uid="uid://caqswmbla1t2u" path="res://scenes/ui_components/quit_game_button.tscn" id="6_ap0kp"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_jljg7"]
-font = ExtResource("2_jljg7")
-font_size = 48
-
-[sub_resource type="LabelSettings" id="LabelSettings_q3kmr"]
+[sub_resource type="LabelSettings" id="LabelSettings_ap0kp"]
 font = ExtResource("2_jljg7")
 font_size = 32
+script = ExtResource("4_3otaf")
+base_font_size = 32
+metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3otaf"]
 content_margin_left = 4.0
@@ -73,12 +74,12 @@ size_flags_vertical = 4
 [node name="Audio" type="Label" parent="Settings/MainVBox/AudioSettings"]
 layout_mode = 2
 text = "AUDIO"
-label_settings = SubResource("LabelSettings_jljg7")
+label_settings = ExtResource("3_ap0kp")
 
 [node name="Master" type="Label" parent="Settings/MainVBox/AudioSettings"]
 layout_mode = 2
 text = "MASTER"
-label_settings = SubResource("LabelSettings_q3kmr")
+label_settings = SubResource("LabelSettings_ap0kp")
 
 [node name="MasterVolume" type="HSlider" parent="Settings/MainVBox/AudioSettings"]
 texture_filter = 1
@@ -93,7 +94,7 @@ step = 0.01
 [node name="Music" type="Label" parent="Settings/MainVBox/AudioSettings"]
 layout_mode = 2
 text = "MUSIC"
-label_settings = SubResource("LabelSettings_q3kmr")
+label_settings = SubResource("LabelSettings_ap0kp")
 
 [node name="MusicVolume" type="HSlider" parent="Settings/MainVBox/AudioSettings"]
 texture_filter = 1
@@ -108,7 +109,7 @@ step = 0.01
 [node name="Effects" type="Label" parent="Settings/MainVBox/AudioSettings"]
 layout_mode = 2
 text = "EFFECTS"
-label_settings = SubResource("LabelSettings_q3kmr")
+label_settings = SubResource("LabelSettings_ap0kp")
 
 [node name="EffectsVolume" type="HSlider" parent="Settings/MainVBox/AudioSettings"]
 texture_filter = 1
@@ -129,12 +130,12 @@ size_flags_vertical = 4
 [node name="Camera" type="Label" parent="Settings/MainVBox/CameraSettings"]
 layout_mode = 2
 text = "CAMERA"
-label_settings = SubResource("LabelSettings_jljg7")
+label_settings = ExtResource("3_ap0kp")
 
 [node name="Speed" type="Label" parent="Settings/MainVBox/CameraSettings"]
 layout_mode = 2
 text = "SPEED"
-label_settings = SubResource("LabelSettings_q3kmr")
+label_settings = SubResource("LabelSettings_ap0kp")
 
 [node name="CameraSpeed" type="HSlider" parent="Settings/MainVBox/CameraSettings"]
 layout_mode = 2
@@ -156,12 +157,12 @@ size_flags_vertical = 4
 [node name="UI" type="Label" parent="Settings/MainVBox/UISettings"]
 layout_mode = 2
 text = "UI"
-label_settings = SubResource("LabelSettings_jljg7")
+label_settings = ExtResource("3_ap0kp")
 
 [node name="Scale" type="Label" parent="Settings/MainVBox/UISettings"]
 layout_mode = 2
 text = "SCALE"
-label_settings = SubResource("LabelSettings_q3kmr")
+label_settings = SubResource("LabelSettings_ap0kp")
 
 [node name="ScaleSlider" type="HSlider" parent="Settings/MainVBox/UISettings"]
 layout_mode = 2
@@ -170,8 +171,8 @@ theme_override_icons/grabber_highlight = ExtResource("3_q3kmr")
 theme_override_icons/grabber_disabled = ExtResource("3_q3kmr")
 theme_override_styles/slider = SubResource("StyleBoxFlat_3otaf")
 min_value = 1.0
-max_value = 2.5
-step = 0.5
+max_value = 2.0
+step = 0.01
 value = 1.0
 
 [node name="Buttons" type="VBoxContainer" parent="Settings/MainVBox"]
