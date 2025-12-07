@@ -23,6 +23,10 @@ func _ready() -> void:
 	super()
 
 
+func emit_built_signal() -> void:
+	Signals.built_eco_dome.emit()
+
+
 func get_power_draw() -> float:
 	if current_level < POWER_TABLE.size():
 		return POWER_TABLE[current_level]
@@ -36,7 +40,7 @@ func _on_turn_started(_turn_number:int) -> void:
 		resource_manager.calculate_and_update(
 			ResourceManager.ResourceType.FOOD,
 			self,
-			_production_at_level(current_level),
+			_get_production_rate(),
 			ResourceEngine.ApplyTime.ON_TURN_STARTED,
 		)
 
@@ -45,7 +49,14 @@ func _on_turn_ended(_turn_number:int) -> void:
 	super(_turn_number)
 
 
-static func _production_at_level(level:int) -> float:
-	if level < PRODUCTION_TABLE.size():
-		return PRODUCTION_TABLE[level]
+func _get_selection_payload() -> Dictionary:
+	return {
+		"Level": current_level,
+		"Food Production": str(_get_production_rate()) + "/turn",
+	}
+
+
+func _get_production_rate() -> float:
+	if current_level < PRODUCTION_TABLE.size():
+		return PRODUCTION_TABLE[current_level]
 	return PRODUCTION_TABLE[-1]

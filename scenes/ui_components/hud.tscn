@@ -547,10 +547,24 @@ building_cursor = ExtResource("14_afnkq")
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector"]
+[node name="VBox" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "TODO Selected Building"
+
+[node name="PayloadContainer" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/PayloadContainer"]
+layout_mode = 2
+text = "Test"
+
+[node name="Label2" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/PayloadContainer"]
+layout_mode = 2
+text = "Test but on second line"
 
 [node name="BotRight" type="MarginContainer" parent="HUD"]
 layout_mode = 1

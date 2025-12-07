@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_0exew"]
 script = ExtResource("3_c44lc")
 cost = Dictionary[int, float]({
-0: 10.0,
+0: 0.0,
 1: 0.0,
 2: 10.0,
 3: 0.0
@@ -488,6 +488,7 @@ animations = [{
 [node name="Residential" instance=ExtResource("1_e3wr7")]
 script = ExtResource("2_4f3d3")
 building_spec = SubResource("Resource_wakwv")
+max_level = 3
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_4f3d3")

@@ -21,8 +21,6 @@ var current_level: int = 1
 
 
 func _ready() -> void:
-	#Signals.turn_started.connect(_on_turn_started)
-	#Signals.turn_ended.connect(_on_turn_ended)
 	clickable_area.input_event.connect(_on_Area2D_input_event)
 	scale = building_scale
 	z_index = order_man.order.BUILDINGS
@@ -54,7 +52,12 @@ func _on_Area2D_input_event(viewport: Viewport, event: InputEvent, shape_idx: in
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			print("Emitted: ", building_id)
-			Signals.building_selected.emit(building_id)
+			Signals.building_selected.emit(building_id, _get_selection_payload())
+
+
+# override it whenever possible in derived building classes
+func _get_selection_payload() -> Dictionary:
+	return {}
 
 
 func get_build_cost() -> Cost:
@@ -103,6 +106,10 @@ func set_cursor_mode(enabled: bool) -> void:
 		z_index = order_man.order.CURSOR
 	else:
 		z_index = order_man.order.BUILDINGS
+
+
+func emit_built_signal() -> void:
+	pass
 
 
 # adapted from: https://godotforums.org/d/19253-get-size-of-an-animated-sprite/9

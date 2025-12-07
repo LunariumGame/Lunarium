@@ -26,17 +26,16 @@ func _ready() -> void:
 func end_turn() -> void:
 	if not GameState.IN_PROGRESS == state:
 		return
-	
-	print("Ending turn ", turn)
+
 	#Signals.turn_ended.emit(turn)
 	Signals.turn_ended_power_plant.emit(turn)
 	Signals.turn_ended_eco_dome.emit(turn)
 	Signals.turn_ended_refinery.emit(turn)
+	Signals.turn_ended_residential.emit(turn)
 	
 	# Handle electricity calculations
 	resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
-	Signals.turn_electricity_generation.emit(turn)
-	
+
 	_logic_food_consumption_and_starvation()
 	
 	if _win_condition_satisfied():
@@ -46,18 +45,18 @@ func end_turn() -> void:
 		return
 	
 	turn += 1
-	print("Starting turn ", turn)
 	Signals.turn_started.emit(turn)
 	Signals.turn_started_power_plant.emit(turn)
 	Signals.turn_started_eco_dome.emit(turn)
 	Signals.turn_started_refinery.emit(turn)
+	Signals.turn_started_residential.emit(turn)
 
 
 func _win_condition_satisfied() -> bool:
 	var population:int = roundi(resource_manager.get_resource(ResourceManager.ResourceType.POPULATION))
 	
 	return population > WIN_CONDITION_MIN_POPULATION;
-	
+
 
 func _logic_food_consumption_and_starvation() -> void:
 	# feed as many colonists as possible
@@ -73,3 +72,31 @@ func _logic_food_consumption_and_starvation() -> void:
 	resource_manager.add_precalculated(ResourceManager.ResourceType.FOOD, -COLONIST_CONSUMPTION_PER_TURN * fed_colonists)
 	if deaths > 0:
 		resource_manager.add_precalculated(ResourceManager.ResourceType.POPULATION, -deaths)
+
+
+func get_electricity_usage() -> float:
+	var total_usage := 0.0
+	var placed_buildings := get_node("/root/World/PlacedBuildings").get_children()
+	for building in placed_buildings:
+		# Exclude power plants themselves
+		if building is Building and not building is PowerPlant:
+			total_usage += building.get_power_draw()
+	return total_usage
+
+
+func get_electricity_capacity() -> float:
+	var total_capacity := 0.0
+	var placed_buildings := get_node("/root/World/PlacedBuildings").get_children()
+	for building in placed_buildings:
+		if building is PowerPlant:
+			total_capacity += building._get_production_rate()
+	return total_capacity
+
+
+func get_total_housing_capacity() -> int:
+	var total_capacity := 0
+	var placed_buildings := get_node("/root/World/PlacedBuildings").get_children()
+	for building in placed_buildings:
+		if building is Residential:
+			total_capacity += building.get_housing_capacity()
+	return total_capacity
