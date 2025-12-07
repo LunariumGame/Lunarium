@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://doad7ti32kfs"]
+
+[ext_resource type="Script" uid="uid://bv2pmewlaia7i" path="res://addons/cvd_sim/scripts/cvd_dock.gd" id="1_kmwvu"]
+
+[node name="CVD" type="ItemList"]
+item_count = 5
+item_0/text = "None"
+item_1/text = "Protanomaly"
+item_2/text = "Deuteranomaly"
+item_3/text = "Tritanomaly"
+item_4/text = "Monochrome"
+script = ExtResource("1_kmwvu")
+
+[connection signal="item_selected" from="." to="." method="_on_item_selected"]

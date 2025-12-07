@@ -28,6 +28,21 @@ If your project contains code that: 1) your team did not write, and 2) does not 
 
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
 
+## Color Vision Deficiency Matrices
+
+All code for the CVD plugin was written in-house by Wen Kai.
+
+The color deficiency simulation matrices for our CVD Simulator plugin (`addons/cvd_sim) were based on the full strength CVD matrices from
+[*A Physiologically-based Model for Simulation of Color Vision Deficiency*](https://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html).
+That paper was found through the [Firefox Source Docs](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/simulation/index.html).
+
+The matrix for achromatopsia (monochrome vision) was based on [the GIMP luminance equation](https://docs.gimp.org/2.10/en/gimp-filter-desaturate.html).
+
+## Label/Button scaling
+
+The article ["The simplest way to scale UI in Godot"](https://humnom.net/thoughts/67b7374e-the-simplest-way-to-scale-ui-in-godot.html) was referenced when researching approaches to text scaling.
+We ultimately took a different approach for scaling.
+
 # Main Roles #
 
 Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
@@ -58,7 +73,18 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Animation and Visuals
 
-**List your assets, including their sources and licenses.**
+### Third-Party Assets
+<u>Fonts</u>  
+<i>[m5x7](https://managore.itch.io/m5x7)</i> by Daniel Linssen - Creative Commons License  
+
+<u>Sprites</u>  
+<i>[Lunarium Title](https://chatgpt.com/)</i> by ChatGPT - Free Use  
+<i>[Rotating Moon](https://deep-fold.itch.io/pixel-planet-generator)</i> by Deep-Fold - MIT License  
+<i>[Settings Cog](https://kenney.nl/assets/mobile-controls)</i> from Kenney.nl - Creative Commons
+
+### Original Assets
+<i>Moon 16x16</i> by Joe Vogel   
+<i>Cursor</i> by Joe Vogel
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
@@ -70,7 +96,11 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Audio
 
-**List your assets, including their sources and licenses.**
+### Third-Party Assets
+<u>Music</u>  
+<i>[Space Music Pack](https://gooseninja.itch.io/space-music-pack)</i> by Goose Ninja - Free Use  
+
+### Original Assets
 
 **Describe the implementation of your audio system.**
 

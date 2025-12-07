@@ -1,0 +1,580 @@
+[gd_scene load_steps=39 format=3 uid="uid://bpc6gps3lk4ac"]
+
+[ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
+[ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
+[ext_resource type="PackedScene" uid="uid://ce48wrjunv4rk" path="res://scenes/ui_components/resource_display.tscn" id="2_cjm6u"]
+[ext_resource type="Script" uid="uid://c5toevd7s65xr" path="res://scripts/ui_components/next_turn.gd" id="2_ntdy2"]
+[ext_resource type="Texture2D" uid="uid://deaibjaxikc4x" path="res://assets/sprites/food.png" id="2_v2n4f"]
+[ext_resource type="Texture2D" uid="uid://d1yyx8mxhypco" path="res://assets/sprites/icon_cog.png" id="3_otepx"]
+[ext_resource type="Script" uid="uid://bj1omfohfnxvq" path="res://scripts/scale_aware_label_settings.gd" id="3_v2n4f"]
+[ext_resource type="Texture2D" uid="uid://dbxx8xh1go5g8" path="res://assets/sprites/wrench.png" id="4_2itkv"]
+[ext_resource type="Script" uid="uid://bk2c6el5gj6vm" path="res://scripts/ui_components/resource_display.gd" id="4_a6ec8"]
+[ext_resource type="Texture2D" uid="uid://cq65gcl3j3jgd" path="res://assets/sprites/Electricity.png" id="5_3esv6"]
+[ext_resource type="Texture2D" uid="uid://mjkrxk6sjcvc" path="res://assets/sprites/building.png" id="5_fok22"]
+[ext_resource type="Texture2D" uid="uid://cvtjxiw200c6u" path="res://assets/sprites/Iron.png" id="6_7utte"]
+[ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="7_7utte"]
+[ext_resource type="Script" uid="uid://4lk24jcuaq6g" path="res://scripts/ui_components/building/active_button_tracker.gd" id="9_do4pv"]
+[ext_resource type="Script" uid="uid://b2eoxpgf2ve3o" path="res://scripts/ui_components/building/building_button.gd" id="9_jswg8"]
+[ext_resource type="Theme" uid="uid://daewuul3ri2pl" path="res://resources/ui/hud_theme.tres" id="11_6pkrv"]
+[ext_resource type="PackedScene" uid="uid://62tr4h246vw0" path="res://scenes/buildings/residential.tscn" id="11_ne71y"]
+[ext_resource type="PackedScene" uid="uid://omx3pl3xhdw" path="res://scenes/buildings/iron_refinery.tscn" id="12_2w4nd"]
+[ext_resource type="PackedScene" uid="uid://bmcgkpbcwft3l" path="res://scenes/buildings/power_plant.tscn" id="13_ij283"]
+[ext_resource type="PackedScene" uid="uid://dgfq7odjk1hcx" path="res://scenes/buildings/eco_dome.tscn" id="14_afnkq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2itkv"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.29803923, 0.34509805, 0.26666668, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
+corner_radius_bottom_right = 24
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_size = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_8125u"]
+font = ExtResource("7_7utte")
+font_size = 40
+script = ExtResource("3_v2n4f")
+base_font_size = 40
+metadata/_custom_type_script = "uid://bj1omfohfnxvq"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otepx"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.29803923, 0.34509805, 0.26666668, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_size = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_v2n4f"]
+font = ExtResource("7_7utte")
+font_size = 48
+script = ExtResource("3_v2n4f")
+base_font_size = 48
+metadata/_custom_type_script = "uid://bj1omfohfnxvq"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do4pv"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.29803923, 0.34509805, 0.26666668, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_do4pv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ne71y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6ec8"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.29803923, 0.34509805, 0.26666668, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
+corner_radius_top_right = 24
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_size = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pkrv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3esv6"]
+font = ExtResource("7_7utte")
+font_size = 56
+script = ExtResource("3_v2n4f")
+base_font_size = 56
+metadata/_custom_type_script = "uid://bj1omfohfnxvq"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2w4nd"]
+bg_color = Color(0.41067702, 0.46911025, 0.3718945, 0.7019608)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3esv6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_haqli"]
+content_margin_left = 24.0
+content_margin_right = 32.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7utte"]
+font = ExtResource("7_7utte")
+font_size = 32
+script = ExtResource("3_v2n4f")
+base_font_size = 32
+metadata/_custom_type_script = "uid://bj1omfohfnxvq"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7utte"]
+bg_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
+expand_margin_top = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eov31"]
+bg_color = Color(0.29803923, 0.34509805, 0.26666668, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pkrv"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.29803923, 0.34509805, 0.26666668, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
+corner_radius_top_left = 24
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_size = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ij283"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_cjm6u")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TopLeft" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+offset_right = 355.0
+offset_bottom = 80.0
+
+[node name="Box" type="PanelContainer" parent="HUD/TopLeft"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2itkv")
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD/TopLeft/Box"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="HUD/TopLeft/Box/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 35
+columns = 6
+
+[node name="Food" type="HBoxContainer" parent="HUD/TopLeft/Box/CenterContainer/GridContainer"]
+layout_mode = 2
+tooltip_text = "Food"
+theme_override_constants/separation = 10
+
+[node name="FoodIcon" type="TextureRect" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Food"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_v2n4f")
+stretch_mode = 2
+
+[node name="Food" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Food" instance=ExtResource("2_cjm6u")]
+layout_mode = 2
+text = "XXX"
+label_settings = SubResource("LabelSettings_8125u")
+
+[node name="Iron" type="HBoxContainer" parent="HUD/TopLeft/Box/CenterContainer/GridContainer"]
+layout_mode = 2
+tooltip_text = "Iron"
+theme_override_constants/separation = 10
+
+[node name="IronIcon" type="TextureRect" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Iron"]
+layout_mode = 2
+texture = ExtResource("6_7utte")
+stretch_mode = 2
+
+[node name="Iron" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Iron" instance=ExtResource("2_cjm6u")]
+layout_mode = 2
+text = "XXX"
+label_settings = SubResource("LabelSettings_8125u")
+resource = 2
+
+[node name="Electricity" type="HBoxContainer" parent="HUD/TopLeft/Box/CenterContainer/GridContainer"]
+layout_mode = 2
+tooltip_text = "Electricity"
+theme_override_constants/separation = 10
+
+[node name="ElectricityIcon" type="TextureRect" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Electricity"]
+layout_mode = 2
+texture = ExtResource("5_3esv6")
+stretch_mode = 2
+
+[node name="Electricity" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Electricity" instance=ExtResource("2_cjm6u")]
+layout_mode = 2
+text = "XXX"
+label_settings = SubResource("LabelSettings_8125u")
+resource = 1
+
+[node name="TopMid" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 111.0
+grow_horizontal = 2
+
+[node name="Box" type="PanelContainer" parent="HUD/TopMid"]
+texture_filter = 2
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_otepx")
+
+[node name="VBox" type="VBoxContainer" parent="HUD/TopMid/Box"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/TopMid/Box/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+
+[node name="PopulationTag" type="Label" parent="HUD/TopMid/Box/VBox/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
+text = "POPULATION"
+label_settings = SubResource("LabelSettings_v2n4f")
+
+[node name="Population" type="Label" parent="HUD/TopMid/Box/VBox/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
+text = "XXX"
+label_settings = SubResource("LabelSettings_v2n4f")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_a6ec8")
+resource = 3
+
+[node name="TurnCounter" type="Label" parent="HUD/TopMid/Box/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
+text = "TURN #"
+label_settings = SubResource("LabelSettings_8125u")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_xgrr2")
+
+[node name="TopRight" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_bottom = 80.0
+grow_horizontal = 0
+
+[node name="Box" type="PanelContainer" parent="HUD/TopRight"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_do4pv")
+
+[node name="Settings" type="Button" parent="HUD/TopRight/Box"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.76862746, 0.70980394, 0.3137255, 1)
+theme_override_colors/icon_pressed_color = Color(0.9050807, 0.8540366, 0.5062164, 1)
+theme_override_colors/icon_hover_color = Color(0.90588236, 0.85490197, 0.5058824, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.90588236, 0.85490197, 0.5058824, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_do4pv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ne71y")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ne71y")
+icon = ExtResource("3_otepx")
+icon_alignment = 1
+
+[node name="BotLeft" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Box" type="PanelContainer" parent="HUD/BotLeft"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a6ec8")
+
+[node name="VBox" type="VBoxContainer" parent="HUD/BotLeft/Box"]
+layout_mode = 2
+
+[node name="TabButtons" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TechTree" type="Button" parent="HUD/BotLeft/Box/VBox/TabButtons"]
+texture_filter = 1
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+focus_mode = 0
+accessibility_name = "Tech Tree Button"
+accessibility_description = "Opens the tech tree"
+theme_override_colors/icon_normal_color = Color(0.76862746, 0.70980394, 0.3137255, 1)
+theme_override_colors/icon_pressed_color = Color(0.90588236, 0.85490197, 0.5058824, 1)
+theme_override_colors/icon_hover_color = Color(0.90588236, 0.85490197, 0.5058824, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.90588236, 0.85490197, 0.5058824, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6pkrv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6pkrv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6pkrv")
+toggle_mode = true
+action_mode = 0
+icon = ExtResource("4_2itkv")
+icon_alignment = 1
+expand_icon = true
+
+[node name="BuildingManager" type="Button" parent="HUD/BotLeft/Box/VBox/TabButtons"]
+texture_filter = 1
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+focus_mode = 0
+accessibility_name = "Building Manager Button"
+accessibility_description = "Opens the building manager"
+theme_override_colors/icon_normal_color = Color(0.76862746, 0.70980394, 0.3137255, 1)
+theme_override_colors/icon_pressed_color = Color(0.90588236, 0.85490197, 0.5058824, 1)
+theme_override_colors/icon_hover_color = Color(0.90588236, 0.85490197, 0.5058824, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.90588236, 0.85490197, 0.5058824, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ne71y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6pkrv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6pkrv")
+toggle_mode = true
+action_mode = 0
+icon = ExtResource("5_fok22")
+icon_alignment = 1
+expand_icon = true
+
+[node name="CurrentInspect" type="Label" parent="HUD/BotLeft/Box/VBox/TabButtons"]
+layout_mode = 2
+size_flags_horizontal = 10
+label_settings = SubResource("LabelSettings_3esv6")
+horizontal_alignment = 2
+
+[node name="Spacer" type="Control" parent="HUD/BotLeft/Box/VBox/TabButtons"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="InspectorPanel" type="PanelContainer" parent="HUD/BotLeft/Box/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2w4nd")
+
+[node name="TechInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/TechInspector"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "TODO TECH (?)
+or just open tech tree?"
+
+[node name="BuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3esv6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector"]
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 2
+layout_mode = 2
+
+[node name="Costs" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer"]
+layout_mode = 2
+
+[node name="BuildingCost" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/Costs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_haqli")
+text = "Costs Placeholder:
+- 30 Iron
+- 50 Electricty
+- 25 Food
+- 3 Residents Required"
+label_settings = SubResource("LabelSettings_7utte")
+
+[node name="Panel" type="Panel" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7utte")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="BuildingButtons" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+script = ExtResource("9_do4pv")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Residential" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
+theme_override_fonts/font = ExtResource("7_7utte")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_eov31")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+text = "RESIDENCE"
+script = ExtResource("9_jswg8")
+tile_size = null
+building_cursor = ExtResource("11_ne71y")
+
+[node name="Refinery" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
+theme_override_fonts/font = ExtResource("7_7utte")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_eov31")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+text = "REFINERY"
+script = ExtResource("9_jswg8")
+tile_size = null
+building_cursor = ExtResource("12_2w4nd")
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Reactor" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
+theme_override_fonts/font = ExtResource("7_7utte")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_eov31")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+text = "REACTOR"
+script = ExtResource("9_jswg8")
+tile_size = null
+building_cursor = ExtResource("13_ij283")
+
+[node name="Farm" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
+theme_override_fonts/font = ExtResource("7_7utte")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_eov31")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+text = "ECO DOME"
+script = ExtResource("9_jswg8")
+tile_size = null
+building_cursor = ExtResource("14_afnkq")
+
+[node name="SelectedBuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "TODO Selected Building"
+
+[node name="BotRight" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Box" type="PanelContainer" parent="HUD/BotRight"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6pkrv")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BotRight/Box"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 5
+
+[node name="NextTurn" type="Button" parent="HUD/BotRight/Box/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(225, 40)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("11_6pkrv")
+theme_override_colors/font_color = Color(0.847474, 0.84747463, 0.84747416, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ij283")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ij283")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ij283")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ij283")
+text = "NEXT TURN"
+script = ExtResource("2_ntdy2")
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD/BotRight/Box/MarginContainer/NextTurn"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+show_percentage = false
+
+[connection signal="pressed" from="HUD/TopRight/Box/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="HUD/BotLeft/Box/VBox/TabButtons/TechTree" to="." method="_on_tech_tree_pressed"]
+[connection signal="pressed" from="HUD/BotLeft/Box/VBox/TabButtons/BuildingManager" to="." method="_on_building_manager_pressed"]
+[connection signal="pressed" from="HUD/BotRight/Box/MarginContainer/NextTurn" to="." method="_on_next_turn_pressed"]

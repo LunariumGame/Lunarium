@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=3 uid="uid://djrs41guhueil"]
+
+[ext_resource type="Script" uid="uid://djpcotm6sl2eu" path="res://scripts/screens/main_menu.gd" id="1_dxijm"]
+[ext_resource type="Texture2D" uid="uid://cqyeg16omnqrb" path="res://assets/pics/moon_surface.jpg" id="2_tgk1t"]
+[ext_resource type="PackedScene" uid="uid://b84cp341mhqdb" path="res://scenes/ui_components/logo_h_box.tscn" id="3_kacuo"]
+[ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="5_e21yp"]
+[ext_resource type="PackedScene" uid="uid://caqswmbla1t2u" path="res://scenes/ui_components/quit_game_button.tscn" id="6_kr80i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kacuo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kr80i"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_dxijm")
+
+[node name="BlackBackground" type="ColorRect" parent="."]
+z_index = -4096
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MoonBackground" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="AspectRatioContainer" parent="MoonBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MoonBackground/CenterContainer"]
+modulate = Color(0.34407577, 0.34407574, 0.34407574, 1)
+texture = ExtResource("2_tgk1t")
+
+[node name="UIElements" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsBackground" type="ColorRect" parent="UIElements"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7921569)
+
+[node name="MainVBox" type="VBoxContainer" parent="UIElements"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LogoHBox" parent="UIElements/MainVBox" instance=ExtResource("3_kacuo")]
+layout_mode = 2
+
+[node name="VSpace" type="Control" parent="UIElements/MainVBox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="StartCenter" type="CenterContainer" parent="UIElements/MainVBox"]
+layout_mode = 2
+
+[node name="StartGame" type="Button" parent="UIElements/MainVBox/StartCenter"]
+custom_minimum_size = Vector2(220, 60)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_e21yp")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kacuo")
+text = "START"
+
+[node name="VSpace2" type="Control" parent="UIElements/MainVBox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="SettingsCenter" type="CenterContainer" parent="UIElements/MainVBox"]
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="UIElements/MainVBox/SettingsCenter"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_e21yp")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kr80i")
+text = "SETTINGS"
+
+[node name="VSpace3" type="Control" parent="UIElements/MainVBox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="QuitCenter" type="CenterContainer" parent="UIElements/MainVBox"]
+layout_mode = 2
+
+[node name="QuitGame" parent="UIElements/MainVBox/QuitCenter" instance=ExtResource("6_kr80i")]
+layout_mode = 2
+
+[connection signal="pressed" from="UIElements/MainVBox/StartCenter/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="UIElements/MainVBox/SettingsCenter/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="UIElements/MainVBox/QuitCenter/QuitGame" to="." method="_on_quit_game_pressed"]

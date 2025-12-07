@@ -1,3 +1,8 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# build source for CI/CD
+build/
+
+*.tmp

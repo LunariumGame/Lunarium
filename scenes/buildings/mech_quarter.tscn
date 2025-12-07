@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://difixbbx5vh2p"]
+
+[ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_gd26s"]
+[ext_resource type="Script" uid="uid://bn6ih2d7ok7s5" path="res://scripts/buildings/mech_quarter.gd" id="2_0gxkv"]
+[ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="3_b16gt"]
+[ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="4_581ad"]
+
+[sub_resource type="Resource" id="Resource_b16gt"]
+script = ExtResource("3_b16gt")
+cost = Dictionary[int, float]({
+0: 5.0,
+1: 5.0,
+2: 5.0,
+3: 0.0
+})
+metadata/_custom_type_script = "uid://0leikb15bp7y"
+
+[sub_resource type="Resource" id="Resource_3rv3x"]
+script = ExtResource("4_581ad")
+cost_levels = Array[ExtResource("3_b16gt")]([SubResource("Resource_b16gt")])
+type = 4
+metadata/_custom_type_script = "uid://cy4nkunttcuy5"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ye1a8"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"buffed_u1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"buffed_u2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"buffed_u3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"create_u1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"create_u2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"create_u3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"delete_u1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"delete_u2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"delete_u3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_u1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_u2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_u3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"off_u1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"off_u2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"off_u3",
+"speed": 5.0
+}]
+
+[node name="MechQuarter" instance=ExtResource("1_gd26s")]
+script = ExtResource("2_0gxkv")
+building_spec = SubResource("Resource_3rv3x")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ye1a8")
+
+[node name="BuildingDebugger" parent="." index="2" node_paths=PackedStringArray("target")]
+target = NodePath("..")
