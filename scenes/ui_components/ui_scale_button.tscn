@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://n11nh52n064y"]
+
+[ext_resource type="Script" uid="uid://bapksh6qv0jgh" path="res://scenes/ui_components/ui_scale_button.gd" id="1_a2dvu"]
+
+[node name="UiScaleButton" type="Button"]
+text = "1"
+script = ExtResource("1_a2dvu")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

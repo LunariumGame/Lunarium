@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bo383rljnyhxr"]
+[gd_scene load_steps=11 format=3 uid="uid://bo383rljnyhxr"]
 
 [ext_resource type="Script" uid="uid://eqg0rjagl3i7" path="res://scripts/screens/settings.gd" id="1_emdcu"]
 [ext_resource type="PackedScene" uid="uid://b84cp341mhqdb" path="res://scenes/ui_components/logo_h_box.tscn" id="2_a6gug"]
 [ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="2_jljg7"]
 [ext_resource type="Texture2D" uid="uid://b6k7dd38rgif8" path="res://assets/sprites/moon_16x16.png" id="3_q3kmr"]
+[ext_resource type="PackedScene" uid="uid://n11nh52n064y" path="res://scenes/ui_components/ui_scale_button.tscn" id="5_3otaf"]
 [ext_resource type="PackedScene" uid="uid://caqswmbla1t2u" path="res://scenes/ui_components/quit_game_button.tscn" id="6_ap0kp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_emdcu"]
@@ -142,6 +143,27 @@ max_value = 1.0
 step = 0.01
 
 [node name="VSpace3" type="Control" parent="Settings/MainVBox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Scales" type="HBoxContainer" parent="Settings/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="UiScaleButton" parent="Settings/MainVBox/Scales" instance=ExtResource("5_3otaf")]
+layout_mode = 2
+
+[node name="UiScaleButton2" parent="Settings/MainVBox/Scales" instance=ExtResource("5_3otaf")]
+layout_mode = 2
+text = "1.5"
+ui_scale_setting = 1.5
+
+[node name="UiScaleButton3" parent="Settings/MainVBox/Scales" instance=ExtResource("5_3otaf")]
+layout_mode = 2
+text = "2"
+ui_scale_setting = 2.0
+
+[node name="VSpace4" type="Control" parent="Settings/MainVBox"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
