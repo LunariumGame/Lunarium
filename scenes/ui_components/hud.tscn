@@ -235,9 +235,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -260.0
-offset_right = 260.0
-offset_bottom = 102.0
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 111.0
 grow_horizontal = 2
 
 [node name="Box" type="PanelContainer" parent="HUD/TopMid"]
