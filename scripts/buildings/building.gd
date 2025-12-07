@@ -11,15 +11,19 @@ extends Node2D
 @export var outline_color: Color = Color(0.0, 0.0, 0.0, 0.5)
 @export var outline_thickness: float = 2.0
 
+@onready var clickable_area: Area2D = $Area2D
+
 var is_cursor: bool = false
 
-var is_powered:bool
-var current_level:int = 1
+var building_id: int = -1
+var is_powered: bool
+var current_level: int = 1
 
 
 func _ready() -> void:
 	Signals.turn_started.connect(_on_turn_started)
 	Signals.turn_ended.connect(_on_turn_ended)
+	clickable_area.input_event.connect(_on_Area2D_input_event)
 	scale = building_scale
 	z_index = order_man.order.BUILDINGS
 	queue_redraw()
@@ -44,6 +48,13 @@ func _on_turn_started(_turn_number:int) -> void:
 ## Overriding implementations should call super() at the beginning
 func _on_turn_ended(_turn_number:int) -> void:
 	pass
+
+
+func _on_Area2D_input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			print("Emitted: ", building_id)
+			Signals.building_selected.emit(building_id)
 
 
 func get_build_cost() -> Cost:
