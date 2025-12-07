@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=39 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
@@ -38,7 +38,6 @@ shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_8125u"]
-font = ExtResource("7_7utte")
 font_size = 40
 script = ExtResource("3_v2n4f")
 base_font_size = 40
@@ -61,7 +60,6 @@ shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_v2n4f"]
-font = ExtResource("7_7utte")
 font_size = 48
 script = ExtResource("3_v2n4f")
 base_font_size = 48
@@ -126,31 +124,14 @@ content_margin_right = 32.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7utte"]
-font = ExtResource("7_7utte")
-font_size = 32
+font_size = 36
 script = ExtResource("3_v2n4f")
-base_font_size = 32
+base_font_size = 36
 metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7utte"]
 bg_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
 expand_margin_top = 1.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eov31"]
-bg_color = Color(0.29803923, 0.34509805, 0.26666668, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-expand_margin_left = 3.0
-expand_margin_top = 3.0
-expand_margin_right = 3.0
-expand_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pkrv"]
 content_margin_left = 12.0
@@ -213,6 +194,7 @@ stretch_mode = 2
 
 [node name="Food" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Food" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
+theme = ExtResource("18_haqli")
 text = "XXX"
 label_settings = SubResource("LabelSettings_8125u")
 
@@ -228,6 +210,7 @@ stretch_mode = 2
 
 [node name="Iron" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Iron" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
+theme = ExtResource("18_haqli")
 text = "XXX"
 label_settings = SubResource("LabelSettings_8125u")
 resource = 2
@@ -244,6 +227,7 @@ stretch_mode = 2
 
 [node name="Electricity" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Electricity" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
+theme = ExtResource("18_haqli")
 text = "XXX"
 label_settings = SubResource("LabelSettings_8125u")
 resource = 1
@@ -274,13 +258,13 @@ theme_override_constants/separation = 15
 
 [node name="PopulationTag" type="Label" parent="HUD/TopMid/Box/VBox/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
+theme = ExtResource("18_haqli")
 text = "POPULATION"
 label_settings = SubResource("LabelSettings_v2n4f")
 
 [node name="Population" type="Label" parent="HUD/TopMid/Box/VBox/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
+theme = ExtResource("18_haqli")
 text = "XXX"
 label_settings = SubResource("LabelSettings_v2n4f")
 horizontal_alignment = 1
@@ -290,6 +274,7 @@ resource = 3
 
 [node name="TurnCounter" type="Label" parent="HUD/TopMid/Box/VBox"]
 layout_mode = 2
+theme = ExtResource("18_haqli")
 theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
 text = "TURN #"
 label_settings = SubResource("LabelSettings_8125u")
@@ -426,6 +411,7 @@ layout_mode = 2
 [node name="BuildingCost" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/Costs"]
 layout_mode = 2
 size_flags_vertical = 6
+theme = ExtResource("18_haqli")
 theme_override_styles/normal = SubResource("StyleBoxFlat_haqli")
 text = "Costs Placeholder:
 - 30 Iron
@@ -442,6 +428,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7utte")
 [node name="MarginContainer" type="MarginContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
 
 [node name="BuildingButtons" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -457,12 +446,7 @@ theme_override_constants/separation = 48
 [node name="Residential" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
-theme_override_fonts/font = ExtResource("7_7utte")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+theme = ExtResource("18_haqli")
 text = "RESIDENCE"
 script = ExtResource("9_jswg8")
 tile_size = null
@@ -471,12 +455,7 @@ building_cursor = ExtResource("11_ne71y")
 [node name="Refinery" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
-theme_override_fonts/font = ExtResource("7_7utte")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+theme = ExtResource("18_haqli")
 text = "REFINERY"
 script = ExtResource("9_jswg8")
 tile_size = null
@@ -489,12 +468,7 @@ theme_override_constants/separation = 48
 [node name="Reactor" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
-theme_override_fonts/font = ExtResource("7_7utte")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+theme = ExtResource("18_haqli")
 text = "REACTOR"
 script = ExtResource("9_jswg8")
 tile_size = null
