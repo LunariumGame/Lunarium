@@ -509,7 +509,6 @@ anchor_bottom = 1.0
 offset_top = -1.0
 grow_horizontal = 2
 grow_vertical = 0
-mouse_default_cursor_shape = 8
 show_percentage = false
 
 [connection signal="pressed" from="HUD/TopRight/Box/Settings" to="." method="_on_settings_pressed"]
