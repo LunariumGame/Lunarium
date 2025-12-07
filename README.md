@@ -109,6 +109,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 * UI Scaling System
    * [Label scaling](https://github.com/LunariumGame/Lunarium/pull/64) - scales labels
    * [Button scaling](https://github.com/LunariumGame/Lunarium/pull/102) - scales buttons using the theme
+* [Crater background PCG](https://github.com/LunariumGame/Lunarium/pull/140) - randomly placed craters to give the background character
 
 ### Accessibility and Usability Design
 
