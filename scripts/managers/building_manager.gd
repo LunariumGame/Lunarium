@@ -22,7 +22,8 @@ enum BuildingType {
 	RESIDENCE,
 }
 
-var _buildings: Dictionary[Vector2i, int] = {}
+var _pos_to_building_id: Dictionary[Vector2i, int] = {}
+var _building_id_to_node: Dictionary[int, Building] = {}
 var _id_to_type = {}
 var _building_id_counter := 1
 
@@ -33,8 +34,9 @@ func _ready() -> void:
 
 
 ## returns building id if built successfully, 0 otherwise, based on cost and adjacency to other Building nodes
-func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> int:
+func build(building: Building, position: Vector2i, width: int, height: int) -> int:
 	# If no cost spec, don't place
+	var building_spec := building.building_spec
 	if building_spec.cost_levels.size() == 0:
 		return 0
 	
@@ -75,7 +77,10 @@ func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: 
 	_id_to_type[_building_id_counter] = building_spec.type
 	
 	_building_id_counter += 1
-	return _building_id_counter - 1
+	var _building_id: int = _building_id_counter - 1
+
+	_building_id_to_node[_building_id] = building
+	return _building_id
 
 
 # Returns a list of vector2i's surrounding a single tile
@@ -181,8 +186,8 @@ func get_num_buildings(type: BuildingType = BuildingType.EMPTY) -> int:
 
 
 func get_building(x:int, y:int) -> int:
-	return _buildings.get(Vector2i(x, y), 0)
+	return _pos_to_building_id.get(Vector2i(x, y), 0)
 
 
 func _set_building(x:int, y:int, id:int) -> void:
-	_buildings.set(Vector2i(x, y), id)
+	_pos_to_building_id.set(Vector2i(x, y), id)

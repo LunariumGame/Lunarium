@@ -85,7 +85,7 @@ func _place_building() -> void:
 
 	# log building in build manager array
 	var building_id = build_man.build(
-		cursor_instance.building_spec, top_left_pos,
+		cursor_instance, top_left_pos,
 		frame_size.x, frame_size.y
 	)
 	
@@ -94,5 +94,6 @@ func _place_building() -> void:
 	cursor_instance.name = (
 		cursor_instance.get_script().get_global_name() + "-" + str(building_id)
 	)
+	cursor_instance.building_id = building_id
 	cursor_sprite.play("idle_u1")
 	cursor_sprite.modulate.a = 1.0
