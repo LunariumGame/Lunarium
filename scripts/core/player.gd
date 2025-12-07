@@ -1,14 +1,13 @@
 class_name Player
 extends CharacterBody2D
 
-@export var default_speed:float = 300
-var sprint_speed:float = default_speed * 3
-var speed:float = default_speed
-
 func _physics_process(_delta: float) -> void:
+	var default_speed:float  = settings_data.default_speed
+	var sprint_speed:float = settings_data.default_speed * 3
+	var speed:float = default_speed
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	speed = default_speed
 	var direction_horizontal := Input.get_axis("ui_left", "ui_right")
 	var direction_vertical := Input.get_axis("ui_up", "ui_down")
 	
@@ -28,7 +27,3 @@ func _physics_process(_delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, speed)
 	
 	move_and_slide()
-
-
-func set_speed(new_speed: float ) -> void:
-	speed = new_speed

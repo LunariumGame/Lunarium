@@ -85,6 +85,7 @@ crater_count = 500
 [node name="Camera" type="Node" parent="."]
 
 [node name="CameraController" parent="Camera" instance=ExtResource("7_7r4gi")]
+unique_name_in_owner = true
 visible = false
 position = Vector2(614, 406)
 
