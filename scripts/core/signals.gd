@@ -15,6 +15,9 @@ signal turn_ended_eco_dome(turn_number:int)
 signal turn_ended_refinery(turn_number:int)
 signal turn_ended_residential(turn_number:int)
 
+# specific signals
+signal recompute_power_plants()
+
 # building built signals
 signal building_built(building: Node)
 

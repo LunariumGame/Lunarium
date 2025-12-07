@@ -35,7 +35,7 @@ func get_power_draw() -> float:
 
 
 func _on_turn_started(_turn_number:int) -> void:
-	pass
+	super(_turn_number)
 
 
 func _on_turn_ended(_turn_number:int) -> void:
