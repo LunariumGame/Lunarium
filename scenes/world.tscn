@@ -131,8 +131,8 @@ shape = SubResource("RectangleShape2D_o8fc1")
 visible = false
 shape = SubResource("RectangleShape2D_e3hyu")
 
-[node name="PlacedBuildings" type="Node2D" parent="."]
-
 [node name="HeadQuarters" parent="." instance=ExtResource("12_jhx03")]
 position = Vector2(604, 409)
 building_spec = SubResource("Resource_o8fc1")
+
+[node name="PlacedBuildings" type="Node2D" parent="."]
