@@ -1,6 +1,6 @@
 extends Button
 
-@export var cooldown_time: float = 3.0 # seconds
+@export var cooldown_time: float = 1.0 # seconds
 
 var cooldown_active: bool = false
 
