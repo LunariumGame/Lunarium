@@ -42,7 +42,7 @@ script = ExtResource("1_nnsk1")
 
 [node name="Audio" type="Node" parent="."]
 
-[node name="Music" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="Music" type="AudioStreamPlayer" parent="Audio"]
 process_mode = 3
 stream = ExtResource("5_71j4m")
 autoplay = true
