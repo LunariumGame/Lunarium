@@ -6,5 +6,5 @@
 [node name="Crater" type="Sprite2D"]
 texture = ExtResource("1_i7sh2")
 region_enabled = true
-region_rect = Rect2(0, 258, 128, 128)
+region_rect = Rect2(0, 256, 128, 128)
 script = ExtResource("2_arkor")

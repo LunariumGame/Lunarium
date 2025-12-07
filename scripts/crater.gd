@@ -6,9 +6,7 @@ extends Sprite2D
 var variant:int = 0:
 	set(v):
 		variant = v
-		region_rect.position.x = 128 * variant
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+		region_rect = Rect2(
+			Vector2(128 * variant, 256),
+			Vector2(128, 128),
+		)
