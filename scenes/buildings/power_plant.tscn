@@ -582,6 +582,16 @@ building_spec = SubResource("Resource_pap3h")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_7rb1v")
+frame = 1
+frame_progress = 0.19142821
 
 [node name="BuildingDebugger" parent="." index="2" node_paths=PackedStringArray("target")]
 target = NodePath("..")
+
+[node name="Sprite2D" parent="." index="3"]
+texture = ExtResource("5_jn2df")
+hframes = 5
+vframes = 18
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {}

@@ -494,3 +494,6 @@ sprite_frames = SubResource("SpriteFrames_4f3d3")
 
 [node name="BuildingDebugger" parent="." index="2" node_paths=PackedStringArray("target")]
 target = NodePath("..")
+
+[node name="AnimationPlayer" parent="." index="4" node_paths=PackedStringArray("sprite_node")]
+sprite_node = NodePath("../Sprite2D")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://sr08scun8ys1"]
+[gd_scene load_steps=25 format=3 uid="uid://sr08scun8ys1"]
 
 [ext_resource type="Script" uid="uid://6myfee53w1xy" path="res://scripts/buildings/building.gd" id="1_a3sb6"]
 [ext_resource type="Script" uid="uid://b37pt6y4150c6" path="res://scripts/buildings/building_animations.gd" id="2_64dnl"]
 [ext_resource type="Script" uid="uid://dh3go6ocensfh" path="res://scripts/buildings/building_collider.gd" id="3_qcxio"]
 [ext_resource type="Script" uid="uid://dxx0x0ph2itdh" path="res://scripts/buildings/building_debugger.gd" id="4_daisx"]
+[ext_resource type="Script" uid="uid://dcw3db0ucm313" path="res://scripts/buildings/build_animation_player.gd" id="5_mfina"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3sb6"]
 animations = [{
@@ -86,12 +87,105 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27e8i"]
 size = Vector2(32, 32)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_daisx"]
+
+[sub_resource type="Animation" id="Animation_daisx"]
+resource_name = "buffed_u1"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_mfina"]
+resource_name = "buffed_u2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_f6oyp"]
+resource_name = "buffed_u3"
+
+[sub_resource type="Animation" id="Animation_oalqm"]
+resource_name = "create_u1"
+
+[sub_resource type="Animation" id="Animation_vnr05"]
+resource_name = "create_u2"
+
+[sub_resource type="Animation" id="Animation_wlaec"]
+resource_name = "create_u3"
+
+[sub_resource type="Animation" id="Animation_hhebf"]
+resource_name = "delete_u1"
+
+[sub_resource type="Animation" id="Animation_1x723"]
+resource_name = "delete_u2"
+
+[sub_resource type="Animation" id="Animation_0krn8"]
+resource_name = "delete_u3"
+
+[sub_resource type="Animation" id="Animation_ofkw7"]
+resource_name = "idle_u1"
+length = 1.5
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_volt3"]
+resource_name = "idle_u2"
+
+[sub_resource type="Animation" id="Animation_xl0vr"]
+resource_name = "idle_u3"
+
+[sub_resource type="Animation" id="Animation_u6fk5"]
+resource_name = "off_u1"
+
+[sub_resource type="Animation" id="Animation_w2b1x"]
+resource_name = "off_u2"
+
+[sub_resource type="Animation" id="Animation_4hstu"]
+resource_name = "off_u3"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78n4u"]
+_data = {
+&"buffed_u1": SubResource("Animation_daisx"),
+&"buffed_u2": SubResource("Animation_mfina"),
+&"buffed_u3": SubResource("Animation_f6oyp"),
+&"create_u1": SubResource("Animation_oalqm"),
+&"create_u2": SubResource("Animation_vnr05"),
+&"create_u3": SubResource("Animation_wlaec"),
+&"delete_u1": SubResource("Animation_hhebf"),
+&"delete_u2": SubResource("Animation_1x723"),
+&"delete_u3": SubResource("Animation_0krn8"),
+&"idle_u1": SubResource("Animation_ofkw7"),
+&"idle_u2": SubResource("Animation_volt3"),
+&"idle_u3": SubResource("Animation_xl0vr"),
+&"off_u1": SubResource("Animation_u6fk5"),
+&"off_u2": SubResource("Animation_w2b1x"),
+&"off_u3": SubResource("Animation_4hstu")
+}
+
 [node name="Building" type="Node2D"]
 script = ExtResource("1_a3sb6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a3sb6")
-animation = &"create_u1"
+animation = &"idle_u1"
 script = ExtResource("2_64dnl")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -107,3 +201,16 @@ offset_right = 21.0
 offset_bottom = -5.0
 theme_override_font_sizes/font_size = 6
 script = ExtResource("4_daisx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_daisx")
+hframes = 5
+vframes = 18
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_78n4u")
+}
+script = ExtResource("5_mfina")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]

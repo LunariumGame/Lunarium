@@ -603,7 +603,7 @@ building_spec = SubResource("Resource_v4082")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_aqbxp")
-animation = &"off_u3"
+animation = &"idle_u3"
 
 [node name="BuildingDebugger" parent="." index="2" node_paths=PackedStringArray("target")]
 target = NodePath("..")
