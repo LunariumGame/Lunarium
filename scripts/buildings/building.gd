@@ -51,7 +51,6 @@ func _on_turn_ended(_turn_number:int) -> void:
 func _on_Area2D_input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			print("Emitted: ", building_id)
 			Signals.building_selected.emit(building_id, _get_selection_payload())
 
 
