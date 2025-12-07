@@ -17,7 +17,7 @@ func _process(delta:float) -> void:
 	var max_scale:float = minf(MAX_SIZE.x * 1.0 / NATIVE_CURSOR_SIZE.x , MAX_SIZE.y * 1.0 / NATIVE_CURSOR_SIZE.y)
 	
 	# calculate cursor shake scaling
-	shake_amount += Input.get_last_mouse_velocity().length() / screen_size.length() / 20
+	shake_amount += Input.get_last_mouse_velocity().length() / screen_size.length() / 50
 	shake_amount = clampf(shake_amount - delta, 0, max_scale)
 	var shake_scale:float = max(shake_amount, 1)
 	
