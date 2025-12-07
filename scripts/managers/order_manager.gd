@@ -7,5 +7,5 @@ enum order {
 	HUD,
 	CURSOR,
 	MAIN_MENU,
-	SETTINGS,
+	SETTINGS
 }

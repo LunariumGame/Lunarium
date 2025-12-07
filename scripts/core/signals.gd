@@ -14,6 +14,9 @@ signal turn_electricity_generation(previous_turn_number:int)
 signal resource_value_changed(resource:ResourceManager.ResourceType, value:float)
 
 signal settings_opened()
+signal settings_closed()
+
+signal building_selected()
 
 
 ## Emitted when the game is won

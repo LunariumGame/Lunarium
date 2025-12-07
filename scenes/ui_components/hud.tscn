@@ -1,10 +1,11 @@
-[gd_scene load_steps=39 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=37 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
 [ext_resource type="PackedScene" uid="uid://ce48wrjunv4rk" path="res://scenes/ui_components/resource_display.tscn" id="2_cjm6u"]
 [ext_resource type="Script" uid="uid://c5toevd7s65xr" path="res://scripts/ui_components/next_turn.gd" id="2_ntdy2"]
 [ext_resource type="Texture2D" uid="uid://d1yyx8mxhypco" path="res://assets/sprites/icon_cog.png" id="3_otepx"]
+[ext_resource type="Script" uid="uid://bj1omfohfnxvq" path="res://scripts/scale_aware_label_settings.gd" id="3_v2n4f"]
 [ext_resource type="Texture2D" uid="uid://dbxx8xh1go5g8" path="res://assets/sprites/wrench.png" id="4_2itkv"]
 [ext_resource type="Script" uid="uid://bk2c6el5gj6vm" path="res://scripts/ui_components/resource_display.gd" id="4_a6ec8"]
 [ext_resource type="Texture2D" uid="uid://mjkrxk6sjcvc" path="res://assets/sprites/building.png" id="5_fok22"]
@@ -32,17 +33,12 @@ corner_radius_bottom_right = 24
 shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 4
 
-[sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
+[sub_resource type="LabelSettings" id="LabelSettings_8125u"]
 font_size = 24
 font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_jhx03"]
-font_size = 24
-font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_o8fc1"]
-font_size = 24
-font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+script = ExtResource("3_v2n4f")
+base_font_size = 24
+metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otepx"]
 content_margin_left = 12.0
@@ -60,13 +56,12 @@ corner_radius_bottom_left = 24
 shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 4
 
-[sub_resource type="LabelSettings" id="LabelSettings_w7kh3"]
-font_size = 30
+[sub_resource type="LabelSettings" id="LabelSettings_v2n4f"]
+font_size = 36
 font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_6pkrv"]
-font_size = 24
-font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+script = ExtResource("3_v2n4f")
+base_font_size = 36
+metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do4pv"]
 content_margin_left = 12.0
@@ -189,18 +184,18 @@ columns = 3
 [node name="Food" parent="HUD/TopLeft/Box/CenterContainer/GridContainer" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Food: XXX"
-label_settings = SubResource("LabelSettings_q5onr")
+label_settings = SubResource("LabelSettings_8125u")
 
 [node name="Electricity" parent="HUD/TopLeft/Box/CenterContainer/GridContainer" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Electricity: XXX"
-label_settings = SubResource("LabelSettings_jhx03")
+label_settings = SubResource("LabelSettings_8125u")
 resource = 1
 
 [node name="Iron" parent="HUD/TopLeft/Box/CenterContainer/GridContainer" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 text = "Iron: XXX"
-label_settings = SubResource("LabelSettings_o8fc1")
+label_settings = SubResource("LabelSettings_8125u")
 resource = 2
 
 [node name="TopMid" type="MarginContainer" parent="HUD"]
@@ -221,22 +216,22 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_otepx")
 [node name="VBox" type="VBoxContainer" parent="HUD/TopMid/Box"]
 layout_mode = 2
 
-[node name="TurnCounter" type="Label" parent="HUD/TopMid/Box/VBox"]
-layout_mode = 2
-text = "TURN"
-label_settings = SubResource("LabelSettings_w7kh3")
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("1_xgrr2")
-
 [node name="Population" type="Label" parent="HUD/TopMid/Box/VBox"]
 layout_mode = 2
 text = "Population"
-label_settings = SubResource("LabelSettings_6pkrv")
+label_settings = SubResource("LabelSettings_v2n4f")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_a6ec8")
 resource = 3
+
+[node name="TurnCounter" type="Label" parent="HUD/TopMid/Box/VBox"]
+layout_mode = 2
+text = "TURN"
+label_settings = SubResource("LabelSettings_8125u")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_xgrr2")
 
 [node name="TopRight" type="MarginContainer" parent="HUD"]
 layout_mode = 1
@@ -382,6 +377,7 @@ layout_mode = 2
 focus_mode = 0
 text = "Residential"
 script = ExtResource("9_jswg8")
+tile_size = null
 building_cursor = ExtResource("11_ne71y")
 
 [node name="Refinery" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer"]
@@ -389,6 +385,7 @@ layout_mode = 2
 focus_mode = 0
 text = "Refinery"
 script = ExtResource("9_jswg8")
+tile_size = null
 building_cursor = ExtResource("12_2w4nd")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons"]
@@ -399,6 +396,7 @@ layout_mode = 2
 focus_mode = 0
 text = "Reactor"
 script = ExtResource("9_jswg8")
+tile_size = null
 building_cursor = ExtResource("13_ij283")
 
 [node name="Farm" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer2"]
@@ -406,6 +404,7 @@ layout_mode = 2
 focus_mode = 0
 text = "Farm"
 script = ExtResource("9_jswg8")
+tile_size = null
 building_cursor = ExtResource("14_afnkq")
 
 [node name="BotInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
@@ -416,6 +415,15 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 text = "TODO BOTS"
+
+[node name="SelectedBuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "TODO Selected Building"
 
 [node name="BotRight" type="MarginContainer" parent="HUD"]
 layout_mode = 1

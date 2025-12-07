@@ -1,16 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=18 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bpc6gps3lk4ac" path="res://scenes/ui_components/hud.tscn" id="2_4mrxx"]
 [ext_resource type="AudioStream" uid="uid://crfw4ttuymq44" path="res://assets/audio/Space Music Pack/slow-travel.wav" id="5_71j4m"]
-[ext_resource type="Texture2D" uid="uid://dqb752gtm0gfe" path="res://assets/sprites/moonsurface.jpg" id="6_4mrxx"]
 [ext_resource type="AudioStream" uid="uid://bfnlmryosks8l" path="res://assets/audio/Space Music Pack/fx/alien-talk-1.wav" id="6_i7141"]
 [ext_resource type="AudioStream" uid="uid://bdd3w8a2mlpn2" path="res://assets/audio/Space Music Pack/fx/alien-talk-2.wav" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bvqdwlryncc6q" path="res://scenes/player.tscn" id="7_7r4gi"]
 [ext_resource type="Script" uid="uid://dm3fhxjge8xxk" path="res://scripts/camera/position_lock.gd" id="8_4mrxx"]
-[ext_resource type="Script" uid="uid://dm1gqee5hpi86" path="res://scripts/ui_components/tech_tree_node.gd" id="11_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://cvurq12vfgtbk" path="res://scenes/buildings/headquarters.tscn" id="12_jhx03"]
-[ext_resource type="Resource" uid="uid://2hdhlbnrajfh" path="res://resources/tech_tree_upgrades/resource_boost.tres" id="12_q5onr"]
 [ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="13_jhx03"]
 [ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="13_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://bwq4nvmg3wux7" path="res://scenes/craters.tscn" id="15_xo05s"]
@@ -56,35 +53,9 @@ process_mode = 3
 stream = SubResource("AudioStreamRandomizer_7r4gi")
 bus = &"Effects"
 
-[node name="Moonsurface" type="Sprite2D" parent="."]
-position = Vector2(665, 513)
-scale = Vector2(2.1821895, 2.1821895)
-texture = ExtResource("6_4mrxx")
+[node name="SurfaceTexture" type="Node" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("7_7r4gi")]
-visible = false
-position = Vector2(614, 406)
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(614, 406)
-script = ExtResource("8_4mrxx")
-player = NodePath("../Player")
-
-[node name="TechTreeNode" type="Node2D" parent="."]
-script = ExtResource("11_e3hyu")
-spec = ExtResource("12_q5onr")
-metadata/_custom_type_script = "uid://dm1gqee5hpi86"
-
-[node name="PlacedBuildings" type="Node2D" parent="."]
-
-[node name="BuildingFinder" type="ShapeCast2D" parent="."]
-shape = SubResource("RectangleShape2D_e3hyu")
-
-[node name="HeadQuarters" parent="." instance=ExtResource("12_jhx03")]
-position = Vector2(604, 409)
-building_spec = SubResource("Resource_o8fc1")
-
-[node name="Layer1" type="Sprite2D" parent="."]
+[node name="Layer1" type="Sprite2D" parent="SurfaceTexture"]
 texture_repeat = 2
 texture = ExtResource("16_lakw3")
 centered = false
@@ -92,7 +63,7 @@ offset = Vector2(-6400, -6400)
 region_enabled = true
 region_rect = Rect2(0, 0, 12800, 12800)
 
-[node name="Layer2" type="Sprite2D" parent="."]
+[node name="Layer2" type="Sprite2D" parent="SurfaceTexture"]
 texture_repeat = 2
 texture = ExtResource("17_pm21f")
 centered = false
@@ -100,7 +71,7 @@ offset = Vector2(-6400, -6400)
 region_enabled = true
 region_rect = Rect2(0, 0, 12800, 12800)
 
-[node name="Layer3" type="Sprite2D" parent="."]
+[node name="Layer3" type="Sprite2D" parent="SurfaceTexture"]
 texture_repeat = 2
 texture = ExtResource("18_2lf6f")
 centered = false
@@ -108,5 +79,26 @@ offset = Vector2(-6400, -6400)
 region_enabled = true
 region_rect = Rect2(0, 0, 12800, 12800)
 
-[node name="Craters" parent="." instance=ExtResource("15_xo05s")]
+[node name="Craters" parent="SurfaceTexture" instance=ExtResource("15_xo05s")]
 crater_count = 500
+
+[node name="Camera" type="Node" parent="."]
+
+[node name="CameraController" parent="Camera" instance=ExtResource("7_7r4gi")]
+visible = false
+position = Vector2(614, 406)
+
+[node name="Camera" type="Camera2D" parent="Camera" node_paths=PackedStringArray("player")]
+position = Vector2(614, 406)
+script = ExtResource("8_4mrxx")
+player = NodePath("../CameraController")
+
+[node name="BuildingFinder" type="ShapeCast2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_e3hyu")
+
+[node name="PlacedBuildings" type="Node2D" parent="."]
+
+[node name="HeadQuarters" parent="." instance=ExtResource("12_jhx03")]
+position = Vector2(604, 409)
+building_spec = SubResource("Resource_o8fc1")
