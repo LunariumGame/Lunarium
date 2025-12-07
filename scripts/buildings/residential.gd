@@ -25,7 +25,7 @@ func _ready() -> void:
 
 
 func emit_built_signal() -> void:
-	Signals.built_residential.emit()
+	Signals.building_built.emit(self)
 
 
 func get_power_draw() -> float:
