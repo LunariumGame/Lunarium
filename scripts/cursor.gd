@@ -44,7 +44,7 @@ func _process(delta:float) -> void:
 	var scale_factor:float = minf(1.0 * screen_size.x / BASE_WIDTH, 1.0 * screen_size.y / BASE_HEIGHT) * shake_scale
 	scale_factor = maxf(1, minf(scale_factor, max_scale))
 	
-	if scale_factor == current_scale:
+	if scale_factor == current_scale and not enable_rainbow:
 		return
 	current_scale = scale_factor
 	
