@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=40 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
@@ -39,7 +39,7 @@ shadow_size = 4
 [sub_resource type="LabelSettings" id="LabelSettings_8125u"]
 font = ExtResource("7_7utte")
 font_size = 40
-font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
 script = ExtResource("3_v2n4f")
 base_font_size = 40
 metadata/_custom_type_script = "uid://bj1omfohfnxvq"
@@ -63,7 +63,7 @@ shadow_size = 4
 [sub_resource type="LabelSettings" id="LabelSettings_v2n4f"]
 font = ExtResource("7_7utte")
 font_size = 48
-font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
 script = ExtResource("3_v2n4f")
 base_font_size = 48
 metadata/_custom_type_script = "uid://bj1omfohfnxvq"
@@ -83,6 +83,8 @@ corner_radius_bottom_left = 24
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_do4pv"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ne71y"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6ec8"]
 content_margin_left = 12.0
 content_margin_top = 12.0
@@ -100,12 +102,10 @@ shadow_size = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pkrv"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ne71y"]
-
 [sub_resource type="LabelSettings" id="LabelSettings_3esv6"]
 font = ExtResource("7_7utte")
 font_size = 56
-font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
 script = ExtResource("3_v2n4f")
 base_font_size = 56
 metadata/_custom_type_script = "uid://bj1omfohfnxvq"
@@ -136,6 +136,38 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7utte"]
 bg_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
 expand_margin_top = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eov31"]
+bg_color = Color(0.7259334, 0.7820148, 0.80884045, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6iety"]
+bg_color = Color(0.7259334, 0.7820148, 0.80884045, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.33333334, 0.4509804, 0.41568628, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pkrv"]
 content_margin_left = 12.0
@@ -258,11 +290,13 @@ theme_override_constants/separation = 15
 
 [node name="PopulationTag" type="Label" parent="HUD/TopMid/Box/VBox/HBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
 text = "POPULATION"
 label_settings = SubResource("LabelSettings_v2n4f")
 
 [node name="Population" type="Label" parent="HUD/TopMid/Box/VBox/HBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
 text = "XXX"
 label_settings = SubResource("LabelSettings_v2n4f")
 horizontal_alignment = 1
@@ -272,6 +306,7 @@ resource = 3
 
 [node name="TurnCounter" type="Label" parent="HUD/TopMid/Box/VBox"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
 text = "TURN #"
 label_settings = SubResource("LabelSettings_8125u")
 horizontal_alignment = 1
@@ -295,8 +330,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_do4pv")
 [node name="Settings" type="Button" parent="HUD/TopRight/Box"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_colors/icon_normal_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
+theme_override_colors/icon_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
+theme_override_colors/icon_hover_color = Color(0.30980393, 0.39215687, 0.24313726, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_do4pv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ne71y")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ne71y")
 icon = ExtResource("3_otepx")
 icon_alignment = 1
 
@@ -327,8 +368,13 @@ layout_mode = 2
 focus_mode = 0
 accessibility_name = "Tech Tree Button"
 accessibility_description = "Opens the tech tree"
-theme_override_colors/icon_normal_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+theme_override_colors/icon_normal_color = Color(0.2427682, 0.31509262, 0.18548527, 1)
+theme_override_colors/icon_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
+theme_override_colors/icon_hover_color = Color(0.30951104, 0.3941094, 0.24214599, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6pkrv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6pkrv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6pkrv")
 toggle_mode = true
 action_mode = 0
 icon = ExtResource("4_2itkv")
@@ -342,8 +388,13 @@ layout_mode = 2
 focus_mode = 0
 accessibility_name = "Building Manager Button"
 accessibility_description = "Opens the building manager"
-theme_override_colors/icon_normal_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
+theme_override_colors/icon_normal_color = Color(0.2427682, 0.31509262, 0.18548527, 1)
+theme_override_colors/icon_pressed_color = Color(0.37559372, 0.4761585, 0.29631186, 1)
+theme_override_colors/icon_hover_color = Color(0.30980393, 0.39215687, 0.24313726, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ne71y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6pkrv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6pkrv")
 toggle_mode = true
 action_mode = 0
 icon = ExtResource("5_fok22")
@@ -405,46 +456,89 @@ custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7utte")
 
-[node name="BuildingButtons" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+
+[node name="BuildingButtons" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+theme_override_constants/separation = 24
 script = ExtResource("9_do4pv")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons"]
+[node name="HBoxContainer" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons"]
 layout_mode = 2
+theme_override_constants/separation = 48
 
-[node name="Residential" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer"]
+[node name="Residential" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-text = "Residential"
+theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
+theme_override_colors/font_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
+theme_override_colors/font_hover_color = Color(0.30980393, 0.39215687, 0.24313726, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
+theme_override_fonts/font = ExtResource("7_7utte")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_eov31")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+text = "RESIDENCE"
 script = ExtResource("9_jswg8")
 tile_size = null
 building_cursor = ExtResource("11_ne71y")
 
-[node name="Refinery" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer"]
+[node name="Refinery" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-text = "Refinery"
+theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
+theme_override_colors/font_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
+theme_override_colors/font_hover_color = Color(0.30980393, 0.39215687, 0.24313726, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
+theme_override_fonts/font = ExtResource("7_7utte")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_eov31")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+text = "REFINERY"
 script = ExtResource("9_jswg8")
 tile_size = null
 building_cursor = ExtResource("12_2w4nd")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons"]
+[node name="HBoxContainer2" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons"]
 layout_mode = 2
+theme_override_constants/separation = 48
 
-[node name="Reactor" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer2"]
+[node name="Reactor" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
-text = "Reactor"
+theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
+theme_override_colors/font_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
+theme_override_colors/font_hover_color = Color(0.30980393, 0.39215687, 0.24313726, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
+theme_override_fonts/font = ExtResource("7_7utte")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_6iety")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+text = "REACTOR"
 script = ExtResource("9_jswg8")
 tile_size = null
 building_cursor = ExtResource("13_ij283")
 
-[node name="Farm" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/BuildingButtons/HBoxContainer2"]
+[node name="Farm" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
-text = "Farm"
+theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
+theme_override_colors/font_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
+theme_override_colors/font_hover_color = Color(0.30980393, 0.39215687, 0.24313726, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
+theme_override_fonts/font = ExtResource("7_7utte")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_6iety")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+text = "ECO DOME"
 script = ExtResource("9_jswg8")
 tile_size = null
 building_cursor = ExtResource("14_afnkq")
@@ -488,9 +582,10 @@ custom_minimum_size = Vector2(225, 40)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("11_6pkrv")
-theme_override_colors/font_color = Color(0.05882353, 0.40392157, 0.41960785, 1)
-theme_override_colors/font_pressed_color = Color(0.07389515, 0.46902436, 0.4869594, 1)
-theme_override_colors/font_hover_color = Color(0.02589177, 0.26093128, 0.27170995, 1)
+theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
+theme_override_colors/font_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
+theme_override_colors/font_hover_color = Color(0.30980393, 0.39215687, 0.24313726, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3764706, 0.4745098, 0.29803923, 1)
 theme_override_colors/font_disabled_color = Color(0.48831904, 0.51915824, 0.53680307, 0.60784316)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ij283")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ij283")
