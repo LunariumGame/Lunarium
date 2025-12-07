@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://dgfq7odjk1hcx"]
+[gd_scene load_steps=25 format=3 uid="uid://dgfq7odjk1hcx"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_sid64"]
 [ext_resource type="Script" uid="uid://cap1i0rek2d6n" path="res://scripts/buildings/eco_dome.gd" id="2_hww1b"]
@@ -24,18 +24,6 @@ metadata/_custom_type_script = "uid://cy4nkunttcuy5"
 
 [sub_resource type="Animation" id="Animation_j3rju"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [89]
-}
 
 [sub_resource type="Animation" id="Animation_daisx"]
 resource_name = "buffed_u1"
@@ -299,202 +287,6 @@ _data = {
 &"off_u3": SubResource("Animation_4hstu")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_daisx"]
-animation = &"buffed_u1"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mfina"]
-animation = &"buffed_u2"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f6oyp"]
-animation = &"buffed_u3"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hhebf"]
-animation = &"create_u1"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1x723"]
-animation = &"create_u2"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0krn8"]
-animation = &"create_u3"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ofkw7"]
-animation = &"delete_u1"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_volt3"]
-animation = &"delete_u2"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xl0vr"]
-animation = &"delete_u3"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oalqm"]
-animation = &"idle_u1"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vnr05"]
-animation = &"idle_u2"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wlaec"]
-animation = &"idle_u3"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u6fk5"]
-animation = &"idle_u1"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w2b1x"]
-animation = &"off_u2"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4hstu"]
-animation = &"off_u3"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_daisx"]
-switch_mode = 1
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mfina"]
-switch_mode = 1
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j2vja"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c57nt"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ia6p8"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_05lpc"]
-switch_mode = 1
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qmjy6"]
-switch_mode = 1
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_diqjy"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cjfqh"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b7rl2"]
-switch_mode = 1
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ygep"]
-switch_mode = 1
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_11vwp"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7s87l"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kus1u"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ns6s8"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r8gg6"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5a7io"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hssoc"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3iqlq"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_67fr5"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2bcsn"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g43g5"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jh2q7"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d0qax"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ygdnu"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8fr13"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f6oyp"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oalqm"]
-advance_mode = 2
-advance_condition = &"create_building"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vnr05"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wlaec"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hhebf"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1x723"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0krn8"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ofkw7"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_j3rju"]
-states/End/position = Vector2(793, 211)
-states/Start/position = Vector2(266, -10)
-states/buffed_u1/node = SubResource("AnimationNodeAnimation_daisx")
-states/buffed_u1/position = Vector2(619, 109)
-states/buffed_u2/node = SubResource("AnimationNodeAnimation_mfina")
-states/buffed_u2/position = Vector2(619, 467)
-states/buffed_u3/node = SubResource("AnimationNodeAnimation_f6oyp")
-states/buffed_u3/position = Vector2(619, 697)
-states/create_u1/node = SubResource("AnimationNodeAnimation_hhebf")
-states/create_u1/position = Vector2(266, 109)
-states/create_u2/node = SubResource("AnimationNodeAnimation_1x723")
-states/create_u2/position = Vector2(443, 211)
-states/create_u3/node = SubResource("AnimationNodeAnimation_0krn8")
-states/create_u3/position = Vector2(443, 411)
-states/delete_u1/node = SubResource("AnimationNodeAnimation_ofkw7")
-states/delete_u1/position = Vector2(619, -10)
-states/delete_u2/node = SubResource("AnimationNodeAnimation_volt3")
-states/delete_u2/position = Vector2(619, 295)
-states/delete_u3/node = SubResource("AnimationNodeAnimation_xl0vr")
-states/delete_u3/position = Vector2(793, 554)
-states/idle_u1/node = SubResource("AnimationNodeAnimation_oalqm")
-states/idle_u1/position = Vector2(443, 109)
-states/idle_u2/node = SubResource("AnimationNodeAnimation_vnr05")
-states/idle_u2/position = Vector2(443, 307)
-states/idle_u3/node = SubResource("AnimationNodeAnimation_wlaec")
-states/idle_u3/position = Vector2(442, 559)
-states/off_u1/node = SubResource("AnimationNodeAnimation_u6fk5")
-states/off_u1/position = Vector2(443, -10)
-states/off_u2/node = SubResource("AnimationNodeAnimation_w2b1x")
-states/off_u2/position = Vector2(266, 467)
-states/off_u3/node = SubResource("AnimationNodeAnimation_4hstu")
-states/off_u3/position = Vector2(266, 697)
-transitions = ["idle_u1", "buffed_u1", SubResource("AnimationNodeStateMachineTransition_daisx"), "buffed_u1", "idle_u1", SubResource("AnimationNodeStateMachineTransition_mfina"), "create_u1", "idle_u1", SubResource("AnimationNodeStateMachineTransition_j2vja"), "idle_u1", "create_u2", SubResource("AnimationNodeStateMachineTransition_c57nt"), "create_u2", "idle_u2", SubResource("AnimationNodeStateMachineTransition_ia6p8"), "idle_u2", "buffed_u2", SubResource("AnimationNodeStateMachineTransition_05lpc"), "buffed_u2", "idle_u2", SubResource("AnimationNodeStateMachineTransition_qmjy6"), "idle_u2", "create_u3", SubResource("AnimationNodeStateMachineTransition_diqjy"), "create_u3", "idle_u3", SubResource("AnimationNodeStateMachineTransition_cjfqh"), "idle_u3", "buffed_u3", SubResource("AnimationNodeStateMachineTransition_b7rl2"), "buffed_u3", "idle_u3", SubResource("AnimationNodeStateMachineTransition_5ygep"), "buffed_u3", "delete_u3", SubResource("AnimationNodeStateMachineTransition_11vwp"), "idle_u3", "delete_u3", SubResource("AnimationNodeStateMachineTransition_7s87l"), "buffed_u2", "delete_u2", SubResource("AnimationNodeStateMachineTransition_kus1u"), "idle_u2", "delete_u2", SubResource("AnimationNodeStateMachineTransition_ns6s8"), "buffed_u1", "delete_u1", SubResource("AnimationNodeStateMachineTransition_r8gg6"), "idle_u1", "delete_u1", SubResource("AnimationNodeStateMachineTransition_5a7io"), "delete_u1", "End", SubResource("AnimationNodeStateMachineTransition_hssoc"), "delete_u2", "End", SubResource("AnimationNodeStateMachineTransition_3iqlq"), "delete_u3", "End", SubResource("AnimationNodeStateMachineTransition_67fr5"), "off_u2", "idle_u2", SubResource("AnimationNodeStateMachineTransition_2bcsn"), "idle_u2", "off_u2", SubResource("AnimationNodeStateMachineTransition_g43g5"), "off_u3", "idle_u3", SubResource("AnimationNodeStateMachineTransition_jh2q7"), "idle_u3", "off_u3", SubResource("AnimationNodeStateMachineTransition_d0qax"), "idle_u1", "off_u1", SubResource("AnimationNodeStateMachineTransition_ygdnu"), "off_u1", "idle_u1", SubResource("AnimationNodeStateMachineTransition_8fr13"), "Start", "off_u1", SubResource("AnimationNodeStateMachineTransition_f6oyp"), "off_u1", "create_u1", SubResource("AnimationNodeStateMachineTransition_oalqm"), "buffed_u3", "off_u3", SubResource("AnimationNodeStateMachineTransition_vnr05"), "buffed_u1", "off_u1", SubResource("AnimationNodeStateMachineTransition_wlaec"), "buffed_u2", "off_u2", SubResource("AnimationNodeStateMachineTransition_hhebf"), "off_u1", "delete_u1", SubResource("AnimationNodeStateMachineTransition_1x723"), "off_u2", "delete_u2", SubResource("AnimationNodeStateMachineTransition_0krn8"), "off_u3", "delete_u3", SubResource("AnimationNodeStateMachineTransition_ofkw7")]
-graph_offset = Vector2(0, -62.768425)
-
 [node name="EcoDome" instance=ExtResource("1_sid64")]
 script = ExtResource("2_hww1b")
 building_spec = SubResource("Resource_v4082")
@@ -505,13 +297,9 @@ target = NodePath("..")
 
 [node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("5_j3rju")
-frame = 89
+frame = 11
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
 &"": SubResource("AnimationLibrary_j3rju")
 }
-
-[node name="AnimationTree" parent="." index="4"]
-tree_root = SubResource("AnimationNodeStateMachine_j3rju")
-parameters/conditions/create_building = false

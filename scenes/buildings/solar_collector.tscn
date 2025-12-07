@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_jfxlg"]
 [ext_resource type="Texture2D" uid="uid://clcr4aysrnx6w" path="res://assets/sprites/buildings/power_generators/solar_collector/solar_collector_spritesheet.png" id="2_l2abt"]
 
+[sub_resource type="Animation" id="Animation_l2abt"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_daisx"]
 resource_name = "buffed_u1"
 length = 1.5
@@ -246,21 +249,6 @@ tracks/0/keys = {
 "values": [71]
 }
 
-[sub_resource type="Animation" id="Animation_l2abt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l2abt"]
 _data = {
 &"RESET": SubResource("Animation_l2abt"),
@@ -289,9 +277,10 @@ target = NodePath("..")
 [node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("2_l2abt")
 vframes = 9
-frame = 3
+frame = 1
 
 [node name="AnimationPlayer" parent="." index="3"]
+active = true
 libraries = {
 &"": SubResource("AnimationLibrary_l2abt")
 }

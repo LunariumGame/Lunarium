@@ -8,6 +8,7 @@ extends Button
 var cursor_instance: Building
 var cursor_sprite: Sprite2D
 var cursor_area: Area2D
+var cursor_anim_manager: AnimationManager
 
 # current position of cursor in building manager coords
 var ptr: Vector2i
@@ -44,6 +45,8 @@ func _instantiate_cursor() -> void:
 	cursor_sprite = cursor_instance.get_node("Sprite2D")
 	cursor_sprite.modulate.a = 0.5
 	cursor_area = cursor_instance.get_node("Area2D")
+	cursor_anim_manager = cursor_instance.get_node("AnimationTree")
+	cursor_anim_manager.update_animation(cursor_anim_manager.StateAction.OFF)
 
 
 # follow cursor
@@ -92,3 +95,5 @@ func _place_building() -> void:
 	)
 	cursor_instance.building_id = building_id
 	cursor_sprite.modulate.a = 1.0
+	# creation animation, then idling
+	cursor_anim_manager.update_animation(cursor_anim_manager.StateAction.CREATE)

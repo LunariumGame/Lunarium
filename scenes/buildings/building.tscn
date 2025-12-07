@@ -1,9 +1,10 @@
-[gd_scene load_steps=74 format=3 uid="uid://sr08scun8ys1"]
+[gd_scene load_steps=75 format=3 uid="uid://sr08scun8ys1"]
 
 [ext_resource type="Script" uid="uid://6myfee53w1xy" path="res://scripts/buildings/building.gd" id="1_a3sb6"]
 [ext_resource type="Script" uid="uid://dh3go6ocensfh" path="res://scripts/buildings/building_collider.gd" id="3_qcxio"]
 [ext_resource type="Script" uid="uid://dxx0x0ph2itdh" path="res://scripts/buildings/building_debugger.gd" id="4_daisx"]
-[ext_resource type="Script" uid="uid://dde4jsmfv432l" path="res://scripts/buildings/building_sprite.gd" id="4_mfina"]
+[ext_resource type="Script" path="res://scripts/buildings/building_sprite.gd" id="4_mfina"]
+[ext_resource type="Script" uid="uid://bkbe1ecuocexf" path="res://scripts/buildings/disable_player.gd" id="5_f6oyp"]
 [ext_resource type="Script" uid="uid://cr5mxmcexbr8u" path="res://scripts/buildings/building_animation_manager.gd" id="5_mfina"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27e8i"]
@@ -196,6 +197,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_u6fk5"]
 resource_name = "off_u1"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -295,7 +297,7 @@ animation = &"idle_u2"
 animation = &"idle_u3"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u6fk5"]
-animation = &"idle_u1"
+animation = &"off_u1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w2b1x"]
 animation = &"off_u2"
@@ -348,8 +350,6 @@ switch_mode = 1
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r8gg6"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5a7io"]
-advance_mode = 2
-advance_condition = &"delete_building"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hssoc"]
 switch_mode = 2
@@ -426,7 +426,7 @@ states/off_u2/position = Vector2(258, 449)
 states/off_u3/node = SubResource("AnimationNodeAnimation_4hstu")
 states/off_u3/position = Vector2(266, 697)
 transitions = ["idle_u1", "buffed_u1", SubResource("AnimationNodeStateMachineTransition_daisx"), "buffed_u1", "idle_u1", SubResource("AnimationNodeStateMachineTransition_mfina"), "create_u1", "idle_u1", SubResource("AnimationNodeStateMachineTransition_j2vja"), "idle_u1", "create_u2", SubResource("AnimationNodeStateMachineTransition_c57nt"), "create_u2", "idle_u2", SubResource("AnimationNodeStateMachineTransition_ia6p8"), "idle_u2", "buffed_u2", SubResource("AnimationNodeStateMachineTransition_05lpc"), "buffed_u2", "idle_u2", SubResource("AnimationNodeStateMachineTransition_qmjy6"), "idle_u2", "create_u3", SubResource("AnimationNodeStateMachineTransition_diqjy"), "create_u3", "idle_u3", SubResource("AnimationNodeStateMachineTransition_cjfqh"), "idle_u3", "buffed_u3", SubResource("AnimationNodeStateMachineTransition_b7rl2"), "buffed_u3", "idle_u3", SubResource("AnimationNodeStateMachineTransition_5ygep"), "buffed_u3", "delete_u3", SubResource("AnimationNodeStateMachineTransition_11vwp"), "idle_u3", "delete_u3", SubResource("AnimationNodeStateMachineTransition_7s87l"), "buffed_u2", "delete_u2", SubResource("AnimationNodeStateMachineTransition_kus1u"), "idle_u2", "delete_u2", SubResource("AnimationNodeStateMachineTransition_ns6s8"), "buffed_u1", "delete_u1", SubResource("AnimationNodeStateMachineTransition_r8gg6"), "idle_u1", "delete_u1", SubResource("AnimationNodeStateMachineTransition_5a7io"), "delete_u1", "End", SubResource("AnimationNodeStateMachineTransition_hssoc"), "delete_u2", "End", SubResource("AnimationNodeStateMachineTransition_3iqlq"), "delete_u3", "End", SubResource("AnimationNodeStateMachineTransition_67fr5"), "off_u2", "idle_u2", SubResource("AnimationNodeStateMachineTransition_2bcsn"), "idle_u2", "off_u2", SubResource("AnimationNodeStateMachineTransition_g43g5"), "off_u3", "idle_u3", SubResource("AnimationNodeStateMachineTransition_jh2q7"), "idle_u3", "off_u3", SubResource("AnimationNodeStateMachineTransition_d0qax"), "idle_u1", "off_u1", SubResource("AnimationNodeStateMachineTransition_ygdnu"), "off_u1", "idle_u1", SubResource("AnimationNodeStateMachineTransition_8fr13"), "Start", "off_u1", SubResource("AnimationNodeStateMachineTransition_f6oyp"), "off_u1", "create_u1", SubResource("AnimationNodeStateMachineTransition_oalqm"), "buffed_u3", "off_u3", SubResource("AnimationNodeStateMachineTransition_vnr05"), "buffed_u1", "off_u1", SubResource("AnimationNodeStateMachineTransition_wlaec"), "buffed_u2", "off_u2", SubResource("AnimationNodeStateMachineTransition_hhebf"), "off_u1", "delete_u1", SubResource("AnimationNodeStateMachineTransition_1x723"), "off_u2", "delete_u2", SubResource("AnimationNodeStateMachineTransition_0krn8"), "off_u3", "delete_u3", SubResource("AnimationNodeStateMachineTransition_ofkw7")]
-graph_offset = Vector2(0, -66.60965)
+graph_offset = Vector2(0, -34.64331)
 
 [node name="Building" type="Node2D"]
 script = ExtResource("1_a3sb6")
@@ -452,12 +452,14 @@ vframes = 18
 script = ExtResource("4_mfina")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+active = false
 libraries = {
 &"": SubResource("AnimationLibrary_daisx")
 }
+script = ExtResource("5_f6oyp")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
 tree_root = SubResource("AnimationNodeStateMachine_daisx")
 anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/delete_building = false
 script = ExtResource("5_mfina")
