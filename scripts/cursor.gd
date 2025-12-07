@@ -19,6 +19,11 @@ var current_scale:float = NAN
 @onready var texture_rect: TextureRect = $TextureRect
 
 
+func _ready() -> void:
+	Signals.game_won.connect(_on_game_won)
+	Signals.end_screen_closed.connect(_on_end_screen_closed)
+
+
 func _process(delta:float) -> void:
 	var screen_size:Vector2i = DisplayServer.screen_get_size()
 	var max_scale:float = minf(MAX_SIZE.x * 1.0 / NATIVE_CURSOR_SIZE.x , MAX_SIZE.y * 1.0 / NATIVE_CURSOR_SIZE.y)
@@ -57,3 +62,11 @@ func _process(delta:float) -> void:
 	
 	# update cursor
 	Input.set_custom_mouse_cursor(self.get_texture(), Input.CURSOR_ARROW, CURSOR_TARGET_OFFSET * scale_factor)
+
+
+func _on_game_won() -> void:
+	enable_rainbow = true
+
+
+func _on_end_screen_closed() -> void:
+	enable_rainbow = false
