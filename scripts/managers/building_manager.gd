@@ -1,8 +1,9 @@
 class_name BuildingManager
 extends Node
 
-const WIDTH: int = 5000
-const HEIGHT: int = 5000
+# Arbitrarily large because camera limits the world now
+const WIDTH: int = 25000
+const HEIGHT: int = 25000
 
 const DIRECTIONS = [
 	Vector2i(1, 0), Vector2i(-1, 0),
