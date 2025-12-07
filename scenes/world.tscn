@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=22 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bpc6gps3lk4ac" path="res://scenes/ui_components/hud.tscn" id="2_4mrxx"]
@@ -21,6 +21,18 @@ random_volume_offset_db = 1.0
 streams_count = 2
 stream_0/stream = ExtResource("6_i7141")
 stream_1/stream = ExtResource("7_4mrxx")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo05s"]
+size = Vector2(214, 12804)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dss4m"]
+size = Vector2(214, 12804)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7t5mc"]
+size = Vector2(214, 12804)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8fc1"]
+size = Vector2(214, 12804)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3hyu"]
 
@@ -94,6 +106,26 @@ unique_name_in_owner = true
 position = Vector2(614, 406)
 script = ExtResource("8_4mrxx")
 player = NodePath("../CameraController")
+
+[node name="WorldBounds" type="StaticBody2D" parent="Camera"]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Camera/WorldBounds"]
+position = Vector2(24, -3905)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_xo05s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera/WorldBounds"]
+position = Vector2(-4, 3787)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_dss4m")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera/WorldBounds"]
+position = Vector2(-3177, -59)
+shape = SubResource("RectangleShape2D_7t5mc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/WorldBounds"]
+position = Vector2(3076, 2)
+shape = SubResource("RectangleShape2D_o8fc1")
 
 [node name="BuildingFinder" type="ShapeCast2D" parent="."]
 visible = false
