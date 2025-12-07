@@ -21,11 +21,8 @@ var state := GameState.IN_PROGRESS
 
 
 func _ready() -> void:
-	Signals.built_power_plant.connect(recompute_electricity)
-	Signals.built_eco_dome.connect(recompute_electricity)
-	Signals.built_refinery.connect(recompute_electricity)
-	Signals.built_residential.connect(recompute_electricity)
-	
+	Signals.building_built.connect(recompute_electricity)
+
 
 func end_turn() -> void:
 	if not GameState.IN_PROGRESS == state:
@@ -52,7 +49,7 @@ func end_turn() -> void:
 	Signals.turn_started.emit(turn)
 	
 	# electricity recomputation handles reactors
-	recompute_electricity()
+	recompute_electricity(null)
 	
 	Signals.turn_started_eco_dome.emit(turn)
 	Signals.turn_started_refinery.emit(turn)
@@ -107,8 +104,10 @@ func get_resource_cap(resource:ResourceManager.ResourceType) -> float:
 		_: return NAN
 
 
-func recompute_electricity() -> void:
+func recompute_electricity(building: Building) -> void:
 	resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
 	Signals.turn_started_power_plant.emit(turn)
 	_computed_electricity_capacity = resource_manager.get_resource(ResourceManager.ResourceType.ELECTRICITY)
 	Signals.turn_process_power_draw.emit(turn)
+	Signals.resource_value_changed.emit()
+	Signals.electricity_recomputed.emit()

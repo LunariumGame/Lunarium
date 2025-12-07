@@ -20,6 +20,7 @@ signal building_built(building: Node)
 
 ## Emitted when the amount of a resource that the player has is changed.
 signal resource_value_changed()
+signal electricity_recomputed()
 
 signal settings_opened()
 signal settings_closed()
