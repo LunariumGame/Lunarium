@@ -7,7 +7,6 @@ extends Button
 @export var building_cursor: PackedScene
 var cursor_instance: Building
 var cursor_sprite: Sprite2D
-var cursor_anim: AnimationTree
 var cursor_area: Area2D
 
 # current position of cursor in building manager coords
@@ -45,7 +44,6 @@ func _instantiate_cursor() -> void:
 	cursor_sprite = cursor_instance.get_node("Sprite2D")
 	cursor_sprite.modulate.a = 0.5
 	cursor_area = cursor_instance.get_node("Area2D")
-	cursor_anim = cursor_instance.get_node("AnimationTree")
 
 
 # follow cursor
@@ -94,4 +92,3 @@ func _place_building() -> void:
 	)
 	cursor_instance.building_id = building_id
 	cursor_sprite.modulate.a = 1.0
-	cursor_anim.set("parameters/conditions/place_building", true)

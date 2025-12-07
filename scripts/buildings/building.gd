@@ -109,4 +109,3 @@ func set_cursor_mode(enabled: bool) -> void:
 
 func emit_built_signal() -> void:
 	pass
-

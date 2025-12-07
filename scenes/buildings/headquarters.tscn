@@ -328,3 +328,4 @@ libraries = {
 
 [node name="AnimationTree" parent="." index="4"]
 tree_root = SubResource("AnimationNodeStateMachine_5ctyw")
+script = null
