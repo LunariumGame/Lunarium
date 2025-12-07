@@ -91,5 +91,6 @@ func _place_building() -> void:
 	cursor_instance.name = (
 		cursor_instance.get_script().get_global_name() + "-" + str(building_id)
 	)
+	cursor_instance.building_id = building_id
 	cursor_sprite.modulate.a = 1.0
 	cursor_anim.set("parameters/conditions/place_building", true)

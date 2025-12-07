@@ -1,10 +1,9 @@
-[gd_scene load_steps=74 format=3 uid="uid://sr08scun8ys1"]
+[gd_scene load_steps=73 format=3 uid="uid://sr08scun8ys1"]
 
 [ext_resource type="Script" uid="uid://6myfee53w1xy" path="res://scripts/buildings/building.gd" id="1_a3sb6"]
 [ext_resource type="Script" uid="uid://dh3go6ocensfh" path="res://scripts/buildings/building_collider.gd" id="3_qcxio"]
 [ext_resource type="Script" uid="uid://dxx0x0ph2itdh" path="res://scripts/buildings/building_debugger.gd" id="4_daisx"]
 [ext_resource type="Script" uid="uid://dde4jsmfv432l" path="res://scripts/buildings/building_sprite.gd" id="4_mfina"]
-[ext_resource type="Script" uid="uid://dcw3db0ucm313" path="res://scripts/buildings/build_animation_player.gd" id="5_mfina"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27e8i"]
 size = Vector2(32, 32)
@@ -487,7 +486,6 @@ script = ExtResource("4_mfina")
 libraries = {
 &"": SubResource("AnimationLibrary_daisx")
 }
-script = ExtResource("5_mfina")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_daisx")
