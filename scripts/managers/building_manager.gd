@@ -26,7 +26,6 @@ var _pos_to_building_id: Dictionary[Vector2i, int] = {}
 var _building_id_to_node: Dictionary[int, Building] = {}
 var _id_to_type = {}
 var _buildings: Dictionary[Vector2i, int] = {}
-var _id_to_type := {}
 var building_tiles = {} # Dictionary[int, Array[Vector2i]]
 var adjacent_tiles = {} # Dictionary[int, Array[Vector2i]]
 var _building_id_counter := 1
@@ -36,12 +35,9 @@ func _ready() -> void:
 	# 0 = EMPTY
 	_id_to_type[0] = BuildingType.EMPTY
 
-
-## returns building id if built successfully, 0 otherwise, based on cost and adjacency to other Building nodes
-func build(building: Building, position: Vector2i, width: int, height: int) -> int:
+	
 func can_build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> bool:
 	# If no cost spec, don't place
-	var building_spec := building.building_spec
 	if building_spec.cost_levels.size() == 0:
 		return false
 	
@@ -70,7 +66,9 @@ func can_build(building_spec: BuildingSpec, position: Vector2i, width: int, heig
 	return true
 
 ## returns building id if built successfully, 0 otherwise, based on cost and adjacency to other Building nodes
-func build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> int:
+func build(building: Building, position: Vector2i, width: int, height: int) -> int:
+	
+	var building_spec := building.building_spec
 	
 	if not can_build(building_spec, position, width, height):
 		return 0
