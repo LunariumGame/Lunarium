@@ -3,16 +3,15 @@ class_name BuildingButton
 extends Button
 
 @export var tile_size := Vector2i(32, 32)
-
 @export var building_cursor: PackedScene
+
 var cursor_instance: Building
 var cursor_sprite: Sprite2D
 var cursor_area: Area2D
 var cursor_anim_manager: AnimationManager
+var ptr: Vector2i # current position of cursor in building manager coords
 
-# current position of cursor in building manager coords
-var ptr: Vector2i
-
+@onready var cost_label: Label = $"../../../../Costs/BuildingCost"
 
 func _ready() -> void:
 	add_to_group("building_buttons")
@@ -31,6 +30,8 @@ func _populate_cursor_on_click() -> void:
 	_instantiate_cursor()
 	print("Adding ", cursor_instance," child with button: ", name)
 
+	# Update cost label
+	populate_cost_label(cursor_instance.building_spec)
 
 # instantiate building as a cursor with characteristics
 func _instantiate_cursor() -> void:
@@ -58,8 +59,9 @@ func _process(_delta: float) -> void:
 		var mouse_pos_world: Vector2 = canvas_to_world_transform * get_global_mouse_position()
 
 		cursor_instance.global_position = mouse_pos_world.snapped(tile_size)
-		# if collision, notify 
-		if cursor_area.is_overlapping():
+		
+		# if collision/not enough resources, notify with red sprite
+		if cursor_area.is_overlapping() || !build_man.can_purchase(cursor_instance.building_spec):
 			cursor_instance.modulate = Color.RED
 		else:
 			cursor_instance.modulate = Color.WHITE
@@ -100,4 +102,17 @@ func _place_building() -> bool:
 	cursor_sprite.modulate.a = 1.0
 	# creation animation, then idling
 	cursor_anim_manager.update_animation(cursor_anim_manager.StateAction.CREATE)
+	
 	return true
+
+
+# Populate cost label with appropriate cost of building
+func populate_cost_label(build_spec: BuildingSpec) -> void:
+	var building_type_name = build_man.BuildingType.find_key(build_spec.type)
+	var pretty_name = building_type_name.replace("_", " ")
+	cost_label.text = str(pretty_name) + " COSTS\n\n"
+	var cost_levels = build_spec.cost_levels
+	var cost = cost_levels[cursor_instance.current_level - 1] # TODO: Does this -1 work here for upgraded buildings?
+	cost_label.text += str(cost.cost[ResourceManager.ResourceType.FOOD]) + " FOOD\n"
+	cost_label.text += str(cost.cost[ResourceManager.ResourceType.IRON]) + " IRON\n"
+	cost_label.text += str(cost.cost[ResourceManager.ResourceType.ELECTRICITY]) + " ELECTRICITY"

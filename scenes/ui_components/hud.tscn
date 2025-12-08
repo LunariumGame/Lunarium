@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=43 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://omx3pl3xhdw" path="res://scenes/buildings/iron_refinery.tscn" id="12_2w4nd"]
 [ext_resource type="PackedScene" uid="uid://bmcgkpbcwft3l" path="res://scenes/buildings/power_plant.tscn" id="13_ij283"]
 [ext_resource type="PackedScene" uid="uid://dgfq7odjk1hcx" path="res://scenes/buildings/eco_dome.tscn" id="14_afnkq"]
+[ext_resource type="Theme" uid="uid://ccx1tgrq1y6x3" path="res://resources/ui/oldsteam.tres" id="18_haqli"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2itkv"]
 content_margin_left = 12.0
@@ -37,10 +38,9 @@ shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_8125u"]
-font = ExtResource("7_7utte")
-font_size = 40
+font_size = 48
 script = ExtResource("3_v2n4f")
-base_font_size = 40
+base_font_size = 48
 metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otepx"]
@@ -60,7 +60,6 @@ shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_v2n4f"]
-font = ExtResource("7_7utte")
 font_size = 48
 script = ExtResource("3_v2n4f")
 base_font_size = 48
@@ -125,31 +124,16 @@ content_margin_right = 32.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7utte"]
-font = ExtResource("7_7utte")
-font_size = 32
+font_size = 36
 script = ExtResource("3_v2n4f")
-base_font_size = 32
+base_font_size = 36
 metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7utte"]
 bg_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
 expand_margin_top = 1.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eov31"]
-bg_color = Color(0.29803923, 0.34509805, 0.26666668, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-expand_margin_left = 3.0
-expand_margin_top = 3.0
-expand_margin_right = 3.0
-expand_margin_bottom = 3.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6iety"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7utte"]
 
@@ -211,13 +195,14 @@ theme_override_constants/separation = 10
 
 [node name="FoodIcon" type="TextureRect" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Food"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("2_v2n4f")
 stretch_mode = 2
 
 [node name="Food" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Food" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
+theme = ExtResource("18_haqli")
 text = "XXX"
 label_settings = SubResource("LabelSettings_8125u")
 
@@ -228,27 +213,33 @@ theme_override_constants/separation = 10
 
 [node name="IronIcon" type="TextureRect" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Iron"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("6_7utte")
 stretch_mode = 2
 
 [node name="Iron" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Iron" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
+theme = ExtResource("18_haqli")
 text = "XXX"
 label_settings = SubResource("LabelSettings_8125u")
 resource = 2
 
 [node name="Electricity" type="HBoxContainer" parent="HUD/TopLeft/Box/CenterContainer/GridContainer"]
 layout_mode = 2
-tooltip_text = "Electricity"
+tooltip_text = "Electricity: Required / Available"
 theme_override_constants/separation = 10
 
 [node name="ElectricityIcon" type="TextureRect" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Electricity"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("5_3esv6")
 stretch_mode = 2
 
 [node name="Electricity" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Electricity" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
+theme = ExtResource("18_haqli")
 text = "XXX"
 label_settings = SubResource("LabelSettings_8125u")
 resource = 1
@@ -279,13 +270,13 @@ theme_override_constants/separation = 15
 
 [node name="PopulationTag" type="Label" parent="HUD/TopMid/Box/VBox/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
+theme = ExtResource("18_haqli")
 text = "POPULATION"
 label_settings = SubResource("LabelSettings_v2n4f")
 
 [node name="Population" type="Label" parent="HUD/TopMid/Box/VBox/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
+theme = ExtResource("18_haqli")
 text = "XXX"
 label_settings = SubResource("LabelSettings_v2n4f")
 horizontal_alignment = 1
@@ -295,6 +286,7 @@ resource = 3
 
 [node name="TurnCounter" type="Label" parent="HUD/TopMid/Box/VBox"]
 layout_mode = 2
+theme = ExtResource("18_haqli")
 theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
 text = "TURN #"
 label_settings = SubResource("LabelSettings_8125u")
@@ -432,12 +424,9 @@ layout_mode = 2
 [node name="BuildingCost" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/Costs"]
 layout_mode = 2
 size_flags_vertical = 6
+theme = ExtResource("18_haqli")
 theme_override_styles/normal = SubResource("StyleBoxFlat_haqli")
-text = "Costs Placeholder:
-- 30 Iron
-- 50 Electricty
-- 25 Food
-- 3 Residents Required"
+text = "BUILDING COSTS"
 label_settings = SubResource("LabelSettings_7utte")
 
 [node name="Panel" type="Panel" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer"]
@@ -447,7 +436,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7utte")
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
 
 [node name="BuildingButtons" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -463,29 +456,17 @@ theme_override_constants/separation = 48
 [node name="Residential" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
-theme_override_fonts/font = ExtResource("7_7utte")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+theme = ExtResource("18_haqli")
 text = "RESIDENCE"
 script = ExtResource("9_jswg8")
-tile_size = null
 building_cursor = ExtResource("11_ne71y")
 
 [node name="Refinery" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
-theme_override_fonts/font = ExtResource("7_7utte")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+theme = ExtResource("18_haqli")
 text = "REFINERY"
 script = ExtResource("9_jswg8")
-tile_size = null
 building_cursor = ExtResource("12_2w4nd")
 
 [node name="HBoxContainer2" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons"]
@@ -495,51 +476,40 @@ theme_override_constants/separation = 48
 [node name="Reactor" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
-theme_override_fonts/font = ExtResource("7_7utte")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+theme = ExtResource("18_haqli")
 text = "REACTOR"
 script = ExtResource("9_jswg8")
-tile_size = null
 building_cursor = ExtResource("13_ij283")
 
 [node name="Farm" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
-theme_override_fonts/font = ExtResource("7_7utte")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eov31")
-theme_override_styles/hover = SubResource("StyleBoxFlat_eov31")
+theme = ExtResource("18_haqli")
 text = "ECO DOME"
 script = ExtResource("9_jswg8")
-tile_size = null
 building_cursor = ExtResource("14_afnkq")
 
 [node name="SelectedBuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
+visible = false
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6iety")
 
 [node name="VBox" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox"]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "TODO Selected Building"
+theme_override_constants/margin_left = 20
 
-[node name="PayloadContainer" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox"]
+[node name="PayloadContainer" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/PayloadContainer"]
+[node name="Label" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer/PayloadContainer"]
 layout_mode = 2
 text = "Test"
 
-[node name="Label2" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/PayloadContainer"]
+[node name="Label2" type="Label" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer/PayloadContainer"]
 layout_mode = 2
 text = "Test but on second line"
 
@@ -558,17 +528,19 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_7utte")
 
 [node name="Upgrade" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/UpgradeAndDestroy"]
 layout_mode = 2
-text = "Upgrade"
+theme = ExtResource("18_haqli")
+text = "UPGRADE"
 
 [node name="VSeparatorM" type="VSeparator" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/UpgradeAndDestroy"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 theme_override_styles/separator = SubResource("StyleBoxEmpty_haqli")
 
 [node name="Destroy" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/UpgradeAndDestroy"]
 layout_mode = 2
-text = "Destroy
-"
+theme = ExtResource("18_haqli")
+text = "DESTROY"
 
 [node name="VSeparatorR" type="VSeparator" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/UpgradeAndDestroy"]
 layout_mode = 2

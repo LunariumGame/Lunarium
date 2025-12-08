@@ -33,12 +33,16 @@ func _update_display() -> void:
 	if resource == ResourceManager.ResourceType.ELECTRICITY:
 		var usage := game_manager.get_electricity_usage()
 		text = "%d / %d" % [usage, cap]
+		if usage > cap:
+			modulate = Color.RED
+		else:
+			modulate = Color.WHITE
 		return
 
 	# Special-case: POPULATION uses occupied/housing capacity
 	if resource == ResourceManager.ResourceType.POPULATION:
 		var housing_cap := game_manager.get_total_housing_capacity()
-		text = "%d / %d" % [value, housing_cap]
+		text = "%d / %d" % [value, housing_cap + 1] # plus 1 for starting colonist
 		return
 
 	# If the resource has no capacity, show only the value
