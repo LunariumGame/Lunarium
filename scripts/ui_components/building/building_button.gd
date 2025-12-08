@@ -61,7 +61,7 @@ func _process(_delta: float) -> void:
 		cursor_instance.global_position = mouse_pos_world.snapped(tile_size)
 		
 		# if collision/not enough resources, notify with red sprite
-		if cursor_area.is_overlapping() || !build_man.can_purchase(cursor_instance.building_spec):
+		if cursor_area.is_overlapping() || !build_man.can_purchase(cursor_instance.building_spec, 0):
 			cursor_instance.modulate = Color.RED
 		else:
 			cursor_instance.modulate = Color.WHITE
