@@ -9,6 +9,7 @@ var cursor_instance: Building
 var cursor_sprite: Sprite2D
 var cursor_area: Area2D
 var cursor_anim_manager: AnimationManager
+var create_audio: AudioStreamPlayer2D
 var ptr: Vector2i # current position of cursor in building manager coords
 var last_hovered_building: Building = null
 
@@ -51,6 +52,7 @@ func _instantiate_cursor() -> void:
 	cursor_sprite.modulate.a = 0.5
 	cursor_area = cursor_instance.get_node("Area2D")
 	cursor_anim_manager = cursor_instance.get_node("AnimationTree")
+	create_audio = cursor_instance.get_node("Audio/Create")
 	cursor_anim_manager.update_animation(cursor_anim_manager.StateAction.OFF)
 
 
@@ -134,6 +136,8 @@ func _place_building() -> bool:
 	cursor_sprite.modulate.a = 1.0
 	# creation animation, then idling
 	cursor_anim_manager.update_animation(cursor_anim_manager.StateAction.CREATE)
+	# creation audio
+	create_audio.play()
 	
 	return true
 

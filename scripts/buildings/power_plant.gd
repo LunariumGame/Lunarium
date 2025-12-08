@@ -45,6 +45,7 @@ func _compute_electricity_gen() -> void:
 
 
 func _get_selection_payload() -> Dictionary:
+	super()
 	return {
 		"LEVEL": current_level,
 		"POWER REQUIRED": int(get_power_draw()),

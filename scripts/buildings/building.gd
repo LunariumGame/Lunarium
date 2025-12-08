@@ -12,6 +12,7 @@ extends Node2D
 @export var outline_thickness: float = 1.5
 
 @onready var clickable_area: Area2D = $Area2D
+@onready var destroy_audio: AudioStreamPlayer2D = $Audio/Destroy
 @onready var anim_manager: AnimationTree = $AnimationTree
 
 var is_cursor: bool = false
@@ -62,7 +63,10 @@ func _on_Area2D_input_event(viewport: Viewport, event: InputEvent, shape_idx: in
 
 # override it whenever possible in derived building classes
 func _get_selection_payload() -> Dictionary:
-	return {}
+		# special condition, because _get_selection_payload gets called in upgrade
+		if not $Audio/Create.playing:
+			$Audio.play_audio($Audio/Select)
+		return {}
 
 
 func upgrade_level() -> bool:
@@ -70,15 +74,19 @@ func upgrade_level() -> bool:
 
 	if can_upgrade:
 		Signals.building_stats_changed.emit(self)
+		$Audio.play_audio($Audio/Create)
 		anim_manager.update_animation(AnimationManager.StateAction.CREATE)
 	
 	return can_upgrade
 
 
 func destroy() -> void:
-	anim_manager.update_animation(anim_manager.StateAction.DELETE)
-	# Wait for animation to finish before calling queue_free()
-	await anim_manager.animation_finished
+	$Audio.play_audio($Audio/Destroy)
+	$AnimationTree.update_animation($AnimationTree.StateAction.DELETE)
+	await $AnimationTree.animation_finished
+	# suppress "wonky default frame" AnimationTree throws up at end
+	$Sprite2D.visible = false
+	await $Audio/Destroy.finished
 	queue_free()
 
 

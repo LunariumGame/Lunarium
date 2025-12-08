@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://cvurq12vfgtbk"]
+[gd_scene load_steps=26 format=3 uid="uid://cvurq12vfgtbk"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_jg0xg"]
 [ext_resource type="Script" uid="uid://boy2uvs8rqry" path="res://scripts/buildings/headquarters.gd" id="2_7kgpa"]
 [ext_resource type="Texture2D" uid="uid://dhgnj0v4745eg" path="res://assets/sprites/buildings/headquarters/headquarters_spritesheet.png" id="3_5ctyw"]
+[ext_resource type="AudioStream" uid="uid://b08mihiq3hjid" path="res://assets/audio/hq_select_new.mp3" id="4_l6mfu"]
 
 [sub_resource type="GDScript" id="GDScript_5ctyw"]
 script/source = "extends Sprite2D
@@ -331,3 +332,6 @@ libraries = {
 active = true
 tree_root = SubResource("AnimationNodeStateMachine_5ctyw")
 script = null
+
+[node name="Select" parent="Audio" index="1"]
+stream = ExtResource("4_l6mfu")

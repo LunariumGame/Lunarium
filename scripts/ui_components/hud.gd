@@ -2,6 +2,7 @@ class_name HUD
 extends CanvasLayer
 
 enum Systems {TECH, BUILDING}
+const HEADQUARTERS: int = -1
 
 static var same_building_in_a_row: int
 
@@ -51,7 +52,7 @@ func flash_inspector_panel() -> void:
 	var tween := create_tween()
 	tween.tween_property(panel, "modulate", Color.WHITE, 0.15)\
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-
+		
 	# cleanup meta when finished
 	await tween.finished
 
@@ -132,12 +133,9 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 
 	# Currentlyinspecting label
 	var building_type_index = build_man.get_building_type_from_id(building_id)
-	var building_type_name = build_man.BuildingType.find_key(building_type_index)
+	var building_type_name: String = build_man.BuildingType.find_key(building_type_index)
 	var pretty_name = building_type_name.replace("_", " ")
-	currentlyInspectingLabel.text = str(pretty_name)
-	
-	# fetch live node
-	var building_node: Building = utils.fetch_building(building_id)
+	currentlyInspectingLabel.text = str(pretty_name)	
 	
 	# Funny easter egg
 	if building_id == prev_building_id:
@@ -180,9 +178,10 @@ func _on_destroy_pressed() -> void:
 		return
 	
 	var building: Building = build_man.building_id_to_node[selected_building_id]
+	
 	await building.destroy()
-	await get_tree().create_timer(0.1).timeout
 	Signals.building_stats_changed.emit()
+
 	selected_building_id = -1
 	close_inspector()
 

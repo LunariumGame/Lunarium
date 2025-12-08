@@ -48,6 +48,7 @@ func _on_turn_started(_turn_number:int) -> void:
 
 
 func _get_selection_payload() -> Dictionary:
+	super()
 	return {
 		"LEVEL": current_level,
 		"POWERED": "YES" if is_powered else "NO",
