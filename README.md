@@ -106,7 +106,8 @@ You should replay any **bold text** with your relevant information. Liberally us
   * [Implementation](https://github.com/LunariumGame/Lunarium/pull/80)
   * [Configuration](https://github.com/LunariumGame/Lunarium/pull/137) - 
   * [Building debug overlay](https://github.com/LunariumGame/Lunarium/pull/138) - used to debug power status
-* UI Scaling System
+* [NotificationManager](https://github.com/LunariumGame/Lunarium/pull/184) - processes event signals into textual notifications
+* [UiScaleManager](https://github.com/LunariumGame/Lunarium/blob/dev/scripts/managers/ui_scale_manager.gd) - manages the current scale setting of the UI
    * [Label scaling](https://github.com/LunariumGame/Lunarium/pull/64) - scales labels
    * [Button scaling](https://github.com/LunariumGame/Lunarium/pull/102) - scales buttons using the theme
 * [Crater background PCG](https://github.com/LunariumGame/Lunarium/pull/140) - randomly placed craters to give the background character
