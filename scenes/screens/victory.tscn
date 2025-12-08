@@ -72,7 +72,7 @@ alignment = 1
 position = Vector2(960, 537)
 sprite_frames = SubResource("SpriteFrames_gw5eo")
 autoplay = "default"
-frame_progress = 0.27852902
+frame_progress = 0.2827248
 
 [node name="WinMessageTemp" type="Label" parent="VBoxContainer"]
 layout_mode = 2

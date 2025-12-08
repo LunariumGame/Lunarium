@@ -1,17 +1,17 @@
 extends CanvasLayer
 
-@onready var sprite := $AnimatedSprite2D
+@onready var banner := $AnimatedSprite2D
 
 func _ready():
-	# Make sprite invisible at first
-	sprite.modulate.a = 0.0
+	# Make banner invisible at first
+	banner.modulate.a = 0.0
 	
 	# Start playing the idle animation
-	sprite.play("idle")
+	banner.play("idle")
 	
 	# Fade in over 1 second
 	var tween = create_tween()
-	tween.tween_property(sprite, "modulate:a", 1.0, 1.0)
+	tween.tween_property(banner, "modulate:a", 1.0, 1.0)
 
 func close():
 	window_manager.pop()
