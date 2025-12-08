@@ -52,6 +52,7 @@ func _get_selection_payload() -> Dictionary:
 	return {
 		"LEVEL": current_level,
 		"POWERED": "YES" if is_powered else "NO",
+		"POWER REQUIRED": get_power_draw(),
 		"PRODUCTION": str(int(_get_production_rate())) + " FOOD PER TURN",
 	}
 
