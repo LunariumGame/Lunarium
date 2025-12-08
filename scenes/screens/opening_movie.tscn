@@ -19,11 +19,13 @@ size_flags_vertical = 3
 color = Color(0.043137256, 0.043137256, 0.03137255, 1)
 
 [node name="CBoxContainer" type="CenterContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -830.0
+offset_right = 830.0
+offset_bottom = 1080.0
 grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
