@@ -37,10 +37,18 @@ layout_mode = 2
 stream = SubResource("VideoStreamTheora_bu5bb")
 
 [node name="SkipButton" type="Button" parent="."]
-offset_left = 1686.0
-offset_top = 936.0
-offset_right = 1856.0
-offset_bottom = 1030.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -120.0
+offset_right = -22.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
 theme_override_fonts/font = ExtResource("2_lp7o4")
 theme_override_font_sizes/font_size = 108
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mm1mk")
