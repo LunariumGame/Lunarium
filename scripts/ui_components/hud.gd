@@ -44,8 +44,9 @@ func _on_next_turn_pressed() -> void:
 	next_turn_button.start_cooldown()
 
 
-#region System Buttons\
+#region System Buttons
 func toggle_panel(system: Systems) -> void:
+	%InspectorPanel.visible = true
 	same_building_in_a_row = 0
 	# Always hide the selected building panel whenever a system button is clicked
 	var selected_index := system_panels.size() - 1
@@ -56,7 +57,7 @@ func toggle_panel(system: Systems) -> void:
 		if system < system_buttons.size():
 			system_buttons[system].button_pressed = false
 		system_panels[system].visible = false
-		resetCurrInspLabel()
+		close_inspector()
 		return
 	
 	# Toggle the rest off and enable selected
@@ -74,6 +75,7 @@ func toggle_panel(system: Systems) -> void:
 
 
 func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> void:
+	%InspectorPanel.visible = true
 	upgrade.visible = true
 	destroy.visible = true
 	# If headquarters, no upgrade/destroy buttons
@@ -156,10 +158,27 @@ func _on_destroy_pressed() -> void:
 	await get_tree().create_timer(0.1).timeout
 	Signals.building_stats_changed.emit()
 	selected_building_id = -1
+	close_inspector()
+	
 
 
 func resetCurrInspLabel() -> void:
 	currentlyInspectingLabel.text = ""
-
-
 #endregion
+
+
+## Given InputEvent unhandled by UI, close inspector
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("close_inspector"):
+		close_inspector()
+	if event.is_action_pressed("open_building_panel"):
+		toggle_panel(Systems.BUILDING)
+		
+		
+func close_inspector() -> void:
+	for i in Systems.values():
+		if i < system_buttons.size():
+			system_buttons[i].button_pressed = false
+			system_panels[i].visible = false
+	resetCurrInspLabel()
+	%InspectorPanel.visible = false

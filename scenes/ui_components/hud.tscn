@@ -343,6 +343,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="TechTree" type="Button" parent="HUD/BotLeft/Box/VBox/TabButtons"]
+visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
@@ -388,10 +389,6 @@ size_flags_horizontal = 10
 label_settings = SubResource("LabelSettings_3esv6")
 horizontal_alignment = 2
 
-[node name="Spacer" type="Control" parent="HUD/BotLeft/Box/VBox/TabButtons"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
 [node name="InspectorPanel" type="PanelContainer" parent="HUD/BotLeft/Box/VBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 200)
@@ -409,7 +406,6 @@ text = "TODO TECH (?)
 or just open tech tree?"
 
 [node name="BuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3esv6")
 
