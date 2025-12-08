@@ -29,7 +29,7 @@ func end_turn() -> void:
 	if not GameState.IN_PROGRESS == state:
 		return
 
-	#Signals.turn_ended.emit(turn)
+	Signals.turn_ended.emit(turn)
 	Signals.turn_ended_power_plant.emit(turn)
 	Signals.turn_ended_eco_dome.emit(turn)
 	Signals.turn_ended_refinery.emit(turn)
