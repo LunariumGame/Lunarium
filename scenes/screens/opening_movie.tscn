@@ -14,6 +14,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 color = Color(0.043137256, 0.043137256, 0.03137255, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
