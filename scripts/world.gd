@@ -6,11 +6,16 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Signals.opening_movie_stopped.connect(_on_opening_movie_end)
+	
 	# window_manager needs these
 	window_manager.set_ui_root($UI/PopupWindowHolder)
 	window_manager.set_main_menu_holder($UI/MainMenuHolder)
 	
-	window_manager.open_main_menu_screen()
+	# play opening movie
+	Signals.opening_movie_started.emit()
+	
+	#window_manager.open_main_menu_screen()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,3 +50,7 @@ func get_buildings_within_rect(rect:Rect2) -> Array[Building]:
 			results.push_back(collider)
 	
 	return results
+
+
+func _on_opening_movie_end() -> void:
+	window_manager.open_main_menu_screen()

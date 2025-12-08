@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://d006yfmmx7bre"]
+
+[ext_resource type="Script" uid="uid://c16p8ugep1b5r" path="res://scripts/screens/opening_movie.gd" id="1_bu5bb"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_bu5bb"]
+file = "res://assets/sprites/cutscenes/opening_cutscene/opening_cutscene_lunarium.ogv"
+
+[node name="OpeningMovie" type="CanvasLayer"]
+script = ExtResource("1_bu5bb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.043137256, 0.043137256, 0.03137255, 1)
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HSpace" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="VBoxContainer"]
+layout_mode = 2
+stream = SubResource("VideoStreamTheora_bu5bb")
+
+[connection signal="finished" from="VBoxContainer/VideoStreamPlayer" to="." method="_on_movie_end"]
