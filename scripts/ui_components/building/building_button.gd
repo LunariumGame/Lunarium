@@ -10,8 +10,12 @@ var cursor_sprite: Sprite2D
 var cursor_area: Area2D
 var cursor_anim_manager: AnimationManager
 var ptr: Vector2i # current position of cursor in building manager coords
+var last_hovered_building: Building = null
+
+const highlighted_building_color:Color = Color(1.188, 1.4, 0.561, 1.0)
 
 @onready var cost_label: Label = $"../../../../Costs/BuildingCost"
+@onready var hud: HUD = get_tree().get_root().get_node("World/UI/HUD")
 
 func _ready() -> void:
 	add_to_group("building_buttons")
@@ -65,6 +69,34 @@ func _process(_delta: float) -> void:
 			cursor_instance.modulate = Color.RED
 		else:
 			cursor_instance.modulate = Color.WHITE
+
+	else: # Highlight buildings on hover / select
+		var canvas_to_world := get_viewport().get_canvas_transform().affine_inverse()
+		var mouse_world: Vector2 = canvas_to_world * get_global_mouse_position()
+
+		# Point collision query
+		var space_state := get_world_2d().direct_space_state
+		var params := PhysicsPointQueryParameters2D.new()
+		params.position = mouse_world
+		params.collide_with_areas = true
+		params.collide_with_bodies = false
+
+		var results = space_state.intersect_point(params)
+
+		# Remove prev highlight
+		if last_hovered_building != null and is_instance_valid(last_hovered_building):
+			last_hovered_building.get_node("Sprite2D").modulate = Color.WHITE
+			last_hovered_building = null
+
+		# Check for building under cursor
+		for hit in results:
+			var area :Area2D = hit.collider
+			var building := area.get_parent()
+
+			if building is Building:
+				building.get_node("Sprite2D").modulate = highlighted_building_color
+				last_hovered_building = building
+				break
 
 
 ## add a Building node to the colony from a BuildingButton event.
