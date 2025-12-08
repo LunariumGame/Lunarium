@@ -421,8 +421,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_haqli")
 text = "<BUILDING> Costs
 - X Iron
 - X Electricty
-- X Food
-- X Residents Required"
+- X Food"
 label_settings = SubResource("LabelSettings_7utte")
 
 [node name="Panel" type="Panel" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer"]
