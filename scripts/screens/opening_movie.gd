@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var movie := $HBoxContainer/VideoStreamPlayer
+@onready var movie := $CBoxContainer/VideoStreamPlayer
 
 func _ready():
 	# wait some time for the opening screen to go away
