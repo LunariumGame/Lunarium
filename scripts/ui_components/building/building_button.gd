@@ -59,8 +59,9 @@ func _process(_delta: float) -> void:
 		var mouse_pos_world: Vector2 = canvas_to_world_transform * get_global_mouse_position()
 
 		cursor_instance.global_position = mouse_pos_world.snapped(tile_size)
-		# if collision, notify 
-		if cursor_area.is_overlapping():
+		
+		# if collision/not enough resources, notify with red sprite
+		if cursor_area.is_overlapping() || !build_man.can_purchase(cursor_instance.building_spec, 0):
 			cursor_instance.modulate = Color.RED
 		else:
 			cursor_instance.modulate = Color.WHITE
@@ -68,9 +69,9 @@ func _process(_delta: float) -> void:
 
 ## add a Building node to the colony from a BuildingButton event.
 ## log location in BuildingManager for other in-game uses.
-func _place_building() -> void:
+func _place_building() -> bool:
 	if cursor_area.is_overlapping():
-		return
+		return false
 	
 	var colony_buildings_node: Node = (
 		get_tree().get_root().get_node("World/PlacedBuildings")
@@ -88,6 +89,9 @@ func _place_building() -> void:
 		frame_size.x, frame_size.y
 	)
 	
+	if building_id <= 0:
+		return false
+	
 	cursor_instance.reparent(colony_buildings_node, true)
 	cursor_instance.set_cursor_mode(false)
 	cursor_instance.emit_built_signal()
@@ -98,6 +102,8 @@ func _place_building() -> void:
 	cursor_sprite.modulate.a = 1.0
 	# creation animation, then idling
 	cursor_anim_manager.update_animation(cursor_anim_manager.StateAction.CREATE)
+	
+	return true
 
 
 # Populate cost label with appropriate cost of building

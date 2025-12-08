@@ -1,8 +1,9 @@
 class_name PowerPlant
 extends Building
 
-const PRODUCTION_TABLE := [
-	0,   # lvl 0 unused
+# production rate per turn
+@export var production_table: Array[int] = [
+	0,  # lvl 0
 	10,
 	20,
 	30,
@@ -45,12 +46,15 @@ func _compute_electricity_gen() -> void:
 
 func _get_selection_payload() -> Dictionary:
 	return {
-		"Level": current_level,
-		"Power Production": str(_get_production_rate()) + "kW",
+		"LEVEL": current_level,
+		"POWER REQUIRED": int(get_power_draw()),
+		"PRODUCTION": str(int(_get_production_rate())) + " ELECTRICITY (CONSTANT)",
+		"\n": "",
+		"UPGRADE COST": "MAX LEVEL" if current_level == max_level else str(int(self.building_spec.cost_levels[current_level].cost[ResourceManager.ResourceType.IRON])) + " IRON"
 	}
 
 
 func _get_production_rate() -> float:
-	if current_level < PRODUCTION_TABLE.size():
-		return PRODUCTION_TABLE[current_level]
-	return PRODUCTION_TABLE[-1]
+	if current_level < production_table.size():
+		return production_table[current_level]
+	return production_table[-1]
