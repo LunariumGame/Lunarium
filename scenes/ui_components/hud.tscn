@@ -418,7 +418,7 @@ layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("18_haqli")
 theme_override_styles/normal = SubResource("StyleBoxFlat_haqli")
-text = "<BUILDING> Costs:
+text = "<BUILDING> Costs
 - X Iron
 - X Electricty
 - X Food
