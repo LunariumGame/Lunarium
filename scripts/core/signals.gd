@@ -3,6 +3,7 @@ extends Node
 ## Fires at the start of a turn.
 signal turn_started(turn_number:int)
 signal turn_started_power_plant(turn_number:int)
+signal turn_process_power_draw(turn_number:int)
 signal turn_started_eco_dome(turn_number:int)
 signal turn_started_refinery(turn_number:int)
 signal turn_started_residential(turn_number:int)
@@ -14,14 +15,16 @@ signal turn_ended_eco_dome(turn_number:int)
 signal turn_ended_refinery(turn_number:int)
 signal turn_ended_residential(turn_number:int)
 
-# building built signals
-signal built_power_plant()
-signal built_eco_dome()
-signal built_refinery()
-signal built_residential()
+# specific signals
+signal recompute_power_plants()
+
+# building signals
+signal building_built(building: Node)
+signal building_stats_changed()
 
 ## Emitted when the amount of a resource that the player has is changed.
-signal resource_value_changed(resource:ResourceManager.ResourceType, value:float)
+signal resource_value_changed()
+signal electricity_recomputed()
 
 signal settings_opened()
 signal settings_closed()
@@ -34,6 +37,8 @@ signal game_won()
 
 ## Emitted when the game is lost
 signal game_lost()
+
+signal end_screen_closed()
 
 ## Emitted when a shuttle arrives
 signal shuttle_arrived()

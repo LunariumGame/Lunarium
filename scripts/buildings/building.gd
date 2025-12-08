@@ -21,6 +21,8 @@ var current_level: int = 1
 
 
 func _ready() -> void:
+	Signals.turn_process_power_draw.connect(_process_power_draw)
+	
 	clickable_area.input_event.connect(_on_Area2D_input_event)
 	scale = building_scale
 	z_index = order_man.order.BUILDINGS
@@ -31,8 +33,7 @@ func get_power_draw() -> float:
 	return 0
 
 
-## Overriding implementations should call super() at the beginning
-func _on_turn_started(_turn_number:int) -> void:
+func _process_power_draw(_turn_number:int) -> void:
 	var power_draw:float = self.get_power_draw()
 	var available_electricity:float = resource_manager.get_resource(
 			ResourceManager.ResourceType.ELECTRICITY)
@@ -48,6 +49,10 @@ func _on_turn_ended(_turn_number:int) -> void:
 	pass
 
 
+func _on_turn_started(_turn_number:int) -> void:
+	pass
+
+
 func _on_Area2D_input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -59,28 +64,21 @@ func _get_selection_payload() -> Dictionary:
 	return {}
 
 
-func get_build_cost() -> Cost:
-	return get_upgrade_cost(1)
-
-
-## Level 1 = build cost, level 2 = level 2
-func get_upgrade_cost(level: int) -> Cost:
-	
-	if level <= 0 or level > max_level:
-		return null
-	
-	if level > building_spec.cost.size():
-		printerr("You need to add a cost for level ", level, " on building ", self.name)
-		return null
-	
-	return building_spec.cost[level - 1]
-
-
 func upgrade_level() -> bool:
-	if current_level < max_level:
-		current_level += 1
-		return true
-	return false
+	var can_upgrade := build_man.try_upgrade(self)
+
+	if can_upgrade:
+		Signals.building_stats_changed.emit(self)
+	
+	return can_upgrade
+
+
+func destroy() -> void:
+	var anim_manager: AnimationManager = $"AnimationTree"
+	anim_manager.update_animation(anim_manager.StateAction.DELETE)
+	# Wait for animation to finish before calling queue_free()
+	await anim_manager.animation_finished
+	queue_free()
 
 
 func get_type() -> BuildingManager.BuildingType:

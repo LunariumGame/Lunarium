@@ -15,19 +15,21 @@ const COLONIST_CONSUMPTION_PER_TURN:float = 1
 const STARVING_COLONIST_DEATH_RATE_PER_TURN:float = 0.5
 
 var turn:int = 1
+var _computed_electricity_capacity:float = 0
 
 var state := GameState.IN_PROGRESS
 
 
 func _ready() -> void:
-	pass
-	
+	Signals.building_built.connect(recompute_electricity)
+	Signals.building_stats_changed.connect(recompute_electricity)
+
 
 func end_turn() -> void:
 	if not GameState.IN_PROGRESS == state:
 		return
 
-	#Signals.turn_ended.emit(turn)
+	Signals.turn_ended.emit(turn)
 	Signals.turn_ended_power_plant.emit(turn)
 	Signals.turn_ended_eco_dome.emit(turn)
 	Signals.turn_ended_refinery.emit(turn)
@@ -38,24 +40,39 @@ func end_turn() -> void:
 
 	_logic_food_consumption_and_starvation()
 	
+	turn += 1
+	Signals.turn_started.emit(turn)
+	
+	# electricity recomputation handles reactors
+	recompute_electricity(null)
+	
+	Signals.turn_started_power_plant.emit(turn)
+	Signals.turn_started_eco_dome.emit(turn)
+	Signals.turn_started_refinery.emit(turn)
+	Signals.turn_started_residential.emit(turn)
+	
 	if _win_condition_satisfied():
 		state = GameState.WON
 		print_debug("Game win triggered")
 		Signals.game_won.emit()
 		return
-	
-	turn += 1
-	Signals.turn_started.emit(turn)
-	Signals.turn_started_power_plant.emit(turn)
-	Signals.turn_started_eco_dome.emit(turn)
-	Signals.turn_started_refinery.emit(turn)
-	Signals.turn_started_residential.emit(turn)
-
+		
+	if _lose_condition_satisfied():
+		state = GameState.LOST
+		print_debug("Game loss triggered")
+		Signals.game_lost.emit()
+		return
 
 func _win_condition_satisfied() -> bool:
 	var population:int = roundi(resource_manager.get_resource(ResourceManager.ResourceType.POPULATION))
 	
 	return population > WIN_CONDITION_MIN_POPULATION;
+
+
+func _lose_condition_satisfied() -> bool:
+	var population:int = roundi(resource_manager.get_resource(ResourceManager.ResourceType.POPULATION))
+	
+	return population < 1;
 
 
 func _logic_food_consumption_and_starvation() -> void:
@@ -84,15 +101,6 @@ func get_electricity_usage() -> float:
 	return total_usage
 
 
-func get_electricity_capacity() -> float:
-	var total_capacity := 0.0
-	var placed_buildings := get_node("/root/World/PlacedBuildings").get_children()
-	for building in placed_buildings:
-		if building is PowerPlant:
-			total_capacity += building._get_production_rate()
-	return total_capacity
-
-
 func get_total_housing_capacity() -> int:
 	var total_capacity := 0
 	var placed_buildings := get_node("/root/World/PlacedBuildings").get_children()
@@ -100,3 +108,28 @@ func get_total_housing_capacity() -> int:
 		if building is Residential:
 			total_capacity += building.get_housing_capacity()
 	return total_capacity
+
+
+func get_total_elec_capacity() -> int:
+	var total_capacity := 0
+	var placed_buildings := get_node("/root/World/PlacedBuildings").get_children()
+	for building in placed_buildings:
+		if building is PowerPlant:
+			total_capacity += building._get_production_rate()
+	return total_capacity
+
+
+func get_resource_cap(resource:ResourceManager.ResourceType) -> float:
+	match resource:
+		ResourceManager.ResourceType.ELECTRICITY: return get_total_elec_capacity()
+		ResourceManager.ResourceType.POPULATION: return get_total_housing_capacity()
+		_: return NAN
+
+
+func recompute_electricity(building: Building) -> void:
+	resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
+	Signals.recompute_power_plants.emit()
+	_computed_electricity_capacity = resource_manager.get_resource(ResourceManager.ResourceType.ELECTRICITY)
+	Signals.turn_process_power_draw.emit(turn)
+	Signals.resource_value_changed.emit()
+	Signals.electricity_recomputed.emit()

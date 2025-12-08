@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://62tr4h246vw0"]
+[gd_scene load_steps=27 format=3 uid="uid://62tr4h246vw0"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_e3wr7"]
 [ext_resource type="Script" uid="uid://cnl1jwpsm0ofq" path="res://scripts/buildings/residential.gd" id="2_4f3d3"]
@@ -17,9 +17,29 @@ cost = Dictionary[int, float]({
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"
 
+[sub_resource type="Resource" id="Resource_c44lc"]
+script = ExtResource("3_c44lc")
+cost = Dictionary[int, float]({
+0: 0.0,
+1: 0.0,
+2: 15.0,
+3: 0.0
+})
+metadata/_custom_type_script = "uid://0leikb15bp7y"
+
+[sub_resource type="Resource" id="Resource_gnoo8"]
+script = ExtResource("3_c44lc")
+cost = Dictionary[int, float]({
+0: 0.0,
+1: 0.0,
+2: 20.0,
+3: 0.0
+})
+metadata/_custom_type_script = "uid://0leikb15bp7y"
+
 [sub_resource type="Resource" id="Resource_wakwv"]
 script = ExtResource("4_gnoo8")
-cost_levels = Array[ExtResource("3_c44lc")]([SubResource("Resource_0exew")])
+cost_levels = Array[ExtResource("3_c44lc")]([SubResource("Resource_0exew"), SubResource("Resource_c44lc"), SubResource("Resource_gnoo8")])
 type = 6
 metadata/_custom_type_script = "uid://cy4nkunttcuy5"
 
@@ -286,6 +306,8 @@ _data = {
 
 [node name="Residential" instance=ExtResource("1_e3wr7")]
 script = ExtResource("2_4f3d3")
+capacity_table = Array[int]([0, 20, 40, 80])
+power_table = Array[int]([0, 10, 15, 20])
 building_spec = SubResource("Resource_wakwv")
 max_level = 3
 

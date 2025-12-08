@@ -307,10 +307,11 @@ states/Start/position = Vector2(266, -10)
 states/idle_u1/node = SubResource("AnimationNodeAnimation_u6fk5")
 states/idle_u1/position = Vector2(443, -10)
 transitions = ["Start", "idle_u1", SubResource("AnimationNodeStateMachineTransition_f6oyp")]
-graph_offset = Vector2(0, -160.25139)
+graph_offset = Vector2(-212.58575, -160.25139)
 
 [node name="HeadQuarters" instance=ExtResource("1_jg0xg")]
 script = ExtResource("2_7kgpa")
+iron_per_turn = 1
 
 [node name="BuildingDebugger" parent="." index="1" node_paths=PackedStringArray("target")]
 target = NodePath("..")
@@ -328,6 +329,7 @@ libraries = {
 }
 
 [node name="AnimationTree" parent="." index="4"]
+active = true
 tree_root = SubResource("AnimationNodeStateMachine_5ctyw")
 script = null
 

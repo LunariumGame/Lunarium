@@ -3,7 +3,6 @@ class_name BuildingButton
 extends Button
 
 @export var tile_size := Vector2i(32, 32)
-
 @export var building_cursor: PackedScene
 
 var cursor_instance: Building
@@ -12,6 +11,7 @@ var cursor_area: Area2D
 var cursor_anim_manager: AnimationManager
 var create_audio: AudioStreamPlayer2D
 
+@onready var cost_label: Label = $"../../../../Costs/BuildingCost"
 
 func _ready() -> void:
 	add_to_group("building_buttons")
@@ -30,6 +30,8 @@ func _populate_cursor_on_click() -> void:
 	_instantiate_cursor()
 	print("Adding ", cursor_instance," child with button: ", name)
 
+	# Update cost label
+	populate_cost_label(cursor_instance.building_spec)
 
 # instantiate building as a cursor with characteristics
 func _instantiate_cursor() -> void:
@@ -58,8 +60,9 @@ func _process(_delta: float) -> void:
 		var mouse_pos_world: Vector2 = canvas_to_world_transform * get_global_mouse_position()
 
 		cursor_instance.global_position = mouse_pos_world.snapped(tile_size)
-		# if collision, notify 
-		if cursor_area.is_overlapping():
+		
+		# if collision/not enough resources, notify with red sprite
+		if cursor_area.is_overlapping() || !build_man.can_purchase(cursor_instance.building_spec, 0):
 			cursor_instance.modulate = Color.RED
 		else:
 			cursor_instance.modulate = Color.WHITE
@@ -67,9 +70,9 @@ func _process(_delta: float) -> void:
 
 ## add a Building node to the colony from a BuildingButton event.
 ## log location in BuildingManager for other in-game uses.
-func _place_building() -> void:
+func _place_building() -> bool:
 	if cursor_area.is_overlapping():
-		return
+		return false
 	
 	var colony_buildings_node: Node = (
 		get_tree().get_root().get_node("World/PlacedBuildings")
@@ -87,6 +90,9 @@ func _place_building() -> void:
 		frame_size.x, frame_size.y
 	)
 	
+	if building_id <= 0:
+		return false
+	
 	cursor_instance.reparent(colony_buildings_node, true)
 	cursor_instance.set_cursor_mode(false)
 	cursor_instance.emit_built_signal()
@@ -99,3 +105,17 @@ func _place_building() -> void:
 	cursor_anim_manager.update_animation(cursor_anim_manager.StateAction.CREATE)
 	# creation audio
 	create_audio.play()
+	
+	return true
+
+
+# Populate cost label with appropriate cost of building
+func populate_cost_label(build_spec: BuildingSpec) -> void:
+	var building_type_name = build_man.BuildingType.find_key(build_spec.type)
+	var pretty_name = building_type_name.replace("_", " ")
+	cost_label.text = str(pretty_name) + " COSTS\n\n"
+	var cost_levels = build_spec.cost_levels
+	var cost = cost_levels[cursor_instance.current_level - 1] # TODO: Does this -1 work here for upgraded buildings?
+	cost_label.text += str(cost.cost[ResourceManager.ResourceType.FOOD]) + " FOOD\n"
+	cost_label.text += str(cost.cost[ResourceManager.ResourceType.IRON]) + " IRON\n"
+	cost_label.text += str(cost.cost[ResourceManager.ResourceType.ELECTRICITY]) + " ELECTRICITY"
