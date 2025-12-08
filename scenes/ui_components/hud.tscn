@@ -418,11 +418,11 @@ layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("18_haqli")
 theme_override_styles/normal = SubResource("StyleBoxFlat_haqli")
-text = "Costs Placeholder:
-- 30 Iron
-- 50 Electricty
-- 25 Food
-- 3 Residents Required"
+text = "<BUILDING> Costs:
+- X Iron
+- X Electricty
+- X Food
+- X Residents Required"
 label_settings = SubResource("LabelSettings_7utte")
 
 [node name="Panel" type="Panel" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer"]
