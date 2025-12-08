@@ -159,7 +159,6 @@ func _on_destroy_pressed() -> void:
 	Signals.building_stats_changed.emit()
 	selected_building_id = -1
 	close_inspector()
-	
 
 
 func resetCurrInspLabel() -> void:
@@ -173,8 +172,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		close_inspector()
 	if event.is_action_pressed("open_building_panel"):
 		toggle_panel(Systems.BUILDING)
-		
-		
+
+
 func close_inspector() -> void:
 	for i in Systems.values():
 		if i < system_buttons.size():
