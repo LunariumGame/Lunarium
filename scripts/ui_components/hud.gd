@@ -110,6 +110,9 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 	var pretty_name = building_type_name.replace("_", " ")
 	currentlyInspectingLabel.text = str(pretty_name)
 	
+	# fetch live node
+	var building_node: Building = utils.fetch_building(building_id)
+	
 	# Funny easter egg
 	if building_id == prev_building_id:
 		same_building_in_a_row += 1
