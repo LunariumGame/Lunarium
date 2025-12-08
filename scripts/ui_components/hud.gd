@@ -35,6 +35,27 @@ func _ready() -> void:
 	Signals.building_selected.connect(_on_building_selected)
 
 
+func flash_inspector_panel() -> void:
+	var panel := %InspectorPanel
+	panel.modulate = Color.WHITE
+
+	# Kill any previous flash tween
+	if panel.has_meta("flash_tween"):
+		var old: Object = panel.get_meta("flash_tween")
+		if is_instance_valid(old):
+			old.kill()
+
+	# Set dark green flash
+	panel.modulate = Color("#4c5844")
+
+	var tween := create_tween()
+	tween.tween_property(panel, "modulate", Color.WHITE, 0.15)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+	# cleanup meta when finished
+	await tween.finished
+
+
 func _on_settings_pressed() -> void:
 	Signals.settings_opened.emit()
 
@@ -47,6 +68,7 @@ func _on_next_turn_pressed() -> void:
 #region System Buttons
 func toggle_panel(system: Systems) -> void:
 	%InspectorPanel.visible = true
+	flash_inspector_panel()
 	same_building_in_a_row = 0
 	# Always hide the selected building panel whenever a system button is clicked
 	var selected_index := system_panels.size() - 1
@@ -76,6 +98,7 @@ func toggle_panel(system: Systems) -> void:
 
 func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> void:
 	%InspectorPanel.visible = true
+	flash_inspector_panel()
 	upgrade.visible = true
 	destroy.visible = true
 	# If headquarters, no upgrade/destroy buttons
