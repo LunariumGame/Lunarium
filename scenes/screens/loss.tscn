@@ -1,6 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://du46r5f2n8vya"]
+[gd_scene load_steps=7 format=3 uid="uid://du46r5f2n8vya"]
 
 [ext_resource type="Script" uid="uid://degq3ffk17ylk" path="res://scripts/screens/loss.gd" id="1_08wtc"]
+[ext_resource type="Texture2D" uid="uid://b3stlelrxc7wj" path="res://assets/sprites/cutscenes/ending_cutscenes/loss_cutscene.png" id="2_skq7k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lu2c"]
+atlas = ExtResource("2_skq7k")
+region = Rect2(0, 0, 1920, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fhyi"]
+atlas = ExtResource("2_skq7k")
+region = Rect2(1920, 0, 1920, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b8nrf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lu2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fhyi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lrifl"]
 font_size = 64
@@ -24,8 +47,13 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer"]
+position = Vector2(960, 537)
+sprite_frames = SubResource("SpriteFrames_b8nrf")
+autoplay = "default"
+frame_progress = 0.757147
+
 [node name="WinMessageTemp" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "YOU LOST"
 label_settings = SubResource("LabelSettings_lrifl")
 horizontal_alignment = 1
