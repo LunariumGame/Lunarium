@@ -1,0 +1,15 @@
+1) tech_acquired.wav (https://freesound.org/s/391540/ -- License: Attribution NonCommercial 4.0)
+2) short_circuit.wav (https://freesound.org/s/86063/ -- License: Attribution NonCommercial 3.0)
+3) intro_cutscene.wav (https://freesound.org/s/747938/ -- License: Attribution 4.0)
+4) solar_collector_click.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
+5) create_building.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
+6) iron_refinery.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
+7) destroy_building.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
+
+
+The following sounds were acquired from SoundJay (https://www.soundjay.com/tos.html):
+1) button_click.wav
+2) lunabot.wav
+3) charge_solar_collector.wav
+4)
+
