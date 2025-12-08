@@ -488,6 +488,7 @@ script = ExtResource("9_jswg8")
 building_cursor = ExtResource("14_afnkq")
 
 [node name="SelectedBuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
+visible = false
 layout_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector"]
