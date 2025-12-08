@@ -18,14 +18,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.043137256, 0.043137256, 0.03137255, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="HSpace" type="Control" parent="HBoxContainer"]
-custom_minimum_size = Vector2(130, 1080)
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="HBoxContainer" type="CenterContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="HBoxContainer"]
 layout_mode = 2
