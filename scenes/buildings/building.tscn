@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dh3go6ocensfh" path="res://scripts/buildings/building_collider.gd" id="3_qcxio"]
 [ext_resource type="Script" uid="uid://dxx0x0ph2itdh" path="res://scripts/buildings/building_debugger.gd" id="4_daisx"]
 [ext_resource type="Script" path="res://scripts/buildings/building_sprite.gd" id="4_mfina"]
-[ext_resource type="Script" uid="uid://bkbe1ecuocexf" path="res://scripts/buildings/disable_player.gd" id="5_f6oyp"]
+[ext_resource type="Script" path="res://scripts/buildings/disable_player.gd" id="5_f6oyp"]
 [ext_resource type="Script" uid="uid://cr5mxmcexbr8u" path="res://scripts/buildings/building_animation_manager.gd" id="5_mfina"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27e8i"]
@@ -463,3 +463,13 @@ active = false
 tree_root = SubResource("AnimationNodeStateMachine_daisx")
 anim_player = NodePath("../AnimationPlayer")
 script = ExtResource("5_mfina")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Create" type="AudioStreamPlayer2D" parent="Audio"]
+
+[node name="Select" type="AudioStreamPlayer2D" parent="Audio"]
+
+[node name="Destroy" type="AudioStreamPlayer2D" parent="Audio"]
+
+[node name="Upgrade" type="AudioStreamPlayer2D" parent="Audio"]
