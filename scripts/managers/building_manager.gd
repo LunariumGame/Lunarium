@@ -36,12 +36,8 @@ func _ready() -> void:
 	# 0 = EMPTY
 	_id_to_type[0] = BuildingType.EMPTY
 
-	
-func can_build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> bool:
-	# If no cost spec, don't place
-	if building_spec.cost_levels.size() == 0:
-		return false
-	
+
+func can_purchase(building_spec: BuildingSpec):
 	# Check cost
 	var cost_spec := building_spec.cost_levels[0]
 	var cost_dict: Dictionary = cost_spec.cost
@@ -50,6 +46,17 @@ func can_build(building_spec: BuildingSpec, position: Vector2i, width: int, heig
 		var current_amount: float = resource_manager.get_resource(resource_type)
 		if current_amount < resource_cost:
 			return false
+	return true
+
+
+func can_build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> bool:
+	# If no cost spec, don't place
+	if building_spec.cost_levels.size() == 0:
+		return false
+	
+	# Check cost
+	if !can_purchase(building_spec):
+		return false
 	
 	# Bounds check
 	if (position.x < -WIDTH or position.x + width > WIDTH or 
