@@ -1,9 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://dgfq7odjk1hcx"]
+[gd_scene load_steps=28 format=3 uid="uid://dgfq7odjk1hcx"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_sid64"]
 [ext_resource type="Script" uid="uid://cap1i0rek2d6n" path="res://scripts/buildings/eco_dome.gd" id="2_hww1b"]
-[ext_resource type="Script" path="res://scripts/buildings/cost.gd" id="3_j3rju"]
-[ext_resource type="Script" path="res://scripts/buildings/building_spec.gd" id="4_8kgej"]
+[ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="3_j3rju"]
+[ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="4_8kgej"]
 [ext_resource type="Texture2D" uid="uid://cdscvmm34rvis" path="res://assets/sprites/buildings/eco_domes/eco_dome_spritesheet.png" id="5_j3rju"]
 
 [sub_resource type="Resource" id="Resource_j3rju"]
