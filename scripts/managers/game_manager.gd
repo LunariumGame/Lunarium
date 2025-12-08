@@ -99,9 +99,18 @@ func get_total_housing_capacity() -> int:
 	return total_capacity
 
 
+func get_total_elec_capacity() -> int:
+	var total_capacity := 0
+	var placed_buildings := get_node("/root/World/PlacedBuildings").get_children()
+	for building in placed_buildings:
+		if building is PowerPlant:
+			total_capacity += building._get_production_rate()
+	return total_capacity
+
+
 func get_resource_cap(resource:ResourceManager.ResourceType) -> float:
 	match resource:
-		ResourceManager.ResourceType.ELECTRICITY: return _computed_electricity_capacity
+		ResourceManager.ResourceType.ELECTRICITY: return get_total_elec_capacity()
 		ResourceManager.ResourceType.POPULATION: return get_total_housing_capacity()
 		_: return NAN
 

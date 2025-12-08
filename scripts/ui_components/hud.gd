@@ -150,7 +150,9 @@ func _on_destroy_pressed() -> void:
 		return
 	
 	var building: Building = build_man.building_id_to_node[selected_building_id]
-	building.destroy()
+	await building.destroy()
+	await get_tree().create_timer(0.1).timeout
+	Signals.building_stats_changed.emit()
 	selected_building_id = -1
 
 
