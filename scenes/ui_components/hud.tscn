@@ -401,6 +401,7 @@ text = "TODO TECH (?)
 or just open tech tree?"
 
 [node name="BuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3esv6")
 
@@ -417,10 +418,7 @@ layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("18_haqli")
 theme_override_styles/normal = SubResource("StyleBoxFlat_haqli")
-text = "<BUILDING> Costs
-- X Food
-- X Iron
-- X Electricty"
+text = "BUILDING COSTS"
 label_settings = SubResource("LabelSettings_7utte")
 
 [node name="Panel" type="Panel" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer"]
@@ -452,7 +450,6 @@ focus_mode = 0
 theme = ExtResource("18_haqli")
 text = "RESIDENCE"
 script = ExtResource("9_jswg8")
-tile_size = null
 building_cursor = ExtResource("11_ne71y")
 
 [node name="Refinery" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer"]
@@ -461,7 +458,6 @@ focus_mode = 0
 theme = ExtResource("18_haqli")
 text = "REFINERY"
 script = ExtResource("9_jswg8")
-tile_size = null
 building_cursor = ExtResource("12_2w4nd")
 
 [node name="HBoxContainer2" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons"]
@@ -474,7 +470,6 @@ focus_mode = 0
 theme = ExtResource("18_haqli")
 text = "REACTOR"
 script = ExtResource("9_jswg8")
-tile_size = null
 building_cursor = ExtResource("13_ij283")
 
 [node name="Farm" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer2"]
@@ -483,7 +478,6 @@ focus_mode = 0
 theme = ExtResource("18_haqli")
 text = "ECO DOME"
 script = ExtResource("9_jswg8")
-tile_size = null
 building_cursor = ExtResource("14_afnkq")
 
 [node name="SelectedBuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
