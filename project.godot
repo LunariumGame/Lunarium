@@ -32,6 +32,7 @@ build_man="*res://scripts/managers/building_manager.gd"
 Shuttle="*res://scripts/shuttle.gd"
 ScreenTriggers="*res://scripts/screen_triggers.gd"
 Cursor="*res://scenes/cursor.tscn"
+utils="*res://scripts/util/utils.gd"
 
 [display]
 
