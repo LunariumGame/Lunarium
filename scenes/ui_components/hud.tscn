@@ -517,32 +517,36 @@ text = "Test but on second line"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="UpgradeAndDestroy" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox"]
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="UpgradeAndDestroy" type="HBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2"]
 layout_mode = 2
 
-[node name="VSeparatorL" type="VSeparator" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/UpgradeAndDestroy"]
+[node name="VSeparatorL" type="VSeparator" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 theme_override_styles/separator = SubResource("StyleBoxEmpty_7utte")
 
-[node name="Upgrade" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/UpgradeAndDestroy"]
+[node name="Upgrade" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy"]
 layout_mode = 2
 theme = ExtResource("18_haqli")
 text = "UPGRADE"
 
-[node name="VSeparatorM" type="VSeparator" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/UpgradeAndDestroy"]
+[node name="VSeparatorM" type="VSeparator" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 theme_override_styles/separator = SubResource("StyleBoxEmpty_haqli")
 
-[node name="Destroy" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/UpgradeAndDestroy"]
+[node name="Destroy" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy"]
 layout_mode = 2
 theme = ExtResource("18_haqli")
 text = "DESTROY"
 
-[node name="VSeparatorR" type="VSeparator" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/UpgradeAndDestroy"]
+[node name="VSeparatorR" type="VSeparator" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5

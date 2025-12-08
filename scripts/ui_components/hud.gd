@@ -14,8 +14,8 @@ enum Systems {TECH, BUILDING}
 	%InspectorPanel/SelectedBuildingInspector
 ]
 @onready var currentlyInspectingLabel:Label = %TabButtons/CurrentInspect
-@onready var upgrade: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/UpgradeAndDestroy/Upgrade
-@onready var destroy: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/UpgradeAndDestroy/Destroy
+@onready var upgrade: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Upgrade
+@onready var destroy: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Destroy
 
 
 static var same_building_in_a_row: int
@@ -26,8 +26,8 @@ func _ready() -> void:
 	layer = order_man.order.HUD
 	
 	var sel_bldg_panel := system_panels[system_panels.size() - 1]
-	var upgrade_button := sel_bldg_panel.get_node("VBox/UpgradeAndDestroy/Upgrade")
-	var destroy_button := sel_bldg_panel.get_node("VBox/UpgradeAndDestroy/Destroy")
+	var upgrade_button := sel_bldg_panel.get_node("VBox/MarginContainer2/UpgradeAndDestroy/Upgrade")
+	var destroy_button := sel_bldg_panel.get_node("VBox/MarginContainer2/UpgradeAndDestroy/Destroy")
 	
 	upgrade_button.pressed.connect(_on_upgrade_pressed)
 	destroy_button.pressed.connect(_on_destroy_pressed)
@@ -101,6 +101,7 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 		var info_label = Label.new()
 		info_label.theme = load("res://resources/ui/oldsteam.tres")
 		info_label.text = str(key) + ": " + str(value)
+		if key == "\n": info_label.text = ""
 		payload_container.add_child(info_label)
 
 	# Currentlyinspecting label
