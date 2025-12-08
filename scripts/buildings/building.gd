@@ -9,10 +9,11 @@ extends Node2D
 @export var building_scale := Vector2(4, 4)
 
 @export var outline_color: Color = Color(0.0, 0.0, 0.0, 0.5)
-@export var outline_thickness: float = 2.0
+@export var outline_thickness: float = 1.5
 
 @onready var clickable_area: Area2D = $Area2D
 @onready var destroy_audio: AudioStreamPlayer2D = $Audio/Destroy
+@onready var anim_manager: AnimationTree = $AnimationTree
 
 var is_cursor: bool = false
 
@@ -62,7 +63,10 @@ func _on_Area2D_input_event(viewport: Viewport, event: InputEvent, shape_idx: in
 
 # override it whenever possible in derived building classes
 func _get_selection_payload() -> Dictionary:
-	return {}
+		# special condition, because _get_selection_payload gets called in upgrade
+		if not $Audio/Create.playing:
+			$Audio.play_audio($Audio/Select)
+		return {}
 
 
 func upgrade_level() -> bool:
@@ -70,13 +74,14 @@ func upgrade_level() -> bool:
 
 	if can_upgrade:
 		Signals.building_stats_changed.emit(self)
-		$Audio/Create.play()
-		
+		$Audio.play_audio($Audio/Create)
+		anim_manager.update_animation(AnimationManager.StateAction.CREATE)
+	
 	return can_upgrade
 
 
 func destroy() -> void:
-	$Audio/Destroy.play()
+	$Audio.play_audio($Audio/Destroy)
 	$AnimationTree.update_animation($AnimationTree.StateAction.DELETE)
 	await $AnimationTree.animation_finished
 	# suppress "wonky default frame" AnimationTree throws up at end
@@ -95,7 +100,8 @@ func _draw():
 		return
 
 	var dim: Vector2 = $Sprite2D.get_frame_wh()
-	var rect = Rect2(-dim / 2, dim)
+	dim += Vector2(3, 3)
+	var rect = Rect2(-dim / 2 , dim)
 	draw_rect(rect, outline_color, false, outline_thickness)
 
 

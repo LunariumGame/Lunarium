@@ -1,7 +1,7 @@
 extends Button
 
 @export var cooldown_time: float = 1.0 # seconds
-
+	
 var cooldown_active: bool = false
 
 @onready var progress_bar: ProgressBar = $ProgressBar

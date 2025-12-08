@@ -317,6 +317,10 @@ stereo = true
 [node name="HeadQuarters" instance=ExtResource("1_jg0xg")]
 script = ExtResource("2_7kgpa")
 iron_per_turn = 1
+max_level = 0
+building_scale = Vector2(4, 4)
+outline_color = Color(0, 0, 0, 0.5)
+outline_thickness = 1.5
 
 [node name="BuildingDebugger" parent="." index="1" node_paths=PackedStringArray("target")]
 target = NodePath("..")

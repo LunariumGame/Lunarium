@@ -271,6 +271,10 @@ _data = {
 }
 
 [node name="SolarCollector" instance=ExtResource("1_jfxlg")]
+max_level = 0
+building_scale = Vector2(4, 4)
+outline_color = Color(0, 0, 0, 0.5)
+outline_thickness = 1.5
 
 [node name="BuildingDebugger" parent="." index="1" node_paths=PackedStringArray("target")]
 target = NodePath("..")
