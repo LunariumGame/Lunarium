@@ -19,6 +19,10 @@ boot_splash/image="uid://b38ydovtwkyyw"
 config/icon="uid://b6k7dd38rgif8"
 boot_splash/minimum_display_time=2000
 
+[audio]
+
+general/default_playback_type.web=0
+
 [autoload]
 
 Signals="*res://scripts/core/signals.gd"
