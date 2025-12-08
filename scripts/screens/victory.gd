@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var banner := $AnimatedSprite2D
+@onready var banner := $VBoxContainer/AnimatedSprite2D
 
 func _ready():
 	# Make banner invisible at first
