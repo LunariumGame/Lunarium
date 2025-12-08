@@ -1,6 +1,7 @@
-[gd_resource type="StyleBoxFlat" format=3 uid="uid://dyso47mujokki"]
+[gd_resource type="StyleBoxFlat" load_steps=0 format=3 uid="uid://dyso47mujokki"]
 
 [resource]
+content_margin_bottom = 8.0
 bg_color = Color(0.29803923, 0.34509805, 0.26666668, 1)
 border_width_left = 5
 border_width_top = 5

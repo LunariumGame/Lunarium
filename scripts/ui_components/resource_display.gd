@@ -14,18 +14,14 @@ extends Label
 		if is_node_ready():
 			_update_display()
 
+
 func _ready() -> void:
-	Signals.resource_value_changed.connect(_on_resource_value_changed)
-	# for electricity usage/capacity update
-	Signals.electricity_recomputed.connect(_on_electricity_recomputed)
-	_update_display()
-
-
-func _on_resource_value_changed() -> void:
-	_update_display()
-
-
-func _on_electricity_recomputed() -> void:
+	# turn end, build, upgrade
+	Signals.resource_value_changed.connect(_update_display)
+	# electricity usage/capacity change
+	Signals.electricity_recomputed.connect(_update_display)
+	# upgrades
+	Signals.building_stats_changed.connect(_update_display)
 	_update_display()
 
 

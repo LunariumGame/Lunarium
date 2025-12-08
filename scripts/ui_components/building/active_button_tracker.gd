@@ -38,11 +38,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		if cursor and is_instance_valid(cursor):
 			var cursor_area := cursor.get_node("Area2D")
 			if not cursor_area.is_overlapping():
-				active_button._place_building()
-				# only making button null if successfully places
-				active_button.cursor_instance = null
-				active_button = null
-			
+				if active_button._place_building():
+					# only making button null if successfully places
+					active_button.cursor_instance = null
+					active_button = null
+
 		get_viewport().set_input_as_handled()
 
 

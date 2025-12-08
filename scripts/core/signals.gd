@@ -18,8 +18,9 @@ signal turn_ended_residential(turn_number:int)
 # specific signals
 signal recompute_power_plants()
 
-# building built signals
+# building signals
 signal building_built(building: Node)
+signal building_stats_changed()
 
 ## Emitted when the amount of a resource that the player has is changed.
 signal resource_value_changed()

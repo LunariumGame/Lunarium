@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cvurq12vfgtbk" path="res://scenes/buildings/headquarters.tscn" id="12_jhx03"]
 [ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="13_jhx03"]
 [ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="13_o8fc1"]
-[ext_resource type="PackedScene" uid="uid://datesfdxysorw" path="res://scenes/cursor.tscn" id="15_dss4m"]
+[ext_resource type="PackedScene" path="res://scenes/cursor.tscn" id="15_dss4m"]
 [ext_resource type="PackedScene" uid="uid://bwq4nvmg3wux7" path="res://scenes/craters.tscn" id="15_xo05s"]
 [ext_resource type="Texture2D" uid="uid://ddo5xfsra2x3y" path="res://assets/sprites/world/bg_layer_1.webp" id="16_lakw3"]
 [ext_resource type="Texture2D" uid="uid://d176nimp53u8d" path="res://assets/sprites/world/bg_layer_2.webp" id="17_pm21f"]

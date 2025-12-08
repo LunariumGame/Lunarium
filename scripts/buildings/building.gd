@@ -9,9 +9,11 @@ extends Node2D
 @export var building_scale := Vector2(4, 4)
 
 @export var outline_color: Color = Color(0.0, 0.0, 0.0, 0.5)
-@export var outline_thickness: float = 2.0
+@export var outline_thickness: float = 1.5
 
 @onready var clickable_area: Area2D = $Area2D
+@onready var destroy_audio: AudioStreamPlayer2D = $Audio/Destroy
+@onready var anim_manager: AnimationTree = $AnimationTree
 
 var is_cursor: bool = false
 
@@ -61,31 +63,31 @@ func _on_Area2D_input_event(viewport: Viewport, event: InputEvent, shape_idx: in
 
 # override it whenever possible in derived building classes
 func _get_selection_payload() -> Dictionary:
-	return {}
-
-
-func get_build_cost() -> Cost:
-	return get_upgrade_cost(1)
-
-
-## Level 1 = build cost, level 2 = level 2
-func get_upgrade_cost(level: int) -> Cost:
-	
-	if level <= 0 or level > max_level:
-		return null
-	
-	if level > building_spec.cost.size():
-		printerr("You need to add a cost for level ", level, " on building ", self.name)
-		return null
-	
-	return building_spec.cost[level - 1]
+		# special condition, because _get_selection_payload gets called in upgrade
+		if not $Audio/Create.playing:
+			$Audio.play_audio($Audio/Select)
+		return {}
 
 
 func upgrade_level() -> bool:
-	if current_level < max_level:
-		current_level += 1
-		return true
-	return false
+	var can_upgrade := build_man.try_upgrade(self)
+
+	if can_upgrade:
+		Signals.building_stats_changed.emit(self)
+		$Audio.play_audio($Audio/Create)
+		anim_manager.update_animation(AnimationManager.StateAction.CREATE)
+	
+	return can_upgrade
+
+
+func destroy() -> void:
+	$Audio.play_audio($Audio/Destroy)
+	$AnimationTree.update_animation($AnimationTree.StateAction.DELETE)
+	await $AnimationTree.animation_finished
+	# suppress "wonky default frame" AnimationTree throws up at end
+	$Sprite2D.visible = false
+	await $Audio/Destroy.finished
+	queue_free()
 
 
 func get_type() -> BuildingManager.BuildingType:
@@ -98,7 +100,8 @@ func _draw():
 		return
 
 	var dim: Vector2 = $Sprite2D.get_frame_wh()
-	var rect = Rect2(-dim / 2, dim)
+	dim += Vector2(3, 3)
+	var rect = Rect2(-dim / 2 , dim)
 	draw_rect(rect, outline_color, false, outline_thickness)
 
 

@@ -1,0 +1,23 @@
+1) tech_acquired.wav (https://freesound.org/s/391540/ -- License: Attribution NonCommercial 4.0)
+2) short_circuit.wav (https://freesound.org/s/86063/ -- License: Attribution NonCommercial 3.0)
+3) intro_cutscene.wav (https://freesound.org/s/747938/ -- License: Attribution 4.0)
+4) solar_collector.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
+5) create_building.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
+6) iron_refinery.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
+7) destroy_building.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
+8) hq.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
+9) solar_collector_cutscene.wav (https://freesound.org/s/386056/ -- License: Attribution 4.0)
+10) power_plant.wav (https://pixabay.com/sound-effects/space-energy-generator-72092/)
+11) eco_dome.wav (https://pixabay.com/sound-effects/viscious-liquid-gurgling-54710/)
+12) shuttle_open_1.wav (https://www.zapsplat.com/license-type/standard-license/)
+13) shuttle_open_2.wav (https://www.zapsplat.com/music/crowd-people-talking-during-a-reception-with-multiple-conversations-and-laughing/
+14) population_starved.mp3 (https://pixabay.com/sound-effects/crowd-shocked-reaction-352766/
+15) upgrade_building.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
+16) scifi_button.mp3 (https://pixabay.com/sound-effects/designed-sci-fi-ui-button-116792/)
+
+
+The following sounds were acquired from SoundJay (https://www.soundjay.com/tos.html):
+1) button_click.wav
+2) lunabot.wav
+3) charge_solar_collector.wav
+
