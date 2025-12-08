@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=43 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
@@ -132,6 +132,8 @@ metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7utte"]
 bg_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
 expand_margin_top = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6iety"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7utte"]
 
@@ -488,8 +490,8 @@ script = ExtResource("9_jswg8")
 building_cursor = ExtResource("14_afnkq")
 
 [node name="SelectedBuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
-visible = false
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6iety")
 
 [node name="VBox" type="VBoxContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector"]
 layout_mode = 2
