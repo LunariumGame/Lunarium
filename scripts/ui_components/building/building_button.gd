@@ -115,6 +115,7 @@ func populate_cost_label(build_spec: BuildingSpec) -> void:
 	var cost = cost_levels[cursor_instance.current_level - 1]
 	cost_label.text += align_costs(cost.cost)
 
+
 # For building cost label
 func align_costs(costs: Dictionary) -> String:
 	var rows: Array[String] = []
