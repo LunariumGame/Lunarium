@@ -59,8 +59,9 @@ func _process(_delta: float) -> void:
 		var mouse_pos_world: Vector2 = canvas_to_world_transform * get_global_mouse_position()
 
 		cursor_instance.global_position = mouse_pos_world.snapped(tile_size)
-		# if collision, notify 
-		if cursor_area.is_overlapping():
+		
+		# if collision/not enough resources, notify with red sprite
+		if cursor_area.is_overlapping() || !build_man.can_purchase(cursor_instance.building_spec):
 			cursor_instance.modulate = Color.RED
 		else:
 			cursor_instance.modulate = Color.WHITE
@@ -115,4 +116,3 @@ func populate_cost_label(build_spec: BuildingSpec) -> void:
 	cost_label.text += str(cost.cost[ResourceManager.ResourceType.FOOD]) + " FOOD\n"
 	cost_label.text += str(cost.cost[ResourceManager.ResourceType.IRON]) + " IRON\n"
 	cost_label.text += str(cost.cost[ResourceManager.ResourceType.ELECTRICITY]) + " ELECTRICITY"
-
