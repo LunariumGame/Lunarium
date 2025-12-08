@@ -5,9 +5,10 @@
 
 [node name="Cursor" type="SubViewport"]
 transparent_bg = true
-size = Vector2i(256, 256)
+size = Vector2i(128, 128)
 render_target_update_mode = 4
 script = ExtResource("1_s0nli")
+enable_rainbow = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1

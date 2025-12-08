@@ -5,9 +5,6 @@ const BASE_HEIGHT = 1080
 const NATIVE_CURSOR_SIZE = Vector2i(32, 32)
 const CURSOR_TARGET_OFFSET = Vector2(4, 4)
 
-# safe hardware cursor size limit
-const MAX_SIZE = Vector2i(128, 128)
-
 @export var enable_shake_to_scale:bool = true
 @export var enable_rainbow:bool = false
 
@@ -26,7 +23,7 @@ func _ready() -> void:
 
 func _process(delta:float) -> void:
 	var screen_size:Vector2i = DisplayServer.screen_get_size()
-	var max_scale:float = minf(MAX_SIZE.x * 1.0 / NATIVE_CURSOR_SIZE.x , MAX_SIZE.y * 1.0 / NATIVE_CURSOR_SIZE.y)
+	var max_scale:float = minf(size.x * 1.0 / NATIVE_CURSOR_SIZE.x , size.y * 1.0 / NATIVE_CURSOR_SIZE.y)
 	
 	# rainbow cursor
 	if enable_rainbow:
@@ -49,19 +46,18 @@ func _process(delta:float) -> void:
 	var scale_factor:float = minf(1.0 * screen_size.x / BASE_WIDTH, 1.0 * screen_size.y / BASE_HEIGHT) * shake_scale
 	scale_factor = maxf(1, minf(scale_factor, max_scale))
 	
-	if scale_factor == current_scale and not enable_rainbow:
+	if is_equal_approx(scale_factor, current_scale) and not enable_rainbow:
 		return
 	current_scale = scale_factor
 	
 	# apply cursor scaling
-	size = NATIVE_CURSOR_SIZE * scale_factor
-	texture_rect.size = size
+	texture_rect.size = NATIVE_CURSOR_SIZE * scale_factor
 	
 	# wait for render to complete
 	await RenderingServer.frame_post_draw
 	
 	# update cursor
-	Input.set_custom_mouse_cursor(self.get_texture(), Input.CURSOR_ARROW, CURSOR_TARGET_OFFSET * scale_factor)
+	Input.set_custom_mouse_cursor(get_texture(), Input.CURSOR_ARROW, CURSOR_TARGET_OFFSET * scale_factor)
 
 
 func _on_game_won() -> void:
