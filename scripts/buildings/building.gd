@@ -9,7 +9,7 @@ extends Node2D
 @export var building_scale := Vector2(4, 4)
 
 @export var outline_color: Color = Color(0.0, 0.0, 0.0, 0.5)
-@export var outline_thickness: float = 2.0
+@export var outline_thickness: float = 1.5
 
 @onready var clickable_area: Area2D = $Area2D
 
@@ -91,7 +91,8 @@ func _draw():
 		return
 
 	var dim: Vector2 = $Sprite2D.get_frame_wh()
-	var rect = Rect2(-dim / 2, dim)
+	dim += Vector2(3, 3)
+	var rect = Rect2(-dim / 2 , dim)
 	draw_rect(rect, outline_color, false, outline_thickness)
 
 
