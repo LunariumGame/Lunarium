@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="3_gymdt"]
 [ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="4_g6fhf"]
 [ext_resource type="Texture2D" uid="uid://7k1dsktdt2fx" path="res://assets/sprites/buildings/iron_refinery/ironrefinery_spritesheet.png" id="5_gymdt"]
-[ext_resource type="AudioStream" uid="uid://lrv7unqm5qxi" path="res://assets/audio/iron_refinery.wav" id="6_g6fhf"]
+[ext_resource type="AudioStream" uid="uid://bddsk6d7tc000" path="res://assets/audio/iron_refinery_new.mp3" id="6_g6fhf"]
 
 [sub_resource type="Resource" id="Resource_gymdt"]
 script = ExtResource("3_gymdt")
@@ -311,9 +311,6 @@ production_table = Array[int]([0, 4, 8, 12])
 power_table = Array[int]([0, 10, 15, 20])
 building_spec = SubResource("Resource_ry6o0")
 max_level = 3
-building_scale = Vector2(4, 4)
-outline_color = Color(0, 0, 0, 0.5)
-outline_thickness = 1.5
 
 [node name="BuildingDebugger" parent="." index="1" node_paths=PackedStringArray("target")]
 target = NodePath("..")

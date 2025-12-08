@@ -6,9 +6,9 @@
 [ext_resource type="Script" uid="uid://dde4jsmfv432l" path="res://scripts/buildings/building_sprite.gd" id="4_mfina"]
 [ext_resource type="Script" uid="uid://bkbe1ecuocexf" path="res://scripts/buildings/disable_player.gd" id="5_f6oyp"]
 [ext_resource type="Script" uid="uid://cr5mxmcexbr8u" path="res://scripts/buildings/building_animation_manager.gd" id="5_mfina"]
-[ext_resource type="AudioStream" uid="uid://doeawp7mo3bx3" path="res://assets/audio/create_building.wav" id="7_vnr05"]
 [ext_resource type="Script" uid="uid://8bfbsy6x2mbf" path="res://scripts/buildings/manage_audio.gd" id="7_wlaec"]
-[ext_resource type="AudioStream" uid="uid://ddewr8w7tjhey" path="res://assets/audio/building_destroyed.wav" id="8_vnr05"]
+[ext_resource type="AudioStream" uid="uid://dtoxholv1gte0" path="res://assets/audio/create_building_new.mp3" id="8_wlaec"]
+[ext_resource type="AudioStream" uid="uid://dnv3efanyrv1t" path="res://assets/audio/building_destroyed_new.mp3" id="9_hhebf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27e8i"]
 size = Vector2(32, 32)
@@ -472,11 +472,11 @@ script = ExtResource("5_mfina")
 script = ExtResource("7_wlaec")
 
 [node name="Create" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("7_vnr05")
+stream = ExtResource("8_wlaec")
 bus = &"Effects"
 
 [node name="Select" type="AudioStreamPlayer2D" parent="Audio"]
 stream = SubResource("AudioStream_vnr05")
 
 [node name="Destroy" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("8_vnr05")
+stream = ExtResource("9_hhebf")
