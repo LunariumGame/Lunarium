@@ -41,4 +41,4 @@ signal game_lost()
 signal end_screen_closed()
 
 ## Emitted when a shuttle arrives
-signal shuttle_arrived()
+signal shuttle_arrived(pax:int)
