@@ -1,6 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://du8rqqwg06b8"]
+[gd_scene load_steps=10 format=3 uid="uid://du8rqqwg06b8"]
 
 [ext_resource type="Script" uid="uid://qgwiwb7gjqpd" path="res://scripts/screens/victory.gd" id="1_63tvk"]
+[ext_resource type="Texture2D" uid="uid://c0cg5c504fhb5" path="res://assets/sprites/cutscenes/ending_cutscenes/victory_cutscene.png" id="2_62pnk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omuyy"]
+atlas = ExtResource("2_62pnk")
+region = Rect2(0, 0, 1920, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2tkd"]
+atlas = ExtResource("2_62pnk")
+region = Rect2(1920, 0, 1920, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48wmm"]
+atlas = ExtResource("2_62pnk")
+region = Rect2(3840, 0, 1920, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqqsn"]
+atlas = ExtResource("2_62pnk")
+region = Rect2(0, 240, 1920, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clstc"]
+atlas = ExtResource("2_62pnk")
+region = Rect2(1920, 240, 1920, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gw5eo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omuyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2tkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48wmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqqsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clstc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_63tvk"]
 font_size = 64
@@ -24,8 +68,13 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer"]
+position = Vector2(960, 537)
+sprite_frames = SubResource("SpriteFrames_gw5eo")
+autoplay = "default"
+frame_progress = 0.45581892
+
 [node name="WinMessageTemp" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "YOU WON"
 label_settings = SubResource("LabelSettings_63tvk")
 horizontal_alignment = 1
