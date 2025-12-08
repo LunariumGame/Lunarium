@@ -6,6 +6,8 @@ extends Node
 func _ready() -> void:
 	Signals.colonist_died.connect(_on_colonist_died)
 	Signals.shuttle_arrived.connect(_on_shuttle_arrived)
+	Signals.shuttle_blocked_by_population_cap.connect(_on_shuttle_blocked_by_population_cap)
+	Signals.notification.connect(_debug_notification)
 
 
 func _on_colonist_died(num_dead:int) -> void:
@@ -34,3 +36,7 @@ class Notification:
 	func _init(_text:String, _icon:Texture2D = null) -> void:
 		text = _text
 		icon = _icon
+
+
+func _debug_notification(notif:Notification) -> void:
+	print_debug("Notification signal received: %s" % notif.text)
