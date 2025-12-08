@@ -89,6 +89,7 @@ func _logic_food_consumption_and_starvation() -> void:
 	resource_manager.add_precalculated(ResourceManager.ResourceType.FOOD, -COLONIST_CONSUMPTION_PER_TURN * fed_colonists)
 	if deaths > 0:
 		resource_manager.add_precalculated(ResourceManager.ResourceType.POPULATION, -deaths)
+		Signals.colonist_died.emit(deaths)
 
 
 func get_electricity_usage() -> float:

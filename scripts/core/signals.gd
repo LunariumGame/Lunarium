@@ -45,3 +45,13 @@ signal end_screen_closed()
 
 ## Emitted when a shuttle arrives
 signal shuttle_arrived(pax:int)
+
+## Emitted when a shuttle attempts to spawn,
+## but fails due to insufficient housing
+signal shuttle_blocked_by_population_cap()
+
+## Emitted when colonists die
+signal colonist_died(num_dead:int)
+
+## Emitted for notification-worthy events
+signal notification(n:NotificationManager.Notification)
