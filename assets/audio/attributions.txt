@@ -12,6 +12,7 @@
 12) shuttle_open_1.wav (https://www.zapsplat.com/license-type/standard-license/)
 13) shuttle_open_2.wav (https://www.zapsplat.com/music/crowd-people-talking-during-a-reception-with-multiple-conversations-and-laughing/
 14) population_starved.mp3 (https://pixabay.com/sound-effects/crowd-shocked-reaction-352766/
+15) upgrade_building.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
 
 
 The following sounds were acquired from SoundJay (https://www.soundjay.com/tos.html):
