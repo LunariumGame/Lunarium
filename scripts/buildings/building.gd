@@ -12,6 +12,7 @@ extends Node2D
 @export var outline_thickness: float = 2.0
 
 @onready var clickable_area: Area2D = $Area2D
+@onready var destroy_audio: AudioStreamPlayer2D = $Audio/Destroy
 
 var is_cursor: bool = false
 
@@ -74,10 +75,13 @@ func upgrade_level() -> bool:
 
 
 func destroy() -> void:
-	var anim_manager: AnimationManager = $"AnimationTree"
-	anim_manager.update_animation(anim_manager.StateAction.DELETE)
-	# Wait for animation to finish before calling queue_free()
-	await anim_manager.animation_finished
+	$Audio/Destroy.play()
+	$AnimationTree.update_animation($AnimationTree.StateAction.DELETE)
+	
+	await $AnimationTree.animation_finished
+	# suppress "wonky default frame" AnimationTree throws up
+	$Sprite2D.visible = false
+	await $Audio/Destroy.finished
 	queue_free()
 
 

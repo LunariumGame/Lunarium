@@ -2,7 +2,7 @@ class_name HUD
 extends CanvasLayer
 
 enum Systems {TECH, BUILDING}
-
+const HEADQUARTERS: int = -1
 
 @onready var next_turn_button:Button = %NextTurn
 @onready var system_buttons: Array[Button] = [
@@ -111,8 +111,12 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 	var pretty_name = building_type_name.replace("_", " ")
 	currentlyInspectingLabel.text = str(pretty_name)
 	
-	# fetch live node
-	var building_node: Building = utils.fetch_building(building_id)
+	# fetch live node, play selection audio
+	if building_id == HEADQUARTERS:
+		get_node("/root/World/HeadQuarters/Audio/Select").play()
+	else:
+		utils.fetch_building(building_id).get_node("Audio/Select").play()
+		
 	
 	# Funny easter egg
 	if building_id == prev_building_id:
@@ -148,6 +152,10 @@ func _on_upgrade_pressed() -> void:
 
 	var payload := building._get_selection_payload()
 	toggle_panel_selected_building(selected_building_id, payload)
+	
+	building.get_node("Audio/Upgrade").play()
+	
+	
 
 
 func _on_destroy_pressed() -> void:
@@ -155,10 +163,11 @@ func _on_destroy_pressed() -> void:
 		return
 	
 	var building: Building = build_man.building_id_to_node[selected_building_id]
+	
 	await building.destroy()
-	await get_tree().create_timer(0.1).timeout
 	Signals.building_stats_changed.emit()
-	selected_building_id = -1
+	selected_building_id = -1	
+
 
 
 func resetCurrInspLabel() -> void:
