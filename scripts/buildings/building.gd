@@ -40,10 +40,17 @@ func _process_power_draw(_turn_number:int) -> void:
 	var available_electricity:float = resource_manager.get_resource(
 			ResourceManager.ResourceType.ELECTRICITY)
 	
+	var state_machine_playback = $AnimationTree.get("parameters/playback")
+	var current_animation_state = state_machine_playback.get_current_node()
 	is_powered = power_draw <= available_electricity
 	if is_powered:
+		if current_animation_state == "off_u1" or current_animation_state == "off_u2" or current_animation_state == "off_u3":
+			anim_manager.update_animation(anim_manager.StateAction.IDLE)
 		resource_manager.add_precalculated(
 				ResourceManager.ResourceType.ELECTRICITY, -power_draw)
+	else:
+		if current_animation_state != "off_u1" or current_animation_state != "off_u2" or current_animation_state != "off_u3":
+			anim_manager.update_animation(anim_manager.StateAction.OFF)
 
 
 ## Overriding implementations should call super() at the beginning
