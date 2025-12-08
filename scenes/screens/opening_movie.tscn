@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d006yfmmx7bre"]
+[gd_scene load_steps=4 format=3 uid="uid://d006yfmmx7bre"]
 
 [ext_resource type="Script" uid="uid://c16p8ugep1b5r" path="res://scripts/screens/opening_movie.gd" id="1_bu5bb"]
+[ext_resource type="AudioStream" uid="uid://e5bb4ru0x8c6" path="res://assets/audio/intro_score_new.mp3" id="2_lp7o4"]
 
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_bu5bb"]
 file = "res://assets/sprites/cutscenes/opening_cutscene/opening_cutscene_lunarium.ogv"
@@ -32,5 +33,8 @@ size_flags_vertical = 3
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CBoxContainer"]
 layout_mode = 2
 stream = SubResource("VideoStreamTheora_bu5bb")
+
+[node name="IntroScore" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lp7o4")
 
 [connection signal="finished" from="CBoxContainer/VideoStreamPlayer" to="." method="_on_movie_end"]
