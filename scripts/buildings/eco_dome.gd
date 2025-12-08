@@ -49,9 +49,9 @@ func _on_turn_started(_turn_number:int) -> void:
 
 func _get_selection_payload() -> Dictionary:
 	return {
-		"Level": current_level,
-		"Powered": "Yes" if is_powered else "No",
-		"Food Production": str(_get_production_rate()) + "/turn",
+		"LEVEL": current_level,
+		"POWERED": "YES" if is_powered else "NO",
+		"PRODUCTION": str(int(_get_production_rate())) + " FOOD PER TURN",
 	}
 
 

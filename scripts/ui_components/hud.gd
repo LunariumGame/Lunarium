@@ -82,17 +82,14 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 	var panel := system_panels[selected_index]
 	panel.visible = true
 
-	# ID
-	var label := panel.get_node("VBox/Label")
-	label.text = "Selected Building ID: " + str(building_id)
-
 	# payload
-	var payload_container := panel.get_node("VBox/PayloadContainer")
+	var payload_container := panel.get_node("VBox/MarginContainer/PayloadContainer")
 	for child in payload_container.get_children():
 		child.queue_free()
 	for key in payload.keys():
 		var value = payload[key]
 		var info_label = Label.new()
+		info_label.theme = load("res://resources/ui/oldsteam.tres")
 		info_label.text = str(key) + ": " + str(value)
 		payload_container.add_child(info_label)
 
