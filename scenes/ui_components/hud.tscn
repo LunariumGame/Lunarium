@@ -386,6 +386,7 @@ expand_icon = true
 [node name="CurrentInspect" type="Label" parent="HUD/BotLeft/Box/VBox/TabButtons"]
 layout_mode = 2
 size_flags_horizontal = 10
+text = "NEW BUILDINGS"
 label_settings = SubResource("LabelSettings_3esv6")
 horizontal_alignment = 2
 

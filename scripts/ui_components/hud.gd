@@ -91,7 +91,7 @@ func toggle_panel(system: Systems) -> void:
 
 	# Set currentinyInspecting label to the panel type
 	if system == Systems.BUILDING:
-		currentlyInspectingLabel.text = "BUILDINGS"
+		currentlyInspectingLabel.text = "NEW BUILDINGS"
 	else:
 		resetCurrInspLabel()
 
