@@ -197,6 +197,19 @@ layout_mode = 2
 [node name="QuitGame" parent="Settings/MainVBox/Buttons/QuitCenter" instance=ExtResource("6_ap0kp")]
 layout_mode = 2
 
+[node name="CheckBox" type="CheckBox" parent="Settings"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+
 [connection signal="value_changed" from="Settings/MainVBox/AudioSettings/MasterVolume" to="." method="_on_master_volume_value_changed"]
 [connection signal="value_changed" from="Settings/MainVBox/AudioSettings/MusicVolume" to="." method="_on_music_volume_value_changed"]
 [connection signal="value_changed" from="Settings/MainVBox/AudioSettings/EffectsVolume" to="." method="_on_effects_volume_value_changed"]
@@ -204,3 +217,4 @@ layout_mode = 2
 [connection signal="value_changed" from="Settings/MainVBox/UISettings/ScaleSlider" to="." method="_on_scale_slider_value_changed"]
 [connection signal="pressed" from="Settings/MainVBox/Buttons/ResumeCenter/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Settings/MainVBox/Buttons/QuitCenter/QuitGame" to="." method="_on_quit_game_pressed"]
+[connection signal="toggled" from="Settings/CheckBox" to="." method="_on_check_box_toggled"]
