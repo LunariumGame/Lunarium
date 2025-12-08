@@ -12,6 +12,7 @@ extends Node2D
 @export var outline_thickness: float = 1.5
 
 @onready var clickable_area: Area2D = $Area2D
+@onready var anim_manager: AnimationTree = $AnimationTree
 
 var is_cursor: bool = false
 
@@ -69,12 +70,12 @@ func upgrade_level() -> bool:
 
 	if can_upgrade:
 		Signals.building_stats_changed.emit(self)
+		anim_manager.update_animation(AnimationManager.StateAction.CREATE)
 	
 	return can_upgrade
 
 
 func destroy() -> void:
-	var anim_manager: AnimationManager = $"AnimationTree"
 	anim_manager.update_animation(anim_manager.StateAction.DELETE)
 	# Wait for animation to finish before calling queue_free()
 	await anim_manager.animation_finished
