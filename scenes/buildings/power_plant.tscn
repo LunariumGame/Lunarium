@@ -318,9 +318,6 @@ script = ExtResource("2_5nqxb")
 production_table = Array[int]([0, 10, 20, 30])
 building_spec = SubResource("Resource_pap3h")
 max_level = 3
-building_scale = Vector2(4, 4)
-outline_color = Color(0, 0, 0, 0.5)
-outline_thickness = 1.5
 
 [node name="BuildingDebugger" parent="." index="1" node_paths=PackedStringArray("target")]
 target = NodePath("..")
