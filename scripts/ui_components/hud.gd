@@ -15,6 +15,9 @@ enum Systems {TECH, BUILDING}
 ]
 @onready var currentlyInspectingLabel:Label = %TabButtons/CurrentInspect
 
+static var same_building_in_a_row: int
+var prev_building_id: int
+
 func _ready() -> void:
 	layer = order_man.order.HUD
 	Signals.building_selected.connect(_on_building_selected)
@@ -31,6 +34,7 @@ func _on_next_turn_pressed() -> void:
 
 #region System Buttons\
 func toggle_panel(system: Systems) -> void:
+	same_building_in_a_row = 0
 	# Always hide the selected building panel whenever a system button is clicked
 	var selected_index := system_panels.size() - 1
 	system_panels[selected_index].visible = false
@@ -88,6 +92,15 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 	var building_type_name = build_man.BuildingType.find_key(building_type_index)
 	var pretty_name = building_type_name.replace("_", " ")
 	currentlyInspectingLabel.text = str(pretty_name)
+	
+	# Funny easter egg
+	if building_id == prev_building_id:
+		same_building_in_a_row += 1
+	else:
+		same_building_in_a_row = 0
+	if same_building_in_a_row >= 15:
+		currentlyInspectingLabel.text = "calm down lol"
+	prev_building_id = building_id
 
 
 func _on_tech_tree_pressed() -> void:
