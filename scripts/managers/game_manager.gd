@@ -9,7 +9,7 @@ enum GameState {
 }
 
 
-const WIN_CONDITION_MIN_POPULATION:int = 100
+const WIN_CONDITION_MIN_POPULATION:int = 10
 
 const COLONIST_CONSUMPTION_PER_TURN:float = 1
 const STARVING_COLONIST_DEATH_RATE_PER_TURN:float = 0.5
@@ -40,12 +40,6 @@ func end_turn() -> void:
 
 	_logic_food_consumption_and_starvation()
 	
-	if _win_condition_satisfied():
-		state = GameState.WON
-		print_debug("Game win triggered")
-		Signals.game_won.emit()
-		return
-	
 	turn += 1
 	Signals.turn_started.emit(turn)
 	
@@ -56,7 +50,12 @@ func end_turn() -> void:
 	Signals.turn_started_eco_dome.emit(turn)
 	Signals.turn_started_refinery.emit(turn)
 	Signals.turn_started_residential.emit(turn)
-
+	
+	if _win_condition_satisfied():
+		state = GameState.WON
+		print_debug("Game win triggered")
+		Signals.game_won.emit()
+		return
 
 func _win_condition_satisfied() -> bool:
 	var population:int = roundi(resource_manager.get_resource(ResourceManager.ResourceType.POPULATION))
