@@ -38,9 +38,9 @@ shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_8125u"]
-font_size = 40
+font_size = 48
 script = ExtResource("3_v2n4f")
-base_font_size = 40
+base_font_size = 48
 metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otepx"]
@@ -187,8 +187,8 @@ theme_override_constants/separation = 10
 
 [node name="FoodIcon" type="TextureRect" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Food"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("2_v2n4f")
 stretch_mode = 2
 
@@ -205,6 +205,8 @@ theme_override_constants/separation = 10
 
 [node name="IronIcon" type="TextureRect" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Iron"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("6_7utte")
 stretch_mode = 2
 
@@ -222,6 +224,8 @@ theme_override_constants/separation = 10
 
 [node name="ElectricityIcon" type="TextureRect" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Electricity"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("5_3esv6")
 stretch_mode = 2
 
