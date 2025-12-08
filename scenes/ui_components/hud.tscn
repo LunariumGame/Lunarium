@@ -16,11 +16,11 @@
 [ext_resource type="Script" uid="uid://4lk24jcuaq6g" path="res://scripts/ui_components/building/active_button_tracker.gd" id="9_do4pv"]
 [ext_resource type="Script" uid="uid://b2eoxpgf2ve3o" path="res://scripts/ui_components/building/building_button.gd" id="9_jswg8"]
 [ext_resource type="Theme" uid="uid://daewuul3ri2pl" path="res://resources/ui/hud_theme.tres" id="11_6pkrv"]
-[ext_resource type="PackedScene" uid="uid://62tr4h246vw0" path="res://scenes/buildings/residential.tscn" id="11_ne71y"]
-[ext_resource type="PackedScene" uid="uid://omx3pl3xhdw" path="res://scenes/buildings/iron_refinery.tscn" id="12_2w4nd"]
-[ext_resource type="PackedScene" uid="uid://bmcgkpbcwft3l" path="res://scenes/buildings/power_plant.tscn" id="13_ij283"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/residential.tscn" id="11_ne71y"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/iron_refinery.tscn" id="12_2w4nd"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/power_plant.tscn" id="13_ij283"]
 [ext_resource type="PackedScene" uid="uid://dgfq7odjk1hcx" path="res://scenes/buildings/eco_dome.tscn" id="14_afnkq"]
-[ext_resource type="Theme" uid="uid://ccx1tgrq1y6x3" path="res://resources/ui/oldsteam.tres" id="18_haqli"]
+[ext_resource type="Theme" uid="uid://b2qodpqbccyb3" path="res://resources/ui/oldsteam.tres" id="18_haqli"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2itkv"]
 content_margin_left = 12.0

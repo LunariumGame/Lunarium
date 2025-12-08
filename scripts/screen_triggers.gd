@@ -1,8 +1,9 @@
-extends Node
 ## Handles screens that are opened by signals
+extends Node
 
-const VICTORY = preload("uid://du8rqqwg06b8")
-const LOSS = preload("uid://du46r5f2n8vya")
+const VICTORY = preload("res://scenes/screens/victory.tscn")
+const LOSS = preload("res://scenes/screens/loss.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
