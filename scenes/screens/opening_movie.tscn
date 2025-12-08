@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://d006yfmmx7bre"]
+[gd_scene load_steps=6 format=3 uid="uid://d006yfmmx7bre"]
 
 [ext_resource type="Script" uid="uid://c16p8ugep1b5r" path="res://scripts/screens/opening_movie.gd" id="1_bu5bb"]
 [ext_resource type="AudioStream" uid="uid://e5bb4ru0x8c6" path="res://assets/audio/intro_score_new.mp3" id="2_lp7o4"]
+[ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="3_mm1mk"]
 
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_bu5bb"]
 file = "res://assets/sprites/cutscenes/opening_cutscene/opening_cutscene_lunarium.ogv"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mm1mk"]
 
 [node name="OpeningMovie" type="CanvasLayer"]
 script = ExtResource("1_bu5bb")
@@ -37,4 +40,17 @@ stream = SubResource("VideoStreamTheora_bu5bb")
 [node name="IntroScore" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_lp7o4")
 
+[node name="SkipButton" type="Button" parent="."]
+offset_left = 1686.0
+offset_top = 936.0
+offset_right = 1856.0
+offset_bottom = 1030.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_mm1mk")
+theme_override_font_sizes/font_size = 108
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mm1mk")
+text = "SKIP
+"
+
 [connection signal="finished" from="CBoxContainer/VideoStreamPlayer" to="." method="_on_movie_end"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_press"]
