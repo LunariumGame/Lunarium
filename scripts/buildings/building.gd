@@ -9,9 +9,10 @@ extends Node2D
 @export var building_scale := Vector2(4, 4)
 
 @export var outline_color: Color = Color(0.0, 0.0, 0.0, 0.5)
-@export var outline_thickness: float = 2.0
+@export var outline_thickness: float = 1.5
 
 @onready var clickable_area: Area2D = $Area2D
+@onready var anim_manager: AnimationTree = $AnimationTree
 
 var is_cursor: bool = false
 
@@ -69,12 +70,12 @@ func upgrade_level() -> bool:
 
 	if can_upgrade:
 		Signals.building_stats_changed.emit(self)
+		anim_manager.update_animation(AnimationManager.StateAction.CREATE)
 	
 	return can_upgrade
 
 
 func destroy() -> void:
-	var anim_manager: AnimationManager = $"AnimationTree"
 	anim_manager.update_animation(anim_manager.StateAction.DELETE)
 	# Wait for animation to finish before calling queue_free()
 	await anim_manager.animation_finished
@@ -91,7 +92,8 @@ func _draw():
 		return
 
 	var dim: Vector2 = $Sprite2D.get_frame_wh()
-	var rect = Rect2(-dim / 2, dim)
+	dim += Vector2(3, 3)
+	var rect = Rect2(-dim / 2 , dim)
 	draw_rect(rect, outline_color, false, outline_thickness)
 
 

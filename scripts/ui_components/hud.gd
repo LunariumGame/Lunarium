@@ -3,6 +3,8 @@ extends CanvasLayer
 
 enum Systems {TECH, BUILDING}
 
+static var same_building_in_a_row: int
+
 @onready var next_turn_button:Button = %NextTurn
 @onready var system_buttons: Array[Button] = [
 	%TabButtons/TechTree,
@@ -17,8 +19,6 @@ enum Systems {TECH, BUILDING}
 @onready var upgrade: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Upgrade
 @onready var destroy: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Destroy
 
-
-static var same_building_in_a_row: int
 var prev_building_id: int
 var selected_building_id: int = -1
 
@@ -35,6 +35,27 @@ func _ready() -> void:
 	Signals.building_selected.connect(_on_building_selected)
 
 
+func flash_inspector_panel() -> void:
+	var panel := %InspectorPanel
+	panel.modulate = Color.WHITE
+
+	# Kill any previous flash tween
+	if panel.has_meta("flash_tween"):
+		var old: Object = panel.get_meta("flash_tween")
+		if is_instance_valid(old):
+			old.kill()
+
+	# Set dark green flash
+	panel.modulate = Color("#4c5844")
+
+	var tween := create_tween()
+	tween.tween_property(panel, "modulate", Color.WHITE, 0.15)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+	# cleanup meta when finished
+	await tween.finished
+
+
 func _on_settings_pressed() -> void:
 	Signals.settings_opened.emit()
 
@@ -44,8 +65,10 @@ func _on_next_turn_pressed() -> void:
 	next_turn_button.start_cooldown()
 
 
-#region System Buttons\
+#region System Buttons
 func toggle_panel(system: Systems) -> void:
+	%InspectorPanel.visible = true
+	flash_inspector_panel()
 	same_building_in_a_row = 0
 	# Always hide the selected building panel whenever a system button is clicked
 	var selected_index := system_panels.size() - 1
@@ -56,7 +79,7 @@ func toggle_panel(system: Systems) -> void:
 		if system < system_buttons.size():
 			system_buttons[system].button_pressed = false
 		system_panels[system].visible = false
-		resetCurrInspLabel()
+		close_inspector()
 		return
 	
 	# Toggle the rest off and enable selected
@@ -68,12 +91,14 @@ func toggle_panel(system: Systems) -> void:
 
 	# Set currentinyInspecting label to the panel type
 	if system == Systems.BUILDING:
-		currentlyInspectingLabel.text = "BUILDINGS"
+		currentlyInspectingLabel.text = "NEW BUILDINGS"
 	else:
 		resetCurrInspLabel()
 
 
 func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> void:
+	%InspectorPanel.visible = true
+	flash_inspector_panel()
 	upgrade.visible = true
 	destroy.visible = true
 	# If headquarters, no upgrade/destroy buttons
@@ -100,6 +125,7 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 		var value = payload[key]
 		var info_label = Label.new()
 		info_label.theme = load("res://resources/ui/oldsteam.tres")
+		info_label.add_theme_font_size_override("font_size", 36)
 		info_label.text = str(key) + ": " + str(value)
 		if key == "\n": info_label.text = ""
 		payload_container.add_child(info_label)
@@ -158,10 +184,26 @@ func _on_destroy_pressed() -> void:
 	await get_tree().create_timer(0.1).timeout
 	Signals.building_stats_changed.emit()
 	selected_building_id = -1
+	close_inspector()
 
 
 func resetCurrInspLabel() -> void:
 	currentlyInspectingLabel.text = ""
-
-
 #endregion
+
+
+## Given InputEvent unhandled by UI, close inspector
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("close_inspector"):
+		close_inspector()
+	if event.is_action_pressed("open_building_panel"):
+		toggle_panel(Systems.BUILDING)
+
+
+func close_inspector() -> void:
+	for i in Systems.values():
+		if i < system_buttons.size():
+			system_buttons[i].button_pressed = false
+			system_panels[i].visible = false
+	resetCurrInspLabel()
+	%InspectorPanel.visible = false

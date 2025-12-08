@@ -46,7 +46,7 @@ func _get_selection_payload() -> Dictionary:
 	return {
 		"LEVEL": current_level,
 		"POWERED": "YES" if is_powered else "NO",
-		"POWER REQUIRED": get_power_draw(),
+		"POWER REQUIRED": int(get_power_draw()),
 		"HOUSING CAPACITY": get_housing_capacity(),
 		"\n": "",
 		"UPGRADE COST": "MAX LEVEL" if current_level == max_level else str(int(self.building_spec.cost_levels[current_level].cost[ResourceManager.ResourceType.IRON])) + " IRON"

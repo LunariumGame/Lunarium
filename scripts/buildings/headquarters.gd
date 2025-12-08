@@ -23,7 +23,7 @@ func _get_selection_payload() -> Dictionary:
 	return {
 		"LEVEL": current_level,
 		"POWERED": "YES" if is_powered else "NO",
-		"POWER REQUIRED": get_power_draw(),
+		"POWER REQUIRED": int(get_power_draw()),
 		"PRODUCTION": str(iron_per_turn) + " IRON PER TURN",
 		"\n": "",
 	}

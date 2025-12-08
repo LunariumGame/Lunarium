@@ -112,7 +112,30 @@ func populate_cost_label(build_spec: BuildingSpec) -> void:
 	var pretty_name = building_type_name.replace("_", " ")
 	cost_label.text = str(pretty_name) + " COSTS\n\n"
 	var cost_levels = build_spec.cost_levels
-	var cost = cost_levels[cursor_instance.current_level - 1] # TODO: Does this -1 work here for upgraded buildings?
-	cost_label.text += str(cost.cost[ResourceManager.ResourceType.FOOD]) + " FOOD\n"
-	cost_label.text += str(cost.cost[ResourceManager.ResourceType.IRON]) + " IRON\n"
-	cost_label.text += str(cost.cost[ResourceManager.ResourceType.ELECTRICITY]) + " ELECTRICITY"
+	var cost = cost_levels[cursor_instance.current_level - 1]
+	cost_label.text += align_costs(cost.cost)
+
+
+# For building cost label
+func align_costs(costs: Dictionary) -> String:
+	var rows: Array[String] = []
+	var numbers: Array[String] = []
+
+	# Convert all numbers to strings
+	for type in costs.keys():
+		numbers.append(str(int(costs[type])))
+
+	# Find longest number string
+	var max_len = 0
+	for n in numbers:
+		max_len = max(max_len, n.length())
+
+	# Build aligned rows
+	for type in costs.keys():
+		if type == ResourceManager.ResourceType.POPULATION:
+			continue
+		var num_str = str(int(costs[type]))
+		var padding = " ".repeat(max_len - num_str.length() + 2)  # +1 = space before label
+		rows.append(num_str + padding + ResourceManager.ResourceType.keys()[type])
+	
+	return "\n".join(rows)
