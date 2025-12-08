@@ -14,6 +14,9 @@ enum Systems {TECH, BUILDING}
 	%InspectorPanel/SelectedBuildingInspector
 ]
 @onready var currentlyInspectingLabel:Label = %TabButtons/CurrentInspect
+@onready var upgrade: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/UpgradeAndDestroy/Upgrade
+@onready var destroy: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/UpgradeAndDestroy/Destroy
+
 
 static var same_building_in_a_row: int
 var prev_building_id: int
@@ -71,6 +74,13 @@ func toggle_panel(system: Systems) -> void:
 
 
 func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> void:
+	upgrade.visible = true
+	destroy.visible = true
+	# If headquarters, no upgrade/destroy buttons
+	if building_id == -1:
+		upgrade.visible = false
+		destroy.visible = false
+	
 	# Hide all normal system panels + unpress buttons
 	for i in Systems.values():
 		if i < system_buttons.size():
