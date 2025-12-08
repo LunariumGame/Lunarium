@@ -401,6 +401,7 @@ text = "TODO TECH (?)
 or just open tech tree?"
 
 [node name="BuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3esv6")
 
