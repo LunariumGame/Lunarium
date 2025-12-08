@@ -17,9 +17,18 @@ enum Systems {TECH, BUILDING}
 
 static var same_building_in_a_row: int
 var prev_building_id: int
+var selected_building_id: int = -1
 
 func _ready() -> void:
 	layer = order_man.order.HUD
+	
+	var sel_bldg_panel := system_panels[system_panels.size() - 1]
+	var upgrade_button := sel_bldg_panel.get_node("VBox/UpgradeAndDestroy/Upgrade")
+	var destroy_button := sel_bldg_panel.get_node("VBox/UpgradeAndDestroy/Destroy")
+	
+	upgrade_button.pressed.connect(_on_upgrade_pressed)
+	destroy_button.pressed.connect(_on_destroy_pressed)
+	
 	Signals.building_selected.connect(_on_building_selected)
 
 
@@ -114,7 +123,28 @@ func _on_building_manager_pressed() -> void:
 
 
 func _on_building_selected(building_id: int, payload: Dictionary) -> void:
+	selected_building_id = building_id
 	toggle_panel_selected_building(building_id, payload)
+
+
+func _on_upgrade_pressed() -> void:
+	if selected_building_id <= 0:
+		return
+	
+	var building: Building = build_man.building_id_to_node[selected_building_id]
+	building.upgrade_level()
+
+	var payload := building._get_selection_payload()
+	toggle_panel_selected_building(selected_building_id, payload)
+
+
+func _on_destroy_pressed() -> void:
+	if selected_building_id <= 0:
+		return
+	
+	var building: Building = build_man.building_id_to_node[selected_building_id]
+	building.destroy()
+	selected_building_id = -1
 
 
 func resetCurrInspLabel() -> void:

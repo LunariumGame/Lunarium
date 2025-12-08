@@ -24,7 +24,7 @@ enum BuildingType {
 }
 
 var _pos_to_building_id: Dictionary[Vector2i, int] = {}
-var _building_id_to_node: Dictionary[int, Building] = {}
+var building_id_to_node: Dictionary[int, Building] = {}
 var _id_to_type = {}
 var _buildings: Dictionary[Vector2i, int] = {}
 var building_tiles = {} # Dictionary[int, Array[Vector2i]]
@@ -77,10 +77,16 @@ func build(building: Building, position: Vector2i, width: int, height: int) -> i
 	var cost_spec := building_spec.cost_levels[0]
 	var cost_dict: Dictionary = cost_spec.cost
 	
-	# Subtract cost
+	# check if we have enough resources
 	for resource_type in cost_dict.keys():
-		var resource_cost:float = cost_dict[resource_type]
-		resource_manager.add_precalculated(resource_type, -resource_cost)
+		var required: float = cost_dict[resource_type]
+		var current := resource_manager.get_resource(resource_type)
+		if current < required:
+			return 0
+
+	# Subtract cost safely
+	for resource_type in cost_dict.keys():
+		resource_manager.add_precalculated(resource_type, -cost_dict[resource_type])
 	
 	# Fill buildings array
 	var tiles = []
@@ -107,7 +113,7 @@ func build(building: Building, position: Vector2i, width: int, height: int) -> i
 	_building_id_counter += 1
 	var _building_id: int = _building_id_counter - 1
 
-	_building_id_to_node[_building_id] = building
+	building_id_to_node[_building_id] = building
 	return _building_id
 
 
