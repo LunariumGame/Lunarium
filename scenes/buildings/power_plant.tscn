@@ -1,9 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://bmcgkpbcwft3l"]
+[gd_scene load_steps=27 format=3 uid="uid://bmcgkpbcwft3l"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_afyay"]
 [ext_resource type="Script" uid="uid://bwb3ytyn3xxkr" path="res://scripts/buildings/power_plant.gd" id="2_5nqxb"]
-[ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="3_jn2df"]
-[ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="4_e41u7"]
+[ext_resource type="Script" path="res://scripts/buildings/cost.gd" id="3_jn2df"]
+[ext_resource type="Script" path="res://scripts/buildings/building_spec.gd" id="4_e41u7"]
 [ext_resource type="Texture2D" uid="uid://b653cdbpruy4i" path="res://assets/sprites/buildings/power_generators/nuclear_reactor/nuclear_reactor_spritesheet.png" id="5_jn2df"]
 
 [sub_resource type="Resource" id="Resource_jn2df"]
@@ -16,9 +16,29 @@ cost = Dictionary[int, float]({
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"
 
+[sub_resource type="Resource" id="Resource_e41u7"]
+script = ExtResource("3_jn2df")
+cost = Dictionary[int, float]({
+0: 0.0,
+1: 0.0,
+2: 15.0,
+3: 0.0
+})
+metadata/_custom_type_script = "uid://0leikb15bp7y"
+
+[sub_resource type="Resource" id="Resource_ra8a1"]
+script = ExtResource("3_jn2df")
+cost = Dictionary[int, float]({
+0: 0.0,
+1: 0.0,
+2: 20.0,
+3: 0.0
+})
+metadata/_custom_type_script = "uid://0leikb15bp7y"
+
 [sub_resource type="Resource" id="Resource_pap3h"]
 script = ExtResource("4_e41u7")
-cost_levels = Array[ExtResource("3_jn2df")]([SubResource("Resource_jn2df")])
+cost_levels = Array[ExtResource("3_jn2df")]([SubResource("Resource_jn2df"), SubResource("Resource_e41u7"), SubResource("Resource_ra8a1")])
 type = 5
 metadata/_custom_type_script = "uid://cy4nkunttcuy5"
 
@@ -294,6 +314,7 @@ _data = {
 
 [node name="PowerPlant" instance=ExtResource("1_afyay")]
 script = ExtResource("2_5nqxb")
+production_table = Array[int]([0, 10, 20, 30])
 building_spec = SubResource("Resource_pap3h")
 max_level = 3
 

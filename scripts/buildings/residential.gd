@@ -1,16 +1,16 @@
 class_name Residential
 extends Building
 
-# Housing capacity per level
-const CAPACITY_TABLE := [
+# housing capacity per level
+@export var capacity_table: Array[int] = [
 	0, # lvl 0 unused
 	20,
 	40,
 	80,
 ]
 
-# Power usage per level
-const POWER_TABLE := [
+# power draw per level
+@export var power_table: Array[int] = [
 	0, # lvl 0 unused
 	10,
 	15,
@@ -29,9 +29,9 @@ func emit_built_signal() -> void:
 
 
 func get_power_draw() -> float:
-	if current_level < POWER_TABLE.size():
-		return POWER_TABLE[current_level]
-	return POWER_TABLE[-1]
+	if current_level < power_table.size():
+		return power_table[current_level]
+	return power_table[-1]
 
 
 func _on_turn_started(_turn_number:int) -> void:
@@ -51,6 +51,6 @@ func _get_selection_payload() -> Dictionary:
 
 
 func get_housing_capacity() -> int:
-	if current_level < CAPACITY_TABLE.size():
-		return CAPACITY_TABLE[current_level]
-	return CAPACITY_TABLE[-1]
+	if current_level < capacity_table.size():
+		return capacity_table[current_level]
+	return capacity_table[-1]

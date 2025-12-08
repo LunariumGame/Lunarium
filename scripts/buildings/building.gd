@@ -64,29 +64,13 @@ func _get_selection_payload() -> Dictionary:
 	return {}
 
 
-func get_build_cost() -> Cost:
-	return get_upgrade_cost(1)
-
-
-## Level 1 = build cost, level 2 = level 2
-func get_upgrade_cost(level: int) -> Cost:
-	
-	if level <= 0 or level > max_level:
-		return null
-	
-	if level > building_spec.cost.size():
-		printerr("You need to add a cost for level ", level, " on building ", self.name)
-		return null
-	
-	return building_spec.cost[level - 1]
-
-
 func upgrade_level() -> bool:
-	if current_level < max_level:
-		current_level += 1
+	var can_upgrade := build_man.try_upgrade(self)
+
+	if can_upgrade:
 		Signals.building_stats_changed.emit(self)
-		return true
-	return false
+	
+	return can_upgrade
 
 
 func destroy() -> bool:

@@ -1,9 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://dgfq7odjk1hcx"]
+[gd_scene load_steps=27 format=3 uid="uid://dgfq7odjk1hcx"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_sid64"]
 [ext_resource type="Script" uid="uid://cap1i0rek2d6n" path="res://scripts/buildings/eco_dome.gd" id="2_hww1b"]
-[ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="3_j3rju"]
-[ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="4_8kgej"]
+[ext_resource type="Script" path="res://scripts/buildings/cost.gd" id="3_j3rju"]
+[ext_resource type="Script" path="res://scripts/buildings/building_spec.gd" id="4_8kgej"]
 [ext_resource type="Texture2D" uid="uid://cdscvmm34rvis" path="res://assets/sprites/buildings/eco_domes/eco_dome_spritesheet.png" id="5_j3rju"]
 
 [sub_resource type="Resource" id="Resource_j3rju"]
@@ -16,9 +16,29 @@ cost = Dictionary[int, float]({
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"
 
+[sub_resource type="Resource" id="Resource_8kgej"]
+script = ExtResource("3_j3rju")
+cost = Dictionary[int, float]({
+0: 0.0,
+1: 0.0,
+2: 15.0,
+3: 0.0
+})
+metadata/_custom_type_script = "uid://0leikb15bp7y"
+
+[sub_resource type="Resource" id="Resource_fo458"]
+script = ExtResource("3_j3rju")
+cost = Dictionary[int, float]({
+0: 0.0,
+1: 0.0,
+2: 20.0,
+3: 0.0
+})
+metadata/_custom_type_script = "uid://0leikb15bp7y"
+
 [sub_resource type="Resource" id="Resource_v4082"]
 script = ExtResource("4_8kgej")
-cost_levels = Array[ExtResource("3_j3rju")]([SubResource("Resource_j3rju")])
+cost_levels = Array[ExtResource("3_j3rju")]([SubResource("Resource_j3rju"), SubResource("Resource_8kgej"), SubResource("Resource_fo458")])
 type = 2
 metadata/_custom_type_script = "uid://cy4nkunttcuy5"
 
@@ -289,6 +309,8 @@ _data = {
 
 [node name="EcoDome" instance=ExtResource("1_sid64")]
 script = ExtResource("2_hww1b")
+production_table = Array[int]([0, 10, 20, 30])
+power_table = Array[int]([0, 10, 15, 20])
 building_spec = SubResource("Resource_v4082")
 max_level = 3
 
