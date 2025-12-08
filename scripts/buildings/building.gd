@@ -89,8 +89,12 @@ func upgrade_level() -> bool:
 	return false
 
 
-func destroy() -> bool:
-	return false
+func destroy() -> void:
+	var anim_manager: AnimationManager = $"AnimationTree"
+	anim_manager.update_animation(anim_manager.StateAction.DELETE)
+	# Wait for animation to finish before calling queue_free()
+	await anim_manager.animation_finished
+	queue_free()
 
 
 func get_type() -> BuildingManager.BuildingType:
