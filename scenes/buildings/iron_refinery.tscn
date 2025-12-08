@@ -1,9 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://omx3pl3xhdw"]
+[gd_scene load_steps=27 format=3 uid="uid://omx3pl3xhdw"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_tn2a3"]
 [ext_resource type="Script" uid="uid://dujssmy26e32u" path="res://scripts/buildings/iron_refinery.gd" id="2_n1xno"]
-[ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="3_gymdt"]
-[ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="4_g6fhf"]
+[ext_resource type="Script" path="res://scripts/buildings/cost.gd" id="3_gymdt"]
+[ext_resource type="Script" path="res://scripts/buildings/building_spec.gd" id="4_g6fhf"]
 [ext_resource type="Texture2D" uid="uid://7k1dsktdt2fx" path="res://assets/sprites/buildings/iron_refinery/ironrefinery_spritesheet.png" id="5_gymdt"]
 
 [sub_resource type="Resource" id="Resource_gymdt"]
@@ -16,9 +16,29 @@ cost = Dictionary[int, float]({
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"
 
+[sub_resource type="Resource" id="Resource_g6fhf"]
+script = ExtResource("3_gymdt")
+cost = Dictionary[int, float]({
+0: 0.0,
+1: 0.0,
+2: 15.0,
+3: 0.0
+})
+metadata/_custom_type_script = "uid://0leikb15bp7y"
+
+[sub_resource type="Resource" id="Resource_e5l8k"]
+script = ExtResource("3_gymdt")
+cost = Dictionary[int, float]({
+0: 0.0,
+1: 0.0,
+2: 20.0,
+3: 0.0
+})
+metadata/_custom_type_script = "uid://0leikb15bp7y"
+
 [sub_resource type="Resource" id="Resource_ry6o0"]
 script = ExtResource("4_g6fhf")
-cost_levels = Array[ExtResource("3_gymdt")]([SubResource("Resource_gymdt")])
+cost_levels = Array[ExtResource("3_gymdt")]([SubResource("Resource_gymdt"), SubResource("Resource_g6fhf"), SubResource("Resource_e5l8k")])
 type = 3
 metadata/_custom_type_script = "uid://cy4nkunttcuy5"
 
@@ -286,6 +306,8 @@ _data = {
 
 [node name="IronRefinery" instance=ExtResource("1_tn2a3")]
 script = ExtResource("2_n1xno")
+production_table = Array[int]([0, 4, 8, 12])
+power_table = Array[int]([0, 10, 15, 20])
 building_spec = SubResource("Resource_ry6o0")
 max_level = 3
 

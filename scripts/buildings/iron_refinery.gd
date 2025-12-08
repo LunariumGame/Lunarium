@@ -1,21 +1,21 @@
 class_name IronRefinery
 extends Building
 
-const PRODUCTION_TABLE := [
-	0, # lvl 0 unused
+# production rate per turn
+@export var production_table: Array[int] = [
+	0,  # lvl 0
 	4,
 	8,
 	12,
 ]
 
-# Power usage per level
-const POWER_TABLE := [
-	0, # lvl 0 unused
+# power draw per level
+@export var power_table: Array[int] = [
+	0,  # lvl 0
 	10,
 	15,
 	20,
 ]
-
 
 func _ready() -> void:
 	Signals.turn_started_refinery.connect(_on_turn_started)
@@ -28,9 +28,9 @@ func emit_built_signal() -> void:
 
 
 func get_power_draw() -> float:
-	if current_level < POWER_TABLE.size():
-		return POWER_TABLE[current_level]
-	return POWER_TABLE[-1]
+	if current_level < power_table.size():
+		return power_table[current_level]
+	return power_table[-1]
 
 
 func _on_turn_ended(_turn_number:int) -> void:
@@ -56,6 +56,6 @@ func _get_selection_payload() -> Dictionary:
 
 
 func _get_production_rate() -> float:
-	if current_level < PRODUCTION_TABLE.size():
-		return PRODUCTION_TABLE[current_level]
-	return PRODUCTION_TABLE[-1]
+	if current_level < production_table.size():
+		return production_table[current_level]
+	return production_table[-1]

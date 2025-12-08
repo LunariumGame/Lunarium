@@ -1,8 +1,9 @@
 class_name PowerPlant
 extends Building
 
-const PRODUCTION_TABLE := [
-	0,   # lvl 0 unused
+# production rate per turn
+@export var production_table: Array[int] = [
+	0,  # lvl 0
 	10,
 	20,
 	30,
@@ -51,6 +52,6 @@ func _get_selection_payload() -> Dictionary:
 
 
 func _get_production_rate() -> float:
-	if current_level < PRODUCTION_TABLE.size():
-		return PRODUCTION_TABLE[current_level]
-	return PRODUCTION_TABLE[-1]
+	if current_level < production_table.size():
+		return production_table[current_level]
+	return production_table[-1]
