@@ -56,11 +56,23 @@ func end_turn() -> void:
 		print_debug("Game win triggered")
 		Signals.game_won.emit()
 		return
+		
+	if _lose_condition_satisfied():
+		state = GameState.LOST
+		print_debug("Game loss triggered")
+		Signals.game_lost.emit()
+		return
 
 func _win_condition_satisfied() -> bool:
 	var population:int = roundi(resource_manager.get_resource(ResourceManager.ResourceType.POPULATION))
 	
 	return population > WIN_CONDITION_MIN_POPULATION;
+
+
+func _lose_condition_satisfied() -> bool:
+	var population:int = roundi(resource_manager.get_resource(ResourceManager.ResourceType.POPULATION))
+	
+	return population < 1;
 
 
 func _logic_food_consumption_and_starvation() -> void:
