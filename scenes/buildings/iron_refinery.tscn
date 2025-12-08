@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://omx3pl3xhdw"]
+[gd_scene load_steps=26 format=3 uid="uid://omx3pl3xhdw"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_tn2a3"]
 [ext_resource type="Script" uid="uid://dujssmy26e32u" path="res://scripts/buildings/iron_refinery.gd" id="2_n1xno"]
@@ -284,6 +284,8 @@ _data = {
 &"off_u3": SubResource("Animation_4hstu")
 }
 
+[sub_resource type="AudioStream" id="AudioStream_gymdt"]
+
 [node name="IronRefinery" instance=ExtResource("1_tn2a3")]
 script = ExtResource("2_n1xno")
 building_spec = SubResource("Resource_ry6o0")
@@ -294,10 +296,13 @@ target = NodePath("..")
 
 [node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("5_gymdt")
-frame = 4
+frame = 73
 
 [node name="AnimationPlayer" parent="." index="3"]
 active = true
 libraries = {
 &"": SubResource("AnimationLibrary_gymdt")
 }
+
+[node name="Select" parent="Audio" index="1"]
+stream = SubResource("AudioStream_gymdt")
