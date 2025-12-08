@@ -3,6 +3,7 @@ extends CanvasLayer
 
 enum Systems {TECH, BUILDING}
 
+
 @onready var next_turn_button:Button = %NextTurn
 @onready var system_buttons: Array[Button] = [
 	%TabButtons/TechTree,
@@ -85,7 +86,7 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 
 	# Currentlyinspecting label
 	var building_type_index = build_man.get_building_type_from_id(building_id)
-	var building_type_name = build_man.BuildingType.find_key(building_type_index)
+	var building_type_name: String = build_man.BuildingType.find_key(building_type_index)
 	var pretty_name = building_type_name.replace("_", " ")
 	currentlyInspectingLabel.text = str(pretty_name)
 
@@ -101,6 +102,7 @@ func _on_building_manager_pressed() -> void:
 
 
 func _on_building_selected(building_id: int, payload: Dictionary) -> void:
+	
 	toggle_panel_selected_building(building_id, payload)
 
 
