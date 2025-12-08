@@ -70,16 +70,16 @@ func upgrade_level() -> bool:
 
 	if can_upgrade:
 		Signals.building_stats_changed.emit(self)
-	
+		$Audio/Create.play()
+		
 	return can_upgrade
 
 
 func destroy() -> void:
 	$Audio/Destroy.play()
 	$AnimationTree.update_animation($AnimationTree.StateAction.DELETE)
-	
 	await $AnimationTree.animation_finished
-	# suppress "wonky default frame" AnimationTree throws up
+	# suppress "wonky default frame" AnimationTree throws up at end
 	$Sprite2D.visible = false
 	await $Audio/Destroy.finished
 	queue_free()
