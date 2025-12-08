@@ -3,6 +3,8 @@ extends CanvasLayer
 
 enum Systems {TECH, BUILDING}
 
+static var same_building_in_a_row: int
+
 @onready var next_turn_button:Button = %NextTurn
 @onready var system_buttons: Array[Button] = [
 	%TabButtons/TechTree,
@@ -17,8 +19,6 @@ enum Systems {TECH, BUILDING}
 @onready var upgrade: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Upgrade
 @onready var destroy: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Destroy
 
-
-static var same_building_in_a_row: int
 var prev_building_id: int
 var selected_building_id: int = -1
 
