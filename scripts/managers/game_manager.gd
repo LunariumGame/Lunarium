@@ -22,6 +22,7 @@ var state := GameState.IN_PROGRESS
 
 func _ready() -> void:
 	Signals.building_built.connect(recompute_electricity)
+	Signals.building_stats_changed.connect(recompute_electricity)
 
 
 func end_turn() -> void:

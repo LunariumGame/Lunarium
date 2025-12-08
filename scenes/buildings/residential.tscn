@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_e3wr7"]
 [ext_resource type="Script" uid="uid://cnl1jwpsm0ofq" path="res://scripts/buildings/residential.gd" id="2_4f3d3"]
-[ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="3_c44lc"]
-[ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="4_gnoo8"]
+[ext_resource type="Script" path="res://scripts/buildings/cost.gd" id="3_c44lc"]
+[ext_resource type="Script" path="res://scripts/buildings/building_spec.gd" id="4_gnoo8"]
 [ext_resource type="Texture2D" uid="uid://b41ju7j2rrtk8" path="res://assets/sprites/buildings/residences/lunarhabitat_spritesheet.png" id="5_0exew"]
 
 [sub_resource type="Resource" id="Resource_0exew"]

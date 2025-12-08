@@ -84,7 +84,12 @@ func get_upgrade_cost(level: int) -> Cost:
 func upgrade_level() -> bool:
 	if current_level < max_level:
 		current_level += 1
+		Signals.building_stats_changed.emit(self)
 		return true
+	return false
+
+
+func destroy() -> bool:
 	return false
 
 
