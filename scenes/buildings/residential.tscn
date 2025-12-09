@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://62tr4h246vw0"]
+[gd_scene load_steps=28 format=3 uid="uid://62tr4h246vw0"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_e3wr7"]
 [ext_resource type="Script" uid="uid://cnl1jwpsm0ofq" path="res://scripts/buildings/residential.gd" id="2_4f3d3"]

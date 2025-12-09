@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bpc6gps3lk4ac" path="res://scenes/ui_components/hud.tscn" id="2_4mrxx"]
-[ext_resource type="AudioStream" uid="uid://crfw4ttuymq44" path="res://assets/audio/Space Music Pack/slow-travel.wav" id="5_71j4m"]
+[ext_resource type="AudioStream" uid="uid://c6od8n4ky5e0h" path="res://assets/audio/slow-travel.wav" id="3_dss4m"]
 [ext_resource type="AudioStream" uid="uid://bfnlmryosks8l" path="res://assets/audio/Space Music Pack/fx/alien-talk-1.wav" id="6_i7141"]
 [ext_resource type="AudioStream" uid="uid://bdd3w8a2mlpn2" path="res://assets/audio/Space Music Pack/fx/alien-talk-2.wav" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bvqdwlryncc6q" path="res://scenes/player.tscn" id="7_7r4gi"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cvurq12vfgtbk" path="res://scenes/buildings/headquarters.tscn" id="12_jhx03"]
 [ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="13_jhx03"]
 [ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="13_o8fc1"]
-[ext_resource type="PackedScene" path="res://scenes/cursor.tscn" id="15_dss4m"]
+[ext_resource type="PackedScene" uid="uid://datesfdxysorw" path="res://scenes/cursor.tscn" id="15_dss4m"]
 [ext_resource type="PackedScene" uid="uid://bwq4nvmg3wux7" path="res://scenes/craters.tscn" id="15_xo05s"]
 [ext_resource type="Texture2D" uid="uid://ddo5xfsra2x3y" path="res://assets/sprites/world/bg_layer_1.webp" id="16_lakw3"]
 [ext_resource type="Texture2D" uid="uid://d176nimp53u8d" path="res://assets/sprites/world/bg_layer_2.webp" id="17_pm21f"]
@@ -57,7 +57,7 @@ script = ExtResource("1_nnsk1")
 
 [node name="Music" type="AudioStreamPlayer" parent="Audio"]
 process_mode = 3
-stream = ExtResource("5_71j4m")
+stream = ExtResource("3_dss4m")
 volume_db = -24.0
 autoplay = true
 bus = &"Music"

@@ -3,7 +3,7 @@
 3) intro_cutscene.wav (https://freesound.org/s/747938/ -- License: Attribution 4.0)
 4) solar_collector.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
 5) create_building.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
-6) iron_refinery.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
+6) iron_refinery.wav (https://pixabay.com/sound-effects/futuristic-factory-machine-ps-022-314833/ - AudioPapkin)
 7) destroy_building.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
 8) hq.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
 9) solar_collector_cutscene.wav (https://freesound.org/s/386056/ -- License: Attribution 4.0)
