@@ -9,10 +9,11 @@ enum GameState {
 }
 
 
-const WIN_CONDITION_MIN_POPULATION:int = 100
+const WIN_CONDITION_MIN_POPULATION:int = 99
 
 const COLONIST_CONSUMPTION_PER_TURN:float = 1
 const STARVING_COLONIST_DEATH_RATE_PER_TURN:float = 0.5
+const SHUTTLE_DEATH_MEMORANDUM_TURN_DURATION:int = 10
 
 var turn:int = 1
 var _computed_electricity_capacity:float = 0
@@ -89,6 +90,10 @@ func _logic_food_consumption_and_starvation() -> void:
 	resource_manager.add_precalculated(ResourceManager.ResourceType.FOOD, -COLONIST_CONSUMPTION_PER_TURN * fed_colonists)
 	if deaths > 0:
 		resource_manager.add_precalculated(ResourceManager.ResourceType.POPULATION, -deaths)
+		Signals.colonist_died.emit(deaths)
+		
+		# stop sending shuttles for a period of time
+		Shuttle.turns_to_shuttle = max(Shuttle.turns_to_shuttle, SHUTTLE_DEATH_MEMORANDUM_TURN_DURATION)
 
 
 func get_electricity_usage() -> float:
