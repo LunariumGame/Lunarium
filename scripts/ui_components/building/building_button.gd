@@ -88,6 +88,7 @@ func _process(_delta: float) -> void:
 		# Remove prev highlight
 		if last_hovered_building != null and is_instance_valid(last_hovered_building):
 			last_hovered_building.get_node("Sprite2D").modulate = Color.WHITE
+			#last_hovered_building.get_node("Sprite2D").material.set("shader_parameter/enabled", false) # NOTE: this is for building pixel outline, sprites had too many artifacts at the time
 			last_hovered_building = null
 
 		# Check for building under cursor
@@ -97,6 +98,7 @@ func _process(_delta: float) -> void:
 
 			if building is Building:
 				building.get_node("Sprite2D").modulate = highlighted_building_color
+				#building.get_node("Sprite2D").material.set("shader_parameter/enabled", true) # NOTE: this is for building pixel outline, sprites had too many artifacts at the time
 				last_hovered_building = building
 				break
 

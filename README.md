@@ -82,6 +82,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 <i>[Rotating Moon](https://deep-fold.itch.io/pixel-planet-generator)</i> by Deep-Fold - MIT License  
 <i>[Settings Cog](https://kenney.nl/assets/mobile-controls)</i> from Kenney.nl - Creative Commons
 
+<u>Shaders</u>
+<i>[Lightweight Pixel Perfect Outline](https://godotshaders.com/shader/lightweight-pixel-perfect-outline/)</i> by flytrap - Creative Commons
+
 ### Original Assets
 <i>Moon 16x16</i> by Joe Vogel   
 <i>Cursor</i> by Joe Vogel

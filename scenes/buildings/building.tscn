@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dde4jsmfv432l" path="res://scripts/buildings/building_sprite.gd" id="4_mfina"]
 [ext_resource type="Script" uid="uid://bkbe1ecuocexf" path="res://scripts/buildings/disable_player.gd" id="5_f6oyp"]
 [ext_resource type="Script" uid="uid://cr5mxmcexbr8u" path="res://scripts/buildings/building_animation_manager.gd" id="5_mfina"]
-[ext_resource type="Script" uid="uid://8bfbsy6x2mbf" path="res://scripts/buildings/manage_audio.gd" id="7_wlaec"]
+[ext_resource type="Script" path="res://scripts/buildings/manage_audio.gd" id="7_wlaec"]
 [ext_resource type="AudioStream" uid="uid://dtoxholv1gte0" path="res://assets/audio/create_building_new.mp3" id="8_wlaec"]
 [ext_resource type="AudioStream" uid="uid://dnv3efanyrv1t" path="res://assets/audio/building_destroyed_new.mp3" id="9_hhebf"]
 

@@ -14,6 +14,7 @@ extends Node2D
 @onready var clickable_area: Area2D = $Area2D
 @onready var destroy_audio: AudioStreamPlayer2D = $Audio/Destroy
 @onready var anim_manager: AnimationTree = $AnimationTree
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var is_cursor: bool = false
 
@@ -28,6 +29,7 @@ func _ready() -> void:
 	clickable_area.input_event.connect(_on_Area2D_input_event)
 	scale = building_scale
 	z_index = order_man.order.BUILDINGS
+	#sprite_2d.material = sprite_2d.material.duplicate() # NOTE: For building pixel outline highlights, makes material unique for highlighting
 	queue_redraw()
 
 
