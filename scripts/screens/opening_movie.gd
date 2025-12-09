@@ -13,22 +13,18 @@ func _ready():
 
 
 func _on_movie_end():
-	# signal that movie has ended
-	Signals.opening_movie_stopped.emit()
-	score.stop()
-	
-	# play main game music
-	var main_music := get_node("/root/World/Audio/Music")
-	if main_music:
-		main_music.on_finished()
 	close()
 
 
 func close():
+	score.stop()
 	# signal that movie has ended
 	Signals.opening_movie_stopped.emit()
-	
 	window_manager.pop()
+	# play main game music again
+	var main_music := get_node("/root/World/Audio/Music")
+	if main_music:
+		main_music.on_finished()
 	queue_free()
 
 
