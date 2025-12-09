@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://d006yfmmx7bre"]
 
 [ext_resource type="Script" uid="uid://c16p8ugep1b5r" path="res://scripts/screens/opening_movie.gd" id="1_bu5bb"]
-[ext_resource type="VideoStream" uid="uid://cdfcqlun2nbus" path="res://assets/sprites/cutscenes/opening_cutscene/open_movie_1920_1080.ogv" id="2_k04th"]
-[ext_resource type="AudioStream" uid="uid://e5bb4ru0x8c6" path="res://assets/audio/intro_score_new.mp3" id="2_lp7o4"]
+[ext_resource type="VideoStream" path="res://assets/sprites/cutscenes/opening_cutscene/open_movie_1920_1080.ogv" id="2_k04th"]
 [ext_resource type="AudioStream" uid="uid://1f6gojwuhuh5" path="res://assets/audio/sparkle-star.mp3" id="3_5vsyr"]
+[ext_resource type="AudioStream" uid="uid://l7wnmtpt376r" path="res://assets/audio/intro_score.wav" id="3_k04th"]
 [ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="3_mm1mk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mm1mk"]
@@ -35,7 +35,7 @@ layout_mode = 2
 stream = ExtResource("2_k04th")
 
 [node name="IntroScore" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_lp7o4")
+stream = ExtResource("3_k04th")
 
 [node name="StarTwinkle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5vsyr")

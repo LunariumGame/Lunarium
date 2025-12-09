@@ -6,13 +6,12 @@ extends CanvasLayer
 
 func _ready():
 	# wait some time for the opening screen to go away
+	# play audio
+	score.play()
 	await get_tree().create_timer(1.0).timeout
 	
-	# play the movie & audio
+	# play the movie
 	movie.play()
-	# wait 1 second before starting score
-	#await get_tree().create_timer(1.0).timeout
-	score.play()
 	# Star should twinkle 23.5 seconds into movie (perfect timing as of writing this)
 	await get_tree().create_timer(23.5).timeout
 	star_twinkle.play()
