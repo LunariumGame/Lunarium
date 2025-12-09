@@ -37,14 +37,13 @@ grow_vertical = 2
 color = Color(0.043137256, 0.043137256, 0.03137255, 0.5019608)
 
 [node name="CBoxContainer" type="CenterContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
 grow_horizontal = 2
-grow_vertical = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CBoxContainer"]
-position = Vector2(960, 537)
+position = Vector2(0, 537)
 sprite_frames = SubResource("SpriteFrames_b8nrf")
 autoplay = "default"
-frame_progress = 0.085555196
+frame_progress = 0.893359
