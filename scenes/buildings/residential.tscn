@@ -325,3 +325,4 @@ libraries = {
 
 [node name="Select" parent="Audio" index="1"]
 stream = ExtResource("7_gnoo8")
+volume_db = 5.0
