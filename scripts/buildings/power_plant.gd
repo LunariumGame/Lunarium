@@ -15,6 +15,7 @@ func _ready() -> void:
 	Signals.turn_ended_power_plant.connect(_on_turn_ended)
 	
 	Signals.recompute_power_plants.connect(_compute_electricity_gen)
+	is_powered = true # reactors are always powered
 	super()
 
 
