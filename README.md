@@ -100,6 +100,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 <u>Music</u>  
 <i>[Space Music Pack](https://gooseninja.itch.io/space-music-pack)</i> by Goose Ninja - Free Use  
 
+<u>Effects</u>
+<i>[Star Twinkle](https://pixabay.com/users/koiroylers-44305058/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=355937)</i> by Koi Roylers, Pixabay - [License](https://pixabay.com/service/license-summary/)
+
 ### Original Assets
 
 **Describe the implementation of your audio system.**
