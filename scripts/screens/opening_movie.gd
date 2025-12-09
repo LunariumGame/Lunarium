@@ -2,14 +2,20 @@ extends CanvasLayer
 
 @onready var movie := $CBoxContainer/VideoStreamPlayer
 @onready var score := $IntroScore
+@onready var star_twinkle: AudioStreamPlayer = $StarTwinkle
 
 func _ready():
 	# wait some time for the opening screen to go away
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	
 	# play the movie & audio
 	movie.play()
+	# wait 1 second before starting score
+	#await get_tree().create_timer(1.0).timeout
 	score.play()
+	# Star should twinkle 23.5 seconds into movie (perfect timing as of writing this)
+	await get_tree().create_timer(23.5).timeout
+	star_twinkle.play()
 
 
 func _on_movie_end():

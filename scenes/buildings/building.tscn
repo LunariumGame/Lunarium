@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://sr08scun8ys1"]
+[gd_scene load_steps=82 format=3 uid="uid://sr08scun8ys1"]
 
 [ext_resource type="Script" uid="uid://6myfee53w1xy" path="res://scripts/buildings/building.gd" id="1_a3sb6"]
 [ext_resource type="Script" uid="uid://dh3go6ocensfh" path="res://scripts/buildings/building_collider.gd" id="3_qcxio"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dde4jsmfv432l" path="res://scripts/buildings/building_sprite.gd" id="4_mfina"]
 [ext_resource type="Script" uid="uid://bkbe1ecuocexf" path="res://scripts/buildings/disable_player.gd" id="5_f6oyp"]
 [ext_resource type="Script" uid="uid://cr5mxmcexbr8u" path="res://scripts/buildings/building_animation_manager.gd" id="5_mfina"]
-[ext_resource type="Script" uid="uid://8bfbsy6x2mbf" path="res://scripts/buildings/manage_audio.gd" id="7_wlaec"]
+[ext_resource type="Script" path="res://scripts/buildings/manage_audio.gd" id="7_wlaec"]
 [ext_resource type="AudioStream" uid="uid://dtoxholv1gte0" path="res://assets/audio/create_building_new.mp3" id="8_wlaec"]
 [ext_resource type="AudioStream" uid="uid://dnv3efanyrv1t" path="res://assets/audio/building_destroyed_new.mp3" id="9_hhebf"]
 
@@ -317,6 +317,7 @@ switch_mode = 1
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j2vja"]
 switch_mode = 2
 advance_mode = 2
+advance_condition = &"powered"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c57nt"]
 
@@ -395,6 +396,21 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ofkw7"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_volt3"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"not_powered"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xl0vr"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"not_powered"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u6fk5"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"not_powered"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_daisx"]
 states/End/position = Vector2(793, 211)
 states/Start/position = Vector2(266, -10)
@@ -428,8 +444,8 @@ states/off_u2/node = SubResource("AnimationNodeAnimation_w2b1x")
 states/off_u2/position = Vector2(258, 449)
 states/off_u3/node = SubResource("AnimationNodeAnimation_4hstu")
 states/off_u3/position = Vector2(266, 697)
-transitions = ["idle_u1", "buffed_u1", SubResource("AnimationNodeStateMachineTransition_daisx"), "buffed_u1", "idle_u1", SubResource("AnimationNodeStateMachineTransition_mfina"), "create_u1", "idle_u1", SubResource("AnimationNodeStateMachineTransition_j2vja"), "idle_u1", "create_u2", SubResource("AnimationNodeStateMachineTransition_c57nt"), "create_u2", "idle_u2", SubResource("AnimationNodeStateMachineTransition_ia6p8"), "idle_u2", "buffed_u2", SubResource("AnimationNodeStateMachineTransition_05lpc"), "buffed_u2", "idle_u2", SubResource("AnimationNodeStateMachineTransition_qmjy6"), "idle_u2", "create_u3", SubResource("AnimationNodeStateMachineTransition_diqjy"), "create_u3", "idle_u3", SubResource("AnimationNodeStateMachineTransition_cjfqh"), "idle_u3", "buffed_u3", SubResource("AnimationNodeStateMachineTransition_b7rl2"), "buffed_u3", "idle_u3", SubResource("AnimationNodeStateMachineTransition_5ygep"), "buffed_u3", "delete_u3", SubResource("AnimationNodeStateMachineTransition_11vwp"), "idle_u3", "delete_u3", SubResource("AnimationNodeStateMachineTransition_7s87l"), "buffed_u2", "delete_u2", SubResource("AnimationNodeStateMachineTransition_kus1u"), "idle_u2", "delete_u2", SubResource("AnimationNodeStateMachineTransition_ns6s8"), "buffed_u1", "delete_u1", SubResource("AnimationNodeStateMachineTransition_r8gg6"), "idle_u1", "delete_u1", SubResource("AnimationNodeStateMachineTransition_5a7io"), "delete_u1", "End", SubResource("AnimationNodeStateMachineTransition_hssoc"), "delete_u2", "End", SubResource("AnimationNodeStateMachineTransition_3iqlq"), "delete_u3", "End", SubResource("AnimationNodeStateMachineTransition_67fr5"), "off_u2", "idle_u2", SubResource("AnimationNodeStateMachineTransition_2bcsn"), "idle_u2", "off_u2", SubResource("AnimationNodeStateMachineTransition_g43g5"), "off_u3", "idle_u3", SubResource("AnimationNodeStateMachineTransition_jh2q7"), "idle_u3", "off_u3", SubResource("AnimationNodeStateMachineTransition_d0qax"), "idle_u1", "off_u1", SubResource("AnimationNodeStateMachineTransition_ygdnu"), "off_u1", "idle_u1", SubResource("AnimationNodeStateMachineTransition_8fr13"), "Start", "off_u1", SubResource("AnimationNodeStateMachineTransition_f6oyp"), "off_u1", "create_u1", SubResource("AnimationNodeStateMachineTransition_oalqm"), "buffed_u3", "off_u3", SubResource("AnimationNodeStateMachineTransition_vnr05"), "buffed_u1", "off_u1", SubResource("AnimationNodeStateMachineTransition_wlaec"), "buffed_u2", "off_u2", SubResource("AnimationNodeStateMachineTransition_hhebf"), "off_u1", "delete_u1", SubResource("AnimationNodeStateMachineTransition_1x723"), "off_u2", "delete_u2", SubResource("AnimationNodeStateMachineTransition_0krn8"), "off_u3", "delete_u3", SubResource("AnimationNodeStateMachineTransition_ofkw7")]
-graph_offset = Vector2(0, -38.35956)
+transitions = ["idle_u1", "buffed_u1", SubResource("AnimationNodeStateMachineTransition_daisx"), "buffed_u1", "idle_u1", SubResource("AnimationNodeStateMachineTransition_mfina"), "create_u1", "idle_u1", SubResource("AnimationNodeStateMachineTransition_j2vja"), "idle_u1", "create_u2", SubResource("AnimationNodeStateMachineTransition_c57nt"), "create_u2", "idle_u2", SubResource("AnimationNodeStateMachineTransition_ia6p8"), "idle_u2", "buffed_u2", SubResource("AnimationNodeStateMachineTransition_05lpc"), "buffed_u2", "idle_u2", SubResource("AnimationNodeStateMachineTransition_qmjy6"), "idle_u2", "create_u3", SubResource("AnimationNodeStateMachineTransition_diqjy"), "create_u3", "idle_u3", SubResource("AnimationNodeStateMachineTransition_cjfqh"), "idle_u3", "buffed_u3", SubResource("AnimationNodeStateMachineTransition_b7rl2"), "buffed_u3", "idle_u3", SubResource("AnimationNodeStateMachineTransition_5ygep"), "buffed_u3", "delete_u3", SubResource("AnimationNodeStateMachineTransition_11vwp"), "idle_u3", "delete_u3", SubResource("AnimationNodeStateMachineTransition_7s87l"), "buffed_u2", "delete_u2", SubResource("AnimationNodeStateMachineTransition_kus1u"), "idle_u2", "delete_u2", SubResource("AnimationNodeStateMachineTransition_ns6s8"), "buffed_u1", "delete_u1", SubResource("AnimationNodeStateMachineTransition_r8gg6"), "idle_u1", "delete_u1", SubResource("AnimationNodeStateMachineTransition_5a7io"), "delete_u1", "End", SubResource("AnimationNodeStateMachineTransition_hssoc"), "delete_u2", "End", SubResource("AnimationNodeStateMachineTransition_3iqlq"), "delete_u3", "End", SubResource("AnimationNodeStateMachineTransition_67fr5"), "off_u2", "idle_u2", SubResource("AnimationNodeStateMachineTransition_2bcsn"), "idle_u2", "off_u2", SubResource("AnimationNodeStateMachineTransition_g43g5"), "off_u3", "idle_u3", SubResource("AnimationNodeStateMachineTransition_jh2q7"), "idle_u3", "off_u3", SubResource("AnimationNodeStateMachineTransition_d0qax"), "idle_u1", "off_u1", SubResource("AnimationNodeStateMachineTransition_ygdnu"), "off_u1", "idle_u1", SubResource("AnimationNodeStateMachineTransition_8fr13"), "Start", "off_u1", SubResource("AnimationNodeStateMachineTransition_f6oyp"), "off_u1", "create_u1", SubResource("AnimationNodeStateMachineTransition_oalqm"), "buffed_u3", "off_u3", SubResource("AnimationNodeStateMachineTransition_vnr05"), "buffed_u1", "off_u1", SubResource("AnimationNodeStateMachineTransition_wlaec"), "buffed_u2", "off_u2", SubResource("AnimationNodeStateMachineTransition_hhebf"), "off_u1", "delete_u1", SubResource("AnimationNodeStateMachineTransition_1x723"), "off_u2", "delete_u2", SubResource("AnimationNodeStateMachineTransition_0krn8"), "off_u3", "delete_u3", SubResource("AnimationNodeStateMachineTransition_ofkw7"), "create_u1", "off_u1", SubResource("AnimationNodeStateMachineTransition_volt3"), "create_u2", "off_u2", SubResource("AnimationNodeStateMachineTransition_xl0vr"), "create_u3", "off_u3", SubResource("AnimationNodeStateMachineTransition_u6fk5")]
+graph_offset = Vector2(0, 213.7602)
 
 [sub_resource type="AudioStream" id="AudioStream_vnr05"]
 
@@ -467,6 +483,8 @@ script = ExtResource("5_f6oyp")
 active = false
 tree_root = SubResource("AnimationNodeStateMachine_daisx")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/not_powered = false
+parameters/conditions/powered = false
 script = ExtResource("5_mfina")
 
 [node name="Audio" type="Node" parent="."]

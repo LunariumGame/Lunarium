@@ -14,6 +14,7 @@ extends Node2D
 @onready var clickable_area: Area2D = $Area2D
 @onready var destroy_audio: AudioStreamPlayer2D = $Audio/Destroy
 @onready var anim_manager: AnimationTree = $AnimationTree
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 @export var alpha_speed: float = 4.0
 @export var min_alpha: float = 0.25
@@ -34,7 +35,7 @@ func _ready() -> void:
 	scale = building_scale
 	
 	z_index = order_man.order.BUILDINGS
-	
+	#sprite_2d.material = sprite_2d.material.duplicate() # NOTE: For building pixel outline highlights, makes material unique for highlighting
 	queue_redraw()
 	
 
@@ -59,6 +60,8 @@ func _process_power_draw(_turn_number:int) -> void:
 	var state_machine_playback = $AnimationTree.get("parameters/playback")
 	var current_animation_state = state_machine_playback.get_current_node()
 	is_powered = power_draw <= available_electricity
+	$AnimationTree.set("parameters/conditions/powered", is_powered)
+	$AnimationTree.set("parameters/conditions/not_powered", !is_powered)
 	if is_powered:
 		if current_animation_state == "off_u1" or current_animation_state == "off_u2" or current_animation_state == "off_u3":
 			anim_manager.update_animation(anim_manager.StateAction.IDLE)
