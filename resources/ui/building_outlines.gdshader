@@ -12,7 +12,7 @@ void fragment() {
 		COLOR = texture(TEXTURE, UV);
 	}
 	else {
-		vec2 pixel_size = TEXTURE_PIXEL_SIZE;
+		vec2 pixel_size = TEXTURE_PIXEL_SIZE; // / vec2(2, 2);
 		bool within = texture(TEXTURE, UV + pixel_size * vec2(1.0, 0.0)).a > 0.0;
 		within = within || texture(TEXTURE, UV + pixel_size * vec2(1.0, 1.0)).a > 0.0;
 		within = within || texture(TEXTURE, UV + pixel_size * vec2(1.0, -1.0)).a > 0.0;
