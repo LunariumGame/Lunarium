@@ -60,6 +60,8 @@ func _process_power_draw(_turn_number:int) -> void:
 	var state_machine_playback = $AnimationTree.get("parameters/playback")
 	var current_animation_state = state_machine_playback.get_current_node()
 	is_powered = power_draw <= available_electricity
+	$AnimationTree.set("parameters/conditions/powered", is_powered)
+	$AnimationTree.set("parameters/conditions/not_powered", !is_powered)
 	if is_powered:
 		if current_animation_state == "off_u1" or current_animation_state == "off_u2" or current_animation_state == "off_u3":
 			anim_manager.update_animation(anim_manager.StateAction.IDLE)
