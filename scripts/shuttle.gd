@@ -28,14 +28,19 @@ func get_shuttle_colonists() -> int:
 
 
 func _process_shuttle_arrival() -> void:
-	Signals.shuttle_arrived.emit()
-	
 	var current_population := roundi(resource_manager.get_resource(ResourceManager.ResourceType.POPULATION))
 	var max_allowed: int = game_manager.get_total_housing_capacity() - current_population
+	
+	if max_allowed <= 0:
+		Signals.shuttle_blocked_by_population_cap.emit()
+		return
+	
 	var colonists_to_add: int = max(min(get_shuttle_colonists(), max_allowed), 0)
-	resource_manager.calculate_and_update(
+	var pax := resource_manager.calculate_and_update(
 		ResourceManager.ResourceType.POPULATION,
 		self,
 		colonists_to_add,
 		ResourceEngine.ApplyTime.ON_TURN_STARTED
 	)
+	
+	Signals.shuttle_arrived.emit(pax)

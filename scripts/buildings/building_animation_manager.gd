@@ -38,3 +38,5 @@ func update_animation(action: StateAction) -> void:
 			target_node = "delete_u%d" % u_level
 			
 	state_machine.travel(target_node)
+	
+	await animation_finished

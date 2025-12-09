@@ -1,4 +1,4 @@
-# not abstract: otherwise children cannot invoke parent methods, or use super()
+	# not abstract: otherwise children cannot invoke parent methods, or use super()
 class_name Building
 extends Node2D
 
@@ -14,6 +14,11 @@ extends Node2D
 @onready var clickable_area: Area2D = $Area2D
 @onready var destroy_audio: AudioStreamPlayer2D = $Audio/Destroy
 @onready var anim_manager: AnimationTree = $AnimationTree
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+@export var alpha_speed: float = 4.0
+@export var min_alpha: float = 0.25
+@export var max_alpha: float = 0.75
 
 var is_cursor: bool = false
 
@@ -26,9 +31,21 @@ func _ready() -> void:
 	Signals.turn_process_power_draw.connect(_process_power_draw)
 	
 	clickable_area.input_event.connect(_on_Area2D_input_event)
+	
 	scale = building_scale
+	
 	z_index = order_man.order.BUILDINGS
+	#sprite_2d.material = sprite_2d.material.duplicate() # NOTE: For building pixel outline highlights, makes material unique for highlighting
 	queue_redraw()
+	
+
+var _time: float = 0.0
+func _process(delta: float) -> void:
+	if is_cursor:
+		_time += delta * alpha_speed
+		# Calculate alpha value with sine wave
+		var alpha = min_alpha + (max_alpha - min_alpha) * (sin(_time) * 0.5 + 0.5)
+		modulate.a = alpha
 
 
 func get_power_draw() -> float:
@@ -40,10 +57,19 @@ func _process_power_draw(_turn_number:int) -> void:
 	var available_electricity:float = resource_manager.get_resource(
 			ResourceManager.ResourceType.ELECTRICITY)
 	
+	var state_machine_playback = $AnimationTree.get("parameters/playback")
+	var current_animation_state = state_machine_playback.get_current_node()
 	is_powered = power_draw <= available_electricity
+	$AnimationTree.set("parameters/conditions/powered", is_powered)
+	$AnimationTree.set("parameters/conditions/not_powered", !is_powered)
 	if is_powered:
+		if current_animation_state == "off_u1" or current_animation_state == "off_u2" or current_animation_state == "off_u3":
+			anim_manager.update_animation(anim_manager.StateAction.IDLE)
 		resource_manager.add_precalculated(
 				ResourceManager.ResourceType.ELECTRICITY, -power_draw)
+	else:
+		if current_animation_state != "off_u1" or current_animation_state != "off_u2" or current_animation_state != "off_u3":
+			anim_manager.update_animation(anim_manager.StateAction.OFF)
 
 
 ## Overriding implementations should call super() at the beginning
@@ -95,13 +121,15 @@ func get_type() -> BuildingManager.BuildingType:
 	
 
 ## draw outline around building in cursor mode
+## disappears if not refreshed with queue_redraw()
 func _draw():
 	if not is_cursor:
 		return
-
+	
 	var dim: Vector2 = $Sprite2D.get_frame_wh()
 	dim += Vector2(3, 3)
 	var rect = Rect2(-dim / 2 , dim)
+	
 	draw_rect(rect, outline_color, false, outline_thickness)
 
 

@@ -8,6 +8,7 @@ extends Building
 
 func _ready() -> void:
 	Signals.turn_ended.connect(_on_turn_ended)
+	is_powered = true # HQ always powered
 	super()
 
 

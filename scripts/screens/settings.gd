@@ -15,6 +15,7 @@ var hud : CanvasLayer
 @onready var ui_scale: HSlider = $"Settings/MainVBox/UISettings/ScaleSlider"
 @onready var cam_speed_scale: HSlider = $"Settings/MainVBox/CameraSettings/CameraSpeed"
 @onready var rb_curs_checkbox: CheckBox = $"Settings/CheckBox"
+@onready var master_default_db_vol := AudioServer.get_bus_volume_db(0)
 
 func _ready():
 	layer = order_man.order.SETTINGS
@@ -57,7 +58,8 @@ func _process(delta):
 
 func _on_master_volume_value_changed(value: float) -> void:
 	settings_data.volume_value_master = value
-	AudioServer.set_bus_volume_db(0, linear_to_db(value))
+	var db = linear_to_db(value) + master_default_db_vol
+	AudioServer.set_bus_volume_db(0, db)
 
 
 func _on_music_volume_value_changed(value: float) -> void:

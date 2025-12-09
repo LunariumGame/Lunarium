@@ -82,6 +82,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 <i>[Rotating Moon](https://deep-fold.itch.io/pixel-planet-generator)</i> by Deep-Fold - MIT License  
 <i>[Settings Cog](https://kenney.nl/assets/mobile-controls)</i> from Kenney.nl - Creative Commons
 
+<u>Shaders</u>
+<i>[Lightweight Pixel Perfect Outline](https://godotshaders.com/shader/lightweight-pixel-perfect-outline/)</i> by flytrap - Creative Commons
+
 ### Original Assets
 <i>Moon 16x16</i> by Joe Vogel   
 <i>Cursor</i> by Joe Vogel
@@ -99,6 +102,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 ### Third-Party Assets
 <u>Music</u>  
 <i>[Space Music Pack](https://gooseninja.itch.io/space-music-pack)</i> by Goose Ninja - Free Use  
+
+<u>Effects</u>
+<i>[Star Twinkle](https://pixabay.com/users/koiroylers-44305058/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=355937)</i> by Koi Roylers, Pixabay - [License](https://pixabay.com/service/license-summary/)
 
 ### Original Assets
 
