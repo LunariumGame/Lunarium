@@ -1,4 +1,4 @@
-# not abstract: otherwise children cannot invoke parent methods, or use super()
+	# not abstract: otherwise children cannot invoke parent methods, or use super()
 class_name Building
 extends Node2D
 
@@ -16,6 +16,10 @@ extends Node2D
 @onready var anim_manager: AnimationTree = $AnimationTree
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+@export var alpha_speed: float = 4.0
+@export var min_alpha: float = 0.25
+@export var max_alpha: float = 0.75
+
 var is_cursor: bool = false
 
 var building_id: int = -1
@@ -27,10 +31,21 @@ func _ready() -> void:
 	Signals.turn_process_power_draw.connect(_process_power_draw)
 	
 	clickable_area.input_event.connect(_on_Area2D_input_event)
+	
 	scale = building_scale
+	
 	z_index = order_man.order.BUILDINGS
 	#sprite_2d.material = sprite_2d.material.duplicate() # NOTE: For building pixel outline highlights, makes material unique for highlighting
 	queue_redraw()
+	
+
+var _time: float = 0.0
+func _process(delta: float) -> void:
+	if is_cursor:
+		_time += delta * alpha_speed
+		# Calculate alpha value with sine wave
+		var alpha = min_alpha + (max_alpha - min_alpha) * (sin(_time) * 0.5 + 0.5)
+		modulate.a = alpha
 
 
 func get_power_draw() -> float:
@@ -104,13 +119,15 @@ func get_type() -> BuildingManager.BuildingType:
 	
 
 ## draw outline around building in cursor mode
+## disappears if not refreshed with queue_redraw()
 func _draw():
 	if not is_cursor:
 		return
-
+	
 	var dim: Vector2 = $Sprite2D.get_frame_wh()
 	dim += Vector2(3, 3)
 	var rect = Rect2(-dim / 2 , dim)
+	
 	draw_rect(rect, outline_color, false, outline_thickness)
 
 

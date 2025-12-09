@@ -49,7 +49,6 @@ func _instantiate_cursor() -> void:
 	colony_buildings_node.add_child(cursor_instance)
 	
 	cursor_sprite = cursor_instance.get_node("Sprite2D")
-	cursor_sprite.modulate.a = 0.5
 	cursor_area = cursor_instance.get_node("Area2D")
 	cursor_anim_manager = cursor_instance.get_node("AnimationTree")
 	create_audio = cursor_instance.get_node("Audio/Create")
@@ -72,7 +71,7 @@ func _process(_delta: float) -> void:
 		else:
 			cursor_instance.modulate = Color.WHITE
 
-	else: # Highlight buildings on hover / select
+	else: # Highlight buildings on hover / select (non-cursors)
 		var canvas_to_world := get_viewport().get_canvas_transform().affine_inverse()
 		var mouse_world: Vector2 = canvas_to_world * get_global_mouse_position()
 
@@ -97,8 +96,9 @@ func _process(_delta: float) -> void:
 			var building := area.get_parent()
 
 			if building is Building:
-				building.get_node("Sprite2D").modulate = highlighted_building_color
-				#building.get_node("Sprite2D").material.set("shader_parameter/enabled", true) # NOTE: this is for building pixel outline, sprites had too many artifacts at the time
+				if not building.is_cursor:
+					building.get_node("Sprite2D").modulate = highlighted_building_color
+					#building.get_node("Sprite2D").material.set("shader_parameter/enabled", true) # NOTE: this is for building pixel outline, sprites had too many artifacts at the time
 				last_hovered_building = building
 				break
 
@@ -130,12 +130,12 @@ func _place_building() -> bool:
 	
 	cursor_instance.reparent(colony_buildings_node, true)
 	cursor_instance.set_cursor_mode(false)
+	cursor_instance.modulate = Color.WHITE
 	cursor_instance.emit_built_signal()
 	cursor_instance.name = (
 		cursor_instance.get_script().get_global_name() + "-" + str(building_id)
 	)
 	cursor_instance.building_id = building_id
-	cursor_sprite.modulate.a = 1.0
 	# creation animation, then idling
 	cursor_anim_manager.update_animation(cursor_anim_manager.StateAction.CREATE)
 	# creation audio
