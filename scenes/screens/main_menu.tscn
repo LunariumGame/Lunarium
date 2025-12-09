@@ -1,14 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://djrs41guhueil"]
+[gd_scene load_steps=8 format=3 uid="uid://djrs41guhueil"]
 
 [ext_resource type="Script" uid="uid://djpcotm6sl2eu" path="res://scripts/screens/main_menu.gd" id="1_dxijm"]
 [ext_resource type="Texture2D" uid="uid://cqyeg16omnqrb" path="res://assets/pics/moon_surface.jpg" id="2_tgk1t"]
 [ext_resource type="PackedScene" uid="uid://b84cp341mhqdb" path="res://scenes/ui_components/logo_h_box.tscn" id="3_kacuo"]
+[ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="4_kr80i"]
 [ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="5_e21yp"]
 [ext_resource type="PackedScene" uid="uid://caqswmbla1t2u" path="res://scenes/ui_components/quit_game_button.tscn" id="6_kr80i"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kacuo"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kr80i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e21yp"]
 
@@ -86,9 +83,9 @@ layout_mode = 2
 custom_minimum_size = Vector2(220, 60)
 layout_mode = 2
 focus_mode = 0
+theme = ExtResource("4_kr80i")
 theme_override_fonts/font = ExtResource("5_e21yp")
 theme_override_font_sizes/font_size = 72
-theme_override_styles/normal = SubResource("StyleBoxEmpty_kacuo")
 text = "START"
 
 [node name="VSpace2" type="Control" parent="UIElements/MainVBox"]
@@ -102,9 +99,9 @@ layout_mode = 2
 custom_minimum_size = Vector2(180, 40)
 layout_mode = 2
 focus_mode = 0
+theme = ExtResource("4_kr80i")
 theme_override_fonts/font = ExtResource("5_e21yp")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxEmpty_kr80i")
 text = "SETTINGS"
 
 [node name="VSpace3" type="Control" parent="UIElements/MainVBox"]
@@ -134,6 +131,7 @@ layout_mode = 2
 
 [node name="QuitGame" parent="UIElements/MainVBox/QuitCenter" instance=ExtResource("6_kr80i")]
 layout_mode = 2
+theme = ExtResource("4_kr80i")
 
 [connection signal="pressed" from="UIElements/MainVBox/StartCenter/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="UIElements/MainVBox/SettingsCenter/Settings" to="." method="_on_settings_pressed"]
