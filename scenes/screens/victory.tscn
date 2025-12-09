@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qgwiwb7gjqpd" path="res://scripts/screens/victory.gd" id="1_63tvk"]
 [ext_resource type="Texture2D" uid="uid://c0cg5c504fhb5" path="res://assets/sprites/cutscenes/ending_cutscenes/victory_cutscene.png" id="2_62pnk"]
+[ext_resource type="AudioStream" uid="uid://b8tghw4hyu0qw" path="res://assets/audio/victory_score_new.mp3" id="3_omuyy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_62pnk"]
 atlas = ExtResource("2_62pnk")
@@ -55,7 +56,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.65882355, 0.58431375, 0.047058824, 0.49803922)
+color = Color(0.15164593, 0.1309947, 0.003999088, 0.49803922)
 
 [node name="CBoxContainer" type="CenterContainer" parent="."]
 anchors_preset = 5
