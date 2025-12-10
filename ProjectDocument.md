@@ -10,7 +10,7 @@ Luckily, you’ve been equipped with LunaBots, which you can control from the ma
 
 ## Project Resources
 
-[Itch.io](https://itch.io/)  
+[Itch.io](https://hawkhobo.itch.io/lunarium)  
 [Trailer](https://www.youtube.com/watch?v=dQwvocwWPB8)  
 [Proposal](https://docs.google.com/document/d/1BND99DF8VDu08BmWQeBlosrSl8PL4FcekbvLlHaypSw/edit?tab=t.0#heading=h.i3tv2mxf7h7z)  
 
@@ -37,7 +37,14 @@ population of 0.
 
 ### Buildings & Resource Types ###
 
-1) Refinery - this building generates iron per-turn. Iron is used to construct all the buildings in the game, including the iron refinery itself. This is an important resource to generate other resources. 2) Reactor - The reactor is capable of generating electricity, which takes effect immediately and is not on a per-turn basis. Electricity goes towards the power grid quota, which is important to keeping buildings powered and functioning properly. More detail on electricity generation can be consulted in the "The Power Grid" section below. 3) Eco Dome - The eco dome generates food on a per-turn basis, and is necessary to keep your colony alive. Failure to supply the appropriate amount of food will cause colonists to die on a per-turn basis. If you lose all your colonists, your colony fails. Details are discussed further in the "Consumption and Starvation" section below including the
+1) Refinery - this building generates iron per-turn. Iron is used to construct all the buildings in the game, including the iron refinery itself. This is an important resource 
+to generate other resources. 
+
+2) Reactor - The reactor is capable of generating electricity, which takes effect immediately and is not on a per-turn basis. Electricity goes towards the power grid quota, 
+which is important to keeping buildings powered and functioning properly. More detail on electricity generation can be consulted in the "The Power Grid" section below. 
+
+3) Eco Dome - The eco dome generates food on a per-turn basis, and is necessary to keep your colony alive. Failure to supply the appropriate amount of food will cause colonists 
+to die on a per-turn basis. If you lose all your colonists, your colony fails. Details are discussed further in the "Consumption and Starvation" section below including the
 subtleties of their cost.
 
 4) Residence - This building houses colonists, and does not generate any particular resources, but they are important toward winning the game (especially if one wishes to win
@@ -55,18 +62,27 @@ must build residency buildings to support them. The astronaut should carefully m
 residency supports 10 colonists, to start, and each shuttle sends 10 colonists. 
 
 ### The Power Grid ###
-The power grid refers to the non-turn based system which in which buildings consume power, inspired by Supreme Commander (but certainly not as complicated). Buildings require
-power, and if the astronaut exceeds their
+The power grid refers to the non-turn based system in which buildings consume power, inspired by Supreme Commander (but certainly not as complicated). Buildings require
+power, and if the astronaut exceeds their power budget, the constructed building will shut down. It will not generate resources on the next turn unless the power budget is 
+increased, by creating another reactor.
 
 ### Consumption and Starvation ###
+At the end of every turn, colonists will consume food. Each colonist consumes a single food unit. If the food stockpile at the end of a turn is lower than the population, then
+the difference between them becomes the number of starving colonists. This number is then divided in half, and rounded to the nearest whole integer, and becomes the amount of
+colonists which will die on the next turn. This is how you lose the game.
 
 
 ### Upgrading ###
-| Cost (Iron) | Production | Power Draw |
-| :------ | :---------- | :------ |
-| Bold    | Highlight important text | **Important** |
-| Italic  | Emphasize words or phrases | *Emphasized* |
-| Code    | Display inline code | `print("Hello")` |
+
+Buildings are upgradeable in their respective building panel. They produce more, cost more, and deliver more power draw on the power grid. A full breakdown of their scalar values
+can be seen below, upgrade-to-upgrade:
+
+## Iron Refinery ##
+| Cost (Iron) | Production| Power Draw |
+| :------ | :----------   | :------    |
+| 10      |     4         | 10         |
+| 15  | 8| 15|
+| 20    | 12| 20|
 
 refinery
 cost
