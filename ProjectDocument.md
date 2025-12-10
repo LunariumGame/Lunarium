@@ -295,6 +295,8 @@ interested in! (NOTE: there was an edge case between create -> off transition th
 
 #### Movement/Physics ####
 
+Attribution: LLM agents (primarily Gemini, and a little bit of Claude) was used to assist me in debugging my code. The base sytems were written by me, and I did not use LLM's for that aspect of development.
+
 I was fortunate enough to implement the building placement system in the game, which I have decreed our "physics system". It took a lot of push-and-pull, and I even fully 
 refactored it at one point (with help of Wen Kai's suggestions). I think the final product is was quite significant & neat! I'll just go over the big, final PR:
 
