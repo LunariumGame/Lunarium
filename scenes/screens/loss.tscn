@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://du46r5f2n8vya"]
+
+[ext_resource type="Script" uid="uid://degq3ffk17ylk" path="res://scripts/screens/loss.gd" id="1_08wtc"]
+[ext_resource type="Texture2D" uid="uid://b3stlelrxc7wj" path="res://assets/sprites/cutscenes/ending_cutscenes/loss_cutscene.png" id="2_skq7k"]
+[ext_resource type="AudioStream" uid="uid://j0hrsttpxgiv" path="res://assets/audio/defeat_score_new.mp3" id="3_8lu2c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skq7k"]
+atlas = ExtResource("2_skq7k")
+region = Rect2(0, 0, 3000, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lu2c"]
+atlas = ExtResource("2_skq7k")
+region = Rect2(3000, 0, 3000, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b8nrf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skq7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lu2c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LOSS" type="CanvasLayer"]
+script = ExtResource("1_08wtc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25701883, 0.087468974, 0.10929323, 0.5019608)
+
+[node name="CBoxContainer" type="CenterContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CBoxContainer"]
+position = Vector2(0, 537)
+sprite_frames = SubResource("SpriteFrames_b8nrf")
+autoplay = "default"
+frame_progress = 0.893359

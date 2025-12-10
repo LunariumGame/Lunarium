@@ -14,6 +14,8 @@ var hud : CanvasLayer
 @onready var effects_volume: HSlider = $"Settings/MainVBox/AudioSettings/EffectsVolume"
 @onready var ui_scale: HSlider = $"Settings/MainVBox/UISettings/ScaleSlider"
 @onready var cam_speed_scale: HSlider = $"Settings/MainVBox/CameraSettings/CameraSpeed"
+@onready var rb_curs_checkbox: CheckBox = $"Settings/CheckBox"
+@onready var master_default_db_vol := AudioServer.get_bus_volume_db(0)
 
 func _ready():
 	layer = order_man.order.SETTINGS
@@ -22,6 +24,7 @@ func _ready():
 	effects_volume.value = settings_data.volume_value_effects
 	ui_scale.value = settings_data.scale_value
 	cam_speed_scale.value = settings_data.default_speed
+	rb_curs_checkbox.button_pressed = settings_data.rb_cursor_enabled
 	
 	
 	hud = get_tree().get_root().get_node("World/UI/HUD")
@@ -55,7 +58,8 @@ func _process(delta):
 
 func _on_master_volume_value_changed(value: float) -> void:
 	settings_data.volume_value_master = value
-	AudioServer.set_bus_volume_db(0, linear_to_db(value))
+	var db = linear_to_db(value) + master_default_db_vol
+	AudioServer.set_bus_volume_db(0, db)
 
 
 func _on_music_volume_value_changed(value: float) -> void:
@@ -83,3 +87,10 @@ func _on_resume_pressed() -> void:
 
 func _on_camera_speed_value_changed(value: float) -> void:
 	settings_data.default_speed = value
+
+
+# turn cursor to rainbow mode
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	var cursor: SubViewport = get_tree().get_root().get_node("World/Cursor")
+	cursor.enable_rainbow = toggled_on
+	settings_data.rb_cursor_enabled = toggled_on

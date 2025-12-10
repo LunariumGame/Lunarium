@@ -19,12 +19,12 @@ enum BuildingType {
 	ECO_DOME,
 	IRON_REFINERY,
 	MECH_QUARTER,
-	POWER_PLANT,
+	REACTOR,
 	RESIDENCE,
 }
 
 var _pos_to_building_id: Dictionary[Vector2i, int] = {}
-var _building_id_to_node: Dictionary[int, Building] = {}
+var building_id_to_node: Dictionary[int, Building] = {}
 var _id_to_type = {}
 var _buildings: Dictionary[Vector2i, int] = {}
 var building_tiles = {} # Dictionary[int, Array[Vector2i]]
@@ -36,21 +36,32 @@ func _ready() -> void:
 	# 0 = EMPTY
 	_id_to_type[0] = BuildingType.EMPTY
 
-	
+
+func can_purchase(building_spec: BuildingSpec, level_index: int) -> bool:
+	# Out of bounds cost level
+	if level_index < 0 or level_index >= building_spec.cost_levels.size():
+		return false
+
+	var cost_spec := building_spec.cost_levels[level_index]
+	var cost_dict: Dictionary = cost_spec.cost
+	for resource_type in cost_dict.keys():
+		var required: float = cost_dict[resource_type]
+		var current: float = resource_manager.get_resource(resource_type)
+		if current < required:
+			return false
+
+	return true
+
+
 func can_build(building_spec: BuildingSpec, position: Vector2i, width: int, height: int) -> bool:
 	# If no cost spec, don't place
 	if building_spec.cost_levels.size() == 0:
 		return false
 	
 	# Check cost
-	var cost_spec := building_spec.cost_levels[0]
-	var cost_dict: Dictionary = cost_spec.cost
-	for resource_type in cost_dict.keys():
-		var resource_cost:float = cost_dict[resource_type]
-		var current_amount: float = resource_manager.get_resource(resource_type)
-		if current_amount < resource_cost:
-			return false
-	
+	if !can_purchase(building_spec, 0):
+		return false
+
 	# Bounds check
 	if (position.x < -WIDTH or position.x + width > WIDTH or 
 				position.y < -HEIGHT or position.y + height > HEIGHT):
@@ -77,10 +88,16 @@ func build(building: Building, position: Vector2i, width: int, height: int) -> i
 	var cost_spec := building_spec.cost_levels[0]
 	var cost_dict: Dictionary = cost_spec.cost
 	
-	# Subtract cost
+	# check if we have enough resources
 	for resource_type in cost_dict.keys():
-		var resource_cost:float = cost_dict[resource_type]
-		resource_manager.add_precalculated(resource_type, -resource_cost)
+		var required: float = cost_dict[resource_type]
+		var current := resource_manager.get_resource(resource_type)
+		if current < required:
+			return 0
+
+	# Subtract cost safely
+	for resource_type in cost_dict.keys():
+		resource_manager.add_precalculated(resource_type, -cost_dict[resource_type])
 	
 	# Fill buildings array
 	var tiles = []
@@ -107,8 +124,37 @@ func build(building: Building, position: Vector2i, width: int, height: int) -> i
 	_building_id_counter += 1
 	var _building_id: int = _building_id_counter - 1
 
-	_building_id_to_node[_building_id] = building
+	building_id_to_node[_building_id] = building
 	return _building_id
+
+
+func try_upgrade(building: Building) -> bool:
+	var next_level := building.current_level + 1
+
+	# Check bounds
+	if next_level > building.max_level:
+		return false
+
+	var building_spec := building.building_spec
+	var level_index := next_level - 1   # level 1 uses index 0, etc.
+
+	# Ensure cost exists
+	if level_index >= building_spec.cost_levels.size():
+		return false
+
+	# Can we buy it?
+	if not can_purchase(building_spec, level_index):
+		return false
+
+	# Subtract the cost
+	var cost_dict := building_spec.cost_levels[level_index].cost
+	for resource_type in cost_dict.keys():
+		resource_manager.add_precalculated(resource_type, -cost_dict[resource_type])
+
+	# Apply the upgrade
+	building.current_level = next_level
+
+	return true
 
 
 # Returns a list of vector2i's surrounding a single tile

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://datesfdxysorw"]
+
+[ext_resource type="Script" uid="uid://b2i2h4mrvcjgg" path="res://scripts/cursor.gd" id="1_s0nli"]
+[ext_resource type="Texture2D" uid="uid://c51gqpsex86gw" path="res://assets/sprites/Cursor.png" id="2_ndevg"]
+
+[node name="Cursor" type="SubViewport"]
+transparent_bg = true
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+script = ExtResource("1_s0nli")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("2_ndevg")
+expand_mode = 2
