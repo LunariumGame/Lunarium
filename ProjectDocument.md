@@ -141,29 +141,7 @@ We ultimately took a different approach for scaling.
 
 # Team Member Contributions
 
-This section be repeated once for each team member. Each team member should provide their name and GitHub user information.
-
-The general structures is 
-```
-Team Member 1
-  Main Role
-    Documentation for main role.
-  Sub-Role
-    Documentation for Sub-Role
-  Other contribtions
-    Documentation for contributions to the project outside of the main and sub roles.
-
-Team Member 2
-  Main Role
-    Documentation for main role.
-  Sub-Role
-    Documentation for Sub-Role
-  Other contribtions
-    Documentation for contributions to the project outside of the main and sub roles.
-...
-```
-
-For each team member, you shoudl work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
+For each team member, you should work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
 
 Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
 
@@ -175,6 +153,24 @@ Here is an example:
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
 Add addition contributions int he Other Contributions section.
+
+## Jacob Feenstra - [Hawkhobo](https://github.com/Hawkhobo) ##
+
+### Producer ###
+
+This is going to be a difficult one to document, but I'll try my best. I really enjoyed my role as producer, and the minutiae of managing a team creating a full-stack software
+application :). I'll go ahead and list things chronologically and evidently.
+
+1) Initially, I organized the team and set up our Discord within the first few days of our team being assembled. We have used it extensively since (and I mean _really_ exte
+nsively)
+
+![assets/pics/jacob/discord_creation.png](image1.png "Discord Inception") ![alt-text-2](image2.png "title-2")
+
+
+
+### Game Feel ###
+
+### Other Contributions ###
 
 # Joe Vogel #
 
