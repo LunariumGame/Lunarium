@@ -158,13 +158,13 @@ Add addition contributions int he Other Contributions section.
 
 ### Producer ###
 
-This is going to be a difficult one to document, but I'll try my best. I really enjoyed my role as producer, and the minutiae of managing a team creating a full-stack software
+I really enjoyed my role as producer, and the minutiae of managing a team creating a full-stack software
 application :). I'll go ahead and list things chronologically and evidently.
 
 1) Initially, I organized and set up our Discord within the first few days of our team being assembled. We have used it extensively since (and I mean _really_ exte
 nsively)
 
-![timestamp of discord server creation](assets/pics/jacob/discord_creation.png "Discord Inception" =75%x) ![discord server usage](assets/pics/jacob/discord_messages.png "A Whole Lotta Chatting" =20%x)
+<img src="assets/pics/jacob/discord_creation.png" width="400" height="400"/> <img src="assets/pics/jacob/discord_messages.png" width="400" height="400" />
 
 that's a whole lotta blabbing! I believe it helped us remain communicative from Day 1. Any communication breakdown we experienced was certainly lessened.
 
@@ -172,7 +172,6 @@ that's a whole lotta blabbing! I believe it helped us remain communicative from 
 decent amount of addendum documentation there. 
 
 <img src="assets/pics/jacob/google_drive.png" />
-
 
 ### Game Feel ###
 
