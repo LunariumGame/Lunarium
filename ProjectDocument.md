@@ -1,7 +1,6 @@
 # Lunarium #
 
 ## Summary ##
-
 In Lunarium, you are a lone astronaut sent on a daring mission to establish the first colony on the moon.
 
 The planet you call home grows increasingly crowded, and humanity needs a backup plan. In this strategy resource management game, you are tasked with mining for ores, cultivating food, and powering your growing colony as more civilians of Planet Earth are shipped offworld. In your quest to tame this barren rock, you can’t be everywhere at once.
@@ -10,23 +9,120 @@ Luckily, you’ve been equipped with LunaBots, which you can control from the ma
 
 ## Project Resources
 
-[Web-playable version of your game.](https://itch.io/)  
-[Trailor](https://youtube.com)  
-[Press Kit](https://dopresskit.com/)  
-[Proposal: make your own copy of the linked doc.](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)  
+[Itch.io](https://hawkhobo.itch.io/lunarium)  
+[Trailer](https://www.youtube.com/watch?v=dQwvocwWPB8)  
+[Proposal](https://docs.google.com/document/d/1BND99DF8VDu08BmWQeBlosrSl8PL4FcekbvLlHaypSw/edit?tab=t.0#heading=h.i3tv2mxf7h7z)  
 
 ## Gameplay Explanation ##
 
-**In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
+<details>
+<summary>The Manual</summary>
+
+### Controls ###
+Lunarium's controls are simple, and consist of WASD or the arrow keys for simple RTS-like movement. Hold shift to scroll faster in the game world. Pan on your trackpad to zoom
+in and out of the game world. Left-click on buttons in the game world to open up their corresponding UI element, or perform an in-game event. If you select a building button, 
+press left-click again to attempt to place a building in the world. Right-click or Escape, while holding the building, will delete the building from your cursor. Press 
+escape to close any UI element you opened. If no other UI is open, it will instead open the in-game settings menu.
+
+### Gameplay Loop ###
+Lunarium is a resource management and building turn-based strategy game. The player (astronaut) is tasked with managing a colony, and is given a starting allowance to construct 
+buildings which generate various resources that interplay with each other. The astronaut starts with just a headquarters, and must build up their colony accordingly. When the 
+astronaut advances to the next turn, the yield of buildings (indicated in each building panel when it is clicked) will be added to their economy. The astronaut must manage these 
+resources carefully, or they will lock their per-turn resource production. Every two turns, colonists are shipped to the moon by a shuttle, and the astronaut must make sure they 
+can support this population. The astronaut wins the game when they reach a colony population of 100. The astronaut loses the game if their colony starves, and reaches a 
+population of 0.
 
 
-**Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
+### Buildings & Resource Types ###
+1) Refinery - this building generates iron per-turn. Iron is used to construct all the buildings in the game, including the iron refinery itself. This is an important resource 
+to generate other resources. 
+
+2) Reactor - The reactor is capable of generating electricity, which takes effect immediately and is not on a per-turn basis. Electricity goes towards the power grid quota, 
+which is important to keeping buildings powered and functioning properly. More detail on electricity generation can be consulted in the "The Power Grid" section below. 
+
+3) Eco Dome - The eco dome generates food on a per-turn basis, and is necessary to keep your colony alive. Failure to supply the appropriate amount of food will cause colonists 
+to die on a per-turn basis. If you lose all your colonists, your colony fails. Details are discussed further in the "Consumption and Starvation" section below including the
+subtleties of their cost.
+
+4) Residence - This building houses colonists, and does not generate any particular resources, but they are important toward winning the game (especially if one wishes to win
+the game quickly). More information in "Colonial Shuttles" on how these buildings work.
+
+5) Headquarters - The headquarters is what the astronaut starts with, and is primarily there for aesthetic (a planned but unimplemented feature was for it to house a tech tree!).
+Note this building generates one iron per turn so that the player isn't hardlocked out of the economy if they've made some errors.
+
+Each building has an intrinsic cost on deployment in terms of iron and electricity, and can be consulted by clicking the building button associated with the given building. 
+Only the reactor does not cost electricity. Both resource costs are extracted immediately during the turn. To see the exact costs, check out the "Upgrading" section.
+
+
+### Colonial Shuttles ###
+Every two turns, Earth Command sends a shuttle, laden with incoming colonists, to the colony. These colonists need a place to live, or they will be turned back, so the astronaut
+must build residency buildings to support them. The astronaut should carefully monitor their population limitations to ensure they can lodge the incoming colonists. Each 
+residency supports 10 colonists, to start, and each shuttle sends 10 colonists. 
+
+### The Power Grid ###
+The power grid refers to the non-turn based system in which buildings consume power, inspired by Supreme Commander (but certainly not as complicated). Buildings require
+power, and if the astronaut exceeds their power budget, the constructed building will shut down. It will not generate resources on the next turn unless the power budget is 
+increased, by creating another reactor.
+
+### Consumption and Starvation ###
+At the end of every turn, colonists will consume food. Each colonist consumes a single food unit. If the food stockpile at the end of a turn is lower than the population, then
+the difference between them becomes the number of starving colonists. This number is then divided in half, and rounded to the nearest whole integer, and becomes the amount of
+colonists which will die on the next turn. This is how you lose the game.
+
+
+### Upgrading ###
+Buildings are upgradeable in their respective building panel. They produce more, cost more, and deliver more power draw on the power grid. A full breakdown of their scalar values
+can be seen below, upgrade-to-upgrade:
+
+  #### Refinery ####
+| Cost | Production (Iron) | Power Draw |
+| :------ | :----------   | :------    |
+| 10      |     4         | 10         |
+| 15  | 8| 15|
+| 20    | 12| 20|
+
+  #### Reactor ####
+| Cost    | Production (Electricity) | Power Draw |
+| :------ | :----------   | :------    |
+| 10      |     10         | 0         |
+| 15  | 20| 0|
+| 20    | 30| 0|
+
+  #### Residential ####
+| Cost    | Production (Population) | Power Draw |
+| :------ | :----------   | :------    |
+| 10      |     20         | 10         |
+| 15  | 40| 15|
+| 20    | 80| 20|
+
+  #### Eco Dome ####
+| Cost    | Production (Food) | Power Draw |
+| :------ | :----------   | :------    |
+| 10      |     10         | 10         |
+| 15  | 20| 15|
+| 20    | 30| 20|
+
+### Destroying ### 
+If you misplace a building, or simply wish to remove it, you can do so by clicking the destroy button!
+
+### Turn-based Strategies ###
+We list a few strategies below to get you started (but we don't want to spoil the whole game :-) ):
+* First, monitor your power grid carefully. Ensure that you are not needlessly constructing buildings that can't be powered on the current turn.
+* Get some food quick to support incoming colonists! Watch that shuttle every 2 turns. When the colonists come in, you want to be able to feed them (this is the easiest resource
+  to forget about, we have found).
+* Get a running refinery up immediately. It produces iron 4.0x higher than the standalone headquarters.
+
+</details>
+
 
 # External Code, Ideas, and Structure #
 
-If your project contains code that: 1) your team did not write, and 2) does not fit cleanly into a role, please document it in this section. Please include the author of the code, where to find the code, and note which scripts, folders, or other files that comprise the external contribution. Additionally, include the license for the external code that permits you to use it. You do not need to include the license for code provided by the instruction team.
+## Tutorials Used
 
-If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
+* [Ultimate Godot AnimationTree Tutorial - They Are Not Scary!](https://www.youtube.com/watch?v=E6ajmQhOeo4)
+* [Godot UI Basics - how to build beautiful interfaces that work everywhere (Beginners)](https://www.youtube.com/watch?v=1_OFJLyqlXI)
+* [How To Fix Blurry Pixel Art in Godot!](https://www.youtube.com/shorts/p5Gm1DeqXcg)
+* [ Using Github To Build Your Game! Creating a Ci/CD System Using Github Actions!](https://www.youtube.com/watch?v=bIXBosDO6f8) 
 
 ## Color Vision Deficiency Matrices
 
