@@ -61,8 +61,6 @@ color = Color(0.15164593, 0.1309947, 0.003999088, 0.49803922)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -960.0
-offset_right = -960.0
 grow_horizontal = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CBoxContainer"]
