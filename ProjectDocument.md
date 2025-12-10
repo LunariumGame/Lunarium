@@ -1,7 +1,6 @@
 # Lunarium #
 
 ## Summary ##
-
 In Lunarium, you are a lone astronaut sent on a daring mission to establish the first colony on the moon.
 
 The planet you call home grows increasingly crowded, and humanity needs a backup plan. In this strategy resource management game, you are tasked with mining for ores, cultivating food, and powering your growing colony as more civilians of Planet Earth are shipped offworld. In your quest to tame this barren rock, you can’t be everywhere at once.
@@ -26,7 +25,6 @@ press left-click again to attempt to place a building in the world. Right-click 
 escape to close any UI element you opened. If no other UI is open, it will instead open the in-game settings menu.
 
 ### Gameplay Loop ###
-
 Lunarium is a resource management and building turn-based strategy game. The player (astronaut) is tasked with managing a colony, and is given a starting allowance to construct 
 buildings which generate various resources that interplay with each other. The astronaut starts with just a headquarters, and must build up their colony accordingly. When the 
 astronaut advances to the next turn, the yield of buildings (indicated in each building panel when it is clicked) will be added to their economy. The astronaut must manage these 
@@ -36,7 +34,6 @@ population of 0.
 
 
 ### Buildings & Resource Types ###
-
 1) Refinery - this building generates iron per-turn. Iron is used to construct all the buildings in the game, including the iron refinery itself. This is an important resource 
 to generate other resources. 
 
@@ -51,6 +48,7 @@ subtleties of their cost.
 the game quickly). More information in "Colonial Shuttles" on how these buildings work.
 
 5) Headquarters - The headquarters is what the astronaut starts with, and is primarily there for aesthetic (a planned but unimplemented feature was for it to house a tech tree!).
+Note this building generates one iron per turn so that the player isn't hardlocked out of the economy if they've made some errors.
 
 Each building has an intrinsic cost on deployment in terms of iron and electricity, and can be consulted by clicking the building button associated with the given building. 
 Only the reactor does not cost electricity. Both resource costs are extracted immediately during the turn. To see the exact costs, check out the "Upgrading" section.
@@ -73,84 +71,58 @@ colonists which will die on the next turn. This is how you lose the game.
 
 
 ### Upgrading ###
-
 Buildings are upgradeable in their respective building panel. They produce more, cost more, and deliver more power draw on the power grid. A full breakdown of their scalar values
 can be seen below, upgrade-to-upgrade:
 
-## Iron Refinery ##
-| Cost (Iron) | Production| Power Draw |
+  #### Refinery ####
+| Cost | Production (Iron) | Power Draw |
 | :------ | :----------   | :------    |
 | 10      |     4         | 10         |
 | 15  | 8| 15|
 | 20    | 12| 20|
 
-refinery
-cost
-10
-15
-20
-prod
-4
-8
-12
-power
-10
-15
-20
+  #### Reactor ####
+| Cost    | Production (Electricity) | Power Draw |
+| :------ | :----------   | :------    |
+| 10      |     10         | 0         |
+| 15  | 20| 0|
+| 20    | 30| 0|
 
+  #### Residential ####
+| Cost    | Production (Population) | Power Draw |
+| :------ | :----------   | :------    |
+| 10      |     20         | 10         |
+| 15  | 40| 15|
+| 20    | 80| 20|
 
-plant
-10
-15
-20
-prod
-10
-20
-30
-
-
-
-residential
-cost
-10
-15
-20
-prod
-20
-40
-80
-power
-10
-15
-20
-
-eco_dome
-production
-10
-20
-30
-power_table
-10
-15
-20
-cost
-10
-15
-20
-
+  #### Eco Dome ####
+| Cost    | Production (Food) | Power Draw |
+| :------ | :----------   | :------    |
+| 10      |     10         | 10         |
+| 15  | 20| 15|
+| 20    | 30| 20|
 
 ### Destroying ### 
+If you misplace a building, or simply wish to remove it, you can do so by clicking the destroy button!
 
 ### Turn-based Strategies ###
+We list a few strategies below to get you started (but we don't want to spoil the whole game :-) ):
+* First, monitor your power grid carefully. Ensure that you are not needlessly constructing buildings that can't be powered on the current turn
+* Get some food quick to support incoming colonists! Watch that shuttle every 2 turns. When the colonists come in, you want to be able to feed them (this is the easiest resource
+  to forget about, we have found).
+* Get a running refinery up immediately. It is a factor of 4 resource generation greater than the standalone headquarters.
 
 </details>
 
 
 # External Code, Ideas, and Structure #
 
-If your project contains code that: 1) your team did not write, and 2) does not fit cleanly into a role, please document it in this section. Please include the author of the code, where to find the code, and note which scripts, folders, or other files that comprise the external contribution. Additionally, include the license for the external code that permits you to use it. You do not need to include the license for code provided by the instruction team.
+## Tutorials Used
 
-If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
+* [Ultimate Godot AnimationTree Tutorial - They Are Not Scary!](https://www.youtube.com/watch?v=E6ajmQhOeo4)
+* [Godot UI Basics - how to build beautiful interfaces that work everywhere (Beginners)](https://www.youtube.com/watch?v=1_OFJLyqlXI)
+* [How To Fix Blurry Pixel Art in Godot!](https://www.youtube.com/shorts/p5Gm1DeqXcg)
+* [ Using Github To Build Your Game! Creating a Ci/CD System Using Github Actions!](https://www.youtube.com/watch?v=bIXBosDO6f8) 
 
 ## Color Vision Deficiency Matrices
 
