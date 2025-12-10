@@ -343,31 +343,45 @@ which would globally return the live building node given the id, since a lot of 
 
 </details>
 
+## Joe Vogel ([Coco501](https://github.com/Coco501))
 
+### User Interface and Input
+  - [Settings menu](https://github.com/LunariumGame/Lunarium/pull/40)
+  - [Main menu styling (& much more)](https://github.com/LunariumGame/Lunarium/pull/205)
+  - In-game UI 
+    - [Many iterations on the overall layout & design](https://github.com/LunariumGame/Lunarium/pull/147)
+    - [Oldsteam theme](https://github.com/LunariumGame/Lunarium/pull/152)
+    - [Inspector panel](https://github.com/LunariumGame/Lunarium/pull/168)
+  - Controls
+    - [Camera speed & zoom](https://github.com/LunariumGame/Lunarium/issues/35)
+    - [Hotkeys and input control (Space, ESC, B, Right-click, Shift, etc.)](https://github.com/LunariumGame/Lunarium/pull/163)
+    - [World borders](https://github.com/LunariumGame/Lunarium/pull/150)
 
-# Joe Vogel #
+### Gameplay Playtesting
+  - Conducted 9 playtesting sessions
+    - [Official Playtesting Document](https://docs.google.com/document/d/1mVwciQaqRTi5cSQx_DC_5bwGkvSAjFtnQ4yakBuf55s/edit?tab=t.nqudi14ugpnn)
+  - Made an external document for playtesters to fill out themselves
+    - [External Playtesting Document](https://docs.google.com/document/d/1wc2hWlAAw7NJTlG1Mo9_kOsT3hX_q5pVRvdjqzl0JZ4/edit?tab=t.0)
+  - Balanced the game and prioritized features based on playtester feedback
+    - [Highlighting buildings on hover](https://github.com/LunariumGame/Lunarium/pull/174)
+    - [Audio being too loud](https://github.com/LunariumGame/Lunarium/pull/205)
+    - Resource balancing
 
-### Third-Party Assets
-<u>Fonts</u>  
-<i>[m5x7](https://managore.itch.io/m5x7)</i> by Daniel Linssen - Creative Commons License  
-
-<u>Sprites</u>  
-<i>[Lunarium Title](https://chatgpt.com/)</i> by ChatGPT - Free Use  
-<i>[Rotating Moon](https://deep-fold.itch.io/pixel-planet-generator)</i> by Deep-Fold - MIT License  
-<i>[Settings Cog](https://kenney.nl/assets/mobile-controls)</i> from Kenney.nl - Creative Commons
-
-<u>Shaders</u>
-<i>[Lightweight Pixel Perfect Outline](https://godotshaders.com/shader/lightweight-pixel-perfect-outline/)</i> by flytrap - Creative Commons
-
-<u>Music</u>  
-<i>[Space Music Pack](https://gooseninja.itch.io/space-music-pack)</i> by Goose Ninja - Free Use  
-
-<u>Effects</u>
-<i>[Star Twinkle](https://pixabay.com/users/koiroylers-44305058/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=355937)</i> by Koi Roylers, Pixabay - [License](https://pixabay.com/service/license-summary/)
-
-### Original Assets
-<i>Moon 16x16</i> by Joe Vogel   
-<i>Cursor</i> by Joe Vogel
+### Other contributions
+  - Systems integrations
+    - [Building manager UI hookup](https://github.com/LunariumGame/Lunarium/pull/168)
+  - Asset contributions and research 
+    - [Drew resource, logo, and cursor sprites](https://github.com/LunariumGame/Lunarium/tree/dev/assets/sprites)
+    - [Concept art designs](https://imgur.com/a/sxaUOWV)
+    - Sourced the game logo and rotating moon animation 
+    - Sourced initial soundtrack
+  - Minor team organization tasks
+  - Game balancing
+  - Animation refinements
+    - [Fixed opening cutscene bugs](https://github.com/LunariumGame/Lunarium/pull/203)
+    - [Gave input on the length of animations, as well as crucial bug fixes in the building animation tree](https://github.com/LunariumGame/Lunarium/pull/205)
+  - [Hooked up lose and win screen logic](https://github.com/LunariumGame/Lunarium/pull/189)
+  - [Configured global project settings](https://github.com/LunariumGame/Lunarium/pull/43) (resolution, load screen, logo, etc.)
 
 
 ## Wen Kai Yiang ([wk-y](https://github.com/wk-y))
@@ -406,3 +420,59 @@ which would globally return the live building node given the id, since a lot of 
 * [Starvation](https://github.com/LunariumGame/Lunarium/pull/109) - kills colonists when food runs out
 * [Win condition check](https://github.com/LunariumGame/Lunarium/pull/107) - win when population target is met
 * [Game loop](https://github.com/LunariumGame/Lunarium/pull/55) - handles game updates between turns
+
+## Set Paing
+
+### Game Logic
+- Organized the project using the "mirrored" directory structure. Scenes live in the `scenes` folder, scripts in the `scripts` folder, and both follow the same layout for clarity.
+- Built a UI stack manager that controls the order of opening and closing windows (e.g., handling ESC/back actions). It tracks all active UI and sets the foundation for the heavier menu interactions in the game.
+- Moved all UI elements out of the main `world` scene into separate scenes like `hud` for cleaner integration.
+- Updated UI nodes to be fully responsive across different aspect ratios, on both windowed and fullscreen modes.
+- Implemented the Main Menu scene.
+- Designed the data flow between major systems such as `game_manager`, `resource_manager`, `building_manager`, etc.
+- Implemented the "building popup" window on the bottom-left corner and set up the data flow between buildings and the UI.
+- Defined the execution order of building logic at end-of-turn (e.g., power plants generate electricity before anything consumes it).
+- Added building upgrade functionality.
+
+### Game Feel
+- Improved the readability of the top-left resource bar.
+- Implemented the max population and electricity cap mechanics.
+- Fixed the issue where buildings could be placed under invalid conditions (lack of required resource, out of bound placements, etc).
+- Cleaned up and streamlined signaling between systems.
+---
+
+### Third-Party Assets
+<u>Fonts</u>  
+<i>[m5x7](https://managore.itch.io/m5x7)</i> by Daniel Linssen - Creative Commons License  
+
+<u>Sprites</u>  
+<i>[Lunarium Title](https://chatgpt.com/)</i> by ChatGPT - Free Use  
+<i>[Rotating Moon](https://deep-fold.itch.io/pixel-planet-generator)</i> by Deep-Fold - MIT License  
+<i>[Settings Cog](https://kenney.nl/assets/mobile-controls)</i> from Kenney.nl - Creative Commons
+
+<u>Shaders</u>  
+<i>[Lightweight Pixel Perfect Outline](https://godotshaders.com/shader/lightweight-pixel-perfect-outline/)</i> by flytrap - Creative Commons
+
+<u>Music</u>  
+<i>[Space Music Pack](https://gooseninja.itch.io/space-music-pack)</i> by Goose Ninja - Free Use  
+
+<u>Effects</u>  
+<i>[Star Twinkle](https://pixabay.com/users/koiroylers-44305058/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=355937)</i> by Koi Roylers, Pixabay - [License](https://pixabay.com/service/license-summary/)
+
+### Original Assets
+<u>Sprites</u>  
+placeholders:  
+<i></i> by Kapila Mhaiskar  
+<i></i> by Kapila Mhaiskar  
+<i></i> by Kapila Mhaiskar  
+<i></i> by Kapila Mhaiskar  
+<i></i> by Kapila Mhaiskar  
+<i></i> by Kapila Mhaiskar  
+<i></i> by Kapila Mhaiskar  
+<i></i> by Kapila Mhaiskar  
+<i></i> by Kapila Mhaiskar  
+<i></i> by Kapila Mhaiskar  
+
+<i>Moon Logo<i> by Joe Vogel      
+<i>Cursor</i> by Joe Vogel  
+<i>Resource icons</i> by Joe Vogel  
