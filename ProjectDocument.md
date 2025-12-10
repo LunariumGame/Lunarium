@@ -284,12 +284,11 @@ game. I'll talk technical details here, since a lot of the game feel is describe
 
 [*AnimationTree for all Building Scenes*](https://github.com/LunariumGame/Lunarium/pull/148) - This is a big one. I spent quite some time putting together an animation tree
 logic which would correspond across the board for all buildings (except for headquarters, which just runs an idle animation during the game). This involves a scened animation
-tree extended across several building scenes. 
+tree extended across several building scenes. Notice there is a "buff" animation here that didn't make it to the base game :(
 
 1) First, the animation player, which contains all of the frames used in our game. It consists of the following keys. I hand-animated each of them.
 <figure>
     <img src="assets/pics/jacob/player_keys.png" width="400" />
-    <figcaption>Notice there is a "buff" animation here that didn't make it to the base game :( </figcaption>
 </figure>
 
 2) Then, the AnimationTree, which uses these animations. This logic is pretty involved, but it effectively defines reasonable transitions between all the building states. Some
