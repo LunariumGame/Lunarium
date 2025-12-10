@@ -250,7 +250,6 @@ Each building contains 2 shared audio sounds (create and destroy), and a unique 
 
 <figure>
     <img src="assets/pics/jacob/scene_tree_audio.png" width="400" />
-    <figcaption>The audio in the shared scene for all buildings</figcaption>
 </figure>
 
 In terms of player interaction with the buildings, I wanted to introduce some neat management for immersion. Most of the code lives in `manage_audio.gd`. Essentially:
