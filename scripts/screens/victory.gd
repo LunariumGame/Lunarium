@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var banner := $VBoxContainer/AnimatedSprite2D
+@onready var banner := $CBoxContainer/AnimatedSprite2D
 @onready var audio := $AudioStreamPlayer
 
 func _ready():
@@ -12,7 +12,7 @@ func _ready():
 	if main_music:
 		main_music.stop()
 	# start victory music
-	audio.play()
+	#audio.play()
 	
 	
 	
@@ -21,7 +21,7 @@ func _ready():
 	
 	# Fade in over 1 second
 	var tween = create_tween()
-	tween.tween_property(banner, "modulate:a", 1.0, 1.0)
+	tween.tween_property(banner, "modulate:a", 1.0, 3.0)
 
 func close():
 	window_manager.pop()
