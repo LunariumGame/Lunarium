@@ -16,6 +16,9 @@ Luckily, you’ve been equipped with LunaBots, which you can control from the ma
 
 ## Gameplay Explanation ##
 
+<details>
+<summary>The Manual</summary>
+
 ### Controls ###
 Lunarium's controls are simple, and consist of WASD or the arrow keys for simple RTS-like movement. Hold shift to scroll faster in the game world. Pan on your trackpad to zoom
 in and out of the game world. Left-click on buttons in the game world to open up their corresponding UI element, or perform an in-game event. If you select a building button, 
@@ -24,23 +27,108 @@ escape to close any UI element you opened. If no other UI is open, it will inste
 
 ### Gameplay Loop ###
 
-Lunarium is a strategy resource
+Lunarium is a resource management and building turn-based strategy game. The player (astronaut) is tasked with managing a colony, and is given a starting allowance to construct 
+buildings which generate various resources that interplay with each other. The astronaut starts with just a headquarters, and must build up their colony accordingly. When the 
+astronaut advances to the next turn, the yield of buildings (indicated in each building panel when it is clicked) will be added to their economy. The astronaut must manage these 
+resources carefully, or they will lock their per-turn resource production. Every two turns, colonists are shipped to the moon by a shuttle, and the astronaut must make sure they 
+can support this population. The astronaut wins the game when they reach a colony population of 100. The astronaut loses the game if their colony starves, and reaches a 
+population of 0.
 
 
 ### Buildings & Resource Types ###
 
+1) Refinery - this building generates iron per-turn. Iron is used to construct all the buildings in the game, including the iron refinery itself. This is an important resource to generate other resources. 2) Reactor - The reactor is capable of generating electricity, which takes effect immediately and is not on a per-turn basis. Electricity goes towards the power grid quota, which is important to keeping buildings powered and functioning properly. More detail on electricity generation can be consulted in the "The Power Grid" section below. 3) Eco Dome - The eco dome generates food on a per-turn basis, and is necessary to keep your colony alive. Failure to supply the appropriate amount of food will cause colonists to die on a per-turn basis. If you lose all your colonists, your colony fails. Details are discussed further in the "Consumption and Starvation" section below including the
+subtleties of their cost.
+
+4) Residence - This building houses colonists, and does not generate any particular resources, but they are important toward winning the game (especially if one wishes to win
+the game quickly). More information in "Colonial Shuttles" on how these buildings work.
+
+5) Headquarters - The headquarters is what the astronaut starts with, and is primarily there for aesthetic (a planned but unimplemented feature was for it to house a tech tree!).
+
+Each building has an intrinsic cost on deployment in terms of iron and electricity, and can be consulted by clicking the building button associated with the given building. 
+Only the reactor does not cost electricity. Both resource costs are extracted immediately during the turn. To see the exact costs, check out the "Upgrading" section.
+
 
 ### Colonial Shuttles ###
+Every two turns, Earth Command sends a shuttle, laden with incoming colonists, to the colony. These colonists need a place to live, or they will be turned back, so the astronaut
+must build residency buildings to support them. The astronaut should carefully monitor their population limitations to ensure they can lodge the incoming colonists. Each 
+residency supports 10 colonists, to start, and each shuttle sends 10 colonists. 
+
+### The Power Grid ###
+The power grid refers to the non-turn based system which in which buildings consume power, inspired by Supreme Commander (but certainly not as complicated). Buildings require
+power, and if the astronaut exceeds their
+
+### Consumption and Starvation ###
 
 
 ### Upgrading ###
+| Cost (Iron) | Production | Power Draw |
+| :------ | :---------- | :------ |
+| Bold    | Highlight important text | **Important** |
+| Italic  | Emphasize words or phrases | *Emphasized* |
+| Code    | Display inline code | `print("Hello")` |
+
+refinery
+cost
+10
+15
+20
+prod
+4
+8
+12
+power
+10
+15
+20
+
+
+plant
+10
+15
+20
+prod
+10
+20
+30
+
+
+
+residential
+cost
+10
+15
+20
+prod
+20
+40
+80
+power
+10
+15
+20
+
+eco_dome
+production
+10
+20
+30
+power_table
+10
+15
+20
+cost
+10
+15
+20
 
 
 ### Destroying ### 
 
 ### Turn-based Strategies ###
 
-### The Power Grid ###
+</details>
+
 
 # External Code, Ideas, and Structure #
 
