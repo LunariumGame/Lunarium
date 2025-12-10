@@ -154,6 +154,8 @@ Add addition contributions int he Other Contributions section.
 
 ## Jacob Feenstra - [Hawkhobo](https://github.com/Hawkhobo) ##
 
+Note I will organize everything in a list and by Pull Request (where PRs are applicable), so that you can quickly see exactly what code is submitted.
+
 ### Producer ###
 
 <details>
@@ -162,51 +164,118 @@ Add addition contributions int he Other Contributions section.
 I really enjoyed my role as producer, and the minutiae of managing a team creating a full-stack software
 application :). I'll go ahead and list things chronologically and evidently.
 
-*Discord Server* - Initially, I organized and set up our Discord within the first few days of our team being assembled. We have used it extensively since (and I mean _really_ extensively).
+1) *Discord Server* - Initially, I organized and set up our Discord within the first few days of our team being assembled. We have used it extensively since (and I mean _really_ extensively).
 It's become a bit of a commmunity!
 
 <img src="assets/pics/jacob/discord_creation.png" width="400" /> <img src="assets/pics/jacob/discord_messages.png" width="300" />
 
 that's a whole lotta blabbing! I believe it helped us remain communicative from Day 1. Any communication breakdown we experienced was certainly lessened.
 
-*Google Drive* - From there, I setup a Google Drive for the management side of the project, that would help us stay organized and get things done, `ecs_179_team_lunarium`. We collected a 
+2) *Google Drive* - From there, I setup a Google Drive for the management side of the project, that would help us stay organized and get things done, `ecs_179_team_lunarium`. We collected a 
 decent amount of addendum documentation there. 
 
 <img src="assets/pics/jacob/google_drive.png" />
 
-*Weekly Meetings* - One of my larger contributions as producer was hosting weekly meetings, which we kept up for approximately six weeks. We did not meet the last two weeks. I prepared with an
+3) *Weekly Meetings* - One of my larger contributions as producer was hosting weekly meetings, which we kept up for approximately six weeks. We did not meet the last two weeks. I prepared with an
 itinerary prior to each meeting, and would take notes. One of the example weekly meetings is below.
 
 <img src="assets/pics/jacob/example_meeting.png" />
 
-*GitHub Organization* - Then, I set up the GitHub organization that we are currently using. My intent was to make sure that not any one of us "owned" the game, and instead, we were equal partners.
+4) *GitHub Organization* - Then, I set up the GitHub organization that we are currently using. My intent was to make sure that not any one of us "owned" the game, and instead, we were equal partners.
 
 <img src="assets/pics/jacob/lunarium_org.png" />
 
-*GitHub Projects* - I also felt it was important to set up a Gantt chart to stay organized during the course of development, especially due to how involved such a project can be. To keep things
+5) *GitHub Projects* - I also felt it was important to set up a Gantt chart to stay organized during the course of development, especially due to how involved such a project can be. To keep things
 integrated with Github, I tried out the GitHub Projects Roadmap view. I have to admit: I found this feature slightly lackluster (especially because it can't be exported to be
 viewed elsewhere, which feels like a glaring missing feauture...), but after much experimentation, I think it did a fine job of keeping us on track. This is the Projects in it's
 current state (you can also see we didn't implement everything :/):
 
 <img src="assets/pics/jacob/gh_projects.png" />
 
-*GitHub Workflow* - I set up most of the issues in that Projects Roadmap, consulting with my team as I did so, and it really helped us stay organized in the early days and tackle problems
+6) *GitHub Workflow* - I set up most of the issues in that Projects Roadmap, consulting with my team as I did so, and it really helped us stay organized in the early days and tackle problems
 independently. We also extensively used PRs for implementing these issues, among other things. 
 
-*GitHub Actions* - As producer, I also set up a GitHub Actions workflow for automatic deployment to our itch.io page. This was some serious trial & error and wrestling, but I'm happy I did it.
+7) *GitHub Actions* - As producer, I also set up a GitHub Actions workflow for automatic deployment to our itch.io page. This was some serious trial & error and wrestling, but I'm happy I did it.
 I was even able to set it up in such a way that each Repository branch would be built to a different itch.io stream on a push, which was really nice for us to
 test different features in isolation on itch.io. It definitely made things a lot smoother and less scrambly come submission time. You can check it out at 
 `.github/workflows/build-on-push.yaml`. I also set up the itch.io page itself.
 
-*Miscellaneous* - Other producer functions included delegating tasks, handling conflicts between team members, and rallying the team for the final push we had the weekend before the
-demonstration. We had some serious difficulties during the lifetime of this project, but it has been an exceptional learning experience and deeply meaningful to me. I will always
+
+8) *[https://github.com/LunariumGame/Lunarium/pull/211](Documentation)* - I wrote the game's user manual.
+
+9) *Miscellaneous* - Other producer functions included delegating tasks, handling conflicts between team members, and rallying the team for the final push we had the weekend before the
+demonstration. We had some serious difficulties during the lifetime of this project, but it has been an exceptional learning experience and deeply meaningful. I will always
 keep a piece of Lunarium with me I think.
 
 </details>
 
 ### Game Feel ###
 
+<details>
+<summary>Deliverables</summary>
+Game feel was a lot of fun too! I ended up focusing on core system implementation, but fortunately, all of the ones I implemented had the chance to introduce a lot of juice.
+Please refer to "Audio", "Animations", and "Movement/Physics" for more game feel contributions. I feel it is too confusing to try and distill the implementation from the game
+feel, and makes more sense to just have it one place. But I do have some standalone game feel contributions here!
+
+1) *[https://github.com/LunariumGame/Lunarium/pull/204](Cursor Buildings Pulsate)* - I introduced a fun little detail that allows your selected building to pulsate prior to
+  placement. I feel it added quite a bit of feel! It certainly makes the world just that much more lively. The code was adopted from Joe Vogel's code, which makes the logo
+pulsate in our main menu and settings scenes.
+
+
+2) *[https://github.com/LunariumGame/Lunarium/pull/199](Animations for On & Off Buildings)* - This was not quite a complete fix, and Joe would extend the code in a later PR, but
+  it enables buildings to turn on & off (switch between the off animation and the idle animation). We didn't quite have that yet. 
+
+</details>
+
+
 ### Other Contributions ###
+
+#### Audio ####
+
+One of my major contributions, but not necessarily listed on my initial roles, was engineering all of the sound design in the game. I am pretty happy with the finished product,
+even if I wanted to implement even more. Here is a rundown.
+by
+
+1) [https://github.com/LunariumGame/Lunarium/pull/198](*Victory & Defeat Scores*) - Added the score for the victory and defeat cutscenes at the end of the game. Didn't do any
+mixing in Audacity here, since I wanted them to play abruptly.
+
+<ul>
+     <li>S: <a href="https://freesound.org/people/eardeer/sounds/423692/">WeDidIt.wav</a> by <a href="https://freesound.org/people/eardeer/">eardeer</a> | License: <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution NonCommercial 4.0</li>
+     <li>S: <a href="https://freesound.org/people/InAvision/sounds/479259/">Aftermath.aif</a> by <a href="https://freesound.org/people/InAvision/">InAvision</a> | License: <a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons 0</li> 
+</ul>
+
+2) [https://github.com/LunariumGame/Lunarium/pull/196](*Intro Score*) - Here, I included the score for the introductory cutscene in the game. This one _was_ mixed in
+Audacity, in seguing to the main menu of the game.
+
+<ul>
+     <li>S: <a href="https://freesound.org/people/ViraMiller/sounds/747938/">Deep and Mysterious Music for Cosmic Themes</a> by <a href="https://freesound.org/people/ViraMiller/">ViraMiller</a> | License: <a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0</li> 
+</ul>
+
+3) [https://github.com/LunariumGame/Lunarium/pull/175/](*Building Audio and Manager*) - This was the largest contribution for audio, and surprisingly time consuming.
+Each building contains 2 shared audio sounds (create and destroy), and a unique one for when it is selected.
+
+<figure>
+    <img src="assets/pics/jacob/scene_tree_audio.png" of the image for accessibility" width="400" />
+    <figcaption>The audio in the shared scene for all buildings</figcaption>
+</figure>
+
+In terms of player interaction, I wanted to introduce some neat management for
+
+#### Animations (not Visuals) ####
+
+Kapila gets full credit for designing the visuals in Aseprite, but I did build a somewhat sophisticated AnimationTree to manage them, and helped them to feel just right in the
+game. I'll talk technical details here, since a lot of the game feel is described earlier.
+
+1)
+
+#### Movement/Physics ####
+
+I was fortunate enough to implement the building placement system in the game, which I have decreed our "physics system". It took a lot of push-and-pull, and I even fully 
+refactored it at one point (with help of Wen Kai's suggestions). I think the final product is was quite significant & neat! I'll describe it below.
+
+1)
+
+
 
 # Joe Vogel #
 
