@@ -1,5 +1,3 @@
-# Lunarium #
-
 ## Summary ##
 In Lunarium, you are a lone astronaut sent on a daring mission to establish the first colony on the moon.
 
@@ -158,19 +156,53 @@ Add addition contributions int he Other Contributions section.
 
 ### Producer ###
 
+<details>
+<summary>Deliverables</summary>
+
 I really enjoyed my role as producer, and the minutiae of managing a team creating a full-stack software
 application :). I'll go ahead and list things chronologically and evidently.
 
-1) Initially, I organized and set up our Discord within the first few days of our team being assembled. We have used it extensively since (and I mean _really_ extensively)
+*Discord Server* - Initially, I organized and set up our Discord within the first few days of our team being assembled. We have used it extensively since (and I mean _really_ extensively).
+It's become a bit of a commmunity!
 
 <img src="assets/pics/jacob/discord_creation.png" width="400" /> <img src="assets/pics/jacob/discord_messages.png" width="300" />
 
 that's a whole lotta blabbing! I believe it helped us remain communicative from Day 1. Any communication breakdown we experienced was certainly lessened.
 
-2) From there, I setup a Google Drive for the management side of the project, that would help us stay organized and get things done, `ecs_179_team_lunarium`. We collected a 
+*Google Drive* - From there, I setup a Google Drive for the management side of the project, that would help us stay organized and get things done, `ecs_179_team_lunarium`. We collected a 
 decent amount of addendum documentation there. 
 
 <img src="assets/pics/jacob/google_drive.png" />
+
+*Weekly Meetings* - One of my larger contributions as producer was hosting weekly meetings, which we kept up for approximately six weeks. We did not meet the last two weeks. I prepared with an
+itinerary prior to each meeting, and would take notes. One of the example weekly meetings is below.
+
+<img src="assets/pics/jacob/example_meeting.png" />
+
+*GitHub Organization* - Then, I set up the GitHub organization that we are currently using. My intent was to make sure that not any one of us "owned" the game, and instead, we were equal partners.
+
+<img src="assets/pics/jacob/lunarium_org.png" />
+
+*GitHub Projects* - I also felt it was important to set up a Gantt chart to stay organized during the course of development, especially due to how involved such a project can be. To keep things
+integrated with Github, I tried out the GitHub Projects Roadmap view. I have to admit: I found this feature slightly lackluster (especially because it can't be exported to be
+viewed elsewhere, which feels like a glaring missing feauture...), but after much experimentation, I think it did a fine job of keeping us on track. This is the Projects in it's
+current state (you can also see we didn't implement everything :/):
+
+<img src="assets/pics/jacob/gh_projects.png" />
+
+*GitHub Workflow* - I set up most of the issues in that Projects Roadmap, consulting with my team as I did so, and it really helped us stay organized in the early days and tackle problems
+independently. We also extensively used PRs for implementing these issues, among other things. 
+
+*GitHub Actions* - As producer, I also set up a GitHub Actions workflow for automatic deployment to our itch.io page. This was some serious trial & error and wrestling, but I'm happy I did it.
+I was even able to set it up in such a way that each Repository branch would be built to a different itch.io stream on a push, which was really nice for us to
+test different features in isolation on itch.io. It definitely made things a lot smoother and less scrambly come submission time. You can check it out at 
+`.github/workflows/build-on-push.yaml`. I also set up the itch.io page itself.
+
+*Miscellaneous* - Other producer functions included delegating tasks, handling conflicts between team members, and rallying the team for the final push we had the weekend before the
+demonstration. We had some serious difficulties during the lifetime of this project, but it has been an exceptional learning experience and deeply meaningful to me. I will always
+keep a piece of Lunarium with me I think.
+
+</details>
 
 ### Game Feel ###
 
