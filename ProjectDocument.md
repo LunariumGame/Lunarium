@@ -161,10 +161,9 @@ Add addition contributions int he Other Contributions section.
 I really enjoyed my role as producer, and the minutiae of managing a team creating a full-stack software
 application :). I'll go ahead and list things chronologically and evidently.
 
-1) Initially, I organized and set up our Discord within the first few days of our team being assembled. We have used it extensively since (and I mean _really_ exte
-nsively)
+1) Initially, I organized and set up our Discord within the first few days of our team being assembled. We have used it extensively since (and I mean _really_ extensively)
 
-<img src="assets/pics/jacob/discord_creation.png" width="400" height="400"/> <img src="assets/pics/jacob/discord_messages.png" width="400" height="400" />
+<img src="assets/pics/jacob/discord_creation.png" width="400" /> <img src="assets/pics/jacob/discord_messages.png" width="300" />
 
 that's a whole lotta blabbing! I believe it helped us remain communicative from Day 1. Any communication breakdown we experienced was certainly lessened.
 
