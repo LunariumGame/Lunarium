@@ -164,7 +164,7 @@ application :). I'll go ahead and list things chronologically and evidently.
 1) Initially, I organized and set up our Discord within the first few days of our team being assembled. We have used it extensively since (and I mean _really_ exte
 nsively)
 
-![timestamp of discord server creation](assets/pics/jacob/discord_creation.png "Discord Inception") ![discord server usage](assets/pics/jacob/discord_messages.png "A Whole Lotta Chatting")
+![timestamp of discord server creation](assets/pics/jacob/discord_creation.png "Discord Inception" =75%x) ![discord server usage](assets/pics/jacob/discord_messages.png "A Whole Lotta Chatting" =20%x)
 
 that's a whole lotta blabbing! I believe it helped us remain communicative from Day 1. Any communication breakdown we experienced was certainly lessened.
 
