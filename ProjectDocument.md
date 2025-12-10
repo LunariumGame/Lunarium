@@ -394,7 +394,14 @@ which would globally return the live building node given the id, since a lot of 
    * [Button scaling](https://github.com/LunariumGame/Lunarium/pull/102) - scaling of the next turn button
 * [Cursor scaling](https://github.com/LunariumGame/Lunarium/pull/149)
    * Scale cursor based on screen resolution
-   * Shake to find cursor
+   * Shake to enlarge cursor
+
+Checklist (some implemented by UI team):
+
+- [x] Sound mixing can be adjusted
+- [x] [WCAG text color contrast standards met](https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=4C5844)
+- [x] UI scale adjustable
+- [x] Assist in finding cursor by enlarging it when shaken (both useful and fun)
 
 ### Core game mechanics
 * [Population growth shuttle](https://github.com/LunariumGame/Lunarium/pull/113) - provides the colony with population increases
