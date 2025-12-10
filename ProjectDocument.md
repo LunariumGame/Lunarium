@@ -201,11 +201,11 @@ test different features in isolation on itch.io. It definitely made things a lot
 `.github/workflows/build-on-push.yaml`. I also set up the itch.io page itself.
 
 
-8) *[https://github.com/LunariumGame/Lunarium/pull/211](Documentation)* - I wrote the game's user manual.
+8) [*Documentation*](https://github.com/LunariumGame/Lunarium/pull/211) - I wrote the game's user manual.
 
-9) *Miscellaneous* - Other producer functions included delegating tasks, handling conflicts between team members, and rallying the team for the final push we had the weekend before the
-demonstration. We had some serious difficulties during the lifetime of this project, but it has been an exceptional learning experience and deeply meaningful. I will always
-keep a piece of Lunarium with me I think.
+9) *Miscellaneous* - Other producer functions included delegating tasks, handling conflicts between team members, and rallying the team for the final push we had the weekend 
+before the demonstration. We had some serious difficulties during the lifetime of this project, but it has been an exceptional learning experience and deeply meaningful. 
+I will always keep a piece of Lunarium with me I think.
 
 </details>
 
@@ -217,12 +217,12 @@ Game feel was a lot of fun too! I ended up focusing on core system implementatio
 Please refer to "Audio", "Animations", and "Movement/Physics" for more game feel contributions. I feel it is too confusing to try and distill the implementation from the game
 feel, and makes more sense to just have it one place. But I do have some standalone game feel contributions here!
 
-1) *[https://github.com/LunariumGame/Lunarium/pull/204](Cursor Buildings Pulsate)* - I introduced a fun little detail that allows your selected building to pulsate prior to
+1) [*Cursor Buildings Pulsate*](https://github.com/LunariumGame/Lunarium/pull/204) - I introduced a fun little detail that allows your selected building to pulsate prior to
   placement. I feel it added quite a bit of feel! It certainly makes the world just that much more lively. The code was adopted from Joe Vogel's code, which makes the logo
 pulsate in our main menu and settings scenes.
 
 
-2) *[https://github.com/LunariumGame/Lunarium/pull/199](Animations for On & Off Buildings)* - This was not quite a complete fix, and Joe would extend the code in a later PR, but
+2) [*Animations for On & Off Buildings*](https://github.com/LunariumGame/Lunarium/pull/199) - This was not quite a complete fix, and Joe would extend the code in a later PR, but
   it enables buildings to turn on & off (switch between the off animation and the idle animation). We didn't quite have that yet. 
 
 3) [*Fix Building Collisions*](https://github.com/LunariumGame/Lunarium/pull/143) - I needed to tune the Area2D of each building slightly for proper placement on the grid.
@@ -288,11 +288,6 @@ tree extended across several building scenes.
 
 1) First, the animation player, which contains all of the frames used in our game. It consists of the following keys. I hand-animated each of them.
 <figure>
-    <img src="assets/pics/jacob/animation_tree.png" width="800" />
-    <figcaption>Once again, the lost buff animation...</figcaption>
-</figure>
-
-<figure>
     <img src="assets/pics/jacob/player_keys.png" width="400" />
     <figcaption>Notice there is a "buff" animation here that didn't make it to the base game :( </figcaption>
 </figure>
@@ -302,7 +297,6 @@ play automatically, others wait, and even others are slightly blended. I think t
 
 <figure>
     <img src="assets/pics/jacob/animation_tree.png" width="800" />
-    <figcaption>Once again, the lost buff animation...</figcaption>
 </figure>
 
 3) I then created an autoloaded API to invoke the animation tree relatively easy anywhere in the project, which I thought was pretty handy for the rest of the team. By passing
