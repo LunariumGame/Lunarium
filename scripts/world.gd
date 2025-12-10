@@ -6,14 +6,14 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Signals.opening_movie_stopped.connect(_on_opening_movie_end)
+	Signals.opening_movie_stopped_from_intro.connect(_on_opening_movie_end)
 	
 	# window_manager needs these
 	window_manager.set_ui_root($UI/PopupWindowHolder)
 	window_manager.set_main_menu_holder($UI/MainMenuHolder)
 	
 	# play opening movie
-	Signals.opening_movie_started.emit()
+	Signals.opening_movie_started_from_intro.emit()
 	
 	#window_manager.open_main_menu_screen()
 

@@ -1,8 +1,14 @@
 extends CanvasLayer
 
+# enum to store from where the opening movie was played
+enum Callers {START, GALLERY}
+
 @onready var movie := $CBoxContainer/VideoStreamPlayer
 @onready var score := $IntroScore
 @onready var star_twinkle: AudioStreamPlayer = $StarTwinkle
+
+
+var caller:int = -1
 
 func _ready():
 	# wait some time for the opening screen to go away
@@ -24,8 +30,14 @@ func _on_movie_end():
 
 func close():
 	score.stop()
+	
 	# signal that movie has ended
-	Signals.opening_movie_stopped.emit()
+	# if opened in the intro
+	if caller == Callers.START:
+		Signals.opening_movie_stopped_from_intro.emit()
+	#elif caller == Callers.GALLERY:
+		
+		
 	window_manager.pop()
 	# play main game music again
 	var main_music := get_node("/root/World/Audio/Music")
