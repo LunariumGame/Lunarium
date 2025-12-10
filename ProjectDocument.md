@@ -107,10 +107,10 @@ If you misplace a building, or simply wish to remove it, you can do so by clicki
 
 ### Turn-based Strategies ###
 We list a few strategies below to get you started (but we don't want to spoil the whole game :-) ):
-* First, monitor your power grid carefully. Ensure that you are not needlessly constructing buildings that can't be powered on the current turn
+* First, monitor your power grid carefully. Ensure that you are not needlessly constructing buildings that can't be powered on the current turn.
 * Get some food quick to support incoming colonists! Watch that shuttle every 2 turns. When the colonists come in, you want to be able to feed them (this is the easiest resource
   to forget about, we have found).
-* Get a running refinery up immediately. It is a factor of 4 resource generation greater than the standalone headquarters.
+* Get a running refinery up immediately. It produces iron 4.0x higher than the standalone headquarters.
 
 </details>
 
