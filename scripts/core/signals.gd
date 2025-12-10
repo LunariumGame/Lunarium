@@ -32,8 +32,8 @@ signal settings_closed()
 signal building_selected()
 
 ## Emitted when the opening movie is opened/closed
-signal opening_movie_started()
-signal opening_movie_stopped()
+signal opening_movie_started_from_intro()
+signal opening_movie_stopped_from_intro()
 
 ## Emitted when the game is won
 signal game_won()
