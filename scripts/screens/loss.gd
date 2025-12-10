@@ -19,7 +19,7 @@ func _ready():
 	if main_music:
 		main_music.stop()
 	# start victory music
-	#audio.play()
+	audio.play()
 
 
 func close():
