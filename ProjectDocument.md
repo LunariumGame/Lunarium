@@ -139,7 +139,7 @@ We ultimately took a different approach for scaling.
 
 # Team Member Contributions
 
-## Jacob Feenstra - [Hawkhobo](https://github.com/Hawkhobo) ##
+## Jacob Feenstra ([Hawkhobo](https://github.com/Hawkhobo)) ##
 
 Note I will organize everything in a list and by Pull Request (where PRs are applicable), so that you can quickly see exactly what code is submitted.
 
