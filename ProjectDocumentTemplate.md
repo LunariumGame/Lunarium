@@ -10,17 +10,37 @@ Luckily, you’ve been equipped with LunaBots, which you can control from the ma
 
 ## Project Resources
 
-[Web-playable version of your game.](https://itch.io/)  
-[Trailor](https://youtube.com)  
-[Press Kit](https://dopresskit.com/)  
-[Proposal: make your own copy of the linked doc.](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)  
+[Itch.io](https://itch.io/)  
+[Trailer](https://www.youtube.com/watch?v=dQwvocwWPB8)  
+[Proposal](https://docs.google.com/document/d/1BND99DF8VDu08BmWQeBlosrSl8PL4FcekbvLlHaypSw/edit?tab=t.0#heading=h.i3tv2mxf7h7z)  
 
 ## Gameplay Explanation ##
 
-**In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
+### Controls ###
+Lunarium's controls are simple, and consist of WASD or the arrow keys for simple RTS-like movement. Hold shift to scroll faster in the game world. Pan on your trackpad to zoom
+in and out of the game world. Left-click on buttons in the game world to open up their corresponding UI element, or perform an in-game event. If you select a building button, 
+press left-click again to attempt to place a building in the world. Right-click or Escape, while holding the building, will delete the building from your cursor. Press 
+escape to close any UI element you opened. If no other UI is open, it will instead open the in-game settings menu.
+
+### Gameplay Loop ###
+
+Lunarium is a strategy resource
 
 
-**Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
+### Buildings & Resource Types ###
+
+
+### Colonial Shuttles ###
+
+
+### Upgrading ###
+
+
+### Destroying ### 
+
+### Turn-based Strategies ###
+
+### The Power Grid ###
 
 # External Code, Ideas, and Structure #
 
