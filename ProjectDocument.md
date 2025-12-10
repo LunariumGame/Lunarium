@@ -161,11 +161,17 @@ Add addition contributions int he Other Contributions section.
 This is going to be a difficult one to document, but I'll try my best. I really enjoyed my role as producer, and the minutiae of managing a team creating a full-stack software
 application :). I'll go ahead and list things chronologically and evidently.
 
-1) Initially, I organized the team and set up our Discord within the first few days of our team being assembled. We have used it extensively since (and I mean _really_ exte
+1) Initially, I organized and set up our Discord within the first few days of our team being assembled. We have used it extensively since (and I mean _really_ exte
 nsively)
 
-![assets/pics/jacob/discord_creation.png](image1.png "Discord Inception") ![alt-text-2](image2.png "title-2")
+![timestamp of discord server creation](assets/pics/jacob/discord_creation.png "Discord Inception") ![discord server usage](assets/pics/jacob/discord_messages.png "A Whole Lotta Chatting")
 
+that's a whole lotta blabbing! I believe it helped us remain communicative from Day 1. Any communication breakdown we experienced was certainly lessened.
+
+2) From there, I setup a Google Drive for the management side of the project, that would help us stay organized and get things done, `ecs_179_team_lunarium`. We collected a 
+decent amount of addendum documentation there. 
+
+![picture of google drive](assets/pics/jacob/google_drive.png "Our Google Drive")
 
 
 ### Game Feel ###
