@@ -171,7 +171,7 @@ that's a whole lotta blabbing! I believe it helped us remain communicative from 
 2) From there, I setup a Google Drive for the management side of the project, that would help us stay organized and get things done, `ecs_179_team_lunarium`. We collected a 
 decent amount of addendum documentation there. 
 
-![picture of google drive](assets/pics/jacob/google_drive.png "Our Google Drive")
+<img src="assets/pics/jacob/google_drive.png" width="200" height="200" />
 
 
 ### Game Feel ###
