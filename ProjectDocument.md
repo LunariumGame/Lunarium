@@ -237,3 +237,22 @@ Add addition contributions int he Other Contributions section.
 * [Starvation](https://github.com/LunariumGame/Lunarium/pull/109) - kills colonists when food runs out
 * [Win condition check](https://github.com/LunariumGame/Lunarium/pull/107) - win when population target is met
 * [Game loop](https://github.com/LunariumGame/Lunarium/pull/55) - handles game updates between turns
+
+## Set Paing
+
+### Game Logic
+- Organized the project using the "mirrored" directory structure. Scenes live in the `scenes` folder, scripts in the `scripts` folder, and both follow the same layout for clarity.
+- Built a UI stack manager that controls the order of opening and closing windows (e.g., handling ESC/back actions). It tracks all active UI and sets the foundation for the heavier menu interactions in the game.
+- Moved all UI elements out of the main `world` scene into separate scenes like `hud` for cleaner integration.
+- Updated UI nodes to be fully responsive across different aspect ratios, on both windowed and fullscreen modes.
+- Implemented the Main Menu scene.
+- Designed the data flow between major systems such as `game_manager`, `resource_manager`, `building_manager`, etc.
+- Implemented the "building popup" window on the bottom-left corner and set up the data flow between buildings and the UI.
+- Defined the execution order of building logic at end-of-turn (e.g., power plants generate electricity before anything consumes it).
+- Added building upgrade functionality.
+
+### Game Feel
+- Improved the readability of the top-left resource bar.
+- Implemented the max population and electricity cap mechanics.
+- Fixed the issue where buildings could be placed under invalid conditions (lack of required resource, out of bound placements, etc).
+- Cleaned up and streamlined signaling between systems.
