@@ -141,7 +141,7 @@ We ultimately took a different approach for scaling.
 
 ## Jacob Feenstra ([Hawkhobo](https://github.com/Hawkhobo)) ##
 
-Note I will organize everything in a list and by Pull Request (where PRs are applicable), so that you can quickly see exactly what code is submitted.
+Note I will organize everything in a list and by Pull Request (where PRs are applicable), so that you can quickly see exactly what code is submitted. Click on the toggles below.
 
 ### Producer ###
 
