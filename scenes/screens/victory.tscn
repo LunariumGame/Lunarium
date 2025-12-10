@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://qgwiwb7gjqpd" path="res://scripts/screens/victory.gd" id="1_63tvk"]
 [ext_resource type="Texture2D" uid="uid://c0cg5c504fhb5" path="res://assets/sprites/cutscenes/ending_cutscenes/victory_cutscene.png" id="2_62pnk"]
-[ext_resource type="AudioStream" uid="uid://b8tghw4hyu0qw" path="res://assets/audio/victory_score_new.mp3" id="3_omuyy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_62pnk"]
 atlas = ExtResource("2_62pnk")

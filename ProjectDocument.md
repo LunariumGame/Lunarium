@@ -225,10 +225,17 @@ pulsate in our main menu and settings scenes.
 2) *[https://github.com/LunariumGame/Lunarium/pull/199](Animations for On & Off Buildings)* - This was not quite a complete fix, and Joe would extend the code in a later PR, but
   it enables buildings to turn on & off (switch between the off animation and the idle animation). We didn't quite have that yet. 
 
+3) [*Fix Building Collisions*](https://github.com/LunariumGame/Lunarium/pull/143) - I needed to tune the Area2D of each building slightly for proper placement on the grid.
+Basically, if placement is disallowed due to collisions, then the Area2D's cannot simply be diretly adjacent to each other, as they touch on an edge. I tuned the area size to be
+  98%, and that seemed to do the trick.
+
 </details>
 
 
 ### Other Contributions ###
+
+<details>
+<summary>Deliverables</summary>
 
 #### Audio ####
 
@@ -236,7 +243,7 @@ One of my major contributions, but not necessarily listed on my initial roles, w
 even if I wanted to implement even more. Here is a rundown.
 by
 
-1) [https://github.com/LunariumGame/Lunarium/pull/198](*Victory & Defeat Scores*) - Added the score for the victory and defeat cutscenes at the end of the game. Didn't do any
+1) [*Victory & Defeat Scores*](https://github.com/LunariumGame/Lunarium/pull/198) - Added the score for the victory and defeat cutscenes at the end of the game. Didn't do any
 mixing in Audacity here, since I wanted them to play abruptly.
 
 <ul>
@@ -244,36 +251,97 @@ mixing in Audacity here, since I wanted them to play abruptly.
      <li>S: <a href="https://freesound.org/people/InAvision/sounds/479259/">Aftermath.aif</a> by <a href="https://freesound.org/people/InAvision/">InAvision</a> | License: <a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons 0</li> 
 </ul>
 
-2) [https://github.com/LunariumGame/Lunarium/pull/196](*Intro Score*) - Here, I included the score for the introductory cutscene in the game. This one _was_ mixed in
+2) [*Intro Score*](https://github.com/LunariumGame/Lunarium/pull/196) - Here, I included the score for the introductory cutscene in the game. This one _was_ mixed in
 Audacity, in seguing to the main menu of the game.
 
 <ul>
      <li>S: <a href="https://freesound.org/people/ViraMiller/sounds/747938/">Deep and Mysterious Music for Cosmic Themes</a> by <a href="https://freesound.org/people/ViraMiller/">ViraMiller</a> | License: <a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0</li> 
 </ul>
 
-3) [https://github.com/LunariumGame/Lunarium/pull/175/](*Building Audio and Manager*) - This was the largest contribution for audio, and surprisingly time consuming.
+3) [*Building Audio and Manager*](https://github.com/LunariumGame/Lunarium/pull/175/) - This was the largest contribution for audio, and surprisingly time consuming.
 Each building contains 2 shared audio sounds (create and destroy), and a unique one for when it is selected.
 
 <figure>
-    <img src="assets/pics/jacob/scene_tree_audio.png" of the image for accessibility" width="400" />
+    <img src="assets/pics/jacob/scene_tree_audio.png" width="400" />
     <figcaption>The audio in the shared scene for all buildings</figcaption>
 </figure>
 
-In terms of player interaction, I wanted to introduce some neat management for
+In terms of player interaction with the buildings, I wanted to introduce some neat management for immersion. Most of the code lives in `manage_audio.gd`. Essentially:
+1) The creation sound will not be interrupted when a building is placed in the world
+2) For a single building, a player cannot repeatedly "spam" a particular sound
+3) For a single building, triggering a new sound will interrupt the old sound (unless it is the original creation sound)
+4) Different buildings can play different sounds at the same time, with no upper bound.
+5) Each building has it's own positional audio in the environment.
 
-#### Animations (not Visuals) ####
+<ul>
+     <li>S: <a href="https://freesound.org/people/ViraMiller/sounds/747938/">Deep and Mysterious Music for Cosmic Themes</a> by <a href="https://freesound.org/people/ViraMiller/">ViraMiller</a> | License: <a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0</li> 
+</ul>
+
+#### Animations & Visuals Logic ####
 
 Kapila gets full credit for designing the visuals in Aseprite, but I did build a somewhat sophisticated AnimationTree to manage them, and helped them to feel just right in the
 game. I'll talk technical details here, since a lot of the game feel is described earlier.
 
-1)
+[*AnimationTree for all Building Scenes*](https://github.com/LunariumGame/Lunarium/pull/148) - This is a big one. I spent quite some time putting together an animation tree
+logic which would correspond across the board for all buildings (except for headquarters, which just runs an idle animation during the game). This involves a scened animation
+tree extended across several building scenes. 
+
+1) First, the animation player, which contains all of the frames used in our game. It consists of the following keys. I hand-animated each of them.
+<figure>
+    <img src="assets/pics/jacob/animation_tree.png" width="800" />
+    <figcaption>Once again, the lost buff animation...</figcaption>
+</figure>
+
+<figure>
+    <img src="assets/pics/jacob/player_keys.png" width="400" />
+    <figcaption>Notice there is a "buff" animation here that didn't make it to the base game :( </figcaption>
+</figure>
+
+2) Then, the AnimationTree, which uses these animations. This logic is pretty involved, but it effectively defines reasonable transitions between all the building states. Some
+play automatically, others wait, and even others are slightly blended. I think the finished product is pretty cool.
+
+<figure>
+    <img src="assets/pics/jacob/animation_tree.png" width="800" />
+    <figcaption>Once again, the lost buff animation...</figcaption>
+</figure>
+
+3) I then created an autoloaded API to invoke the animation tree relatively easy anywhere in the project, which I thought was pretty handy for the rest of the team. By passing
+in an enum (OFF, DELETE, CREATE, UPGRADE, BUFFED, IDLE) you can get the animation you want. The upgrade level is automatically resolved by referencing the building scene's 
+current upgrade level in the script. `travel()` is also called internally. All you need to do is is call `update_animation()` with the enum in the part of the game logic you're
+interested in! (NOTE: there was an edge case between create -> off transition that explicitly required an auto playback conditional, due to conflicting animations. Joe implemented that. It can be viewed in `building.gd`)
+
+
+
 
 #### Movement/Physics ####
 
 I was fortunate enough to implement the building placement system in the game, which I have decreed our "physics system". It took a lot of push-and-pull, and I even fully 
-refactored it at one point (with help of Wen Kai's suggestions). I think the final product is was quite significant & neat! I'll describe it below.
+refactored it at one point (with help of Wen Kai's suggestions). I think the final product is was quite significant & neat! I'll just go over the big, final PR:
 
-1)
+[*Animation Keyframes for Buildings, Refactoring Building Cursor*](https://github.com/LunariumGame/Lunarium/pull/139) - This was my most difficult PR and touched many systems,
+but effectivey, Wen Kai helped me realize the building cursors (what I classified as the transparent building that follows the in-game cursor when the player clicks to build a
+buildig) were a bit overengineered. I agreed and was not happy with it. This also naturally came to fruition when I was adding the frames from the spritesheets, and realized I
+wanted an Area2D environment for each building. After much difficulty, I got it to work. I spent literal days trying to figure out canvas layer translations (translating between
+coordinate spaces in Godot is really nasty, turns out). I had multiple canvas layers enforcing the z-index locations for the cursor building, the placed buildings, the world, the
+UI, etc. I ended up ripping all of that out when I realized z-index was an intrinsic value native to each node (I am not sure how I missed this, I wish I didn't, but all's well
+ends well).  I also refactored for placement disallowment to simply be Area2D overlaps between the Building type, which involved translating the cursor building's coordinates out
+of the HUD canvas layer and into the world. There's a lot of work that went into this system. Here's more relevant PRs in chronological order if you wish to
+get situated with the code:
+
+1) [*Backend Building Asset DB & Building Cursor Functionality*](https://github.com/LunariumGame/Lunarium/pull/75) - Very first PR, a lot of code. Much was refactored, and the
+asset DB was ultimately removed. The core building cursor logic stayed the same, but there was much refactoring in approach in the big PR above. Also includes an active button
+tracker so that the player can easily switch between cursor buildings when clicking between buttons.
+
+2) [*Building Snap Placement & Placement Restriction*](https://github.com/LunariumGame/Lunarium/pull/88) - Moving the building with your cursor creates a grid-like snapping
+movement, in the style of older RTS games (inspired mostly by Age of Empires II, one of the best games ever made). It doesn't do this for other gametime events, which felt
+important. Also the first stab at restricting building placement on the map.
+
+#### Miscellaneous ####
+
+1) [*Fetch Building Node util*](https://github.com/LunariumGame/Lunarium/pull/172) - All the buildings in the game are mapped to a unique whole integer, an `id`. I made a method
+which would globally return the live building node given the id, since a lot of our frontend just uses the id. I actually didn't end up using it all too much.
+
+</details>
 
 
 
