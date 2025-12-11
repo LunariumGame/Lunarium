@@ -224,7 +224,7 @@ Basically, if placement is disallowed due to collisions, then the Area2D's canno
 #### Audio ####
 
 One of my major contributions, but not necessarily listed on my initial roles, was engineering all of the sound design in the game. I am pretty happy with the finished product,
-even if I wanted to implement even more. Here is a rundown.
+even if I wanted to implement even more. I used Audacity extensively to tweak audio just right. Here is a rundown.
 
 1) [*Victory & Defeat Scores*](https://github.com/LunariumGame/Lunarium/pull/198) - Added the score for the victory and defeat cutscenes at the end of the game. Didn't do any
 mixing in Audacity here, since I wanted them to play abruptly.
@@ -593,6 +593,8 @@ Made drastic improvements to the efficiency of the BuildingManager class followi
 <u>Effects</u>  
 <i>[Star Twinkle](https://pixabay.com/users/koiroylers-44305058/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=355937)</i> by Koi Roylers, Pixabay - [License](https://pixabay.com/service/license-summary/)  
 <i>[Typing Sound](https://pixabay.com/sound-effects/keyboard-typing-asmr-356118/)</i> - by DRAGON-STUDIO - Free Use  
+
+* Note more extensive audio attributions can be seen under Jacob Feenstra's contributions section, since most of the in-game audio design was done in Audacity.
 
 ### Original Assets
 <u>Sprites</u>  
