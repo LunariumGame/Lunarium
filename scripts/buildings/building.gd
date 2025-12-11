@@ -20,7 +20,7 @@ extends Node2D
 @export var max_alpha: float = 0.75
 
 var is_cursor: bool = false
-
+var is_destroyed: bool = false
 var building_id: int = -1
 var is_powered: bool
 var current_level: int = 1
@@ -99,6 +99,9 @@ func _get_selection_payload() -> Dictionary:
 
 
 func upgrade_level() -> bool:
+	if is_destroyed:
+		return false
+		
 	var can_upgrade := build_man.try_upgrade(self)
 
 	if can_upgrade:
@@ -112,6 +115,8 @@ func upgrade_level() -> bool:
 func destroy() -> void:
 	$Audio.play_audio($Audio/Destroy)
 	$AnimationTree.update_animation($AnimationTree.StateAction.DELETE)
+	# Ensure upgrade button cannot be pressed while destroy animation plays
+	is_destroyed = true
 	await $AnimationTree.animation_finished
 	# suppress "wonky default frame" AnimationTree throws up at end
 	$Sprite2D.visible = false

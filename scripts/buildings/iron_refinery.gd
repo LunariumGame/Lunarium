@@ -4,17 +4,17 @@ extends Building
 # production rate per turn
 @export var production_table: Array[int] = [
 	0,  # lvl 0
-	4,
-	8,
-	12,
+	3,
+	5,
+	25,
 ]
 
 # power draw per level
 @export var power_table: Array[int] = [
 	0,  # lvl 0
-	10,
+	5,
 	15,
-	20,
+	30,
 ]
 
 func _ready() -> void:

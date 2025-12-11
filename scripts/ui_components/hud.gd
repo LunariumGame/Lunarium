@@ -19,6 +19,7 @@ static var same_building_in_a_row: int
 @onready var currentlyInspectingLabel:Label = %TabButtons/CurrentInspect
 @onready var upgrade: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Upgrade
 @onready var destroy: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Destroy
+@onready var building_cost: Label = $HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/Costs/BuildingCost
 
 var prev_building_id: int
 var selected_building_id: int = -1
@@ -92,16 +93,24 @@ func toggle_panel(system: Systems) -> void:
 
 	# Set currentinyInspecting label to the panel type
 	if system == Systems.BUILDING:
-		currentlyInspectingLabel.text = "NEW BUILDINGS"
+		currentlyInspectingLabel.text = "NEW BUILDING"
 	else:
 		resetCurrInspLabel()
 
 
 func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> void:
 	%InspectorPanel.visible = true
+	
+	# Disable upgrade button if building is max level
+	var building: Building = utils.fetch_building(building_id)
+	if building.current_level == building.max_level || build_man.try_upgrade(building) == false:
+		upgrade.disabled = true
+	else:
+		upgrade.disabled = false
+		
 	flash_inspector_panel()
 	upgrade.visible = true
-	destroy.visible = true
+	#destroy.visible = true #NOTE: Disabled for now until destroy has features
 	# If headquarters, no upgrade/destroy buttons
 	if building_id == -1:
 		upgrade.visible = false
@@ -126,7 +135,7 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 		var value = payload[key]
 		var info_label = Label.new()
 		info_label.theme = load("res://resources/ui/oldsteam.tres")
-		info_label.add_theme_font_size_override("font_size", 36)
+		info_label.add_theme_font_size_override("font_size", 16)
 		info_label.text = str(key) + ": " + str(value)
 		if key == "\n": info_label.text = ""
 		payload_container.add_child(info_label)
@@ -154,6 +163,7 @@ func _on_tech_tree_pressed() -> void:
 
 func _on_building_manager_pressed() -> void:
 	# Untoggle other buttons
+	building_cost.text = "BUILDING COSTS"
 	toggle_panel(Systems.BUILDING)
 
 
@@ -167,7 +177,12 @@ func _on_upgrade_pressed() -> void:
 		return
 	
 	var building: Building = build_man.building_id_to_node[selected_building_id]
+	if building.is_destroyed:
+		return
 	building.upgrade_level()
+	
+	if building.current_level == building.max_level:
+		upgrade.disabled = true
 
 	var payload := building._get_selection_payload()
 	toggle_panel_selected_building(selected_building_id, payload)
@@ -181,6 +196,7 @@ func _on_destroy_pressed() -> void:
 	
 	await building.destroy()
 	Signals.building_stats_changed.emit()
+	Signals.recompute_power_plants.emit()
 
 	selected_building_id = -1
 	close_inspector()

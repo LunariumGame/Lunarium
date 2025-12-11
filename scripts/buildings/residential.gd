@@ -4,17 +4,17 @@ extends Building
 # housing capacity per level
 @export var capacity_table: Array[int] = [
 	0, # lvl 0 unused
-	20,
-	40,
-	80,
+	5,
+	10,
+	25,
 ]
 
 # power draw per level
 @export var power_table: Array[int] = [
 	0, # lvl 0 unused
 	10,
-	15,
 	20,
+	30,
 ]
 
 
