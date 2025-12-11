@@ -48,7 +48,7 @@ the game quickly). More information in "Colonial Shuttles" on how these building
 5) Headquarters - The headquarters is what the astronaut starts with, and is primarily there for aesthetic (a planned but unimplemented feature was for it to house a tech tree!).
 Note this building generates one iron per turn so that the player isn't hardlocked out of the economy if they've made some errors.
 
-Each building has an intrinsic cost on deployment in terms of iron and electricity, and can be consulted by clicking the building button associated with the given building. 
+Each building has an intrinsic cost on deployment in terms of iron, electricity and food, which can be consulted by clicking the building button associated with the given building. 
 Only the reactor does not cost electricity. Both resource costs are extracted immediately during the turn. To see the exact costs, check out the "Upgrading" section.
 
 
@@ -73,39 +73,39 @@ Buildings are upgradeable in their respective building panel. They produce more,
 can be seen below, upgrade-to-upgrade:
 
   #### Refinery ####
-| Cost | Production (Iron) | Power Draw |
+| Cost (Food, Iron) | Production (Iron) | Power Draw |
 | :------ | :----------   | :------    |
-| 10      |     4         | 10         |
-| 15  | 8| 15|
-| 20    | 12| 20|
+| (5, 10)      |     3         | 5         |
+| (10, 20)  | 5| 15|
+| (15, 45)    | 25| 30|
 
   #### Reactor ####
-| Cost    | Production (Electricity) | Power Draw |
+| Cost (Food, Iron)   | Production (Electricity) | Power Draw |
 | :------ | :----------   | :------    |
-| 10      |     10         | 0         |
-| 15  | 20| 0|
-| 20    | 30| 0|
+| (3, 5)      |     10         | 0         |
+| (5, 10)  | 20| 0|
+| (10, 10)    | 30| 0|
 
   #### Residential ####
-| Cost    | Production (Population) | Power Draw |
+| Cost (Food, Iron)    | Production (Population) | Power Draw |
 | :------ | :----------   | :------    |
-| 10      |     20         | 10         |
-| 15  | 40| 15|
-| 20    | 80| 20|
+| (10, 5)      |     5         | 10         |
+| (10, 10)  | 10| 20|
+| (25, 15)    | 25| 30|
 
   #### Eco Dome ####
-| Cost    | Production (Food) | Power Draw |
+| Cost (Food, Iron)    | Production (Food) | Power Draw |
 | :------ | :----------   | :------    |
-| 10      |     10         | 10         |
-| 15  | 20| 15|
-| 20    | 30| 20|
+| (10, 5)      |     3         | 5         |
+| (20, 10)  | 5| 15|
+| (45, 15)    | 25| 30|
 
 ### Turn-based Strategies ###
 We list a few strategies below to get you started (but we don't want to spoil the whole game :-) ):
 * First, monitor your power grid carefully. Ensure that you are not needlessly constructing buildings that can't be powered on the current turn.
 * Get some food quick to support incoming colonists! Watch that shuttle every 2 turns. When the colonists come in, you want to be able to feed them (this is the easiest resource
   to forget about, we have found).
-* Get a running refinery up immediately. It produces iron 4.0x higher than the standalone headquarters.
+* Get a running refinery up immediately. It produces iron far more iron than the standalone headquarters.
 
 </details>
 
