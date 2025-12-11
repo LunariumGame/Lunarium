@@ -369,38 +369,71 @@ which would globally return the live building node given the id, since a lot of 
 
 ### Systems and Tools Engineer
 
-[Tooling documentation](ToolsDocumentation.md)
+[Documentation for our tooling can be found here.](ToolsDocumentation.md)
+
+I designed and implemented the following tools and systems:
 
 * Colorblindness simulator plugin - for use by UI, Asset, and Accessibility roles:
   * [Colorblindness simulator implementation](https://github.com/LunariumGame/Lunarium/pull/39)
   * [Refactor into an editor plugin](https://github.com/LunariumGame/Lunarium/pull/45)
-* Resource engine - stores and updates player's resource counts, handles upgrade modifiers
-  * [Resource engine](https://github.com/LunariumGame/Lunarium/pull/41) - implementation of engine and framework for upgrade modifiers 
-  * [Conditional modifiers](https://github.com/LunariumGame/Lunarium/pull/87) - framework for modifier conditions, implements a modifier to apply based on class
-* Electricity generation mechanics
-  * [Implementation](https://github.com/LunariumGame/Lunarium/pull/80)
-  * [Configuration](https://github.com/LunariumGame/Lunarium/pull/137) - 
-  * [Building debug overlay](https://github.com/LunariumGame/Lunarium/pull/138) - used to debug power status
+* Resource system:
+  * Resource engine - stores and updates player's resource counts, handles upgrade modifiers
+    * [Resource engine](https://github.com/LunariumGame/Lunarium/pull/41) - implementation of engine and framework for upgrade modifiers 
+    * [Conditional modifiers](https://github.com/LunariumGame/Lunarium/pull/87) - framework for modifier conditions, implements a modifier to apply based on class
+  * Electricity generation mechanics
+    * [Implementation](https://github.com/LunariumGame/Lunarium/pull/80)
+    * [Configuration](https://github.com/LunariumGame/Lunarium/pull/137)
+    * [Building debug overlay](https://github.com/LunariumGame/Lunarium/pull/138) - used to debug power status
 * [NotificationManager](https://github.com/LunariumGame/Lunarium/pull/184) - processes event signals into textual notifications
 * [UiScaleManager](https://github.com/LunariumGame/Lunarium/blob/dev/scripts/managers/ui_scale_manager.gd) - manages the current scale setting of the UI
    * [Label scaling](https://github.com/LunariumGame/Lunarium/pull/64) - scales labels
    * [Button scaling](https://github.com/LunariumGame/Lunarium/pull/102) - scales buttons using the theme
-* [Crater background PCG](https://github.com/LunariumGame/Lunarium/pull/140) - randomly placed craters to give the background character
+* [Crater background PCG](https://github.com/LunariumGame/Lunarium/pull/140) - randomly placed craters for a more organic background
 
 ### Accessibility and Usability Design
 
-* UI Scaling
-   * [Label scaling](https://github.com/LunariumGame/Lunarium/pull/64) - scaling of labels in the HUD
-   * [Button scaling](https://github.com/LunariumGame/Lunarium/pull/102) - scaling of the next turn button
-* [Cursor scaling](https://github.com/LunariumGame/Lunarium/pull/149)
-   * Scale cursor based on screen resolution
-   * Shake to find cursor
+I implemented UI scaling and cursor scaling mechanisms.
+I worked closely with the UI team to ensure our UI is accessible.
+
+Checklist (some features were implemented by the UI team):
+
+- [x] Sound mixing can be adjusted
+- [x] [WCAG text color contrast standards met](https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=4C5844)
+- [x] UI scale adjustable
+- [x] Assist in finding cursor by enlarging it when shaken (both useful and fun)
+
+#### Accessibility Comparisons
+
+The following are screenshots demonstrating accessibility improvements made.
+
+##### Contrast
+
+Before contrast improvement:  
+![Screenshot of resource display. The text grey on a pale background. Contrast between foreground and background is insufficient for those with low vision.](document_assets/contrast/before.png)
+
+After contrast improvement:  
+![Screenshot of resource display. The text is bright white on a dark green background. High contrast makes text readable.](document_assets/contrast/after.png)
+
+##### Scale
+
+1x scale:  
+![](document_assets/scaling/1x.png)
+
+Maximum (3x) scale:  
+![](document_assets/scaling/maximum.png)
+
+Due to implementation time constraints, icons were left unscaled.
 
 ### Core game mechanics
 * [Population growth shuttle](https://github.com/LunariumGame/Lunarium/pull/113) - provides the colony with population increases
 * [Starvation](https://github.com/LunariumGame/Lunarium/pull/109) - kills colonists when food runs out
 * [Win condition check](https://github.com/LunariumGame/Lunarium/pull/107) - win when population target is met
 * [Game loop](https://github.com/LunariumGame/Lunarium/pull/55) - handles game updates between turns
+
+### Other contributions
+
+* [Ensured our issue tracker was up to date by creating many of our tracking issues](https://github.com/LunariumGame/Lunarium/issues?q=is%3Aissue%20author%3Awk-y)
+* [Triaged our critical issues](https://github.com/LunariumGame/Lunarium/issues?q=is%3Aissue%20label%3Ap1-critical)
 
 ## Set Paing
 
