@@ -455,6 +455,51 @@ Due to implementation time constraints, icons were left unscaled.
 - Cleaned up and streamlined signaling between systems.
 ---
 
+## Jake Stelly ([BuilderRobot](https://github.com/BuilderRobot)) ##
+
+### Systems Engineer
+
+[Player movement and camera](https://github.com/LunariumGame/Lunarium/blob/a76b21bcdd7e4796f20829fa1d1174d7550700f9/scripts/core/player.gd#L1)
+* Normalized vector movement
+* Position lock camera
+
+[Resource modifiers](https://github.com/LunariumGame/Lunarium/blob/a76b21bcdd7e4796f20829fa1d1174d7550700f9/scripts/ui_components/basic_resource_modifier.gd#L1)
+* [Abstract superclass](https://github.com/LunariumGame/Lunarium/blob/a76b21bcdd7e4796f20829fa1d1174d7550700f9/scripts/ui_components/resource_modifier.gd#L1)
+* Works with ResourceManager to boost the amount of resources given
+* Apply times
+   * Immediately
+   * On build
+   * End of turn
+* Sorted by resource type
+* Stored and manager in a new section of ResourceManager
+
+[Tech tree upgrade resources](https://github.com/LunariumGame/Lunarium/blob/a76b21bcdd7e4796f20829fa1d1174d7550700f9/scripts/ui_components/tech_tree_node.gd#L1)
+* Resource for designing a tech tree spec
+* Cost dictionaries
+* Cost managment and upgrade application logic
+* Mutable list of resource modifiers
+* [Resource class](https://github.com/LunariumGame/Lunarium/blob/a76b21bcdd7e4796f20829fa1d1174d7550700f9/scripts/ui_components/tech_tree_node_spec.gd#L1)
+
+[Building Manager](https://github.com/LunariumGame/Lunarium/blob/a76b21bcdd7e4796f20829fa1d1174d7550700f9/scripts/managers/building_manager.gd#L1)
+ * Dictionary of unique building IDs
+ * Map of existing buildings
+ * Adjacency detection for multi-tile buildings
+ * Total building count sorted by type
+ * Accessors for adjacency, ID, and type
+ * Build functionality with cost management and detection of existing buildings
+ * Query function for implementation with cursor hovering
+ * Cost tracking for building levels
+
+[Upgrade Database](https://github.com/LunariumGame/Lunarium/blob/6274fadce42136adbb985a5803a375f001695c9c/scripts/managers/tech_tree_manager.gd#L1)
+* Automatically load spec resources into a list of wrapper objects
+* Arrange upgrades by tier
+* Random, duplicate-avoiding getUpgrade functions
+
+### Performance Optimization
+Made drastic improvements to the efficiency of the BuildingManager class following the size increase of the map
+* Check out the evolution of my planning, algorithms, and profiling below
+* [Optimization Document](https://docs.google.com/document/d/1KPvbdcfLBMDYctRfjjSjAQSfdUCGkGZ_MBPcH52fjNQ/edit?tab=t.0)
+
 ### Third-Party Assets
 <u>Fonts</u>  
 <i>[m5x7](https://managore.itch.io/m5x7)</i> by Daniel Linssen - Creative Commons License  
