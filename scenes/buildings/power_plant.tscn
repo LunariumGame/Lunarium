@@ -10,9 +10,9 @@
 [sub_resource type="Resource" id="Resource_jn2df"]
 script = ExtResource("3_jn2df")
 cost = Dictionary[int, float]({
-0: 0.0,
+0: 3.0,
 1: 0.0,
-2: 10.0,
+2: 5.0,
 3: 0.0
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"
@@ -20,9 +20,9 @@ metadata/_custom_type_script = "uid://0leikb15bp7y"
 [sub_resource type="Resource" id="Resource_e41u7"]
 script = ExtResource("3_jn2df")
 cost = Dictionary[int, float]({
-0: 0.0,
+0: 5.0,
 1: 0.0,
-2: 15.0,
+2: 10.0,
 3: 0.0
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"
@@ -30,9 +30,9 @@ metadata/_custom_type_script = "uid://0leikb15bp7y"
 [sub_resource type="Resource" id="Resource_ra8a1"]
 script = ExtResource("3_jn2df")
 cost = Dictionary[int, float]({
-0: 0.0,
+0: 10.0,
 1: 0.0,
-2: 20.0,
+2: 10.0,
 3: 0.0
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"

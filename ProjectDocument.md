@@ -100,9 +100,6 @@ can be seen below, upgrade-to-upgrade:
 | 15  | 20| 15|
 | 20    | 30| 20|
 
-### Destroying ### 
-If you misplace a building, or simply wish to remove it, you can do so by clicking the destroy button!
-
 ### Turn-based Strategies ###
 We list a few strategies below to get you started (but we don't want to spoil the whole game :-) ):
 * First, monitor your power grid carefully. Ensure that you are not needlessly constructing buildings that can't be powered on the current turn.
@@ -246,7 +243,7 @@ Audacity, in seguing to the main menu of the game.
 </ul>
 
 3) [*Building Audio and Manager*](https://github.com/LunariumGame/Lunarium/pull/175/) - This was the largest contribution for audio, and surprisingly time consuming.
-Each building contains 2 shared audio sounds (create and destroy), and a unique one for when it is selected.
+Each building contains shared audio sounds for creation, and a unique one for when it is selected.
 
 <figure>
     <img src="assets/pics/jacob/scene_tree_audio.png" width="400" />
@@ -502,7 +499,8 @@ Made drastic improvements to the efficiency of the BuildingManager class followi
 
 ### Third-Party Assets
 <u>Fonts</u>  
-<i>[m5x7](https://managore.itch.io/m5x7)</i> by Daniel Linssen - Creative Commons License  
+<i>[m5x7](https://managore.itch.io/m5x7)</i> by Daniel Linssen - Creative Commons License   
+<i>[Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P?query=2p)</i> by CodeMan38 - SIL Open Font License
 
 <u>Sprites</u>  
 <i>[Lunarium Title](https://chatgpt.com/)</i> by ChatGPT - Free Use  
@@ -516,7 +514,8 @@ Made drastic improvements to the efficiency of the BuildingManager class followi
 <i>[Space Music Pack](https://gooseninja.itch.io/space-music-pack)</i> by Goose Ninja - Free Use  
 
 <u>Effects</u>  
-<i>[Star Twinkle](https://pixabay.com/users/koiroylers-44305058/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=355937)</i> by Koi Roylers, Pixabay - [License](https://pixabay.com/service/license-summary/)
+<i>[Star Twinkle](https://pixabay.com/users/koiroylers-44305058/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=355937)</i> by Koi Roylers, Pixabay - [License](https://pixabay.com/service/license-summary/)  
+<i>[Typing Sound](https://pixabay.com/sound-effects/keyboard-typing-asmr-356118/)</i> - by DRAGON-STUDIO - Free Use  
 
 ### Original Assets
 <u>Sprites</u>  

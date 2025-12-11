@@ -1,11 +1,11 @@
 [gd_resource type="LabelSettings" script_class="ScaleAwareLabelSettings" load_steps=3 format=3 uid="uid://dte7ki6on48e4"]
 
-[ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="1_eo6yd"]
+[ext_resource type="FontFile" uid="uid://b6gud4og1ou5r" path="res://assets/fonts/2P.ttf" id="1_eo6yd"]
 [ext_resource type="Script" uid="uid://bj1omfohfnxvq" path="res://scripts/scale_aware_label_settings.gd" id="1_mp5n8"]
 
 [resource]
 font = ExtResource("1_eo6yd")
-font_size = 48
+font_color = Color(0.9297146, 0.9297147, 0.9297146, 1)
 script = ExtResource("1_mp5n8")
-base_font_size = 48
+base_font_size = 16
 metadata/_custom_type_script = "uid://bj1omfohfnxvq"

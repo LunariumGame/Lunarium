@@ -4,7 +4,7 @@
 [ext_resource type="VideoStream" uid="uid://cdfcqlun2nbus" path="res://assets/sprites/cutscenes/opening_cutscene/open_movie_1920_1080.ogv" id="2_k04th"]
 [ext_resource type="AudioStream" uid="uid://e5bb4ru0x8c6" path="res://assets/audio/intro_score_new.mp3" id="2_lp7o4"]
 [ext_resource type="AudioStream" uid="uid://1f6gojwuhuh5" path="res://assets/audio/sparkle-star.mp3" id="3_5vsyr"]
-[ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="3_mm1mk"]
+[ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="5_k04th"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mm1mk"]
 
@@ -67,12 +67,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SkipButton" type="Button" parent="Control/BotRight/CenterContainer"]
-layout_mode = 2
+[node name="SkipButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -104.0
+offset_right = -22.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
 focus_mode = 0
+theme = ExtResource("5_k04th")
 theme_override_colors/font_color = Color(1, 1, 1, 0.20400001)
-theme_override_fonts/font = ExtResource("3_mm1mk")
-theme_override_font_sizes/font_size = 108
+theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mm1mk")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_mm1mk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_mm1mk")
