@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=45 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
@@ -18,6 +18,7 @@
 [ext_resource type="Theme" uid="uid://daewuul3ri2pl" path="res://resources/ui/hud_theme.tres" id="11_6pkrv"]
 [ext_resource type="PackedScene" uid="uid://62tr4h246vw0" path="res://scenes/buildings/residential.tscn" id="11_ne71y"]
 [ext_resource type="PackedScene" uid="uid://omx3pl3xhdw" path="res://scenes/buildings/iron_refinery.tscn" id="12_2w4nd"]
+[ext_resource type="Script" uid="uid://dhbvj587s8ykb" path="res://scripts/ui_components/button_wrapper.gd" id="12_6iety"]
 [ext_resource type="PackedScene" uid="uid://bmcgkpbcwft3l" path="res://scenes/buildings/power_plant.tscn" id="13_ij283"]
 [ext_resource type="PackedScene" uid="uid://dgfq7odjk1hcx" path="res://scenes/buildings/eco_dome.tscn" id="14_afnkq"]
 [ext_resource type="Theme" uid="uid://b2qodpqbccyb3" path="res://resources/ui/oldsteam.tres" id="18_haqli"]
@@ -342,6 +343,8 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ne71y")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ne71y")
 icon = ExtResource("3_otepx")
 icon_alignment = 1
+script = ExtResource("12_6iety")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
 [node name="BotLeft" type="MarginContainer" parent="HUD"]
 layout_mode = 1
@@ -383,6 +386,8 @@ action_mode = 0
 icon = ExtResource("4_2itkv")
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("12_6iety")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
 [node name="BuildingManager" type="Button" parent="HUD/BotLeft/Box/VBox/TabButtons"]
 texture_filter = 1
@@ -403,6 +408,8 @@ action_mode = 0
 icon = ExtResource("5_fok22")
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("12_6iety")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
 [node name="CurrentInspect" type="Label" parent="HUD/BotLeft/Box/VBox/TabButtons"]
 layout_mode = 2
@@ -555,6 +562,8 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("18_haqli")
 text = "UPGRADE"
+script = ExtResource("12_6iety")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
 [node name="VSeparatorM" type="VSeparator" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy"]
 layout_mode = 2
@@ -568,6 +577,8 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("18_haqli")
 text = "DESTROY"
+script = ExtResource("12_6iety")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
 [node name="VSeparatorR" type="VSeparator" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy"]
 visible = false

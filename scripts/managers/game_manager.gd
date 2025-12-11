@@ -63,6 +63,10 @@ func end_turn() -> void:
 		print_debug("Game loss triggered")
 		Signals.game_lost.emit()
 		return
+		
+	# play next turn only if not won
+	get_tree().get_root().get_node("World/Audio/NextTurn").play()
+
 
 func _win_condition_satisfied() -> bool:
 	var population:int = roundi(resource_manager.get_resource(ResourceManager.ResourceType.POPULATION))
@@ -85,6 +89,10 @@ func _logic_food_consumption_and_starvation() -> void:
 	# apply starvation
 	var starving_colonists:int = population - fed_colonists
 	var deaths:int = ceili(starving_colonists * STARVING_COLONIST_DEATH_RATE_PER_TURN)
+	
+	if deaths != 0:
+		var starvation: AudioStreamPlayer = get_tree().get_root().get_node("World/Audio/Starvation")
+		starvation.play()
 	
 	# apply calculated effects
 	resource_manager.add_precalculated(ResourceManager.ResourceType.FOOD, -COLONIST_CONSUMPTION_PER_TURN * fed_colonists)

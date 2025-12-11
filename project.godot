@@ -38,6 +38,7 @@ ScreenTriggers="*res://scripts/screen_triggers.gd"
 Cursor="*res://scenes/cursor.tscn"
 utils="*res://scripts/util/utils.gd"
 notification_manager="*res://scripts/managers/notification_manager.gd"
+ui_audio_manager="*res://scenes/managers/ui_audio_manager.tscn"
 DebugManager="*res://scripts/managers/debug_manager.gd"
 
 [display]

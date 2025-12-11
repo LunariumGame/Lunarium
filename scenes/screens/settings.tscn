@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bo383rljnyhxr"]
+[gd_scene load_steps=12 format=3 uid="uid://bo383rljnyhxr"]
 
 [ext_resource type="Script" uid="uid://eqg0rjagl3i7" path="res://scripts/screens/settings.gd" id="1_emdcu"]
 [ext_resource type="PackedScene" uid="uid://b84cp341mhqdb" path="res://scenes/ui_components/logo_h_box.tscn" id="2_a6gug"]
@@ -8,6 +8,8 @@
 [ext_resource type="FontFile" uid="uid://b6gud4og1ou5r" path="res://assets/fonts/2P.ttf" id="4_wddno"]
 [ext_resource type="PackedScene" uid="uid://caqswmbla1t2u" path="res://scenes/ui_components/quit_game_button.tscn" id="6_ap0kp"]
 [ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="7_0ct2w"]
+[ext_resource type="Script" uid="uid://dhbvj587s8ykb" path="res://scripts/ui_components/button_wrapper.gd" id="8_wddno"]
+
 
 [sub_resource type="LabelSettings" id="LabelSettings_ph2hq"]
 font = ExtResource("4_wddno")
@@ -215,6 +217,8 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("7_0ct2w")
 text = "RESUME"
+script = ExtResource("8_wddno")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
 [node name="QuitCenter" type="CenterContainer" parent="Settings/MainVBox/Buttons"]
 layout_mode = 2

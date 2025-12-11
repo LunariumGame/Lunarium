@@ -14,6 +14,8 @@ extends Label
 		if is_node_ready():
 			_update_display()
 
+var is_blackout: bool = false
+
 
 func _ready() -> void:
 	# turn end, build, upgrade
@@ -32,12 +34,24 @@ func _update_display() -> void:
 	# Special-case: ELECTRICITY uses usage/capacity
 	if resource == ResourceManager.ResourceType.ELECTRICITY:
 		var usage := game_manager.get_electricity_usage()
-		text = "%d/%d" % [usage, cap]
+		text = "%d / %d" % [usage, cap]
+		
+		if is_blackout and usage == cap:
+				is_blackout = false
+	
+
 		if usage > cap:
+			if not is_blackout:
+				get_tree().get_root().get_node("World/Audio/PowerOff").play()
+				is_blackout = true
 			modulate = Color.RED
 		else:
+			
+			#get_tree().get_root().get_node("World/Audio/PowerOn").play()
 			modulate = Color.WHITE
+			
 		return
+
 
 	# Special-case: POPULATION uses occupied/housing capacity
 	if resource == ResourceManager.ResourceType.POPULATION:

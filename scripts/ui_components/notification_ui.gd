@@ -2,7 +2,6 @@ class_name NotificationUI
 extends PanelContainer
 
 @onready var label: Label = $Label
-#@onready var notification_interval: Timer = $NotificationIntervals
 @onready var notif_sound: AudioStreamPlayer = $NotifSound
 
 

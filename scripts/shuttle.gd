@@ -42,5 +42,5 @@ func _process_shuttle_arrival() -> void:
 		colonists_to_add,
 		ResourceEngine.ApplyTime.ON_TURN_STARTED
 	)
-	
+	get_tree().get_root().get_node("World/Audio/ShuttleArrival").play()
 	Signals.shuttle_arrived.emit(pax)

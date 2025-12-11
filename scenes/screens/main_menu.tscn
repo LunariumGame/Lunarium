@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b84cp341mhqdb" path="res://scenes/ui_components/logo_h_box.tscn" id="3_kacuo"]
 [ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="4_kr80i"]
 [ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="5_e21yp"]
-[ext_resource type="PackedScene" uid="uid://caqswmbla1t2u" path="res://scenes/ui_components/quit_game_button.tscn" id="6_kr80i"]
+[ext_resource type="PackedScene" uid="uid://csjdtvby2iw5h" path="res://scenes/ui_components/quit_game_button.tscn" id="6_kr80i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e21yp"]
 
