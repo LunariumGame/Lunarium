@@ -2,7 +2,11 @@
 
 [ext_resource type="FontFile" uid="uid://b6gud4og1ou5r" path="res://assets/fonts/2P.ttf" id="1_ed1bp"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m8ovt"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nsqkf"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ed1bp"]
 
@@ -35,7 +39,7 @@ Button/colors/font_color = Color(0.69965404, 0.69965327, 0.69965345, 1)
 Button/colors/font_hover_color = Color(0.86898494, 0.8689849, 0.86898494, 1)
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_ed1bp")
-Button/styles/disabled = SubResource("StyleBoxEmpty_m8ovt")
+Button/styles/disabled = SubResource("StyleBoxEmpty_nsqkf")
 Button/styles/focus = SubResource("StyleBoxEmpty_ed1bp")
 Button/styles/hover = SubResource("StyleBoxEmpty_v7qis")
 Button/styles/hover_pressed = SubResource("StyleBoxEmpty_oejvr")

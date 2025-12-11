@@ -207,10 +207,45 @@ layout_mode = 2
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="ResumeCenter" type="CenterContainer" parent="Settings/MainVBox/Buttons"]
+[node name="CenterContainer" type="CenterContainer" parent="Settings/MainVBox/Buttons"]
 layout_mode = 2
 
-[node name="Resume" type="Button" parent="Settings/MainVBox/Buttons/ResumeCenter"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/MainVBox/Buttons/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="ControlsCenter" type="CenterContainer" parent="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Controls" type="Button" parent="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer2/ControlsCenter"]
+layout_mode = 2
+theme = ExtResource("7_0ct2w")
+text = "CONTROLS"
+script = ExtResource("8_wddno")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
+
+[node name="HowToPlayCenter" type="CenterContainer" parent="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HowToPlay" type="Button" parent="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer2/HowToPlayCenter"]
+layout_mode = 2
+theme = ExtResource("7_0ct2w")
+text = "HOW TO PLAY"
+script = ExtResource("8_wddno")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="ResumeCenter" type="CenterContainer" parent="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer/ResumeCenter"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 focus_mode = 0
@@ -219,20 +254,10 @@ text = "RESUME"
 script = ExtResource("8_wddno")
 metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
-[node name="HowToPlayCenter" type="CenterContainer" parent="Settings/MainVBox/Buttons"]
+[node name="QuitCenter" type="CenterContainer" parent="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Settings/MainVBox/Buttons/HowToPlayCenter"]
-layout_mode = 2
-theme = ExtResource("7_0ct2w")
-text = "HOW TO PLAY"
-script = ExtResource("8_wddno")
-metadata/_custom_type_script = "uid://dhbvj587s8ykb"
-
-[node name="QuitCenter" type="CenterContainer" parent="Settings/MainVBox/Buttons"]
-layout_mode = 2
-
-[node name="QuitGame" parent="Settings/MainVBox/Buttons/QuitCenter" instance=ExtResource("6_ap0kp")]
+[node name="QuitGame" parent="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer/QuitCenter" instance=ExtResource("6_ap0kp")]
 layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Settings"]
@@ -253,7 +278,7 @@ focus_mode = 0
 [connection signal="value_changed" from="Settings/MainVBox/AudioSettings/EffectsVolume" to="." method="_on_effects_volume_value_changed"]
 [connection signal="value_changed" from="Settings/MainVBox/CameraSettings/CameraSpeed" to="." method="_on_camera_speed_value_changed"]
 [connection signal="value_changed" from="Settings/MainVBox/UISettings/ScaleSlider" to="." method="_on_scale_slider_value_changed"]
-[connection signal="pressed" from="Settings/MainVBox/Buttons/ResumeCenter/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Settings/MainVBox/Buttons/HowToPlayCenter/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Settings/MainVBox/Buttons/QuitCenter/QuitGame" to="." method="_on_quit_game_pressed"]
+[connection signal="pressed" from="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer2/HowToPlayCenter/HowToPlay" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer/ResumeCenter/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer/QuitCenter/QuitGame" to="." method="_on_quit_game_pressed"]
 [connection signal="toggled" from="Settings/CheckBox" to="." method="_on_check_box_toggled"]

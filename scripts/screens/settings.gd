@@ -16,7 +16,7 @@ var hud : CanvasLayer
 @onready var cam_speed_scale: HSlider = $"Settings/MainVBox/CameraSettings/CameraSpeed"
 @onready var rb_curs_checkbox: CheckBox = $"Settings/CheckBox"
 @onready var master_default_db_vol := AudioServer.get_bus_volume_db(0)
-@onready var how_to_play_center: CenterContainer = $Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer2/HowToPlayCenter
+@onready var how_to_play: ButtonWrapper = $Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer2/HowToPlayCenter/HowToPlay
 
 
 func _ready():
@@ -56,7 +56,7 @@ func _process(delta):
 	title.modulate = Color(title.modulate.r, title.modulate.g, title.modulate.b, alpha)
 	rotating_moon.modulate = Color(rotating_moon.modulate.r, rotating_moon.modulate.g, rotating_moon.modulate.b, alpha)
 	#endregion
-	how_to_play_center.visible = (GameState.state == GameState.State.PLAYING)
+	how_to_play.disabled = (GameState.state == GameState.State.MAINMENU)
 
 
 func _on_master_volume_value_changed(value: float) -> void:
