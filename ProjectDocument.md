@@ -1,4 +1,4 @@
-## Summary ##
+ ## Summary ##
 In Lunarium, you are a lone astronaut sent on a daring mission to establish the first colony on the moon.
 
 The planet you call home grows increasingly crowded, and humanity needs a backup plan. In this strategy resource management game, you are tasked with mining for ores, cultivating food, and powering your growing colony as more civilians of Planet Earth are shipped offworld. In your quest to tame this barren rock, you can’t be everywhere at once.
@@ -256,12 +256,12 @@ In terms of player interaction with the buildings, I wanted to introduce some ne
   5) Each building has it's own positional audio in the environment.
 
 
-* Residence selection
+##### Residence selection #####
 <ul>
      <li> <a href="https://www.soundjay.com/human/sounds/crowd-talking-5.mp3">Crowd Talking 5</a> by <a href="https://www.soundjay.com/">SoundJay</a> </li> 
 </ul>
 
-* Ecodome selection
+ Ecodome selection
 <ul>
      <li> <a href="https://pixabay.com/sound-effects/viscious-liquid-gurgling-54710/">viscious liquid gurgling</a> by <a href="https://pixabay.com/users/freesound_community-46691455/">freesound_community</a> </li> 
 </ul>
@@ -438,6 +438,7 @@ which would globally return the live building node given the id, since a lot of 
   - [Hooked up lose and win screen logic](https://github.com/LunariumGame/Lunarium/pull/189)
   - [Configured global project settings](https://github.com/LunariumGame/Lunarium/pull/43) (resolution, load screen, logo, etc.)
 
+---
 
 ## Wen Kai Yiang ([wk-y](https://github.com/wk-y))
 
@@ -611,7 +612,8 @@ Made all building sprites & animation sequences (Jacob actually set up the anima
 <i>[Star Twinkle](https://pixabay.com/users/koiroylers-44305058/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=355937)</i> by Koi Roylers, Pixabay - [License](https://pixabay.com/service/license-summary/)  
 <i>[Typing Sound](https://pixabay.com/sound-effects/keyboard-typing-asmr-356118/)</i> - by DRAGON-STUDIO - Free Use  
 
-* Note more extensive audio attributions can be seen under Jacob Feenstra's contributions section, since most of the in-game audio design was done in Audacity.
+* Note more extensive audio attributions can be seen under Jacob Feenstra's contributions section ([linked here](https://github.com/LunariumGame/Lunarium/blob/dev/ProjectDocument.md#audio)), since most of the in-game audio design was edited in Audacity (but it is _not_
+original audio).
 
 ### Original Assets
 <u>Sprites</u>  
