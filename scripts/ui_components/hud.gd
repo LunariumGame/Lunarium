@@ -110,7 +110,7 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 		
 	flash_inspector_panel()
 	upgrade.visible = true
-	destroy.visible = true
+	#destroy.visible = true #NOTE: Disabled for now until destroy has features
 	# If headquarters, no upgrade/destroy buttons
 	if building_id == -1:
 		upgrade.visible = false
@@ -196,6 +196,7 @@ func _on_destroy_pressed() -> void:
 	
 	await building.destroy()
 	Signals.building_stats_changed.emit()
+	Signals.recompute_power_plants.emit()
 
 	selected_building_id = -1
 	close_inspector()

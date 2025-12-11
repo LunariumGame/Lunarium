@@ -429,6 +429,7 @@ text = "TODO TECH (?)
 or just open tech tree?"
 
 [node name="BuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3esv6")
 
@@ -509,7 +510,6 @@ script = ExtResource("9_jswg8")
 building_cursor = ExtResource("14_afnkq")
 
 [node name="SelectedBuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6iety")
 
@@ -563,12 +563,14 @@ size_flags_stretch_ratio = 0.5
 theme_override_styles/separator = SubResource("StyleBoxEmpty_haqli")
 
 [node name="Destroy" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("18_haqli")
 text = "DESTROY"
 
 [node name="VSeparatorR" type="VSeparator" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
