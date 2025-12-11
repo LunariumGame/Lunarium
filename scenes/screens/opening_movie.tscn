@@ -5,8 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://1f6gojwuhuh5" path="res://assets/audio/cutscenes/sparkle-star.mp3" id="3_5vsyr"]
 [ext_resource type="AudioStream" uid="uid://l7wnmtpt376r" path="res://assets/audio/cutscenes/intro_score.wav" id="3_k04th"]
 [ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="3_mm1mk"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mm1mk"]
+[ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="5_k04th"]
 
 [node name="OpeningMovie" type="CanvasLayer"]
 script = ExtResource("1_bu5bb")
@@ -47,13 +46,10 @@ offset_top = 936.0
 offset_right = 1856.0
 offset_bottom = 1030.0
 focus_mode = 0
+theme = ExtResource("5_k04th")
 theme_override_colors/font_color = Color(1, 1, 1, 0.20400001)
 theme_override_fonts/font = ExtResource("3_mm1mk")
-theme_override_font_sizes/font_size = 108
-theme_override_styles/normal = SubResource("StyleBoxEmpty_mm1mk")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_mm1mk")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_mm1mk")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mm1mk")
+theme_override_font_sizes/font_size = 96
 text = "SKIP
 "
 
