@@ -177,6 +177,8 @@ func _on_upgrade_pressed() -> void:
 		return
 	
 	var building: Building = build_man.building_id_to_node[selected_building_id]
+	if building.is_destroyed:
+		return
 	building.upgrade_level()
 	
 	if building.current_level == building.max_level:
