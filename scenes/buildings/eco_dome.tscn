@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="3_j3rju"]
 [ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="4_8kgej"]
 [ext_resource type="Texture2D" uid="uid://cdscvmm34rvis" path="res://assets/sprites/buildings/eco_domes/eco_dome_spritesheet.png" id="5_j3rju"]
-[ext_resource type="AudioStream" uid="uid://ba2f8dfmxagyn" path="res://assets/audio/eco_dome_new.mp3" id="6_8kgej"]
+[ext_resource type="AudioStream" uid="uid://ba2f8dfmxagyn" path="res://assets/audio/buildings/eco_dome_new.mp3" id="6_8kgej"]
 
 [sub_resource type="Resource" id="Resource_j3rju"]
 script = ExtResource("3_j3rju")
@@ -329,3 +329,10 @@ libraries = {
 
 [node name="Select" parent="Audio" index="1"]
 stream = ExtResource("6_8kgej")
+bus = &"Effects"
+
+[node name="Destroy" parent="Audio" index="2"]
+bus = &"Effects"
+
+[node name="Off" parent="Audio" index="3"]
+bus = &"Effects"

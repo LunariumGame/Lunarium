@@ -327,3 +327,10 @@ libraries = {
 
 [node name="Select" parent="Audio" index="1"]
 stream = ExtResource("6_g6fhf")
+bus = &"Effects"
+
+[node name="Destroy" parent="Audio" index="2"]
+bus = &"Effects"
+
+[node name="Off" parent="Audio" index="3"]
+bus = &"Effects"
