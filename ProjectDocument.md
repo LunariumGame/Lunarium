@@ -343,6 +343,13 @@ A little sample of how I used audacity for the shuttle sound. I combined two sou
 My final contribution to the repository was to get Aarons beautiful album in the game, one of my favorite ambient albums. I envisioned it soundtracking our game from the first week. Here is
 the e-mail exchange below detailing his permission:
 
+
+<figure>
+    <img src="assets/pics/jacob/aaron_marshall.png" width="400" />
+</figure>
+
+I hope you enjoy the music as much as I have over the years, and thank you again Aaron.
+
 #### Animations & Visuals Logic ####
 
 Kapila gets full credit for designing the visuals in Aseprite, but I did build a somewhat sophisticated AnimationTree to manage them, and helped them to feel just right in the
