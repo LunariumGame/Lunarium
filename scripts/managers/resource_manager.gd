@@ -11,7 +11,7 @@ enum ResourceType {
 var _trackers:Dictionary[ResourceType, ResourceTracker]
 
 
-func _ready() -> void:
+func _init() -> void:
 	_trackers = {
 		ResourceType.FOOD: ResourceTracker.new(25),
 		ResourceType.IRON: ResourceTracker.new(20),

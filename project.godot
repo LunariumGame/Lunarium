@@ -61,7 +61,7 @@ movie_writer/movie_file="/home/hawkhobo/ucd/fq25/ecs179/lunarium/my_movie.avi"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/cvd_sim/plugin.cfg")
+enabled=PackedStringArray("res://addons/cvd_sim/plugin.cfg", "res://addons/gut/plugin.cfg")
 
 [gui]
 
