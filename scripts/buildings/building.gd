@@ -91,7 +91,10 @@ func _on_Area2D_input_event(viewport: Viewport, event: InputEvent, shape_idx: in
 func _get_selection_payload() -> Dictionary:
 		# special condition, because _get_selection_payload gets called in upgrade
 		if not $Audio/Create.playing:
-			$Audio.play_audio($Audio/Select)
+			if is_powered:
+				$Audio.play_audio($Audio/Select)
+			else:
+				$Audio.play_audio($Audio/Off)
 		return {}
 
 
