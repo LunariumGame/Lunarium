@@ -6,6 +6,7 @@ enum GameState {
 	IN_PROGRESS,
 	WON,
 	LOST,
+	CONTINUED,
 }
 
 
@@ -24,10 +25,11 @@ var state := GameState.IN_PROGRESS
 func _ready() -> void:
 	Signals.building_built.connect(recompute_electricity)
 	Signals.building_stats_changed.connect(recompute_electricity)
+	Signals.credits_stopped_victory.connect(continue_after_victory)
 
 
 func end_turn() -> void:
-	if not GameState.IN_PROGRESS == state:
+	if not GameState.IN_PROGRESS == state and not GameState.CONTINUED == state:
 		return
 
 	Signals.turn_ended.emit(turn)
@@ -52,11 +54,13 @@ func end_turn() -> void:
 	Signals.turn_started_refinery.emit(turn)
 	Signals.turn_started_residential.emit(turn)
 	
-	if _win_condition_satisfied():
-		state = GameState.WON
-		print_debug("Game win triggered")
-		Signals.game_won.emit()
-		return
+	# no need to check if won if already won
+	if GameState.IN_PROGRESS == state:
+		if _win_condition_satisfied():
+			state = GameState.WON
+			print_debug("Game win triggered")
+			Signals.game_won.emit()
+			return
 		
 	if _lose_condition_satisfied():
 		state = GameState.LOST
@@ -138,3 +142,7 @@ func recompute_electricity(building: Building) -> void:
 	Signals.turn_process_power_draw.emit(turn)
 	Signals.resource_value_changed.emit()
 	Signals.electricity_recomputed.emit()
+
+
+func continue_after_victory() -> void:
+	state = GameState.CONTINUED

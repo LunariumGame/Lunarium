@@ -30,6 +30,8 @@ func _on_movie_end():
 
 func close():
 	score.stop()
+	window_manager.pop()
+	queue_free()
 	
 	# signal that movie has ended
 	# if opened in the intro
@@ -38,12 +40,11 @@ func close():
 	#elif caller == Callers.GALLERY:
 		
 		
-	window_manager.pop()
+	
 	# play main game music again
 	var main_music := get_node("/root/World/Audio/Music")
 	if main_music:
 		main_music.on_finished()
-	queue_free()
 
 
 func _on_skip_press() -> void:

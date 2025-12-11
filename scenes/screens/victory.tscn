@@ -44,7 +44,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_eqqsn")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -70,8 +70,8 @@ grow_horizontal = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CBoxContainer"]
 position = Vector2(0, 537)
 sprite_frames = SubResource("SpriteFrames_gw5eo")
-autoplay = "default"
-frame_progress = 0.67846835
+animation = &"idle"
+autoplay = "idle"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_omuyy")
@@ -95,3 +95,5 @@ theme_override_fonts/font = ExtResource("4_m2tkd")
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxEmpty_48wmm")
 text = "CONTINUE"
+
+[connection signal="pressed" from="Control/Button" to="." method="close"]

@@ -36,12 +36,12 @@ signal opening_movie_started_from_intro()
 signal opening_movie_stopped_from_intro()
 
 ## Emitted when credits are opened/closed
-signal credits_started_victory()
+#signal credits_started_victory()
 signal credits_stopped_victory()
-signal credits_started_defeat()
+#signal credits_started_defeat()
 signal credits_stopped_defeat()
-signal credits_started_menu()
-signal credits_stopped_menu()
+#signal credits_started()
+signal credits_stopped()
 
 ## Emitted when the game is won
 signal game_won()
@@ -49,7 +49,10 @@ signal game_won()
 ## Emitted when the game is lost
 signal game_lost()
 
+## Emitted when the end screens are closed
 signal end_screen_closed()
+signal victory_screen_closed()
+signal defeat_screen_closed()
 
 ## Emitted when a shuttle arrives
 signal shuttle_arrived(pax:int)
