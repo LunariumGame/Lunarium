@@ -48,10 +48,11 @@ func _get_selection_payload() -> Dictionary:
 	super()
 	return {
 		"\n ": "",
-		"POWER REQUIRED": int(get_power_draw()),
 		"PRODUCTION": str(int(_get_production_rate())) + " ELECTRICITY",
+		"\n  ": "",
+		"POWER REQUIRED": int(get_power_draw()),
 		"\n": "",
-		"UPGRADE COST": "MAX LEVEL" if current_level == max_level else str(int(self.building_spec.cost_levels[current_level].cost[ResourceManager.ResourceType.IRON])) + " IRON"
+		"UPGRADE COST": "MAX LEVEL" if current_level == max_level else str(int(self.building_spec.cost_levels[current_level].cost[ResourceManager.ResourceType.FOOD])) + " FOOD AND " + str(int(self.building_spec.cost_levels[current_level].cost[ResourceManager.ResourceType.IRON])) + " IRON"
 	}
 
 

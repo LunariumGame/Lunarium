@@ -4,7 +4,7 @@ extends Building
 
 # production rate per turn
 @export var iron_per_turn: int = 1
-
+@export var food_per_turn: int = 1
 
 func _ready() -> void:
 	Signals.turn_ended.connect(_on_turn_ended)
@@ -19,12 +19,20 @@ func _on_turn_ended(_turn_number:int) -> void:
 		iron_per_turn,
 		ResourceEngine.ApplyTime.ON_TURN_STARTED
 	)
+	resource_manager.calculate_and_update(
+		ResourceManager.ResourceType.FOOD,
+		self,
+		food_per_turn,
+		ResourceEngine.ApplyTime.ON_TURN_STARTED
+	)
 
 func _get_selection_payload() -> Dictionary:
 	super()
 	return {
-		"POWERED": "YES" if is_powered else "NO",
+		"\n  ": "",
+		"PRODUCTION": str(iron_per_turn) + " IRON & FOOD PER TURN", #NOTE: HARDCODED, use vars later
+		"\n ": "",
 		"POWER REQUIRED": int(get_power_draw()),
-		"PRODUCTION": str(iron_per_turn) + " IRON PER TURN",
+		"POWERED": "YES" if is_powered else "NO",
 		"\n": "",
 	}
