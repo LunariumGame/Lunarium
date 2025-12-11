@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://du46r5f2n8vya"]
+[gd_scene load_steps=9 format=3 uid="uid://du46r5f2n8vya"]
 
 [ext_resource type="Script" uid="uid://degq3ffk17ylk" path="res://scripts/screens/loss.gd" id="1_08wtc"]
 [ext_resource type="Texture2D" uid="uid://b3stlelrxc7wj" path="res://assets/sprites/cutscenes/ending_cutscenes/loss_cutscene.png" id="2_skq7k"]
 [ext_resource type="AudioStream" uid="uid://j0hrsttpxgiv" path="res://assets/audio/defeat_score_new.mp3" id="3_8lu2c"]
+[ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="4_3fhyi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_skq7k"]
 atlas = ExtResource("2_skq7k")
@@ -25,6 +26,8 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b8nrf"]
 
 [node name="LOSS" type="CanvasLayer"]
 script = ExtResource("1_08wtc")
@@ -51,3 +54,23 @@ frame_progress = 0.893359
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_8lu2c")
+
+[node name="Control" type="CenterContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = 300.0
+offset_right = 96.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_3fhyi")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b8nrf")
+text = "CONTINUE"

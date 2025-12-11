@@ -11,6 +11,7 @@ func _ready() -> void:
 	Signals.game_won.connect(_open_victory_screen)
 	Signals.game_lost.connect(_open_loss_screen)
 	Signals.opening_movie_started_from_intro.connect(_open_opening_movie_from_intro)
+	
 
 
 func _open_victory_screen() -> void:

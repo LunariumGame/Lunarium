@@ -35,6 +35,14 @@ signal building_selected()
 signal opening_movie_started_from_intro()
 signal opening_movie_stopped_from_intro()
 
+## Emitted when credits are opened/closed
+signal credits_started_victory()
+signal credits_stopped_victory()
+signal credits_started_defeat()
+signal credits_stopped_defeat()
+signal credits_started_menu()
+signal credits_stopped_menu()
+
 ## Emitted when the game is won
 signal game_won()
 
