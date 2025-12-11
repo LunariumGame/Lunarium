@@ -337,6 +337,12 @@ A little sample of how I used audacity for the shuttle sound. I combined two sou
      <li> <a href="https://pixabay.com/sound-effects/power-down-45784/">Power Down</a> by <a href="https://pixabay.com/users/freesound_community-46691455/">freesound_community</a> </li>
 </ul>
 
+
+#### Aaron Marshall - Noir Ambiance (2007) ####
+
+My final contribution to the repository was to get Aarons beautiful album in the game, one of my favorite ambient albums. I envisioned it soundtracking our game from the first week. Here is
+the e-mail exchange below detailing his permission:
+
 #### Animations & Visuals Logic ####
 
 Kapila gets full credit for designing the visuals in Aseprite, but I did build a somewhat sophisticated AnimationTree to manage them, and helped them to feel just right in the
