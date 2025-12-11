@@ -11,7 +11,16 @@
 [node name="OpeningMovie" type="CanvasLayer"]
 script = ExtResource("1_bu5bb")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -21,7 +30,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.043137256, 0.043137256, 0.03137255, 1)
 
-[node name="CBoxContainer" type="CenterContainer" parent="."]
+[node name="CBoxContainer" type="AspectRatioContainer" parent="Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,17 +39,12 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ratio = 1.7778
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CBoxContainer"]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control/CBoxContainer"]
 layout_mode = 2
 stream = ExtResource("2_k04th")
-
-[node name="IntroScore" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_lp7o4")
-
-[node name="StarTwinkle" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_5vsyr")
-volume_db = -12.0
+expand = true
 
 [node name="SkipButton" type="Button" parent="."]
 anchors_preset = 3
@@ -64,5 +69,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_mm1mk")
 text = "SKIP
 "
 
-[connection signal="finished" from="CBoxContainer/VideoStreamPlayer" to="." method="_on_movie_end"]
+[node name="IntroScore" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lp7o4")
+
+[node name="StarTwinkle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5vsyr")
+volume_db = -12.0
+
+[connection signal="finished" from="Control/CBoxContainer/VideoStreamPlayer" to="." method="_on_movie_end"]
 [connection signal="pressed" from="SkipButton" to="." method="_on_skip_press"]
