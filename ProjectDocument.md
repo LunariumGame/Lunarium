@@ -261,34 +261,34 @@ In terms of player interaction with the buildings, I wanted to introduce some ne
      <li> <a href="https://www.soundjay.com/human/sounds/crowd-talking-5.mp3">Crowd Talking 5</a> by <a href="https://www.soundjay.com/">SoundJay</a> </li> 
 </ul>
 
- Ecodome selection
+ ##### Ecodome selection #####
 <ul>
      <li> <a href="https://pixabay.com/sound-effects/viscious-liquid-gurgling-54710/">viscious liquid gurgling</a> by <a href="https://pixabay.com/users/freesound_community-46691455/">freesound_community</a> </li> 
 </ul>
 
-*  Refinery Selection
+#####  Refinery Selection #####
 <ul>
      <li> <a href="https://sonniss.com/gameaudiogdc/">Sonniss GameAudioGDC Giveaway 2024 </a> </li> 
 </ul>
 
-* Reactor Selection
+##### Reactor Selection #####
 <ul>
      <li> <a href="https://pixabay.com/sound-effects/space-energy-generator-72092/">space energu generator</a> by 
       <a href="https://pixabay.com/users/freesound_community-46691455/">freesound_community</a> </li> 
 </ul>
 
-* Headquarters Selection
+##### Headquarters Selection #####
 <ul>
      <li> <a href="https://sonniss.com/gameaudiogdc/">Sonniss GameAudioGDC Giveaway 2024 </a> </li> 
 </ul>
 
 
-* Upgrade/Create Building
+##### Upgrade/Create Building #####
 <ul>
      <li> <a href="https://pixabay.com/sound-effects/whoosh-cinematic-sound-effect-376889/">Whoosh Cinematic Sound Effect</a> by <a href="https://pixabay.com/users/dragon-studio-38165424/">DRAGON-STUDIO</a> </li> 
 </ul>
 
-* Destroy Building (removed from the game due to subtle bugs)
+##### Destroy Building (removed from the game due to subtle bugs) #####
 <ul>
      <li> <a href="https://sonniss.com/gameaudiogdc/">Sonniss GameAudioGDC Giveaway 2024 </a> </li> 
 </ul>
@@ -297,12 +297,12 @@ In terms of player interaction with the buildings, I wanted to introduce some ne
   Obviously, I implemented all of this at the midnight hour, but I was really determined to get it done. A game simply doesn't feel Juicey without good, immersive audio. I hope
   I accomplished that with this PR. I also learned a lot of Audacity along the way!
 
-* Universal sound for buildings that are in the off state.
+##### Universal sound for buildings that are in the off state #####
 <ul>
      <li> <a href="https://freesound.org/people/harpoyume/sounds/86063/">Short Circuit.aif</a> by <a href="https://freesound.org/people/harpoyume/">harpoyume</a> | License: <a href="http://creativecommons.org/licenses/by-nc/3.0/">Attribution NonCommercial 3.0</li>
 </ul>
 
-* Population Starvation
+##### Population Starvation #####
 <ul>
      <li> <a href="https://pixabay.com/sound-effects/crowd-shocked-reaction-352766/">Crowd Shocked Reaction</a> by <a href="https://pixabay.com/users/universfield-28281460/">Universfield</a> </li>
 </ul>
@@ -312,27 +312,27 @@ A little sample of how I used audacity for the shuttle sound. I combined two sou
     <img src="assets/pics/jacob/shuttle_in_audacity.png" width="400" />
 </figure>
 
-* Shuttle door
+##### Shuttle door #####
 <ul>
      <li> <a href="https://www.zapsplat.com/music/science-fiction-hydraulic-door/">Science fiction, hydraulic door</a> by <a href="https://www.zapsplat.com/author/pmsfx/">PMSFX</a> </li>
 </ul>
 
-* Shuttle crowd
+##### Shuttle crowd #####
 <ul>
      <li> <a href="https://www.zapsplat.com/music/crowd-people-talking-during-a-reception-with-multiple-conversations-and-laughing/">Crowd People Talking During A Reception with Multiple Conversations and Laughing</a> by <a href="https://www.zapsplat.com/author/adam-a-johnson/">Adam A Johnson</a> </li>
 </ul>
 
-* General UI Click
+##### General UI Click #####
 <ul>
      <li> <a href="https://pixabay.com/sound-effects/ui-click-43196/">UI Click</a> by <a href="https://pixabay.com/users/freesound_community-46691455/">freesound_community</a> </li>
 </ul>
 
-* Next turn button
+##### Next turn button #####
 <ul>
      <li> <a href="https://pixabay.com/sound-effects/menu-open-433000/">UI Click</a> by <a href="https://pixabay.com/users/dragon-studio-38165424/">Dragon Studio</a> </li>
 </ul>
 
-* Power Down
+##### Power Down #####
 <ul>
      <li> <a href="https://pixabay.com/sound-effects/power-down-45784/">UI Click</a> by <a href="https://pixabay.com/users/freesound_community-46691455/">freesound_community</a> </li>
 </ul>
