@@ -204,7 +204,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 0.8, 1.4333333, 2.0333333),
+"times": PackedFloat32Array(0.1, 0.76666665, 1.4333333, 2.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [1, 2, 3, 4]
@@ -324,7 +324,7 @@ target = NodePath("..")
 [node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("5_jn2df")
 vframes = 21
-frame = 11
+frame = 4
 
 [node name="AnimationPlayer" parent="." index="3"]
 active = true
