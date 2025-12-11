@@ -34,7 +34,7 @@ func _update_display() -> void:
 	# Special-case: ELECTRICITY uses usage/capacity
 	if resource == ResourceManager.ResourceType.ELECTRICITY:
 		var usage := game_manager.get_electricity_usage()
-		text = "%d / %d" % [usage, cap]
+		text = "%d/%d" % [usage, cap]
 		
 		if is_blackout and usage == cap:
 				is_blackout = false
