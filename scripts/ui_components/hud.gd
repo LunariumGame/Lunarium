@@ -19,6 +19,7 @@ static var same_building_in_a_row: int
 @onready var currentlyInspectingLabel:Label = %TabButtons/CurrentInspect
 @onready var upgrade: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Upgrade
 @onready var destroy: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Destroy
+@onready var solar_collector: Button = %SolarCollector
 @onready var building_cost: Label = $HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/Costs/BuildingCost
 
 var prev_building_id: int
@@ -111,8 +112,9 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 	flash_inspector_panel()
 	upgrade.visible = true
 	#destroy.visible = true #NOTE: Disabled for now until destroy has features
-	# If headquarters, no upgrade/destroy buttons
+	# If headquarters, no upgrade/destroy buttons, but there is solar collector
 	if building_id == -1:
+		solar_collector.visible = true
 		upgrade.visible = false
 		destroy.visible = false
 	

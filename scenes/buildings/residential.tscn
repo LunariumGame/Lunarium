@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="3_c44lc"]
 [ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="4_gnoo8"]
 [ext_resource type="Texture2D" uid="uid://b41ju7j2rrtk8" path="res://assets/sprites/buildings/residences/lunarhabitat_spritesheet.png" id="5_0exew"]
-[ext_resource type="AudioStream" uid="uid://buc61ues1ufw0" path="res://assets/audio/residential.wav" id="6_c44lc"]
+[ext_resource type="AudioStream" uid="uid://buc61ues1ufw0" path="res://assets/audio/buildings/residential.wav" id="6_c44lc"]
 
 [sub_resource type="Resource" id="Resource_0exew"]
 script = ExtResource("3_c44lc")

@@ -1,9 +1,45 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4766mjnyssye"]
+[gd_scene load_steps=27 format=3 uid="uid://c4766mjnyssye"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_jfxlg"]
 [ext_resource type="Texture2D" uid="uid://clcr4aysrnx6w" path="res://assets/sprites/buildings/power_generators/solar_collector/solar_collector_spritesheet.png" id="2_l2abt"]
-[ext_resource type="AudioStream" uid="uid://cf5ckyg52iqte" path="res://assets/audio/solar_collector.wav" id="3_8i3as"]
-[ext_resource type="AudioStream" uid="uid://bmdrck8me1haj" path="res://assets/audio/create_building.wav" id="3_qhvoj"]
+[ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="2_r2221"]
+[ext_resource type="AudioStream" uid="uid://cf5ckyg52iqte" path="res://assets/audio/buildings/solar_collector.wav" id="3_8i3as"]
+[ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="3_m1fc2"]
+
+[sub_resource type="Resource" id="Resource_yfayt"]
+script = ExtResource("2_r2221")
+cost = Dictionary[int, float]({
+0: 15.0,
+1: 0.0,
+2: 20.0,
+3: 0.0
+})
+metadata/_custom_type_script = "uid://0leikb15bp7y"
+
+[sub_resource type="Resource" id="Resource_m1j8e"]
+script = ExtResource("2_r2221")
+cost = Dictionary[int, float]({
+0: 20.0,
+1: 0.0,
+2: 25.0,
+3: 0.0
+})
+metadata/_custom_type_script = "uid://0leikb15bp7y"
+
+[sub_resource type="Resource" id="Resource_xq0u8"]
+script = ExtResource("2_r2221")
+cost = Dictionary[int, float]({
+0: 25.0,
+1: 0.0,
+2: 30.0,
+3: 0.0
+})
+metadata/_custom_type_script = "uid://0leikb15bp7y"
+
+[sub_resource type="Resource" id="Resource_ic73c"]
+script = ExtResource("3_m1fc2")
+cost_levels = Array[ExtResource("2_r2221")]([SubResource("Resource_yfayt"), SubResource("Resource_m1j8e"), SubResource("Resource_xq0u8")])
+metadata/_custom_type_script = "uid://cy4nkunttcuy5"
 
 [sub_resource type="Animation" id="Animation_l2abt"]
 length = 0.001
@@ -272,6 +308,7 @@ _data = {
 }
 
 [node name="SolarCollector" instance=ExtResource("1_jfxlg")]
+building_spec = SubResource("Resource_ic73c")
 
 [node name="BuildingDebugger" parent="." index="1" node_paths=PackedStringArray("target")]
 target = NodePath("..")
@@ -279,16 +316,13 @@ target = NodePath("..")
 [node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("2_l2abt")
 vframes = 9
-frame = 1
+frame = 37
 
 [node name="AnimationPlayer" parent="." index="3"]
 active = true
 libraries = {
 &"": SubResource("AnimationLibrary_l2abt")
 }
-
-[node name="Create" parent="Audio" index="0"]
-stream = ExtResource("3_qhvoj")
 
 [node name="Select" parent="Audio" index="1"]
 stream = ExtResource("3_8i3as")

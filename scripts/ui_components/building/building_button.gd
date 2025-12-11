@@ -15,7 +15,7 @@ var last_hovered_building: Building = null
 
 const highlighted_building_color:Color = Color(1.188, 1.4, 0.561, 1.0)
 
-@onready var cost_label: Label = $"../../../../Costs/BuildingCost"
+@onready var cost_label: Label = %BuildingCost
 @onready var hud: HUD = get_tree().get_root().get_node("World/UI/HUD")
 
 func _ready() -> void:
