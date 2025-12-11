@@ -226,6 +226,8 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("7_0ct2w")
 text = "HOW TO PLAY"
+script = ExtResource("8_wddno")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
 [node name="QuitCenter" type="CenterContainer" parent="Settings/MainVBox/Buttons"]
 layout_mode = 2
