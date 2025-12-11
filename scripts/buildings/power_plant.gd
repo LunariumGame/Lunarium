@@ -4,11 +4,10 @@ extends Building
 # production rate per turn
 @export var production_table: Array[int] = [
 	0,  # lvl 0
+	5,
 	10,
-	20,
-	30,
+	25,
 ]
-
 
 func _ready() -> void:
 	Signals.turn_started_power_plant.connect(_on_turn_started)
