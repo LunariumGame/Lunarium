@@ -11,14 +11,16 @@ func _ready() -> void:
 
 
 func _on_colonist_died(num_dead:int) -> void:
+	var string = "colonists" if num_dead != 1 else "colonist"
 	Signals.notification.emit(Notification.new(
-		"%d colonists starved!" % num_dead,
+		"%d %s starved!" % [num_dead, string]
 	))
 
 
 func _on_shuttle_arrived(pax:int) -> void:
+	var string = "colonists" if pax != 1 else "colonist"
 	Signals.notification.emit(Notification.new(
-		"%d colonists arrived!" % pax ,
+		"%d %s arrived!" % [pax, string]
 	))
 
 
