@@ -47,7 +47,7 @@ func _compute_electricity_gen() -> void:
 func _get_selection_payload() -> Dictionary:
 	super()
 	return {
-		"LEVEL": current_level,
+		"\n ": "",
 		"POWER REQUIRED": int(get_power_draw()),
 		"PRODUCTION": str(int(_get_production_rate())) + " ELECTRICITY",
 		"\n": "",

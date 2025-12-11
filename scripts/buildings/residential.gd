@@ -45,7 +45,7 @@ func _on_turn_ended(_turn_number:int) -> void:
 func _get_selection_payload() -> Dictionary:
 	super()
 	return {
-		"LEVEL": current_level,
+		"\n ": "",
 		"POWERED": "YES" if is_powered else "NO",
 		"POWER REQUIRED": int(get_power_draw()),
 		"HOUSING CAPACITY": get_housing_capacity(),

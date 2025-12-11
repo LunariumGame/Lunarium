@@ -50,7 +50,7 @@ func _on_turn_started(_turn_number:int) -> void:
 func _get_selection_payload() -> Dictionary:
 	super()
 	return {
-		"LEVEL": current_level,
+		"\n ": "",
 		"POWERED": "YES" if is_powered else "NO",
 		"POWER REQUIRED": int(get_power_draw()),
 		"PRODUCTION": str(int(_get_production_rate())) + " IRON PER TURN",

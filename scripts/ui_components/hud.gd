@@ -137,15 +137,17 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 		info_label.theme = load("res://resources/ui/oldsteam.tres")
 		info_label.add_theme_font_size_override("font_size", 16)
 		info_label.text = str(key) + ": " + str(value)
-		if key == "\n": info_label.text = ""
+		if key == "\n" || key == "\n ": info_label.text = ""
 		payload_container.add_child(info_label)
 
 	# Currentlyinspecting label
 	var building_type_index = build_man.get_building_type_from_id(building_id)
 	var building_type_name: String = build_man.BuildingType.find_key(building_type_index)
 	var pretty_name = building_type_name.replace("_", " ")
-	currentlyInspectingLabel.text = str(pretty_name)	
-	
+	currentlyInspectingLabel.text = "LVL " + str(building.current_level) + " " + str(pretty_name)	
+	if pretty_name == "HEADQUARTERS":
+		currentlyInspectingLabel.text = str(pretty_name)
+
 	# Funny easter egg
 	if building_id == prev_building_id:
 		same_building_in_a_row += 1
