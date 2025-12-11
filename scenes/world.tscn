@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=27 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bpc6gps3lk4ac" path="res://scenes/ui_components/hud.tscn" id="2_4mrxx"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dt6tnvd0wjj56" path="res://assets/audio/population_starved.wav" id="7_7t5mc"]
 [ext_resource type="Script" uid="uid://dm3fhxjge8xxk" path="res://scripts/camera/position_lock.gd" id="8_4mrxx"]
 [ext_resource type="AudioStream" uid="uid://kibyxisd4u67" path="res://assets/audio/next_turn.wav" id="8_lakw3"]
+[ext_resource type="AudioStream" uid="uid://bltdri7xfp146" path="res://assets/audio/power_off.wav" id="9_pm21f"]
 [ext_resource type="PackedScene" uid="uid://cvurq12vfgtbk" path="res://scenes/buildings/headquarters.tscn" id="12_jhx03"]
 [ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="13_jhx03"]
 [ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="13_o8fc1"]
@@ -75,6 +76,9 @@ stream = ExtResource("7_7t5mc")
 
 [node name="NextTurn" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("8_lakw3")
+
+[node name="PowerOff" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("9_pm21f")
 
 [node name="SurfaceTexture" type="Node" parent="."]
 
