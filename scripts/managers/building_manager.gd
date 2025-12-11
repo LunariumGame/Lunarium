@@ -157,6 +157,27 @@ func try_upgrade(building: Building) -> bool:
 	return true
 
 
+## DOES NOT ACTUALLY UPGRADE, JUST A REAL BOOL RETURN
+func allowed_to_upgrade(building: Building) -> bool:
+	var next_level := building.current_level + 1
+
+	# Check bounds
+	if next_level > building.max_level:
+		return false
+
+	var building_spec := building.building_spec
+	var level_index := next_level - 1   # level 1 uses index 0, etc.
+
+	# Ensure cost exists
+	if level_index >= building_spec.cost_levels.size():
+		return false
+
+	# Can we buy it?
+	if not can_purchase(building_spec, level_index):
+		return false
+
+	return true
+
 # Returns a list of vector2i's surrounding a single tile
 func get_adjacent_positions_single(position: Vector2i) -> Array[Vector2i]:
 	var adjacent_positions: Array[Vector2i] = []

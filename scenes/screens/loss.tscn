@@ -29,7 +29,16 @@ animations = [{
 [node name="LOSS" type="CanvasLayer"]
 script = ExtResource("1_08wtc")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -37,14 +46,18 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.25701883, 0.087468974, 0.10929323, 0.5019608)
 
-[node name="CBoxContainer" type="CenterContainer" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
+[node name="CBoxContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CBoxContainer"]
-position = Vector2(0, 537)
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CBoxContainer"]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/CBoxContainer/VBoxContainer"]
 sprite_frames = SubResource("SpriteFrames_b8nrf")
 autoplay = "default"
 frame_progress = 0.893359

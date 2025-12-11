@@ -432,7 +432,7 @@ Due to implementation time constraints, icons were left unscaled.
 * [Ensured our issue tracker was up to date by creating many of our tracking issues](https://github.com/LunariumGame/Lunarium/issues?q=is%3Aissue%20author%3Awk-y)
 * [Triaged our critical issues](https://github.com/LunariumGame/Lunarium/issues?q=is%3Aissue%20label%3Ap1-critical)
 
-## Set Paing
+## Set Paing ([SP5555](https://github.com/SP5555))
 
 ### Game Logic
 - Organized the project using the "mirrored" directory structure. Scenes live in the `scenes` folder, scripts in the `scripts` folder, and both follow the same layout for clarity.
