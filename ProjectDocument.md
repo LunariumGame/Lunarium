@@ -224,8 +224,7 @@ Basically, if placement is disallowed due to collisions, then the Area2D's canno
 #### Audio ####
 
 One of my major contributions, but not necessarily listed on my initial roles, was engineering all of the sound design in the game. I am pretty happy with the finished product,
-even if I wanted to implement even more. Here is a rundown.
-by
+even if I wanted to implement even more. I used Audacity extensively to tweak audio just right. Here is a rundown.
 
 1) [*Victory & Defeat Scores*](https://github.com/LunariumGame/Lunarium/pull/198) - Added the score for the victory and defeat cutscenes at the end of the game. Didn't do any
 mixing in Audacity here, since I wanted them to play abruptly.
@@ -250,14 +249,92 @@ Each building contains shared audio sounds for creation, and a unique one for wh
 </figure>
 
 In terms of player interaction with the buildings, I wanted to introduce some neat management for immersion. Most of the code lives in `manage_audio.gd`. Essentially:
-1) The creation sound will not be interrupted when a building is placed in the world
-2) For a single building, a player cannot repeatedly "spam" a particular sound
-3) For a single building, triggering a new sound will interrupt the old sound (unless it is the original creation sound)
-4) Different buildings can play different sounds at the same time, with no upper bound.
-5) Each building has it's own positional audio in the environment.
+* The creation sound will not be interrupted when a building is placed in the world
+* For a single building, a player cannot repeatedly "spam" a particular sound
+* For a single building, triggering a new sound will interrupt the old sound (unless it is the original creation sound)
+* Different buildings can play different sounds at the same time, with no upper bound.
+* Each building has it's own positional audio in the environment.
 
+
+* Residence selection
 <ul>
-     <li>S: <a href="https://freesound.org/people/ViraMiller/sounds/747938/">Deep and Mysterious Music for Cosmic Themes</a> by <a href="https://freesound.org/people/ViraMiller/">ViraMiller</a> | License: <a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0</li> 
+     <li> <a href="https://www.soundjay.com/human/sounds/crowd-talking-5.mp3">Crowd Talking 5</a> by <a href="https://www.soundjay.com/">SoundJay</a> </li> 
+</ul>
+
+* Ecodome selection
+<ul>
+     <li> <a href="https://pixabay.com/sound-effects/viscious-liquid-gurgling-54710/">viscious liquid gurgling</a> by <a href="https://pixabay.com/users/freesound_community-46691455/">freesound_community</a> </li> 
+</ul>
+
+*  Refinery Selection
+<ul>
+     <li> <a href="https://sonniss.com/gameaudiogdc/">Sonniss GameAudioGDC Giveaway 2024 </a> </li> 
+</ul>
+
+* Reactor Selection
+<ul>
+     <li> <a href="https://pixabay.com/sound-effects/space-energy-generator-72092/">space energu generator</a> by 
+      <a href="https://pixabay.com/users/freesound_community-46691455/">freesound_community</a> </li> 
+</ul>
+
+* Headquarters Selection
+<ul>
+     <li> <a href="https://sonniss.com/gameaudiogdc/">Sonniss GameAudioGDC Giveaway 2024 </a> </li> 
+</ul>
+
+
+* Upgrade/Create Building
+<ul>
+     <li> <a href="https://pixabay.com/sound-effects/whoosh-cinematic-sound-effect-376889/">Whoosh Cinematic Sound Effect</a> by <a href="https://pixabay.com/users/dragon-studio-38165424/">DRAGON-STUDIO</a> </li> 
+</ul>
+
+* Destroy Building (removed from the game due to subtle bugs)
+<ul>
+     <li> <a href="https://sonniss.com/gameaudiogdc/">Sonniss GameAudioGDC Giveaway 2024 </a> </li> 
+</ul>
+
+4) [*Full Sound Effects Suite*](https://github.com/LunariumGame/Lunarium/pull/206/) - The final thrust. This is where the game environment SFX really comes together I think.
+  Obviously, I implemented all of this at the midnight hour, but I was really determined to get it done. A game simply doesn't feel Juicey without good, immersive audio. I hope
+  I accomplished that with this PR. I also learned a lot of Audacity along the way!
+
+* Universal sound for buildings that are in the off state.
+<ul>
+     <li> <a href="https://freesound.org/people/harpoyume/sounds/86063/">Short Circuit.aif</a> by <a href="https://freesound.org/people/harpoyume/">harpoyume</a> | License: <a href="http://creativecommons.org/licenses/by-nc/3.0/">Attribution NonCommercial 3.0</li>
+</ul>
+
+* Population Starvation
+<ul>
+     <li> <a href="https://pixabay.com/sound-effects/crowd-shocked-reaction-352766/">Crowd Shocked Reaction</a> by <a href="https://pixabay.com/users/universfield-28281460/">Universfield</a> </li>
+</ul>
+
+A little sample of how I used audacity for the shuttle sound. I combined two sounds together with some panning.
+<figure>
+    <img src="assets/pics/jacob/shuttle_in_audacity.png" width="400" />
+</figure>
+
+* Shuttle door
+<ul>
+     <li> <a href="https://www.zapsplat.com/music/science-fiction-hydraulic-door/">Science fiction, hydraulic door</a> by <a href="https://www.zapsplat.com/author/pmsfx/">PMSFX</a> </li>
+</ul>
+
+* Shuttle crowd
+<ul>
+     <li> <a href="https://www.zapsplat.com/music/crowd-people-talking-during-a-reception-with-multiple-conversations-and-laughing/">Crowd People Talking During A Reception with Multiple Conversations and Laughing</a> by <a href="https://www.zapsplat.com/author/adam-a-johnson/">Adam A Johnson</a> </li>
+</ul>
+
+* General UI Click
+<ul>
+     <li> <a href="https://pixabay.com/sound-effects/ui-click-43196/">UI Click</a> by <a href="https://pixabay.com/users/freesound_community-46691455/">freesound_community</a> </li>
+</ul>
+
+* Next turn button
+<ul>
+     <li> <a href="https://pixabay.com/sound-effects/menu-open-433000/">UI Click</a> by <a href="https://pixabay.com/users/dragon-studio-38165424/">Dragon Studio</a> </li>
+</ul>
+
+* Power Down
+<ul>
+     <li> <a href="https://pixabay.com/sound-effects/power-down-45784/">UI Click</a> by <a href="https://pixabay.com/users/freesound_community-46691455/">freesound_community</a> </li>
 </ul>
 
 #### Animations & Visuals Logic ####
@@ -533,6 +610,8 @@ Made all building sprites & animation sequences (Jacob actually set up the anima
 <u>Effects</u>  
 <i>[Star Twinkle](https://pixabay.com/users/koiroylers-44305058/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=355937)</i> by Koi Roylers, Pixabay - [License](https://pixabay.com/service/license-summary/)  
 <i>[Typing Sound](https://pixabay.com/sound-effects/keyboard-typing-asmr-356118/)</i> - by DRAGON-STUDIO - Free Use  
+
+* Note more extensive audio attributions can be seen under Jacob Feenstra's contributions section, since most of the in-game audio design was done in Audacity.
 
 ### Original Assets
 <u>Sprites</u>  
