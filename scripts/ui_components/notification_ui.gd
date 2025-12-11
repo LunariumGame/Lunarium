@@ -19,48 +19,65 @@ var shown_for:float
 var cpm:float = 1200
 var show_duration:float = 3
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Signals.notification.connect(_on_notification)
+	visible = false
+	modulate.a = 1.0
 
 
 func _on_notification(n:NotificationManager.Notification) -> void:
 	notification_queue.append(n)
 
 
-func _process(delta:float) -> void:
+func _process(delta: float) -> void:
 	match state:
+
 		State.IDLE:
-			visible = false
-			notif_sound.stop()
-			if not notification_queue.is_empty():
-				typing_time = 0
-				state = State.TYPING
+			# If currently has no notif but queue has more, load the next one
+			if current == null and not queue.is_empty():
+				current = queue.pop_front()
+				_start_typing()
 
 		State.TYPING:
-			if !notif_sound.playing:
-				notif_sound.play()
-			visible = true
 			typing_time += delta
-			var typed_chars:int = floori(typing_time * cpm / 60)
-			var notif_len:int = notification_queue[0].text.length()
-			label.text = notification_queue[0].text.substr(0, min(typed_chars, notif_len))
-			
-			if typed_chars >= notif_len:
-				shown_for = 0
-				state = State.SHOWING
+			var total_chars := current.text.length()
+			var typed_chars := int(typing_time * cpm / 60.0)
+
+			label.text = current.text.substr(0, min(typed_chars, total_chars))
+
+			if typed_chars >= total_chars:
+				_start_showing()
 
 		State.SHOWING:
-			if notif_sound.playing:
-				notif_sound.stop()
-				
 			shown_for += delta
-
 			if shown_for >= show_duration:
-				var tween := create_tween()
-				tween.tween_property(self, "modulate:a", 0.0, 0.5)
-				await tween.finished
-				visible = false
-				modulate.a = 1.0
-				notification_queue.pop_front()
-				state = State.IDLE
+				_start_fade_out()
+
+
+func _start_typing() -> void:
+	state = State.TYPING
+	typing_time = 0.0
+	label.text = ""
+	visible = true
+	modulate.a = 1.0
+	if not notif_sound.playing:
+		notif_sound.play()
+
+
+func _start_showing() -> void:
+	state = State.SHOWING
+	shown_for = 0.0
+	notif_sound.stop()
+
+
+func _start_fade_out() -> void:
+	state = State.IDLE
+	var t = create_tween()
+	t.tween_property(self, "modulate:a", 0.0, 0.4)
+	t.finished.connect(_on_fade_done)
+
+
+func _on_fade_done() -> void:
+	visible = false
+	modulate.a = 1.0
+	current = null
