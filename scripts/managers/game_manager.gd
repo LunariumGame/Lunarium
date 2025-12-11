@@ -110,7 +110,7 @@ func get_total_housing_capacity() -> int:
 	var total_capacity := 0
 	var placed_buildings := get_node("/root/World/PlacedBuildings").get_children()
 	for building in placed_buildings:
-		if building is Residential:
+		if building is Residential and building.is_powered:
 			total_capacity += building.get_housing_capacity()
 	return total_capacity
 
