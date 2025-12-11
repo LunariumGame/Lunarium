@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://k1hlfpc1517i"
+path="res://.godot/imported/Aaron Marshall - Noir Ambiance - 10 Nightmare Trilogy.mp3-21e42b37bf3efad4b5d869ca2257bd78.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/noir_ambiance/Aaron Marshall - Noir Ambiance - 10 Nightmare Trilogy.mp3"
+dest_files=["res://.godot/imported/Aaron Marshall - Noir Ambiance - 10 Nightmare Trilogy.mp3-21e42b37bf3efad4b5d869ca2257bd78.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
