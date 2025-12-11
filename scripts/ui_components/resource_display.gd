@@ -13,7 +13,11 @@ extends Label
 		inverted = v
 		if is_node_ready():
 			_update_display()
+			
+# some random value that is not attainable
+var last_cap: float = -1
 
+var is_blackout: bool = false
 
 func _ready() -> void:
 	# turn end, build, upgrade
@@ -32,10 +36,22 @@ func _update_display() -> void:
 	# Special-case: ELECTRICITY uses usage/capacity
 	if resource == ResourceManager.ResourceType.ELECTRICITY:
 		var usage := game_manager.get_electricity_usage()
+		# if cap changed, record previous
+		if last_cap != cap:
+			last_cap = cap
 		text = "%d / %d" % [usage, cap]
+		
+		if is_blackout and usage == cap:
+				is_blackout = false
+				
 		if usage > cap:
+			if not is_blackout:
+				get_tree().get_root().get_node("World/Audio/PowerOff").play()
+				is_blackout = true
+				
 			modulate = Color.RED
-			get_tree().get_root().get_node("World/Audio/PowerOff").play()
+			
+ 
 		else:
 			modulate = Color.WHITE
 		return

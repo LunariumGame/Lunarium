@@ -4,9 +4,7 @@
 4) solar_collector.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
 5) create_building.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
 6) iron_refinery.wav (https://pixabay.com/sound-effects/futuristic-factory-machine-ps-022-314833/ - AudioPapkin)
-7) destroy_building.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
-8) hq.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024)
-9) solar_collector_cutscene.wav (https://freesound.org/s/386056/ -- License: Attribution 4.0)
+7) destroy_building.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024) 8) hq.wav (https://sonniss.com/gameaudiogdc/ --- GameAudioGDC Giveaway 2024) 9) solar_collector_cutscene.wav (https://freesound.org/s/386056/ -- License: Attribution 4.0)
 10) power_plant.wav (https://pixabay.com/sound-effects/space-energy-generator-72092/)
 11) eco_dome.wav (https://pixabay.com/sound-effects/viscious-liquid-gurgling-54710/)
 12) shuttle_open_1.wav (https://www.zapsplat.com/license-type/standard-license/)
@@ -25,3 +23,4 @@ The following sounds were acquired from SoundJay (https://www.soundjay.com/tos.h
 1) final click - https://pixabay.com/sound-effects/ui-click-43196/
 next_turn.wav - https://pixabay.com/sound-effects/menu-open-433000/
 power_down.wav - https://pixabay.com/sound-effects/power-down-45784/
+power_on.wav
