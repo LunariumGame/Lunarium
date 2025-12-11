@@ -500,6 +500,14 @@ Made drastic improvements to the efficiency of the BuildingManager class followi
 * Check out the evolution of my planning, algorithms, and profiling below
 * [Optimization Document](https://docs.google.com/document/d/1KPvbdcfLBMDYctRfjjSjAQSfdUCGkGZ_MBPcH52fjNQ/edit?tab=t.0)
 
+## Kapila Mhaiskar ([Kap1la](https://https://github.com/Kap1la))
+
+### Animations & Visuals
+Made all building sprites & animation sequences (Jacob actually set up the animations and their timing in Godot), background tileset, cutscenes, ending banners, and credits screen.
+
+[Concept Art Sketches](https://imgur.com/a/zJYgKgt)
+
+
 ### Third-Party Assets
 <u>Fonts</u>  
 <i>[m5x7](https://managore.itch.io/m5x7)</i> by Daniel Linssen - Creative Commons License  
