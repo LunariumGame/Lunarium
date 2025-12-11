@@ -4,8 +4,8 @@ extends Building
 # production rate per turn
 @export var production_table: Array[int] = [
 	0, # lvl 0 unused
-	3,
 	5,
+	10,
 	25,
 ]
 
