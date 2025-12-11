@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://c4766mjnyssye"]
+[gd_scene load_steps=22 format=3 uid="uid://c4766mjnyssye"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_jfxlg"]
 [ext_resource type="Texture2D" uid="uid://clcr4aysrnx6w" path="res://assets/sprites/buildings/power_generators/solar_collector/solar_collector_spritesheet.png" id="2_l2abt"]
 [ext_resource type="AudioStream" uid="uid://cf5ckyg52iqte" path="res://assets/audio/solar_collector.wav" id="3_8i3as"]
+[ext_resource type="AudioStream" uid="uid://bmdrck8me1haj" path="res://assets/audio/create_building.wav" id="3_qhvoj"]
 
 [sub_resource type="Animation" id="Animation_l2abt"]
 length = 0.001
@@ -285,6 +286,9 @@ active = true
 libraries = {
 &"": SubResource("AnimationLibrary_l2abt")
 }
+
+[node name="Create" parent="Audio" index="0"]
+stream = ExtResource("3_qhvoj")
 
 [node name="Select" parent="Audio" index="1"]
 stream = ExtResource("3_8i3as")

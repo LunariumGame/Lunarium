@@ -68,7 +68,6 @@ func _process_power_draw(_turn_number:int) -> void:
 		resource_manager.add_precalculated(
 				ResourceManager.ResourceType.ELECTRICITY, -power_draw)
 	else:
-		get_tree().get_root().get_node("World/Audio/PowerOff").play()
 		if current_animation_state != "off_u1" or current_animation_state != "off_u2" or current_animation_state != "off_u3":
 			anim_manager.update_animation(anim_manager.StateAction.OFF)
 

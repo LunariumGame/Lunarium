@@ -35,6 +35,7 @@ func _update_display() -> void:
 		text = "%d / %d" % [usage, cap]
 		if usage > cap:
 			modulate = Color.RED
+			get_tree().get_root().get_node("World/Audio/PowerOff").play()
 		else:
 			modulate = Color.WHITE
 		return
