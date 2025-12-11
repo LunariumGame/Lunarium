@@ -249,11 +249,11 @@ Each building contains shared audio sounds for creation, and a unique one for wh
 </figure>
 
 In terms of player interaction with the buildings, I wanted to introduce some neat management for immersion. Most of the code lives in `manage_audio.gd`. Essentially:
-* The creation sound will not be interrupted when a building is placed in the world
-* For a single building, a player cannot repeatedly "spam" a particular sound
-* For a single building, triggering a new sound will interrupt the old sound (unless it is the original creation sound)
-* Different buildings can play different sounds at the same time, with no upper bound.
-* Each building has it's own positional audio in the environment.
+  1) The creation sound will not be interrupted when a building is placed in the world
+  2) For a single building, a player cannot repeatedly "spam" a particular sound
+  3) For a single building, triggering a new sound will interrupt the old sound (unless it is the original creation sound)
+  4) Different buildings can play different sounds at the same time, with no upper bound.
+  5) Each building has it's own positional audio in the environment.
 
 
 * Residence selection
