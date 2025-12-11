@@ -71,7 +71,7 @@ bus = &"Effects"
 
 [node name="PowerOff" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("9_2lf6f")
-volume_db = -10.0
+volume_db = -13.0
 bus = &"Effects"
 
 [node name="ShuttleArrival" type="AudioStreamPlayer" parent="Audio"]
