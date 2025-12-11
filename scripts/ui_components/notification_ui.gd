@@ -58,5 +58,10 @@ func _process(delta:float) -> void:
 			shown_for += delta
 
 			if shown_for >= show_duration:
+				var tween := create_tween()
+				tween.tween_property(self, "modulate:a", 0.0, 0.5)
+				await tween.finished
+				visible = false
+				modulate.a = 1.0
 				notification_queue.pop_front()
 				state = State.IDLE
