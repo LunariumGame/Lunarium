@@ -63,6 +63,10 @@ func end_turn() -> void:
 		print_debug("Game loss triggered")
 		Signals.game_lost.emit()
 		return
+		
+	# play next turn only if not won
+	get_tree().get_root().get_node("World/Audio/NextTurn").play()
+
 
 func _win_condition_satisfied() -> bool:
 	var population:int = roundi(resource_manager.get_resource(ResourceManager.ResourceType.POPULATION))
