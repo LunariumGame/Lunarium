@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5sriyy1kbotn"]
+
+[ext_resource type="PackedScene" uid="uid://b84cp341mhqdb" path="res://scenes/ui_components/logo_h_box.tscn" id="1_dpf47"]
+[ext_resource type="Script" uid="uid://ddqn6xl3vjkme" path="res://scripts/screens/controls.gd" id="1_lnu0l"]
+[ext_resource type="FontFile" uid="uid://b6gud4og1ou5r" path="res://assets/fonts/2P.ttf" id="2_fakbg"]
+[ext_resource type="Script" uid="uid://bj1omfohfnxvq" path="res://scripts/scale_aware_label_settings.gd" id="3_lnu0l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ckbvf"]
+font = ExtResource("2_fakbg")
+font_size = 24
+font_color = Color(0.69803923, 0.69803923, 0.69803923, 1)
+script = ExtResource("3_lnu0l")
+base_font_size = 24
+metadata/_custom_type_script = "uid://bj1omfohfnxvq"
+
+[node name="Controls" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_lnu0l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.90588236)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LogoHBox" parent="VBoxContainer" instance=ExtResource("1_dpf47")]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "WASD  - CAMERA"
+label_settings = SubResource("LabelSettings_ckbvf")
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "SHIFT - SPRINT"
+label_settings = SubResource("LabelSettings_ckbvf")
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "B     - BUILDING PANEL"
+label_settings = SubResource("LabelSettings_ckbvf")
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "ENTER - NEXT TURN"
+label_settings = SubResource("LabelSettings_ckbvf")
+
+[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "ESCAPE      - SETTINGS"
+label_settings = SubResource("LabelSettings_ckbvf")
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "SPACE       - PLACE BUILDING"
+label_settings = SubResource("LabelSettings_ckbvf")
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "LEFT-CLICK  - PLACE BUILDING"
+label_settings = SubResource("LabelSettings_ckbvf")
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "RIGHT-CLICK - CANCEL BUILDING"
+label_settings = SubResource("LabelSettings_ckbvf")
+
+[node name="Spacer2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2

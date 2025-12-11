@@ -5,7 +5,7 @@
 
 [resource]
 font = ExtResource("1_eo6yd")
-font_color = Color(0.9297146, 0.9297147, 0.9297146, 1)
+font_color = Color(0.8175212, 0.81752133, 0.8175211, 1)
 script = ExtResource("1_mp5n8")
 base_font_size = 16
 metadata/_custom_type_script = "uid://bj1omfohfnxvq"

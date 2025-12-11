@@ -27,7 +27,7 @@ func _ready():
 	ui_scale.value = settings_data.scale_value
 	cam_speed_scale.value = settings_data.default_speed
 	rb_curs_checkbox.button_pressed = settings_data.rb_cursor_enabled
-	
+	Signals.controls_closed.connect(_on_controls_closed)
 	
 	hud = get_tree().get_root().get_node("World/UI/HUD")
 	hud.visible = false
@@ -104,3 +104,12 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 func _on_how_to_play_pressed() -> void:
 	Signals.toggle_tutorial.emit()
 	close()
+
+
+func _on_controls_pressed() -> void:
+	self.visible = false
+	Signals.controls_opened.emit()
+	
+	
+func _on_controls_closed() -> void:
+	self.visible = true

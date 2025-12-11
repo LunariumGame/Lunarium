@@ -29,6 +29,8 @@ signal electricity_recomputed()
 
 signal settings_opened()
 signal settings_closed()
+signal controls_opened()
+signal controls_closed()
 
 signal building_selected()
 
