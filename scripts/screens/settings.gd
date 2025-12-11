@@ -16,7 +16,8 @@ var hud : CanvasLayer
 @onready var cam_speed_scale: HSlider = $"Settings/MainVBox/CameraSettings/CameraSpeed"
 @onready var rb_curs_checkbox: CheckBox = $"Settings/CheckBox"
 @onready var master_default_db_vol := AudioServer.get_bus_volume_db(0)
-@onready var how_to_play_center: CenterContainer = $Settings/MainVBox/Buttons/HowToPlayCenter
+@onready var how_to_play_center: CenterContainer = $Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer2/HowToPlayCenter
+
 
 func _ready():
 	layer = order_man.order.SETTINGS
@@ -80,6 +81,8 @@ func _on_scale_slider_value_changed(value: float) -> void:
 
 
 func _on_quit_game_pressed() -> void:
+	var timer = get_tree().create_timer(0.2)
+	await timer.timeout
 	get_tree().quit()
 
 
