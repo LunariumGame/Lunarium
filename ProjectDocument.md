@@ -541,6 +541,8 @@ Due to implementation time constraints, icons were left unscaled.
 - Implemented the max population and electricity cap mechanics.
 - Fixed the issue where buildings could be placed under invalid conditions (lack of required resource, out of bound placements, etc).
 - Cleaned up and streamlined signaling between systems.
+- Resolved an issue where the intro cutscene video exceeded the screen boundaries.
+- Assisted in implementing proper window stacking behavior for the Controls screen.
 ---
 
 ## Jake Stelly ([BuilderRobot](https://github.com/BuilderRobot)) ##
