@@ -4,9 +4,9 @@ extends Building
 # production rate per turn
 @export var production_table: Array[int] = [
 	0,  # lvl 0
+	2,
 	4,
-	8,
-	12,
+	6,
 ]
 
 # power draw per level

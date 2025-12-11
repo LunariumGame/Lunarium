@@ -32,7 +32,7 @@ script = ExtResource("3_gymdt")
 cost = Dictionary[int, float]({
 0: 0.0,
 1: 0.0,
-2: 20.0,
+2: 30.0,
 3: 0.0
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"
@@ -307,7 +307,7 @@ _data = {
 
 [node name="IronRefinery" instance=ExtResource("1_tn2a3")]
 script = ExtResource("2_n1xno")
-production_table = Array[int]([0, 4, 8, 12])
+production_table = Array[int]([0, 2, 4, 6])
 power_table = Array[int]([0, 10, 15, 20])
 building_spec = SubResource("Resource_ry6o0")
 
