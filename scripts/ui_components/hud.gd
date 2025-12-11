@@ -100,6 +100,14 @@ func toggle_panel(system: Systems) -> void:
 
 func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> void:
 	%InspectorPanel.visible = true
+	
+	# Disable upgrade button if building is max level
+	var building: Building = utils.fetch_building(building_id)
+	if building.current_level == building.max_level:
+		upgrade.disabled = true
+	else:
+		upgrade.disabled = false
+		
 	flash_inspector_panel()
 	upgrade.visible = true
 	destroy.visible = true
@@ -170,6 +178,9 @@ func _on_upgrade_pressed() -> void:
 	
 	var building: Building = build_man.building_id_to_node[selected_building_id]
 	building.upgrade_level()
+	
+	if building.current_level == building.max_level:
+		upgrade.disabled = true
 
 	var payload := building._get_selection_payload()
 	toggle_panel_selected_building(selected_building_id, payload)

@@ -552,6 +552,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_7utte")
 
 [node name="Upgrade" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy"]
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("18_haqli")
 text = "UPGRADE"
 
@@ -563,6 +564,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_haqli")
 
 [node name="Destroy" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy"]
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("18_haqli")
 text = "DESTROY"
 

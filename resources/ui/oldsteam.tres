@@ -1,8 +1,24 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b2qodpqbccyb3"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://b2qodpqbccyb3"]
 
 [ext_resource type="FontFile" uid="uid://b6gud4og1ou5r" path="res://assets/fonts/2P.ttf" id="1_1mbmj"]
 [ext_resource type="StyleBox" uid="uid://dyso47mujokki" path="res://resources/ui/oldsteam_stylebox.tres" id="2_vrt7w"]
 [ext_resource type="Texture2D" uid="uid://b6k7dd38rgif8" path="res://assets/sprites/moon_16x16.png" id="3_0g5oj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lkef"]
+bg_color = Color(0.23921569, 0.2784314, 0.21176471, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.21176471, 0.23921569, 0.18431373, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 3.0
+expand_margin_top = 10.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ije6g"]
 bg_color = Color(0.23824656, 0.27808714, 0.21164718, 1)
@@ -73,8 +89,10 @@ corner_radius_bottom_left = 5
 
 [resource]
 Button/colors/font_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
+Button/colors/font_disabled_color = Color(0.8750814, 0.8750814, 0.8750814, 0.32000002)
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_1mbmj")
+Button/styles/disabled = SubResource("StyleBoxFlat_0lkef")
 Button/styles/focus = ExtResource("2_vrt7w")
 Button/styles/hover = SubResource("StyleBoxFlat_ije6g")
 Button/styles/hover_pressed = SubResource("StyleBoxFlat_ckx3v")
