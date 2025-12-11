@@ -21,14 +21,14 @@ const highlighted_building_color:Color = Color(1.188, 1.4, 0.561, 1.0)
 func _ready() -> void:
 	add_to_group("building_buttons")
 	pressed.connect(_populate_cursor_on_click)
-	
+
 
 # populate with PackedScene building and follow cursor
 func _populate_cursor_on_click() -> void:
 	# if a building cursor already exists, return
 	if cursor_instance != null and is_instance_valid(cursor_instance):
 		return
-		
+
 	# set as active building button
 	get_tree().call_group("tracker", "button_activated", self)
 	
@@ -64,7 +64,7 @@ func _process(_delta: float) -> void:
 		var mouse_pos_world: Vector2 = canvas_to_world_transform * get_global_mouse_position()
 
 		cursor_instance.global_position = mouse_pos_world.snapped(tile_size)
-		
+
 		# if collision/not enough resources, notify with red sprite
 		if cursor_area.is_overlapping() || !build_man.can_purchase(cursor_instance.building_spec, 0):
 			cursor_instance.modulate = Color.RED
@@ -170,7 +170,7 @@ func align_costs(costs: Dictionary) -> String:
 
 	# Build aligned rows
 	for type in costs.keys():
-		if type == ResourceManager.ResourceType.POPULATION:
+		if type == ResourceManager.ResourceType.POPULATION || type == ResourceManager.ResourceType.ELECTRICITY:
 			continue
 		var num_str = str(int(costs[type]))
 		var padding = " ".repeat(max_len - num_str.length() + 2)  # +1 = space before label

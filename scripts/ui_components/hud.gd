@@ -126,7 +126,7 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 		var value = payload[key]
 		var info_label = Label.new()
 		info_label.theme = load("res://resources/ui/oldsteam.tres")
-		info_label.add_theme_font_size_override("font_size", 36)
+		info_label.add_theme_font_size_override("font_size", 16)
 		info_label.text = str(key) + ": " + str(value)
 		if key == "\n": info_label.text = ""
 		payload_container.add_child(info_label)

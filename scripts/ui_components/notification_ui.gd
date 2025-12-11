@@ -37,7 +37,7 @@ func _process(delta:float) -> void:
 			if not notification_queue.is_empty():
 				typing_time = 0
 				state = State.TYPING
-		
+
 		State.TYPING:
 			if !notif_sound.playing:
 				notif_sound.play()
@@ -50,13 +50,13 @@ func _process(delta:float) -> void:
 			if typed_chars >= notif_len:
 				shown_for = 0
 				state = State.SHOWING
-		
+
 		State.SHOWING:
 			if notif_sound.playing:
 				notif_sound.stop()
 				
 			shown_for += delta
-			
+
 			if shown_for >= show_duration:
 				notification_queue.pop_front()
 				state = State.IDLE

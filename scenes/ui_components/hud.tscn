@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cq65gcl3j3jgd" path="res://assets/sprites/Electricity.png" id="5_3esv6"]
 [ext_resource type="Texture2D" uid="uid://mjkrxk6sjcvc" path="res://assets/sprites/building.png" id="5_fok22"]
 [ext_resource type="Texture2D" uid="uid://cvtjxiw200c6u" path="res://assets/sprites/Iron.png" id="6_7utte"]
-[ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="7_7utte"]
 [ext_resource type="Script" uid="uid://4lk24jcuaq6g" path="res://scripts/ui_components/building/active_button_tracker.gd" id="9_do4pv"]
 [ext_resource type="Script" uid="uid://b2eoxpgf2ve3o" path="res://scripts/ui_components/building/building_button.gd" id="9_jswg8"]
 [ext_resource type="PackedScene" uid="uid://ce5pyvkrsuwy" path="res://scenes/ui_components/notification_ui.tscn" id="10_eov31"]
@@ -39,9 +38,9 @@ shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_8125u"]
-font_size = 48
+font_size = 24
 script = ExtResource("3_v2n4f")
-base_font_size = 48
+base_font_size = 24
 metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otepx"]
@@ -61,9 +60,15 @@ shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_v2n4f"]
-font_size = 48
+font_size = 24
 script = ExtResource("3_v2n4f")
-base_font_size = 48
+base_font_size = 24
+metadata/_custom_type_script = "uid://bj1omfohfnxvq"
+
+[sub_resource type="LabelSettings" id="LabelSettings_eov31"]
+font_size = 18
+script = ExtResource("3_v2n4f")
+base_font_size = 18
 metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do4pv"]
@@ -100,11 +105,10 @@ shadow_size = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pkrv"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_3esv6"]
-font = ExtResource("7_7utte")
-font_size = 56
+[sub_resource type="LabelSettings" id="LabelSettings_haqli"]
+font_size = 24
 script = ExtResource("3_v2n4f")
-base_font_size = 56
+base_font_size = 24
 metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2w4nd"]
@@ -125,9 +129,8 @@ content_margin_right = 32.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7utte"]
-font_size = 36
 script = ExtResource("3_v2n4f")
-base_font_size = 36
+base_font_size = 16
 metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7utte"]
@@ -241,7 +244,7 @@ stretch_mode = 2
 [node name="Electricity" parent="HUD/TopLeft/Box/CenterContainer/GridContainer/Electricity" instance=ExtResource("2_cjm6u")]
 layout_mode = 2
 theme = ExtResource("18_haqli")
-text = "XXX"
+text = "X/X"
 label_settings = SubResource("LabelSettings_8125u")
 resource = 1
 inverted = true
@@ -263,11 +266,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_otepx")
 
 [node name="VBox" type="VBoxContainer" parent="HUD/TopMid/Box"]
 layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Spacer" type="Control" parent="HUD/TopMid/Box/VBox"]
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/TopMid/Box/VBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 15
+
+[node name="Spacer1" type="Control" parent="HUD/TopMid/Box/VBox/HBoxContainer"]
+layout_mode = 2
 
 [node name="PopulationTag" type="Label" parent="HUD/TopMid/Box/VBox/HBoxContainer"]
 layout_mode = 2
@@ -278,19 +288,22 @@ label_settings = SubResource("LabelSettings_v2n4f")
 [node name="Population" type="Label" parent="HUD/TopMid/Box/VBox/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("18_haqli")
-text = "XXX"
+text = "X/X"
 label_settings = SubResource("LabelSettings_v2n4f")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_a6ec8")
 resource = 3
 
+[node name="Spacer2" type="Control" parent="HUD/TopMid/Box/VBox/HBoxContainer"]
+layout_mode = 2
+
 [node name="TurnCounter" type="Label" parent="HUD/TopMid/Box/VBox"]
 layout_mode = 2
 theme = ExtResource("18_haqli")
 theme_override_colors/font_color = Color(0.24313726, 0.3137255, 0.18431373, 1)
 text = "TURN #"
-label_settings = SubResource("LabelSettings_8125u")
+label_settings = SubResource("LabelSettings_eov31")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_xgrr2")
@@ -308,6 +321,7 @@ grow_horizontal = 0
 layout_mode = 2
 
 [node name="NotificationUI" parent="HUD/TopRight/HBoxContainer" instance=ExtResource("10_eov31")]
+visible = false
 layout_mode = 2
 
 [node name="Box" type="PanelContainer" parent="HUD/TopRight/HBoxContainer"]
@@ -393,8 +407,9 @@ expand_icon = true
 [node name="CurrentInspect" type="Label" parent="HUD/BotLeft/Box/VBox/TabButtons"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme = ExtResource("11_6pkrv")
 text = "NEW BUILDINGS"
-label_settings = SubResource("LabelSettings_3esv6")
+label_settings = SubResource("LabelSettings_haqli")
 horizontal_alignment = 2
 
 [node name="InspectorPanel" type="PanelContainer" parent="HUD/BotLeft/Box/VBox"]
