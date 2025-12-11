@@ -308,14 +308,13 @@ script = ExtResource("2_4f3d3")
 capacity_table = Array[int]([0, 20, 40, 80])
 power_table = Array[int]([0, 10, 15, 20])
 building_spec = SubResource("Resource_wakwv")
-max_level = 3
 
 [node name="BuildingDebugger" parent="." index="1" node_paths=PackedStringArray("target")]
 target = NodePath("..")
 
 [node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("5_0exew")
-vframes = 14
+vframes = 17
 frame = 6
 
 [node name="AnimationPlayer" parent="." index="3"]
