@@ -212,7 +212,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_volt3"]
 resource_name = "idle_u2"
-length = 2.5
+length = 1.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -221,7 +221,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.03333333, 0.7, 1.3666667, 2.1),
+"times": PackedFloat32Array(0, 0.46666667, 0.96666664, 1.4333333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [36, 37, 38, 39]
@@ -324,7 +324,7 @@ target = NodePath("..")
 [node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("5_jn2df")
 vframes = 21
-frame = 4
+frame = 37
 
 [node name="AnimationPlayer" parent="." index="3"]
 active = true
