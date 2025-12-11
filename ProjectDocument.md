@@ -517,8 +517,8 @@ Made drastic improvements to the efficiency of the BuildingManager class followi
 <i>[Space Music Pack](https://gooseninja.itch.io/space-music-pack)</i> by Goose Ninja - Free Use  
 
 <u>Effects</u>  
-<i>[Star Twinkle](https://pixabay.com/users/koiroylers-44305058/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=355937)</i> by Koi Roylers, Pixabay - [License](https://pixabay.com/service/license-summary/)
-<i>[Typing Sound](https://pixabay.com/sound-effects/keyboard-typing-asmr-356118/)</i> - by DRAGON-STUDIO - Free Use
+<i>[Star Twinkle](https://pixabay.com/users/koiroylers-44305058/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=355937)</i> by Koi Roylers, Pixabay - [License](https://pixabay.com/service/license-summary/)  
+<i>[Typing Sound](https://pixabay.com/sound-effects/keyboard-typing-asmr-356118/)</i> - by DRAGON-STUDIO - Free Use  
 
 ### Original Assets
 <u>Sprites</u>  
