@@ -429,7 +429,6 @@ text = "TODO TECH (?)
 or just open tech tree?"
 
 [node name="BuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3esv6")
 
@@ -510,6 +509,7 @@ script = ExtResource("9_jswg8")
 building_cursor = ExtResource("14_afnkq")
 
 [node name="SelectedBuildingInspector" type="PanelContainer" parent="HUD/BotLeft/Box/VBox/InspectorPanel"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6iety")
 
