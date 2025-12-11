@@ -13,7 +13,7 @@ const WIN_CONDITION_MIN_POPULATION:int = 99
 
 const COLONIST_CONSUMPTION_PER_TURN:float = 1
 const STARVING_COLONIST_DEATH_RATE_PER_TURN:float = 0.5
-const SHUTTLE_DEATH_MEMORANDUM_TURN_DURATION:int = 10
+const SHUTTLE_DEATH_MEMORANDUM_TURN_DURATION:int = 5
 
 var turn:int = 1
 var _computed_electricity_capacity:float = 0
@@ -118,7 +118,7 @@ func get_total_housing_capacity() -> int:
 	var total_capacity := 0
 	var placed_buildings := get_node("/root/World/PlacedBuildings").get_children()
 	for building in placed_buildings:
-		if building is Residential:
+		if building is Residential and building.is_powered:
 			total_capacity += building.get_housing_capacity()
 	return total_capacity
 

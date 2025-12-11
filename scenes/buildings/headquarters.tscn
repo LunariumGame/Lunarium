@@ -314,6 +314,7 @@ script = ExtResource("2_7kgpa")
 iron_per_turn = 1
 
 [node name="BuildingDebugger" parent="." index="1" node_paths=PackedStringArray("target")]
+z_index = 1
 target = NodePath("..")
 
 [node name="Sprite2D" parent="." index="2"]

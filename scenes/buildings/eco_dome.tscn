@@ -10,9 +10,9 @@
 [sub_resource type="Resource" id="Resource_j3rju"]
 script = ExtResource("3_j3rju")
 cost = Dictionary[int, float]({
-0: 0.0,
+0: 10.0,
 1: 0.0,
-2: 10.0,
+2: 5.0,
 3: 0.0
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"
@@ -20,9 +20,9 @@ metadata/_custom_type_script = "uid://0leikb15bp7y"
 [sub_resource type="Resource" id="Resource_8kgej"]
 script = ExtResource("3_j3rju")
 cost = Dictionary[int, float]({
-0: 0.0,
+0: 20.0,
 1: 0.0,
-2: 15.0,
+2: 10.0,
 3: 0.0
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"
@@ -30,9 +30,9 @@ metadata/_custom_type_script = "uid://0leikb15bp7y"
 [sub_resource type="Resource" id="Resource_fo458"]
 script = ExtResource("3_j3rju")
 cost = Dictionary[int, float]({
-0: 0.0,
+0: 45.0,
 1: 0.0,
-2: 20.0,
+2: 15.0,
 3: 0.0
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"
@@ -310,16 +310,16 @@ _data = {
 
 [node name="EcoDome" instance=ExtResource("1_sid64")]
 script = ExtResource("2_hww1b")
-production_table = Array[int]([0, 10, 20, 30])
-power_table = Array[int]([0, 10, 15, 20])
+production_table = Array[int]([0, 3, 5, 25])
+power_table = Array[int]([0, 5, 15, 30])
 building_spec = SubResource("Resource_v4082")
-max_level = 3
 
 [node name="BuildingDebugger" parent="." index="1" node_paths=PackedStringArray("target")]
 target = NodePath("..")
 
 [node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("5_j3rju")
+vframes = 21
 frame = 22
 
 [node name="AnimationPlayer" parent="." index="3"]

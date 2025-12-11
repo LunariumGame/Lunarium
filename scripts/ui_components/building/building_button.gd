@@ -29,7 +29,7 @@ func _populate_cursor_on_click() -> void:
 	# if a building cursor already exists, return
 	if cursor_instance != null and is_instance_valid(cursor_instance):
 		return
-		
+
 	# set as active building button
 	get_tree().call_group("tracker", "button_activated", self)
 	
@@ -65,7 +65,7 @@ func _process(_delta: float) -> void:
 		var mouse_pos_world: Vector2 = canvas_to_world_transform * get_global_mouse_position()
 
 		cursor_instance.global_position = mouse_pos_world.snapped(tile_size)
-		
+
 		# if collision/not enough resources, notify with red sprite
 		if cursor_area.is_overlapping() || !build_man.can_purchase(cursor_instance.building_spec, 0):
 			cursor_instance.modulate = Color.RED
@@ -149,7 +149,7 @@ func _place_building() -> bool:
 func populate_cost_label(build_spec: BuildingSpec) -> void:
 	var building_type_name = build_man.BuildingType.find_key(build_spec.type)
 	var pretty_name = building_type_name.replace("_", " ")
-	cost_label.text = str(pretty_name) + " COSTS\n\n"
+	cost_label.text = str(pretty_name) + "\n\n"
 	var cost_levels = build_spec.cost_levels
 	var cost = cost_levels[cursor_instance.current_level - 1]
 	cost_label.text += align_costs(cost.cost)
@@ -171,7 +171,7 @@ func align_costs(costs: Dictionary) -> String:
 
 	# Build aligned rows
 	for type in costs.keys():
-		if type == ResourceManager.ResourceType.POPULATION:
+		if type == ResourceManager.ResourceType.POPULATION || type == ResourceManager.ResourceType.ELECTRICITY:
 			continue
 		var num_str = str(int(costs[type]))
 		var padding = " ".repeat(max_len - num_str.length() + 2)  # +1 = space before label

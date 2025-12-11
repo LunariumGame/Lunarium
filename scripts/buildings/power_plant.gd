@@ -4,11 +4,10 @@ extends Building
 # production rate per turn
 @export var production_table: Array[int] = [
 	0,  # lvl 0
+	5,
 	10,
-	20,
-	30,
+	25,
 ]
-
 
 func _ready() -> void:
 	Signals.turn_started_power_plant.connect(_on_turn_started)
@@ -50,7 +49,7 @@ func _get_selection_payload() -> Dictionary:
 	return {
 		"LEVEL": current_level,
 		"POWER REQUIRED": int(get_power_draw()),
-		"PRODUCTION": str(int(_get_production_rate())) + " ELECTRICITY (CONSTANT)",
+		"PRODUCTION": str(int(_get_production_rate())) + " ELECTRICITY",
 		"\n": "",
 		"UPGRADE COST": "MAX LEVEL" if current_level == max_level else str(int(self.building_spec.cost_levels[current_level].cost[ResourceManager.ResourceType.IRON])) + " IRON"
 	}

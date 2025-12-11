@@ -17,7 +17,7 @@ func _ready():
 	
 	# Fade in over 1 second
 	var tween = create_tween()
-	tween.tween_property(banner, "modulate:a", 1.0, 1.0)
+	tween.tween_property(banner, "modulate:a", 1.0, 3.0)
 
 func close():
 	window_manager.pop()

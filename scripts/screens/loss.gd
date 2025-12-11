@@ -12,7 +12,7 @@ func _ready():
 	
 	# Fade in over 1 second
 	var tween = create_tween()
-	tween.tween_property(banner, "modulate:a", 1.0, 1.0)
+	tween.tween_property(banner, "modulate:a", 1.0, 3.0)
 	
 	# stop main music
 	var main_music = get_node("/root/World/Audio/Music")
