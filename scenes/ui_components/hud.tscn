@@ -437,6 +437,10 @@ text = "NEW BUILDING"
 label_settings = SubResource("LabelSettings_haqli")
 horizontal_alignment = 2
 
+[node name="Spacer" type="Control" parent="HUD/BotLeft/Box/VBox/TabButtons"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
 [node name="InspectorPanel" type="PanelContainer" parent="HUD/BotLeft/Box/VBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 200)
