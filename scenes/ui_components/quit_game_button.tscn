@@ -10,6 +10,7 @@ custom_minimum_size = Vector2(180, 40)
 offset_right = 180.0
 offset_bottom = 40.0
 focus_mode = 0
+accessibility_name = "Quit Game"
 theme = ExtResource("1_mqfw7")
 text = "QUIT GAME"
 script = ExtResource("2_7mvtb")
