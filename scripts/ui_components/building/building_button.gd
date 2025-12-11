@@ -148,7 +148,7 @@ func _place_building() -> bool:
 func populate_cost_label(build_spec: BuildingSpec) -> void:
 	var building_type_name = build_man.BuildingType.find_key(build_spec.type)
 	var pretty_name = building_type_name.replace("_", " ")
-	cost_label.text = str(pretty_name) + " COSTS\n\n"
+	cost_label.text = str(pretty_name) + "\n\n"
 	var cost_levels = build_spec.cost_levels
 	var cost = cost_levels[cursor_instance.current_level - 1]
 	cost_label.text += align_costs(cost.cost)

@@ -408,7 +408,7 @@ expand_icon = true
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("11_6pkrv")
-text = "NEW BUILDINGS"
+text = "NEW BUILDING"
 label_settings = SubResource("LabelSettings_haqli")
 horizontal_alignment = 2
 

@@ -19,6 +19,7 @@ static var same_building_in_a_row: int
 @onready var currentlyInspectingLabel:Label = %TabButtons/CurrentInspect
 @onready var upgrade: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Upgrade
 @onready var destroy: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Destroy
+@onready var building_cost: Label = $HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/Costs/BuildingCost
 
 var prev_building_id: int
 var selected_building_id: int = -1
@@ -92,7 +93,7 @@ func toggle_panel(system: Systems) -> void:
 
 	# Set currentinyInspecting label to the panel type
 	if system == Systems.BUILDING:
-		currentlyInspectingLabel.text = "NEW BUILDINGS"
+		currentlyInspectingLabel.text = "NEW BUILDING"
 	else:
 		resetCurrInspLabel()
 
@@ -154,6 +155,7 @@ func _on_tech_tree_pressed() -> void:
 
 func _on_building_manager_pressed() -> void:
 	# Untoggle other buttons
+	building_cost.text = "BUILDING COSTS"
 	toggle_panel(Systems.BUILDING)
 
 
