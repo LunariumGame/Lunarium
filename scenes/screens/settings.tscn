@@ -278,7 +278,7 @@ focus_mode = 0
 [connection signal="value_changed" from="Settings/MainVBox/AudioSettings/EffectsVolume" to="." method="_on_effects_volume_value_changed"]
 [connection signal="value_changed" from="Settings/MainVBox/CameraSettings/CameraSpeed" to="." method="_on_camera_speed_value_changed"]
 [connection signal="value_changed" from="Settings/MainVBox/UISettings/ScaleSlider" to="." method="_on_scale_slider_value_changed"]
-[connection signal="pressed" from="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer2/HowToPlayCenter/HowToPlay" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer2/HowToPlayCenter/HowToPlay" to="." method="_on_how_to_play_pressed"]
 [connection signal="pressed" from="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer/ResumeCenter/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer/QuitCenter/QuitGame" to="." method="_on_quit_game_pressed"]
 [connection signal="toggled" from="Settings/CheckBox" to="." method="_on_check_box_toggled"]

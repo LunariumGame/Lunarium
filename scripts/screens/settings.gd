@@ -101,6 +101,6 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 	settings_data.rb_cursor_enabled = toggled_on
 
 
-func _on_button_pressed() -> void:
+func _on_how_to_play_pressed() -> void:
 	Signals.toggle_tutorial.emit()
 	close()
