@@ -26,3 +26,5 @@ func _ready():
 func close():
 	window_manager.pop()
 	queue_free()
+	Signals.victory_screen_closed.emit()
+	

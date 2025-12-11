@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://du8rqqwg06b8"]
+[gd_scene load_steps=12 format=3 uid="uid://du8rqqwg06b8"]
 
 [ext_resource type="Script" uid="uid://qgwiwb7gjqpd" path="res://scripts/screens/victory.gd" id="1_63tvk"]
 [ext_resource type="Texture2D" uid="uid://c0cg5c504fhb5" path="res://assets/sprites/cutscenes/ending_cutscenes/victory_cutscene.png" id="2_62pnk"]
 [ext_resource type="AudioStream" uid="uid://b8tghw4hyu0qw" path="res://assets/audio/victory_score_new.mp3" id="3_omuyy"]
+[ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="4_m2tkd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_62pnk"]
 atlas = ExtResource("2_62pnk")
@@ -43,9 +44,11 @@ animations = [{
 "texture": SubResource("AtlasTexture_eqqsn")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48wmm"]
 
 [node name="Victory" type="CanvasLayer"]
 script = ExtResource("1_63tvk")
@@ -67,8 +70,30 @@ grow_horizontal = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CBoxContainer"]
 position = Vector2(0, 537)
 sprite_frames = SubResource("SpriteFrames_gw5eo")
-autoplay = "default"
-frame_progress = 0.67846835
+animation = &"idle"
+autoplay = "idle"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_omuyy")
+
+[node name="Control" type="CenterContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = 300.0
+offset_right = 96.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_m2tkd")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_48wmm")
+text = "CONTINUE"
+
+[connection signal="pressed" from="Control/Button" to="." method="close"]

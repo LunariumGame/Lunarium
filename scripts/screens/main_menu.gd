@@ -13,6 +13,7 @@ var _time := 0.0
 func _ready() -> void:
 	layer = order_man.order.MAIN_MENU
 	Signals.settings_closed.connect(_on_settings_closed)
+	Signals.credits_stopped_defeat.connect(_on_quit_game_pressed)
 
 
 func _process(delta):
