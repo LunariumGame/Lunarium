@@ -2,7 +2,7 @@ extends Node
 
 const BASE_TURNS_BETWEEN_SHUTTLES:int = 2
 
-@export var colonists_per_shuttle:int = 10
+@export var colonists_per_shuttle:int = 5
 
 var turns_to_shuttle:int = BASE_TURNS_BETWEEN_SHUTTLES
 
