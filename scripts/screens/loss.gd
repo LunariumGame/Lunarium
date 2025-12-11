@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var banner := $VBoxContainer/AnimatedSprite2D
+@onready var banner := $CBoxContainer/AnimatedSprite2D
 @onready var audio := $AudioStreamPlayer
 
 func _ready():
