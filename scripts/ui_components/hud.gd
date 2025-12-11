@@ -20,6 +20,7 @@ static var same_building_in_a_row: int
 @onready var upgrade: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Upgrade
 @onready var destroy: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Destroy
 @onready var building_cost: Label = $HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/Costs/BuildingCost
+@onready var tutorial: Control = $Tutorial
 
 var prev_building_id: int
 var selected_building_id: int = -1
@@ -35,6 +36,7 @@ func _ready() -> void:
 	destroy_button.pressed.connect(_on_destroy_pressed)
 	
 	Signals.building_selected.connect(_on_building_selected)
+	Signals.toggle_tutorial.connect(toggle_tutorial)
 
 
 func flash_inspector_panel() -> void:
@@ -225,3 +227,11 @@ func close_inspector() -> void:
 			system_panels[i].visible = false
 	resetCurrInspLabel()
 	%InspectorPanel.visible = false
+
+
+func toggle_tutorial() -> void:
+	tutorial.visible = !tutorial.visible
+
+
+func _on_toggle_tutorial_pressed() -> void:
+	toggle_tutorial()

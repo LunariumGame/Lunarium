@@ -94,3 +94,8 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 	var cursor: SubViewport = get_tree().get_root().get_node("World/Cursor")
 	cursor.enable_rainbow = toggled_on
 	settings_data.rb_cursor_enabled = toggled_on
+
+
+func _on_button_pressed() -> void:
+	Signals.toggle_tutorial.emit()
+	close()
