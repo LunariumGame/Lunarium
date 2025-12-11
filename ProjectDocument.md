@@ -100,9 +100,6 @@ can be seen below, upgrade-to-upgrade:
 | 15  | 20| 15|
 | 20    | 30| 20|
 
-### Destroying ### 
-If you misplace a building, or simply wish to remove it, you can do so by clicking the destroy button!
-
 ### Turn-based Strategies ###
 We list a few strategies below to get you started (but we don't want to spoil the whole game :-) ):
 * First, monitor your power grid carefully. Ensure that you are not needlessly constructing buildings that can't be powered on the current turn.
@@ -246,7 +243,7 @@ Audacity, in seguing to the main menu of the game.
 </ul>
 
 3) [*Building Audio and Manager*](https://github.com/LunariumGame/Lunarium/pull/175/) - This was the largest contribution for audio, and surprisingly time consuming.
-Each building contains 2 shared audio sounds (create and destroy), and a unique one for when it is selected.
+Each building contains shared audio sounds for creation, and a unique one for when it is selected.
 
 <figure>
     <img src="assets/pics/jacob/scene_tree_audio.png" width="400" />
