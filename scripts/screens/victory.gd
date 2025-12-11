@@ -11,13 +11,9 @@ func _ready():
 	var main_music = get_node("/root/World/Audio/Music")
 	if main_music:
 		main_music.stop()
-	# start victory music
+	
 	audio.play()
-	
-	
-	
-	# Start playing the idle animation
-	banner.play("idle")
+	banner.play("default")
 	
 	# Fade in over 1 second
 	var tween = create_tween()

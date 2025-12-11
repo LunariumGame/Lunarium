@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dv4k4yd8qy01b"]
 
 [ext_resource type="Script" uid="uid://dj58qblwq4pr6" path="res://scripts/managers/ui_audio_manager.gd" id="1_mhu8f"]
-[ext_resource type="AudioStream" uid="uid://d1phavr8bklm4" path="res://assets/audio/ui-click.wav" id="2_mhu8f"]
+[ext_resource type="AudioStream" uid="uid://d1phavr8bklm4" path="res://assets/audio/user_interface/ui-click.wav" id="2_mhu8f"]
 
 [node name="UiAudioManager" type="Node"]
 script = ExtResource("1_mhu8f")

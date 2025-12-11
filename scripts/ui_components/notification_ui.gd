@@ -2,8 +2,6 @@ class_name NotificationUI
 extends PanelContainer
 
 @onready var label: Label = $Label
-@onready var notification_interval: Timer = $NotificationInterval
-
 
 enum State {
 	IDLE,
