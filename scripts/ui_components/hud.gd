@@ -218,6 +218,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_building_panel"):
 		ui_audio_manager.button_click.play()
 		toggle_panel(Systems.BUILDING)
+	if event.is_action_pressed("next_turn"):
+		_on_next_turn_pressed()
 
 
 func close_inspector() -> void:
