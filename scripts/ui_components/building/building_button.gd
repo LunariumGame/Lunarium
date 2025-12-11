@@ -13,7 +13,7 @@ var create_audio: AudioStreamPlayer2D
 var ptr: Vector2i # current position of cursor in building manager coords
 var last_hovered_building: Building = null
 
-const highlighted_building_color:Color = Color(1.188, 1.4, 0.561, 1.0)
+const highlighted_building_color:Color = Color(1.291, 1.317, 1.166, 1.0)
 
 @onready var cost_label: Label = $"../../../../Costs/BuildingCost"
 @onready var hud: HUD = get_tree().get_root().get_node("World/UI/HUD")
