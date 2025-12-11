@@ -11,11 +11,11 @@ enum State {
 	SHOWING,
 }
 
-var notification_queue:Array[NotificationManager.Notification] = []
-var state:State
-var typing_time:float
-var shown_for:float
-
+var nq:Array[NotificationManager.Notification] = []
+var state:State = State.IDLE
+var typing_time:float = 0.0
+var shown_for:float = 0.0
+var current:NotificationManager.Notification = null
 var cpm:float = 1200
 var show_duration:float = 3
 
@@ -26,7 +26,7 @@ func _ready() -> void:
 
 
 func _on_notification(n:NotificationManager.Notification) -> void:
-	notification_queue.append(n)
+	nq.append(n)
 
 
 func _process(delta: float) -> void:
@@ -34,8 +34,8 @@ func _process(delta: float) -> void:
 
 		State.IDLE:
 			# If currently has no notif but queue has more, load the next one
-			if current == null and not queue.is_empty():
-				current = queue.pop_front()
+			if current == null and not nq.is_empty():
+				current = nq.pop_front()
 				_start_typing()
 
 		State.TYPING:
