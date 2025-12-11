@@ -372,6 +372,8 @@ action_mode = 0
 icon = ExtResource("4_2itkv")
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("12_6iety")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
 [node name="BuildingManager" type="Button" parent="HUD/BotLeft/Box/VBox/TabButtons"]
 texture_filter = 1
@@ -544,6 +546,8 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_7utte")
 layout_mode = 2
 theme = ExtResource("18_haqli")
 text = "UPGRADE"
+script = ExtResource("12_6iety")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
 [node name="VSeparatorM" type="VSeparator" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy"]
 layout_mode = 2
@@ -555,6 +559,8 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_haqli")
 layout_mode = 2
 theme = ExtResource("18_haqli")
 text = "DESTROY"
+script = ExtResource("12_6iety")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
 [node name="VSeparatorR" type="VSeparator" parent="HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy"]
 layout_mode = 2

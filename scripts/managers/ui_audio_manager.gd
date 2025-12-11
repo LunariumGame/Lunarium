@@ -5,5 +5,4 @@ extends Node
 
 
 func play_button_click():
-	if not button_click.playing:
 		button_click.play()

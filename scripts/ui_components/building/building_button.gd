@@ -1,6 +1,6 @@
 # On click of building button, populate BuildingCursor
 class_name BuildingButton
-extends Button
+extends ButtonWrapper
 
 @export var tile_size := Vector2i(32, 32)
 @export var building_cursor: PackedScene
@@ -19,9 +19,10 @@ const highlighted_building_color:Color = Color(1.188, 1.4, 0.561, 1.0)
 @onready var hud: HUD = get_tree().get_root().get_node("World/UI/HUD")
 
 func _ready() -> void:
+	super()
 	add_to_group("building_buttons")
 	pressed.connect(_populate_cursor_on_click)
-	
+
 
 # populate with PackedScene building and follow cursor
 func _populate_cursor_on_click() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bo383rljnyhxr"]
+[gd_scene load_steps=12 format=3 uid="uid://bo383rljnyhxr"]
 
 [ext_resource type="Script" uid="uid://eqg0rjagl3i7" path="res://scripts/screens/settings.gd" id="1_emdcu"]
 [ext_resource type="PackedScene" uid="uid://b84cp341mhqdb" path="res://scenes/ui_components/logo_h_box.tscn" id="2_a6gug"]
@@ -6,8 +6,9 @@
 [ext_resource type="LabelSettings" uid="uid://dte7ki6on48e4" path="res://resources/ui/label_settings_regular.tres" id="3_ap0kp"]
 [ext_resource type="Texture2D" uid="uid://b6k7dd38rgif8" path="res://assets/sprites/moon_16x16.png" id="3_q3kmr"]
 [ext_resource type="Script" uid="uid://bj1omfohfnxvq" path="res://scripts/scale_aware_label_settings.gd" id="4_3otaf"]
-[ext_resource type="PackedScene" uid="uid://caqswmbla1t2u" path="res://scenes/ui_components/quit_game_button.tscn" id="6_ap0kp"]
+[ext_resource type="PackedScene" uid="uid://csjdtvby2iw5h" path="res://scenes/ui_components/quit_game_button.tscn" id="6_ap0kp"]
 [ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="7_0ct2w"]
+[ext_resource type="Script" uid="uid://dhbvj587s8ykb" path="res://scripts/ui_components/button_wrapper.gd" id="8_wddno"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ap0kp"]
 font = ExtResource("2_jljg7")
@@ -189,6 +190,8 @@ theme = ExtResource("7_0ct2w")
 theme_override_fonts/font = ExtResource("2_jljg7")
 theme_override_font_sizes/font_size = 48
 text = "RESUME"
+script = ExtResource("8_wddno")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
 [node name="QuitCenter" type="CenterContainer" parent="Settings/MainVBox/Buttons"]
 layout_mode = 2
