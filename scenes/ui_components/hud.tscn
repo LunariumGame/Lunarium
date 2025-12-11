@@ -711,6 +711,8 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "CLOSE"
+script = ExtResource("12_6iety")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
 [connection signal="pressed" from="HUD/TopRight/HBoxContainer/Box/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="HUD/BotLeft/Box/VBox/TabButtons/TechTree" to="." method="_on_tech_tree_pressed"]
