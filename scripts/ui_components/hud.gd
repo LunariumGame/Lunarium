@@ -103,7 +103,7 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 	
 	# Disable upgrade button if building is max level
 	var building: Building = utils.fetch_building(building_id)
-	if building.current_level == building.max_level:
+	if building.current_level == building.max_level || build_man.try_upgrade(building) == false:
 		upgrade.disabled = true
 	else:
 		upgrade.disabled = false
