@@ -46,27 +46,6 @@ layout_mode = 2
 stream = ExtResource("2_k04th")
 expand = true
 
-[node name="BotRight" type="Control" parent="Control"]
-custom_minimum_size = Vector2(240, 120)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="CenterContainer" type="CenterContainer" parent="Control/BotRight"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="SkipButton" type="Button" parent="."]
 anchors_preset = 3
 anchor_left = 1.0
@@ -98,4 +77,4 @@ stream = ExtResource("3_5vsyr")
 volume_db = -12.0
 
 [connection signal="finished" from="Control/CBoxContainer/VideoStreamPlayer" to="." method="_on_movie_end"]
-[connection signal="pressed" from="Control/BotRight/CenterContainer/SkipButton" to="." method="_on_skip_press"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_press"]
