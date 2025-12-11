@@ -24,7 +24,7 @@ func _on_shuttle_arrived(pax:int) -> void:
 
 func _on_shuttle_blocked_by_population_cap() -> void:
 	Signals.notification.emit(Notification.new(
-		"Population limit reached"
+		"Population limit reached!"
 	))
 
 
