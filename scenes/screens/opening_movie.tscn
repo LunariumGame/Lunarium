@@ -1,26 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://d006yfmmx7bre"]
 
 [ext_resource type="Script" uid="uid://c16p8ugep1b5r" path="res://scripts/screens/opening_movie.gd" id="1_bu5bb"]
-[ext_resource type="VideoStream" path="res://assets/sprites/cutscenes/opening_cutscene/open_movie_1920_1080.ogv" id="2_k04th"]
-[ext_resource type="AudioStream" uid="uid://1f6gojwuhuh5" path="res://assets/audio/sparkle-star.mp3" id="3_5vsyr"]
-[ext_resource type="AudioStream" uid="uid://l7wnmtpt376r" path="res://assets/audio/intro_score.wav" id="3_k04th"]
-[ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="5_k04th"]
+[ext_resource type="VideoStream" uid="uid://cdfcqlun2nbus" path="res://assets/sprites/cutscenes/opening_cutscene/open_movie_1920_1080.ogv" id="2_k04th"]
+[ext_resource type="AudioStream" uid="uid://1f6gojwuhuh5" path="res://assets/audio/cutscenes/sparkle-star.mp3" id="3_5vsyr"]
+[ext_resource type="AudioStream" uid="uid://l7wnmtpt376r" path="res://assets/audio/cutscenes/intro_score.wav" id="3_k04th"]
+[ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="3_mm1mk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mm1mk"]
 
 [node name="OpeningMovie" type="CanvasLayer"]
 script = ExtResource("1_bu5bb")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="Control"]
-layout_mode = 1
+[node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,8 +21,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.043137256, 0.043137256, 0.03137255, 1)
 
-[node name="CBoxContainer" type="AspectRatioContainer" parent="Control"]
-layout_mode = 1
+[node name="CBoxContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -39,29 +29,27 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-ratio = 1.7778
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control/CBoxContainer"]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CBoxContainer"]
 layout_mode = 2
 stream = ExtResource("2_k04th")
-expand = true
+
+[node name="IntroScore" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k04th")
+
+[node name="StarTwinkle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5vsyr")
+volume_db = -12.0
 
 [node name="SkipButton" type="Button" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -192.0
-offset_top = -104.0
-offset_right = -22.0
-offset_bottom = -10.0
-grow_horizontal = 0
-grow_vertical = 0
+offset_left = 1686.0
+offset_top = 936.0
+offset_right = 1856.0
+offset_bottom = 1030.0
 focus_mode = 0
-theme = ExtResource("5_k04th")
 theme_override_colors/font_color = Color(1, 1, 1, 0.20400001)
-theme_override_font_sizes/font_size = 36
+theme_override_fonts/font = ExtResource("3_mm1mk")
+theme_override_font_sizes/font_size = 108
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mm1mk")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_mm1mk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_mm1mk")
@@ -69,12 +57,5 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_mm1mk")
 text = "SKIP
 "
 
-[node name="IntroScore" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_lp7o4")
-
-[node name="StarTwinkle" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_5vsyr")
-volume_db = -12.0
-
-[connection signal="finished" from="Control/CBoxContainer/VideoStreamPlayer" to="." method="_on_movie_end"]
+[connection signal="finished" from="CBoxContainer/VideoStreamPlayer" to="." method="_on_movie_end"]
 [connection signal="pressed" from="SkipButton" to="." method="_on_skip_press"]

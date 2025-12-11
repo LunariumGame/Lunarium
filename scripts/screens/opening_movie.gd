@@ -3,7 +3,7 @@ extends CanvasLayer
 # enum to store from where the opening movie was played
 enum Callers {START, GALLERY}
 
-@onready var movie := $Control/CBoxContainer/VideoStreamPlayer
+@onready var movie := $CBoxContainer/VideoStreamPlayer
 @onready var score := $IntroScore
 @onready var star_twinkle: AudioStreamPlayer = $StarTwinkle
 
