@@ -5,5 +5,6 @@
 [node name="QuitGame" type="Button"]
 custom_minimum_size = Vector2(250, 40)
 focus_mode = 0
+accessibility_name = "Quit Game"
 theme = ExtResource("1_mqfw7")
 text = "QUIT GAME"
