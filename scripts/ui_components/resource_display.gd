@@ -13,9 +13,6 @@ extends Label
 		inverted = v
 		if is_node_ready():
 			_update_display()
-			
-# some random value that is not attainable
-var last_cap: float = -1
 
 var is_blackout: bool = false
 
@@ -39,7 +36,7 @@ func _update_display() -> void:
 		var usage := game_manager.get_electricity_usage()
 		text = "%d / %d" % [usage, cap]
 		
-		if is_blackout and usage >= cap:
+		if is_blackout and usage == cap:
 				is_blackout = false
 	
 
