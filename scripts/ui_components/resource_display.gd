@@ -34,7 +34,7 @@ func _update_display() -> void:
 	# Special-case: ELECTRICITY uses usage/capacity
 	if resource == ResourceManager.ResourceType.ELECTRICITY:
 		var usage := game_manager.get_electricity_usage()
-		text = "%d / %d" % [usage, cap]
+		text = "%d/%d" % [usage, cap]
 		
 		if is_blackout and usage == cap:
 				is_blackout = false
@@ -42,11 +42,11 @@ func _update_display() -> void:
 
 		if usage > cap:
 			if not is_blackout:
+				modulate = Color.RED
 				get_tree().get_root().get_node("World/Audio/PowerOff").play()
 				is_blackout = true
-			modulate = Color.RED
+				flash_electricity_ui_red()
 		else:
-			
 			#get_tree().get_root().get_node("World/Audio/PowerOn").play()
 			modulate = Color.WHITE
 			
@@ -68,3 +68,17 @@ func _update_display() -> void:
 	if inverted:
 		value = cap - value
 	text = "%d/%d" % [value, cap]
+
+
+func flash_electricity_ui_red() -> void:
+	var original: Color = modulate
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	for i in 5:
+		tween.tween_property(self, "modulate", Color.WHITE, 0.3)
+		tween.tween_property(self, "modulate", Color.RED, 0.3)
+
+	tween.tween_property(self, "modulate", original, 0.3)
+	

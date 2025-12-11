@@ -20,6 +20,7 @@ static var same_building_in_a_row: int
 @onready var upgrade: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Upgrade
 @onready var destroy: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Destroy
 @onready var building_cost: Label = $HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/Costs/BuildingCost
+@onready var tutorial: Control = $Tutorial
 
 var prev_building_id: int
 var selected_building_id: int = -1
@@ -35,6 +36,7 @@ func _ready() -> void:
 	destroy_button.pressed.connect(_on_destroy_pressed)
 	
 	Signals.building_selected.connect(_on_building_selected)
+	Signals.toggle_tutorial.connect(toggle_tutorial)
 
 
 func flash_inspector_panel() -> void:
@@ -137,15 +139,17 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 		info_label.theme = load("res://resources/ui/oldsteam.tres")
 		info_label.add_theme_font_size_override("font_size", 16)
 		info_label.text = str(key) + ": " + str(value)
-		if key == "\n": info_label.text = ""
+		if key == "\n" || key == "\n " || key == "\n  ": info_label.text = ""
 		payload_container.add_child(info_label)
 
 	# Currentlyinspecting label
 	var building_type_index = build_man.get_building_type_from_id(building_id)
 	var building_type_name: String = build_man.BuildingType.find_key(building_type_index)
 	var pretty_name = building_type_name.replace("_", " ")
-	currentlyInspectingLabel.text = str(pretty_name)	
-	
+	currentlyInspectingLabel.text = "LVL " + str(building.current_level) + " " + str(pretty_name)	
+	if pretty_name == "HEADQUARTERS":
+		currentlyInspectingLabel.text = str(pretty_name)
+
 	# Funny easter egg
 	if building_id == prev_building_id:
 		same_building_in_a_row += 1
@@ -214,6 +218,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_building_panel"):
 		ui_audio_manager.button_click.play()
 		toggle_panel(Systems.BUILDING)
+	if event.is_action_pressed("next_turn"):
+		_on_next_turn_pressed()
 
 
 func close_inspector() -> void:
@@ -223,3 +229,11 @@ func close_inspector() -> void:
 			system_panels[i].visible = false
 	resetCurrInspLabel()
 	%InspectorPanel.visible = false
+
+
+func toggle_tutorial() -> void:
+	tutorial.visible = !tutorial.visible
+
+
+func _on_toggle_tutorial_pressed() -> void:
+	toggle_tutorial()

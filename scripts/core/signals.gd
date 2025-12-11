@@ -17,6 +17,7 @@ signal turn_ended_residential(turn_number:int)
 
 # specific signals
 signal recompute_power_plants()
+signal toggle_tutorial()
 
 # building signals
 signal building_built(building: Node)
@@ -28,6 +29,8 @@ signal electricity_recomputed()
 
 signal settings_opened()
 signal settings_closed()
+signal controls_opened()
+signal controls_closed()
 
 signal building_selected()
 

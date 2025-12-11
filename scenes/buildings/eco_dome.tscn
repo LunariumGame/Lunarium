@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="3_j3rju"]
 [ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="4_8kgej"]
 [ext_resource type="Texture2D" uid="uid://cdscvmm34rvis" path="res://assets/sprites/buildings/eco_domes/eco_dome_spritesheet.png" id="5_j3rju"]
-[ext_resource type="AudioStream" uid="uid://ba2f8dfmxagyn" path="res://assets/audio/eco_dome_new.mp3" id="6_8kgej"]
+[ext_resource type="AudioStream" uid="uid://ba2f8dfmxagyn" path="res://assets/audio/buildings/eco_dome_new.mp3" id="6_8kgej"]
 
 [sub_resource type="Resource" id="Resource_j3rju"]
 script = ExtResource("3_j3rju")
@@ -193,7 +193,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ofkw7"]
 resource_name = "idle_u1"
-length = 2.5
+length = 0.75
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -202,7 +202,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 0.8, 1.4333333, 2.0333333),
+"times": PackedFloat32Array(0.03333333, 0.23333333, 0.43333334, 0.6333333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [1, 2, 3, 4]
@@ -210,6 +210,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_volt3"]
 resource_name = "idle_u2"
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -218,7 +219,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.43333334, 0.6666667),
+"times": PackedFloat32Array(0, 0.13333334, 0.3, 0.46666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [31, 32, 33, 34]
@@ -226,6 +227,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_xl0vr"]
 resource_name = "idle_u3"
+length = 0.67
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -234,7 +236,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.46666667, 0.6666667),
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.53333336),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [61, 62, 63, 64]
@@ -320,12 +322,20 @@ target = NodePath("..")
 [node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("5_j3rju")
 vframes = 21
-frame = 22
+frame = 61
 
 [node name="AnimationPlayer" parent="." index="3"]
+active = true
 libraries = {
 &"": SubResource("AnimationLibrary_j3rju")
 }
 
 [node name="Select" parent="Audio" index="1"]
 stream = ExtResource("6_8kgej")
+bus = &"Effects"
+
+[node name="Destroy" parent="Audio" index="2"]
+bus = &"Effects"
+
+[node name="Off" parent="Audio" index="3"]
+bus = &"Effects"

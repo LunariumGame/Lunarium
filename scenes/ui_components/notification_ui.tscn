@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1kx34gg7jrl7" path="res://scripts/ui_components/notification_ui.gd" id="1_cgvyd"]
 [ext_resource type="LabelSettings" uid="uid://dte7ki6on48e4" path="res://resources/ui/label_settings_regular.tres" id="1_iw8wg"]
-[ext_resource type="AudioStream" uid="uid://dke5v6shc21n7" path="res://assets/audio/typing.mp3" id="3_07uv6"]
+[ext_resource type="AudioStream" uid="uid://dke5v6shc21n7" path="res://assets/audio/ui/typing.mp3" id="3_07uv6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2itkv"]
 content_margin_left = 12.0

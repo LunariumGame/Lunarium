@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bpc6gps3lk4ac"]
+[gd_scene load_steps=47 format=3 uid="uid://bpc6gps3lk4ac"]
 
 [ext_resource type="Script" uid="uid://cp4f0pub28xa" path="res://scripts/ui_components/hud.gd" id="1_cjm6u"]
 [ext_resource type="Script" uid="uid://bxf2bs8khmutf" path="res://scripts/turn_counter.gd" id="1_xgrr2"]
@@ -162,6 +162,24 @@ shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ij283"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eov31"]
+bg_color = Color(0.41140202, 0.47079715, 0.37187055, 0.84000003)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_6iety"]
+font_size = 18
+script = ExtResource("3_v2n4f")
+base_font_size = 18
+metadata/_custom_type_script = "uid://bj1omfohfnxvq"
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_cjm6u")
@@ -419,6 +437,10 @@ text = "NEW BUILDING"
 label_settings = SubResource("LabelSettings_haqli")
 horizontal_alignment = 2
 
+[node name="Spacer" type="Control" parent="HUD/BotLeft/Box/VBox/TabButtons"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
 [node name="InspectorPanel" type="PanelContainer" parent="HUD/BotLeft/Box/VBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 200)
@@ -640,7 +662,64 @@ grow_horizontal = 2
 grow_vertical = 0
 show_percentage = false
 
+[node name="Tutorial" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Tutorial"]
+custom_minimum_size = Vector2(550, 300)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_top = 300.0
+offset_right = 275.0
+offset_bottom = 600.0
+grow_horizontal = 2
+theme = ExtResource("18_haqli")
+theme_override_styles/panel = SubResource("StyleBoxFlat_eov31")
+
+[node name="MarginContainer" type="MarginContainer" parent="Tutorial/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tutorial/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Info" type="Label" parent="Tutorial/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Welcome to Lunarium!
+
+Establish the first colony
+on the moon by reaching a
+population of 100!
+
+Don't forget to power your
+buildings and feed your
+people... Good luck."
+label_settings = SubResource("LabelSettings_6iety")
+
+[node name="ToggleTutorial" type="Button" parent="Tutorial/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "CLOSE"
+script = ExtResource("12_6iety")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
+
 [connection signal="pressed" from="HUD/TopRight/HBoxContainer/Box/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="HUD/BotLeft/Box/VBox/TabButtons/TechTree" to="." method="_on_tech_tree_pressed"]
 [connection signal="pressed" from="HUD/BotLeft/Box/VBox/TabButtons/BuildingManager" to="." method="_on_building_manager_pressed"]
 [connection signal="pressed" from="HUD/BotRight/Box/MarginContainer/NextTurn" to="." method="_on_next_turn_pressed"]
+[connection signal="pressed" from="Tutorial/PanelContainer/MarginContainer/VBoxContainer/ToggleTutorial" to="." method="_on_toggle_tutorial_pressed"]
