@@ -2,7 +2,7 @@ extends Node
 
 const BASE_TURNS_BETWEEN_SHUTTLES:int = 2
 
-@export var colonists_per_shuttle:int = 5
+@export var max_colonists_per_shuttle:int = 5
 
 var turns_to_shuttle:int = BASE_TURNS_BETWEEN_SHUTTLES
 
@@ -24,7 +24,7 @@ func get_turns_between_shuttles() -> int:
 
 
 func get_shuttle_colonists() -> int:
-	return colonists_per_shuttle
+	return randi_range(1, max_colonists_per_shuttle)
 
 
 func _process_shuttle_arrival() -> void:
