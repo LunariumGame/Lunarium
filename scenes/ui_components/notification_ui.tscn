@@ -14,7 +14,10 @@ border_width_top = 6
 border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.24313726, 0.27450982, 0.21568628, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
 corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
 shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 4
 
