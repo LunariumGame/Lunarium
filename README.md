@@ -12,10 +12,10 @@ To get your hands on the game, head to [our itch.io page!](https://hawkhobo.itch
 ## The Team
 
 **Jacob Feenstra**  
-Producer, Game Feel & Audio
+Producer, Game Feel, Audio
 
 **Kapila Mhaiskar**  
-Level & World Designer, Narrative Design
+Animations & Visuals, Visual Cohension & Style Guide, Narrative Design
 
 **Joe Vogel**  
 User Interface & Input, Gameplay Testing

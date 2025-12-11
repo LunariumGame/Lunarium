@@ -497,6 +497,23 @@ Made drastic improvements to the efficiency of the BuildingManager class followi
 * Check out the evolution of my planning, algorithms, and profiling below
 * [Optimization Document](https://docs.google.com/document/d/1KPvbdcfLBMDYctRfjjSjAQSfdUCGkGZ_MBPcH52fjNQ/edit?tab=t.0)
 
+## Kapila Mhaiskar ([Kap1la](https://https://github.com/Kap1la))
+
+### Animations & Visuals
+Made all building sprites & animation sequences (Jacob actually set up the animations and their timing in Godot), background tileset, cutscenes, ending banners, and credits screen.
+
+[Concept Art Sketches](https://imgur.com/a/zJYgKgt)
+
+[Concept Art Aseprite](https://imgur.com/a/oLj6Tvg)
+
+### Visual Cohension & Style Guide, Narrative Design + Animation & Visual Style Guide
+[The Style Guide](https://docs.google.com/document/d/1p8EXoz7k58oNd6SpOBj2jET6y-thP62O2PWdukOd0kM/edit?usp=sharing)
+
+* Set up opening cutscene, ending banners scene, and credits scene.
+* Implemented logic to allow for continued play after victory and credits that will not check for victory again, but will check for defeat
+* Implemented logic to close the game after the post-defeat credits
+
+
 ### Third-Party Assets
 <u>Fonts</u>  
 <i>[m5x7](https://managore.itch.io/m5x7)</i> by Daniel Linssen - Creative Commons License   
@@ -519,17 +536,9 @@ Made drastic improvements to the efficiency of the BuildingManager class followi
 
 ### Original Assets
 <u>Sprites</u>  
-placeholders:  
-<i></i> by Kapila Mhaiskar  
-<i></i> by Kapila Mhaiskar  
-<i></i> by Kapila Mhaiskar  
-<i></i> by Kapila Mhaiskar  
-<i></i> by Kapila Mhaiskar  
-<i></i> by Kapila Mhaiskar  
-<i></i> by Kapila Mhaiskar  
-<i></i> by Kapila Mhaiskar  
-<i></i> by Kapila Mhaiskar  
-<i></i> by Kapila Mhaiskar  
+[Buildings](https://github.com/LunariumGame/Lunarium/tree/0f09a4f6cabe73c468ec39446b6e8a3da943bfef/assets/sprites/buildings) by Kapila Mhaiskar  
+[Cutscenes](https://github.com/LunariumGame/Lunarium/tree/0f09a4f6cabe73c468ec39446b6e8a3da943bfef/assets/sprites/cutscenes) by Kapila Mhaiskar  
+[Tilemap](https://github.com/LunariumGame/Lunarium/tree/0f09a4f6cabe73c468ec39446b6e8a3da943bfef/assets/sprites/tilemap) by Kapila Mhaiskar
 
 <i>Moon Logo<i> by Joe Vogel      
 <i>Cursor</i> by Joe Vogel  
