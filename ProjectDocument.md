@@ -502,7 +502,8 @@ Made drastic improvements to the efficiency of the BuildingManager class followi
 
 ### Third-Party Assets
 <u>Fonts</u>  
-<i>[m5x7](https://managore.itch.io/m5x7)</i> by Daniel Linssen - Creative Commons License  
+<i>[m5x7](https://managore.itch.io/m5x7)</i> by Daniel Linssen - Creative Commons License   
+<i>[Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P?query=2p)</i> by CodeMan38 - SIL Open Font License
 
 <u>Sprites</u>  
 <i>[Lunarium Title](https://chatgpt.com/)</i> by ChatGPT - Free Use  
