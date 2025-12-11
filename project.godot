@@ -41,6 +41,7 @@ notification_manager="*res://scripts/managers/notification_manager.gd"
 ui_audio_manager="*res://scenes/managers/ui_audio_manager.tscn"
 DebugManager="*res://scripts/managers/debug_manager.gd"
 active_button_tracker="*res://scripts/ui_components/building/button_tracker.gd"
+GameState="*res://scripts/ui_components/game_state.gd"
 
 [display]
 

@@ -26,6 +26,7 @@ func _process(delta):
 
 
 func _on_start_game_pressed() -> void:
+	GameState.state = GameState.State.PLAYING
 	close()
 
 
