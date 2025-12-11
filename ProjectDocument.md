@@ -455,6 +455,14 @@ Due to implementation time constraints, icons were left unscaled.
 - Cleaned up and streamlined signaling between systems.
 ---
 
+## Jake Stelly ([BuilderRobot](https://github.com/BuilderRobot)) ##
+
+### Systems Engineer
+
+
+### Performance Optimization
+
+
 ### Third-Party Assets
 <u>Fonts</u>  
 <i>[m5x7](https://managore.itch.io/m5x7)</i> by Daniel Linssen - Creative Commons License  
