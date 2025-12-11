@@ -29,5 +29,7 @@ Game Logic, Game Feel
 **Jake Stelly**  
 Game Logic, Performance Optimization
 
+---
+
 The soundtrack is Aaron Marshall's 2007 album Noir Ambiance. He has graciously allowed us to use this record for this project. All rights solely and strictly belong to him. Follow his other work & updates on [his website](https://noct.us/). Thank you so much Aaron!
 
