@@ -82,7 +82,7 @@ can be seen below, upgrade-to-upgrade:
   #### Reactor ####
 | Cost (Food, Iron)   | Production (Electricity) | Power Draw |
 | :------ | :----------   | :------    |
-| (3, 5)      |     10         | 0         |
+| (5, 5)      |     10         | 0         |
 | (5, 10)  | 20| 0|
 | (10, 10)    | 30| 0|
 
@@ -96,9 +96,9 @@ can be seen below, upgrade-to-upgrade:
   #### Eco Dome ####
 | Cost (Food, Iron)    | Production (Food) | Power Draw |
 | :------ | :----------   | :------    |
-| (10, 5)      |     3         | 5         |
-| (20, 10)  | 5| 15|
-| (45, 15)    | 25| 30|
+| (1, 8)      |     3         | 5         |
+| (5, 15)  | 5| 15|
+| (25, 20)    | 25| 30|
 
 ### Turn-based Strategies ###
 We list a few strategies below to get you started (but we don't want to spoil the whole game :-) ):
