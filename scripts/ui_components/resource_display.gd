@@ -36,7 +36,7 @@ func _update_display() -> void:
 		var usage := game_manager.get_electricity_usage()
 		text = "%d/%d" % [usage, cap]
 		
-		if is_blackout and usage == cap:
+		if is_blackout and usage <= cap:
 				is_blackout = false
 	
 

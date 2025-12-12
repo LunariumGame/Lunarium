@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d006yfmmx7bre"]
+[gd_scene load_steps=7 format=3 uid="uid://d006yfmmx7bre"]
 
 [ext_resource type="Script" uid="uid://c16p8ugep1b5r" path="res://scripts/screens/opening_movie.gd" id="1_bu5bb"]
 [ext_resource type="VideoStream" uid="uid://cdfcqlun2nbus" path="res://assets/sprites/cutscenes/opening_cutscene/open_movie_1920_1080.ogv" id="2_k04th"]
 [ext_resource type="AudioStream" uid="uid://1f6gojwuhuh5" path="res://assets/audio/cutscenes/sparkle-star.mp3" id="3_5vsyr"]
 [ext_resource type="AudioStream" uid="uid://l7wnmtpt376r" path="res://assets/audio/cutscenes/intro_score.wav" id="3_k04th"]
 [ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="5_k04th"]
+[ext_resource type="Script" uid="uid://dhbvj587s8ykb" path="res://scripts/ui_components/button_wrapper.gd" id="6_aaq1y"]
 
 [node name="OpeningMovie" type="CanvasLayer"]
 script = ExtResource("1_bu5bb")
@@ -57,6 +58,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.20400001)
 theme_override_font_sizes/font_size = 48
 text = "SKIP
 "
+script = ExtResource("6_aaq1y")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
 [connection signal="finished" from="CBoxContainer/VideoStreamPlayer" to="." method="_on_movie_end"]
 [connection signal="pressed" from="SkipButton" to="." method="_on_skip_press"]

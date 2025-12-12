@@ -51,22 +51,22 @@ alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "WASD  - CAMERA"
+text = "WASD   - CAMERA"
 label_settings = SubResource("LabelSettings_ckbvf")
 
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "SHIFT - SPRINT"
+text = "SHIFT  - CAMSPRINT"
 label_settings = SubResource("LabelSettings_ckbvf")
 
 [node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "B     - BUILDING PANEL"
+text = "SCROLL - ZOOM"
 label_settings = SubResource("LabelSettings_ckbvf")
 
 [node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "ENTER - NEXT TURN"
+text = "ENTER  - NEXT TURN"
 label_settings = SubResource("LabelSettings_ckbvf")
 
 [node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer"]
@@ -78,6 +78,11 @@ layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "B           - BUILDING PANEL"
+label_settings = SubResource("LabelSettings_ckbvf")
+
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "ESCAPE      - SETTINGS"
@@ -86,11 +91,6 @@ label_settings = SubResource("LabelSettings_ckbvf")
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "SPACE       - PLACE BUILDING"
-label_settings = SubResource("LabelSettings_ckbvf")
-
-[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "LEFT-CLICK  - PLACE BUILDING"
 label_settings = SubResource("LabelSettings_ckbvf")
 
 [node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]

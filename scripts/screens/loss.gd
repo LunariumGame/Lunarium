@@ -25,3 +25,9 @@ func _ready():
 func close():
 	window_manager.pop()
 	queue_free()
+
+
+func _on_quit_game_pressed() -> void:
+	var timer = get_tree().create_timer(0.2)
+	await timer.timeout
+	get_tree().quit()

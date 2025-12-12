@@ -12,9 +12,9 @@ extends Building
 # power draw per level
 @export var power_table: Array[int] = [
 	0, # lvl 0 unused
-	5,
-	15,
-	30,
+	0,
+	0,
+	0,
 ]
 
 
