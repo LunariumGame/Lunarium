@@ -65,6 +65,9 @@ func _on_settings_pressed() -> void:
 
 
 func _on_next_turn_pressed() -> void:
+	if next_turn_button.disabled:
+		return
+
 	game_manager.end_turn()
 	next_turn_button.start_cooldown()
 

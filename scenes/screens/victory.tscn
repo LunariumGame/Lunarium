@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://du8rqqwg06b8"]
+[gd_scene load_steps=13 format=3 uid="uid://du8rqqwg06b8"]
 
 [ext_resource type="Script" uid="uid://qgwiwb7gjqpd" path="res://scripts/screens/victory.gd" id="1_63tvk"]
 [ext_resource type="Texture2D" uid="uid://c0cg5c504fhb5" path="res://assets/sprites/cutscenes/ending_cutscenes/victory_cutscene.png" id="2_62pnk"]
 [ext_resource type="AudioStream" uid="uid://b8tghw4hyu0qw" path="res://assets/audio/cutscenes/victory_score_new.mp3" id="3_omuyy"]
+[ext_resource type="PackedScene" uid="uid://csjdtvby2iw5h" path="res://scenes/ui_components/quit_game_button.tscn" id="4_m2tkd"]
+[ext_resource type="Script" uid="uid://dhbvj587s8ykb" path="res://scripts/ui_components/button_wrapper.gd" id="5_48wmm"]
+[ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="5_eqqsn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_62pnk"]
 atlas = ExtResource("2_62pnk")
@@ -86,3 +89,31 @@ frame_progress = 0.11242509
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_omuyy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -275.0
+offset_top = -139.0
+offset_right = -35.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_eqqsn")
+text = "ENDLESS"
+alignment = 2
+script = ExtResource("5_48wmm")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
+
+[node name="QuitGame" parent="VBoxContainer" instance=ExtResource("4_m2tkd")]
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]
