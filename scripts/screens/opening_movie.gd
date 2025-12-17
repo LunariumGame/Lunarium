@@ -11,10 +11,12 @@ enum Callers {START, GALLERY}
 var caller:int = -1
 
 func _ready():
-	# wait some time for the opening screen to go away
+	# Wait 1.5 seconds before starting audio
+	await get_tree().create_timer(1.5).timeout
 	# play audio
 	score.play()
-	await get_tree().create_timer(1.0).timeout
+	# wait another 2 seconds to start movie
+	await get_tree().create_timer(2.0).timeout
 	
 	# play the movie
 	movie.play()
