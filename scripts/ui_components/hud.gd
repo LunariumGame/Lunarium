@@ -16,7 +16,8 @@ static var same_building_in_a_row: int
 	%InspectorPanel/BuildingInspector,
 	%InspectorPanel/SelectedBuildingInspector
 ]
-@onready var currentlyInspectingLabel:Label = %TabButtons/CurrentInspect
+@onready var curr_label:Label = %TabButtons/CurrentInspect
+@onready var curr_label_spacer: Control = $HUD/BotLeft/Box/VBox/TabButtons/Spacer
 @onready var upgrade: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Upgrade
 @onready var destroy: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Destroy
 @onready var building_cost: Label = $HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/Costs/BuildingCost
@@ -75,6 +76,7 @@ func _on_next_turn_pressed() -> void:
 #region System Buttons
 func toggle_panel(system: Systems) -> void:
 	%InspectorPanel.visible = true
+	curr_label_spacer.visible = true
 	flash_inspector_panel()
 	same_building_in_a_row = 0
 	# Always hide the selected building panel whenever a system button is clicked
@@ -98,13 +100,14 @@ func toggle_panel(system: Systems) -> void:
 
 	# Set currentinyInspecting label to the panel type
 	if system == Systems.BUILDING:
-		currentlyInspectingLabel.text = "NEW BUILDING"
+		curr_label.text = "NEW BUILDING"
 	else:
 		resetCurrInspLabel()
 
 
 func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> void:
 	%InspectorPanel.visible = true
+	curr_label_spacer.visible = true
 	
 	# Disable upgrade button if building is max level
 	var building: Building = utils.fetch_building(building_id)
@@ -145,13 +148,13 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 		if key == "\n" || key == "\n " || key == "\n  ": info_label.text = ""
 		payload_container.add_child(info_label)
 
-	# Currentlyinspecting label
+	# curr_label
 	var building_type_index = build_man.get_building_type_from_id(building_id)
 	var building_type_name: String = build_man.BuildingType.find_key(building_type_index)
 	var pretty_name = building_type_name.replace("_", " ")
-	currentlyInspectingLabel.text = "LVL " + str(building.current_level) + " " + str(pretty_name)	
+	curr_label.text = "LVL " + str(building.current_level) + " " + str(pretty_name)	
 	if pretty_name == "HEADQUARTERS":
-		currentlyInspectingLabel.text = str(pretty_name)
+		curr_label.text = str(pretty_name)
 
 	# Funny easter egg
 	if building_id == prev_building_id:
@@ -159,7 +162,7 @@ func toggle_panel_selected_building(building_id: int, payload: Dictionary) -> vo
 	else:
 		same_building_in_a_row = 0
 	if same_building_in_a_row >= 15:
-		currentlyInspectingLabel.text = "calm down lol"
+		curr_label.text = "calm down lol"
 	prev_building_id = building_id
 
 
@@ -210,7 +213,7 @@ func _on_destroy_pressed() -> void:
 
 
 func resetCurrInspLabel() -> void:
-	currentlyInspectingLabel.text = ""
+	curr_label.text = ""
 #endregion
 
 
@@ -231,6 +234,7 @@ func close_inspector() -> void:
 			system_buttons[i].button_pressed = false
 			system_panels[i].visible = false
 	resetCurrInspLabel()
+	curr_label_spacer.visible = false
 	%InspectorPanel.visible = false
 
 
