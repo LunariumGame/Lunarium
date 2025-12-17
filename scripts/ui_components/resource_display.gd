@@ -15,6 +15,7 @@ extends Label
 			_update_display()
 
 var is_blackout: bool = false
+var flash_elec_tween: Tween
 
 
 func _ready() -> void:
@@ -48,6 +49,8 @@ func _update_display() -> void:
 				flash_electricity_ui_red()
 		else:
 			#get_tree().get_root().get_node("World/Audio/PowerOn").play()
+			if flash_elec_tween and flash_elec_tween.is_running():
+				flash_elec_tween.kill()
 			modulate = Color.WHITE
 			
 		return
@@ -72,13 +75,13 @@ func _update_display() -> void:
 
 func flash_electricity_ui_red() -> void:
 	var original: Color = modulate
-	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_SINE)
-	tween.set_ease(Tween.EASE_IN_OUT)
+	flash_elec_tween = create_tween()
+	flash_elec_tween.set_trans(Tween.TRANS_SINE)
+	flash_elec_tween.set_ease(Tween.EASE_IN_OUT)
 
 	for i in 5:
-		tween.tween_property(self, "modulate", Color.WHITE, 0.3)
-		tween.tween_property(self, "modulate", Color.RED, 0.3)
+		flash_elec_tween.tween_property(self, "modulate", Color.WHITE, 0.3)
+		flash_elec_tween.tween_property(self, "modulate", Color.RED, 0.3)
 
-	tween.tween_property(self, "modulate", original, 0.3)
+	flash_elec_tween.tween_property(self, "modulate", original, 0.3)
 	
