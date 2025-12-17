@@ -154,3 +154,6 @@ func recompute_electricity(building: Building) -> void:
 
 func endless_mode_triggered() -> void:
 	state = GameState.ENDLESS
+	
+func restart_triggered() -> void:
+	state = GameState.IN_PROGRESS

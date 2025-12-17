@@ -52,11 +52,11 @@ animations = [{
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqqsn"]
 bg_color = Color(0.086104214, 0.086104214, 0.086104214, 0.24900001)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.89420825, 0.7953644, 0.47657922, 0.22100002)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.89420825, 0.7953644, 0.47657922, 0.596)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
