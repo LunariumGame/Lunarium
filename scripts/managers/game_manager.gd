@@ -6,6 +6,7 @@ enum GameState {
 	IN_PROGRESS,
 	WON,
 	LOST,
+	ENDLESS,
 }
 
 
@@ -27,7 +28,7 @@ func _ready() -> void:
 
 
 func end_turn() -> void:
-	if not GameState.IN_PROGRESS == state:
+	if state == GameState.LOST || state == GameState.WON:
 		return
 
 	Signals.turn_ended.emit(turn)
@@ -69,6 +70,9 @@ func end_turn() -> void:
 
 
 func _win_condition_satisfied() -> bool:
+	if state != GameState.IN_PROGRESS:
+		return false
+
 	var population:int = roundi(resource_manager.get_resource(ResourceManager.ResourceType.POPULATION))
 	
 	return population > WIN_CONDITION_MIN_POPULATION;
@@ -146,3 +150,7 @@ func recompute_electricity(building: Building) -> void:
 	Signals.turn_process_power_draw.emit(turn)
 	Signals.resource_value_changed.emit()
 	Signals.electricity_recomputed.emit()
+
+
+func endless_mode_triggered() -> void:
+	state = GameState.ENDLESS

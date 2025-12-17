@@ -20,6 +20,7 @@ func _ready():
 	tween.tween_property(banner, "modulate:a", 1.0, 3.0)
 
 func close():
+	game_manager.endless_mode_triggered()
 	window_manager.pop()
 	queue_free()
 
