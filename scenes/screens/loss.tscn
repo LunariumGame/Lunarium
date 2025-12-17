@@ -65,6 +65,7 @@ frame_progress = 0.893359
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_8lu2c")
+bus = &"Music"
 
 [node name="QuitGame" parent="." instance=ExtResource("4_3fhyi")]
 anchors_preset = 3
