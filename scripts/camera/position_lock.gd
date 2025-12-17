@@ -34,9 +34,9 @@ func trigger_shake() -> void:
 	_curr_shake_strength = max_shake
 
 
-func toggle_camera_shake() -> void:
+func toggle_camera_shake(shake_on:bool) -> void:
 	# enable
-	if max_shake > 0:
+	if shake_on:
 		max_shake = set_max_shake
 	else: # disable
 		max_shake = 0
