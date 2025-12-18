@@ -14,6 +14,10 @@ var hud : CanvasLayer
 @onready var effects_volume: HSlider = $"Settings/MainVBox/AudioSettings/EffectsVolume"
 @onready var ui_scale: HSlider = $"Settings/MainVBox/UISettings/ScaleSlider"
 @onready var cam_speed_scale: HSlider = $"Settings/MainVBox/CameraSettings/CameraSpeed"
+@onready var rb_curs_checkbox: CheckBox = $"Settings/CheckBox"
+@onready var master_default_db_vol := AudioServer.get_bus_volume_db(0)
+@onready var how_to_play: ButtonWrapper = $Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer2/HowToPlayCenter/HowToPlay
+
 
 func _ready():
 	layer = order_man.order.SETTINGS
@@ -22,7 +26,8 @@ func _ready():
 	effects_volume.value = settings_data.volume_value_effects
 	ui_scale.value = settings_data.scale_value
 	cam_speed_scale.value = settings_data.default_speed
-	
+	rb_curs_checkbox.button_pressed = settings_data.rb_cursor_enabled
+	Signals.controls_closed.connect(_on_controls_closed)
 	
 	hud = get_tree().get_root().get_node("World/UI/HUD")
 	hud.visible = false
@@ -51,11 +56,13 @@ func _process(delta):
 	title.modulate = Color(title.modulate.r, title.modulate.g, title.modulate.b, alpha)
 	rotating_moon.modulate = Color(rotating_moon.modulate.r, rotating_moon.modulate.g, rotating_moon.modulate.b, alpha)
 	#endregion
+	how_to_play.disabled = (GameState.state == GameState.State.MAINMENU)
 
 
 func _on_master_volume_value_changed(value: float) -> void:
 	settings_data.volume_value_master = value
-	AudioServer.set_bus_volume_db(0, linear_to_db(value))
+	var db = linear_to_db(value) + master_default_db_vol
+	AudioServer.set_bus_volume_db(0, db)
 
 
 func _on_music_volume_value_changed(value: float) -> void:
@@ -74,6 +81,8 @@ func _on_scale_slider_value_changed(value: float) -> void:
 
 
 func _on_quit_game_pressed() -> void:
+	var timer = get_tree().create_timer(0.2)
+	await timer.timeout
 	get_tree().quit()
 
 
@@ -83,3 +92,24 @@ func _on_resume_pressed() -> void:
 
 func _on_camera_speed_value_changed(value: float) -> void:
 	settings_data.default_speed = value
+
+
+# turn cursor to rainbow mode
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	var cursor: SubViewport = get_tree().get_root().get_node("World/Cursor")
+	cursor.enable_rainbow = toggled_on
+	settings_data.rb_cursor_enabled = toggled_on
+
+
+func _on_how_to_play_pressed() -> void:
+	Signals.toggle_tutorial.emit()
+	close()
+
+
+func _on_controls_pressed() -> void:
+	self.visible = false
+	Signals.controls_opened.emit()
+	
+	
+func _on_controls_closed() -> void:
+	self.visible = true

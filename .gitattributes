@@ -6,6 +6,7 @@
 *.tres linguist-generated
 *.uid linguist-generated
 project.godot linguist-generated
+*.import linguist-generated
 
 *.png binary linguist-generated
 *.jpg binary linguist-generated

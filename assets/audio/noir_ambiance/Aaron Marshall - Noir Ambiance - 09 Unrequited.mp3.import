@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dh22icatwai5e"
+path="res://.godot/imported/Aaron Marshall - Noir Ambiance - 09 Unrequited.mp3-b67d04f96ed5e66d2b74ac278d73f435.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/noir_ambiance/Aaron Marshall - Noir Ambiance - 09 Unrequited.mp3"
+dest_files=["res://.godot/imported/Aaron Marshall - Noir Ambiance - 09 Unrequited.mp3-b67d04f96ed5e66d2b74ac278d73f435.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

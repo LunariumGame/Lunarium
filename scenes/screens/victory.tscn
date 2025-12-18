@@ -1,31 +1,119 @@
-[gd_scene load_steps=3 format=3 uid="uid://du8rqqwg06b8"]
+[gd_scene load_steps=13 format=3 uid="uid://du8rqqwg06b8"]
 
 [ext_resource type="Script" uid="uid://qgwiwb7gjqpd" path="res://scripts/screens/victory.gd" id="1_63tvk"]
+[ext_resource type="Texture2D" uid="uid://c0cg5c504fhb5" path="res://assets/sprites/cutscenes/ending_cutscenes/victory_cutscene.png" id="2_62pnk"]
+[ext_resource type="AudioStream" uid="uid://b8tghw4hyu0qw" path="res://assets/audio/cutscenes/victory_score_new.mp3" id="3_omuyy"]
+[ext_resource type="PackedScene" uid="uid://csjdtvby2iw5h" path="res://scenes/ui_components/quit_game_button.tscn" id="4_m2tkd"]
+[ext_resource type="Script" uid="uid://dhbvj587s8ykb" path="res://scripts/ui_components/button_wrapper.gd" id="5_48wmm"]
+[ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="5_eqqsn"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_63tvk"]
-font_size = 64
+[sub_resource type="AtlasTexture" id="AtlasTexture_62pnk"]
+atlas = ExtResource("2_62pnk")
+region = Rect2(0, 0, 3000, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omuyy"]
+atlas = ExtResource("2_62pnk")
+region = Rect2(3000, 0, 3000, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2tkd"]
+atlas = ExtResource("2_62pnk")
+region = Rect2(6000, 0, 3000, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48wmm"]
+atlas = ExtResource("2_62pnk")
+region = Rect2(0, 240, 3000, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqqsn"]
+atlas = ExtResource("2_62pnk")
+region = Rect2(3000, 240, 3000, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gw5eo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62pnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omuyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2tkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48wmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqqsn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Victory" type="CanvasLayer"]
 script = ExtResource("1_63tvk")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.5019608)
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15164593, 0.1309947, 0.003999088, 0.49803922)
+
+[node name="CBoxContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CBoxContainer"]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/CBoxContainer/VBoxContainer"]
+sprite_frames = SubResource("SpriteFrames_gw5eo")
+autoplay = "default"
+frame = 3
+frame_progress = 0.11242509
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_omuyy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 15
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
+offset_left = -275.0
+offset_top = -139.0
+offset_right = -35.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 16
 
-[node name="WinMessageTemp" type="Label" parent="VBoxContainer"]
+[node name="Continue" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "YOU WON"
-label_settings = SubResource("LabelSettings_63tvk")
-horizontal_alignment = 1
+theme = ExtResource("5_eqqsn")
+text = "ENDLESS"
+alignment = 2
+script = ExtResource("5_48wmm")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
+
+[node name="QuitGame" parent="VBoxContainer" instance=ExtResource("4_m2tkd")]
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

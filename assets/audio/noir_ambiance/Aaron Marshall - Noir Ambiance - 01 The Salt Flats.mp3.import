@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bey4ajjfd3ewn"
+path="res://.godot/imported/Aaron Marshall - Noir Ambiance - 01 The Salt Flats.mp3-bebed0fe8b34427de79879882a241c9b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/noir_ambiance/Aaron Marshall - Noir Ambiance - 01 The Salt Flats.mp3"
+dest_files=["res://.godot/imported/Aaron Marshall - Noir Ambiance - 01 The Salt Flats.mp3-bebed0fe8b34427de79879882a241c9b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

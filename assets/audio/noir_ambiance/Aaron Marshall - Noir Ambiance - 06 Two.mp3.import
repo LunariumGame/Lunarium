@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bt5g7pj0mn3ul"
+path="res://.godot/imported/Aaron Marshall - Noir Ambiance - 06 Two.mp3-b439e19e91b3da71a8c2d9e1fddda140.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/noir_ambiance/Aaron Marshall - Noir Ambiance - 06 Two.mp3"
+dest_files=["res://.godot/imported/Aaron Marshall - Noir Ambiance - 06 Two.mp3-b439e19e91b3da71a8c2d9e1fddda140.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

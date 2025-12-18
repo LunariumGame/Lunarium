@@ -13,7 +13,7 @@ var main_menu_holder: Node = null
 
 func _ready() -> void:
 	Signals.settings_opened.connect(open_settings_screen)
-
+	Signals.controls_opened.connect(open_controls)
 
 func set_ui_root(node: Node):
 	ui_root = node
@@ -76,3 +76,8 @@ func has_windows() -> bool:
 
 func is_in_main_menu() -> bool:
 	return main_menu_holder.get_child_count() > 0
+	
+
+func open_controls() -> void:
+	var controls_scene = preload("res://scenes/screens/controls.tscn").instantiate()
+	push(controls_scene)
