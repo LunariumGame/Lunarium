@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://etungttgp7k"]
+
+[ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="1_30732"]
+[ext_resource type="Script" uid="uid://c254xki7i05tf" path="res://scripts/screens/credits.gd" id="1_bm3ny"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bm3ny"]
+
+[node name="Credits" type="CanvasLayer"]
+script = ExtResource("1_bm3ny")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.043137256, 0.043137256, 0.03137255, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VSpace1" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CreditsTitle" type="Label" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_30732")
+theme_override_font_sizes/font_size = 128
+text = "Credits"
+
+[node name="VSpace6" type="Control" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="JacobFeenstra" type="Label" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_30732")
+theme_override_font_sizes/font_size = 64
+text = "Jacob Feenstra    Producer, Game Feel, & Audio"
+
+[node name="VSpace1" type="Control" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="JoeVogel" type="Label" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_30732")
+theme_override_font_sizes/font_size = 64
+text = "Joe Vogel          User Interface & Input, Gameplay Testing"
+
+[node name="VSpace2" type="Control" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="KapilaMhaiskar" type="Label" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_30732")
+theme_override_font_sizes/font_size = 64
+text = "Kapila Mhaiskar    Animation & Visuals, Visual Cohesion, & Narrative Design"
+
+[node name="VSpace3" type="Control" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="WenKaiYiang" type="Label" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_30732")
+theme_override_font_sizes/font_size = 64
+text = "Wen Kai Yiang     Systems & Tools Engineer, Accessibility & Usability Design"
+
+[node name="VSpace4" type="Control" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SetPaing" type="Label" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_30732")
+theme_override_font_sizes/font_size = 64
+text = "Set Paing          Game Logic, Game Feel"
+
+[node name="VSpace5" type="Control" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="JakeStelly" type="Label" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_30732")
+theme_override_font_sizes/font_size = 64
+text = "Jake Stelly        Game Logic, Performance Optimization"
+
+[node name="VSpace2" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_30732")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bm3ny")
+text = "Continue"
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="close"]
