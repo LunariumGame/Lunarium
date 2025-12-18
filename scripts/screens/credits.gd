@@ -1,6 +1,8 @@
 extends CanvasLayer
 
-@onready var credits := $Control
+@export var scroll_speed : float = 45
+
+@onready var credits := $Credits
 
 
 func _ready() -> void:
@@ -13,7 +15,11 @@ func _ready() -> void:
 	tween.tween_property(credits, "modulate:a", 1.0, 3.0)
 
 
+func _process(_delta: float) -> void:
+	credits.global_position -= Vector2(0, -(_delta * scroll_speed))
+
+
 # called when "continue" button is clicked
-func close():
+func close() -> void:
 	window_manager.pop()
 	queue_free()

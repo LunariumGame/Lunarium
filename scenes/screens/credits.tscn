@@ -1,134 +1,196 @@
 [gd_scene load_steps=5 format=3 uid="uid://etungttgp7k"]
 
-[ext_resource type="FontFile" uid="uid://bylx08b6l3grb" path="res://assets/fonts/m5x7.ttf" id="1_30732"]
 [ext_resource type="Script" uid="uid://cquhuwfjlbien" path="res://scripts/screens/credits.gd" id="1_bm3ny"]
+[ext_resource type="FontFile" uid="uid://b6gud4og1ou5r" path="res://assets/fonts/2P.ttf" id="2_sqip1"]
 [ext_resource type="Script" uid="uid://dhbvj587s8ykb" path="res://scripts/ui_components/button_wrapper.gd" id="3_0v8dc"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bm3ny"]
+[ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="3_sqip1"]
 
 [node name="Credits" type="CanvasLayer"]
 script = ExtResource("1_bm3ny")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
-layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.043137256, 0.043137256, 0.03137255, 1)
 
-[node name="Control" type="Control" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+[node name="Credits" type="CenterContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -540.0
+offset_top = -2730.0
+offset_right = 540.0
+offset_bottom = -974.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Control"]
-custom_minimum_size = Vector2(1920, 1080)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VSpace1" type="Control" parent="Control/Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
 layout_mode = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="Control/Control/VBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Control/VBoxContainer/CenterContainer"]
-layout_mode = 2
+theme_override_constants/separation = 128
 alignment = 1
 
-[node name="CreditsTitle" type="Label" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
+[node name="ThankYou" type="Label" parent="Credits/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_30732")
-theme_override_font_sizes/font_size = 128
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 36
+text = "Thank you so much for playing."
+horizontal_alignment = 1
+
+[node name="Aaron" type="VBoxContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="AaronMarshall" type="Label" parent="Credits/VBoxContainer/Aaron"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 32
+text = "Aaron Marshall"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="Credits/VBoxContainer/Aaron"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 24
+text = "Composer (Noir Ambiance, 2007)"
+horizontal_alignment = 1
+
+[node name="Jake" type="VBoxContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="JakeStelly" type="Label" parent="Credits/VBoxContainer/Jake"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 32
+text = "Jake Stelly"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="Credits/VBoxContainer/Jake"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 24
+text = "Game Logic, Performance Optimization"
+horizontal_alignment = 1
+
+[node name="Set" type="VBoxContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="SetPaing" type="Label" parent="Credits/VBoxContainer/Set"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 32
+text = "Set Paing"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Credits/VBoxContainer/Set"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 24
+text = "Game Logic, Game Feel"
+horizontal_alignment = 1
+
+[node name="WenKai" type="VBoxContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="WenKaiYiang" type="Label" parent="Credits/VBoxContainer/WenKai"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 32
+text = "Wen Kai Yiang"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Credits/VBoxContainer/WenKai"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 24
+text = "Systems Engineer, Accessibility Design"
+horizontal_alignment = 1
+
+[node name="Kapila" type="VBoxContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="KapilaMhaiskar" type="Label" parent="Credits/VBoxContainer/Kapila"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 32
+text = "Kapila Mhaiskar"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Credits/VBoxContainer/Kapila"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 24
+text = "Animation & Visuals, Narrative Design"
+horizontal_alignment = 1
+
+[node name="Joe" type="VBoxContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="JoeVogel" type="Label" parent="Credits/VBoxContainer/Joe"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 32
+text = "Joe Vogel"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/VBoxContainer/Joe"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 24
+text = "User Interface & Input, Gameplay Testing"
+horizontal_alignment = 1
+
+[node name="Jacob" type="VBoxContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="JacobFeenstra" type="Label" parent="Credits/VBoxContainer/Jacob"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 32
+text = "Jacob Feenstra"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Credits/VBoxContainer/Jacob"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 24
+text = "Producer, Game Feel, Audio"
+horizontal_alignment = 1
+
+[node name="CreditsTitle" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sqip1")
+theme_override_font_sizes/font_size = 56
 text = "Credits"
+horizontal_alignment = 1
 
-[node name="VSpace6" type="Control" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-
-[node name="JacobFeenstra" type="Label" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_30732")
-theme_override_font_sizes/font_size = 64
-text = "Jacob Feenstra    Producer, Game Feel, & Audio"
-
-[node name="VSpace1" type="Control" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="JoeVogel" type="Label" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_30732")
-theme_override_font_sizes/font_size = 64
-text = "Joe Vogel          User Interface & Input, Gameplay Testing"
-
-[node name="VSpace2" type="Control" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="KapilaMhaiskar" type="Label" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_30732")
-theme_override_font_sizes/font_size = 64
-text = "Kapila Mhaiskar    Animation & Visuals, Visual Cohesion, & Narrative Design"
-
-[node name="VSpace3" type="Control" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="WenKaiYiang" type="Label" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_30732")
-theme_override_font_sizes/font_size = 64
-text = "Wen Kai Yiang     Systems & Tools Engineer, Accessibility & Usability Design"
-
-[node name="VSpace4" type="Control" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="SetPaing" type="Label" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_30732")
-theme_override_font_sizes/font_size = 64
-text = "Set Paing          Game Logic, Game Feel"
-
-[node name="VSpace5" type="Control" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="JakeStelly" type="Label" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_30732")
-theme_override_font_sizes/font_size = 64
-text = "Jake Stelly        Game Logic, Performance Optimization"
-
-[node name="VSpace7" type="Control" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 45)
-layout_mode = 2
-
-[node name="AaronMarshall" type="Label" parent="Control/Control/VBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_30732")
-theme_override_font_sizes/font_size = 64
-text = "Aaron Marshall    Composer (Noir Ambiance, 2007)"
-
-[node name="VSpace2" type="Control" parent="Control/Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-
-[node name="Button" type="Button" parent="Control/Control/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_30732")
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxEmpty_bm3ny")
-text = "Continue"
+[node name="Button" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -78.0
+offset_right = -34.0
+offset_bottom = -34.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_sqip1")
+text = "CONTINUE"
 script = ExtResource("3_0v8dc")
 metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
-[connection signal="pressed" from="Control/Control/VBoxContainer/Button" to="." method="close"]
+[connection signal="pressed" from="Button" to="." method="close"]
