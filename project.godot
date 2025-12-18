@@ -64,12 +64,6 @@ movie_writer/movie_file="/home/hawkhobo/ucd/fq25/ecs179/lunarium/my_movie.avi"
 
 enabled=PackedStringArray("res://addons/cvd_sim/plugin.cfg")
 
-[file_customization]
-
-folder_colors={
-"res://scenes/buildings/": "yellow"
-}
-
 [gui]
 
 timers/tooltip_delay_sec=0.15

@@ -112,9 +112,9 @@ bus = &"Effects"
 texture_repeat = 2
 texture = ExtResource("16_lakw3")
 centered = false
-offset = Vector2(-6400, -6400)
+offset = Vector2(-12800, -12800)
 region_enabled = true
-region_rect = Rect2(0, 0, 12800, 12800)
+region_rect = Rect2(0, 0, 25600, 25600)
 
 [node name="Layer2" type="Sprite2D" parent="SurfaceTexture"]
 texture_repeat = 2
@@ -133,7 +133,6 @@ region_enabled = true
 region_rect = Rect2(0, 0, 12800, 12800)
 
 [node name="Craters" parent="SurfaceTexture" instance=ExtResource("15_xo05s")]
-crater_count = 500
 
 [node name="Camera" type="Node" parent="."]
 
@@ -151,12 +150,12 @@ player = NodePath("../CameraController")
 [node name="WorldBounds" type="StaticBody2D" parent="Camera"]
 
 [node name="TopWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
-position = Vector2(24, -3905)
+position = Vector2(366, -3161)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_xo05s")
 
 [node name="BottomWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
-position = Vector2(-4, 3787)
+position = Vector2(164, 3770)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_dss4m")
 
@@ -165,7 +164,7 @@ position = Vector2(-3177, -59)
 shape = SubResource("RectangleShape2D_7t5mc")
 
 [node name="RightWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
-position = Vector2(3076, 2)
+position = Vector2(4384, 2)
 shape = SubResource("RectangleShape2D_o8fc1")
 
 [node name="BuildingFinder" type="ShapeCast2D" parent="."]
