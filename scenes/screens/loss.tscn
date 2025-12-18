@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://du46r5f2n8vya"]
+[gd_scene load_steps=11 format=3 uid="uid://n0y8tjohf47o"]
 
 [ext_resource type="Script" uid="uid://degq3ffk17ylk" path="res://scripts/screens/loss.gd" id="1_08wtc"]
 [ext_resource type="Texture2D" uid="uid://b3stlelrxc7wj" path="res://assets/sprites/cutscenes/ending_cutscenes/loss_cutscene.png" id="2_skq7k"]
-[ext_resource type="AudioStream" uid="uid://j0hrsttpxgiv" path="res://assets/audio/cutscenes/defeat_score_new.mp3" id="3_8lu2c"]
 [ext_resource type="Script" uid="uid://dhbvj587s8ykb" path="res://scripts/ui_components/button_wrapper.gd" id="3_b8nrf"]
 [ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="3_v1f5k"]
 [ext_resource type="PackedScene" uid="uid://csjdtvby2iw5h" path="res://scenes/ui_components/quit_game_button.tscn" id="4_3fhyi"]
+[ext_resource type="AudioStream" uid="uid://cabs0weduwogv" path="res://assets/audio/cutscenes/loss_score.wav" id="6_v1f5k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_skq7k"]
 atlas = ExtResource("2_skq7k")
@@ -113,7 +113,7 @@ layout_mode = 2
 alignment = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_8lu2c")
+stream = ExtResource("6_v1f5k")
 bus = &"Music"
 
 [connection signal="pressed" from="Control/PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
