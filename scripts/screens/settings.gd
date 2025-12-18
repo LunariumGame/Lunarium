@@ -17,6 +17,7 @@ var hud : CanvasLayer
 @onready var rb_curs_checkbox: CheckBox = $"Settings/CheckBox"
 @onready var master_default_db_vol := AudioServer.get_bus_volume_db(0)
 @onready var how_to_play: ButtonWrapper = $Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer2/HowToPlayCenter/HowToPlay
+@onready var check_box: CheckBox = $Settings/MainVBox/CameraSettings/HBoxContainer/CheckBox
 
 
 func _ready():
@@ -26,7 +27,7 @@ func _ready():
 	effects_volume.value = settings_data.volume_value_effects
 	ui_scale.value = settings_data.scale_value
 	cam_speed_scale.value = settings_data.default_speed
-	rb_curs_checkbox.button_pressed = settings_data.rb_cursor_enabled
+	check_box.button_pressed = settings_data.camera_shake_enabled
 	Signals.controls_closed.connect(_on_controls_closed)
 	
 	hud = get_tree().get_root().get_node("World/UI/HUD")
@@ -94,13 +95,6 @@ func _on_camera_speed_value_changed(value: float) -> void:
 	settings_data.default_speed = value
 
 
-# turn cursor to rainbow mode
-func _on_check_box_toggled(toggled_on: bool) -> void:
-	var cursor: SubViewport = get_tree().get_root().get_node("World/Cursor")
-	cursor.enable_rainbow = toggled_on
-	settings_data.rb_cursor_enabled = toggled_on
-
-
 func _on_how_to_play_pressed() -> void:
 	Signals.toggle_tutorial.emit()
 	close()
@@ -113,3 +107,10 @@ func _on_controls_pressed() -> void:
 	
 func _on_controls_closed() -> void:
 	self.visible = true
+
+
+# Toggle camera shake
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	settings_data.camera_shake_enabled = toggled_on
+	var camera = get_tree().get_root().get_node("World/Camera/Camera")
+	camera.toggle_camera_shake(toggled_on)

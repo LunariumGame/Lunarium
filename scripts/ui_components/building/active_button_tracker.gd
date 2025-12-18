@@ -40,6 +40,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			if not cursor_area.is_overlapping():
 				if active_button._place_building():
 					# only making button null if successfully places
+					var camera := get_tree().get_root().get_node("World/Camera/Camera")
+					camera.trigger_shake()
 					active_button.cursor_instance = null
 					active_button = null
 

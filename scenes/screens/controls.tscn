@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5sriyy1kbotn"]
+[gd_scene load_steps=8 format=3 uid="uid://c5sriyy1kbotn"]
 
 [ext_resource type="PackedScene" uid="uid://b84cp341mhqdb" path="res://scenes/ui_components/logo_h_box.tscn" id="1_dpf47"]
 [ext_resource type="Script" uid="uid://ddqn6xl3vjkme" path="res://scripts/screens/controls.gd" id="1_lnu0l"]
 [ext_resource type="FontFile" uid="uid://b6gud4og1ou5r" path="res://assets/fonts/2P.ttf" id="2_fakbg"]
 [ext_resource type="Script" uid="uid://bj1omfohfnxvq" path="res://scripts/scale_aware_label_settings.gd" id="3_lnu0l"]
+[ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="5_401ty"]
+[ext_resource type="Script" uid="uid://dhbvj587s8ykb" path="res://scripts/ui_components/button_wrapper.gd" id="6_mmet2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ckbvf"]
 font = ExtResource("2_fakbg")
@@ -99,5 +101,15 @@ text = "RIGHT-CLICK - CANCEL BUILDING"
 label_settings = SubResource("LabelSettings_ckbvf")
 
 [node name="Spacer2" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 190)
+custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_401ty")
+theme_override_font_sizes/font_size = 32
+text = "BACK"
+script = ExtResource("6_mmet2")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
+
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

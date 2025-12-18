@@ -34,7 +34,7 @@ streams_count = 10
 stream_0/stream = ExtResource("3_0nbtd")
 stream_1/stream = ExtResource("4_37qwj")
 stream_2/stream = ExtResource("5_navra")
-stream_2/weight = 3.0
+stream_2/weight = 2.0
 stream_3/stream = ExtResource("6_luhhm")
 stream_4/stream = ExtResource("7_fh13f")
 stream_5/stream = ExtResource("8_rup4s")
@@ -174,7 +174,6 @@ shape = SubResource("RectangleShape2D_e3hyu")
 
 [node name="HeadQuarters" parent="." instance=ExtResource("12_jhx03")]
 position = Vector2(604, 409)
-food_per_turn = 1
 building_spec = SubResource("Resource_o8fc1")
 
 [node name="PlacedBuildings" type="Node2D" parent="."]

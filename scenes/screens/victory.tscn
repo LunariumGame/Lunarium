@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://du8rqqwg06b8"]
+[gd_scene load_steps=14 format=3 uid="uid://du8rqqwg06b8"]
 
 [ext_resource type="Script" uid="uid://qgwiwb7gjqpd" path="res://scripts/screens/victory.gd" id="1_63tvk"]
 [ext_resource type="Texture2D" uid="uid://c0cg5c504fhb5" path="res://assets/sprites/cutscenes/ending_cutscenes/victory_cutscene.png" id="2_62pnk"]
@@ -50,6 +50,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqqsn"]
+bg_color = Color(0.086104214, 0.086104214, 0.086104214, 0.24900001)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.89420825, 0.7953644, 0.47657922, 0.596)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
 [node name="Victory" type="CanvasLayer"]
 script = ExtResource("1_63tvk")
 
@@ -68,7 +84,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.15164593, 0.1309947, 0.003999088, 0.49803922)
+color = Color(0.15170373, 0.13335153, 0, 0.83400005)
 
 [node name="CBoxContainer" type="CenterContainer" parent="Control"]
 layout_mode = 1
@@ -87,24 +103,26 @@ autoplay = "default"
 frame = 3
 frame_progress = 0.11242509
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_omuyy")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -275.0
-offset_top = -139.0
-offset_right = -35.0
-offset_bottom = -35.0
+offset_left = -266.0
+offset_top = -130.0
+offset_right = -26.0
+offset_bottom = -26.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_eqqsn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Continue" type="Button" parent="VBoxContainer"]
+[node name="Continue" type="Button" parent="Control/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("5_eqqsn")
 text = "ENDLESS"
@@ -112,8 +130,12 @@ alignment = 2
 script = ExtResource("5_48wmm")
 metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
-[node name="QuitGame" parent="VBoxContainer" instance=ExtResource("4_m2tkd")]
+[node name="QuitGame" parent="Control/PanelContainer/VBoxContainer" instance=ExtResource("4_m2tkd")]
 layout_mode = 2
 
-[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_omuyy")
+bus = &"Music"
+
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

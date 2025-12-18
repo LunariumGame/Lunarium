@@ -35,6 +35,7 @@ stream = ExtResource("2_k04th")
 
 [node name="IntroScore" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_k04th")
+bus = &"Music"
 
 [node name="StarTwinkle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5vsyr")

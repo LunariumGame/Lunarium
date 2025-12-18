@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://du46r5f2n8vya"]
+[gd_scene load_steps=11 format=3 uid="uid://du46r5f2n8vya"]
 
 [ext_resource type="Script" uid="uid://degq3ffk17ylk" path="res://scripts/screens/loss.gd" id="1_08wtc"]
 [ext_resource type="Texture2D" uid="uid://b3stlelrxc7wj" path="res://assets/sprites/cutscenes/ending_cutscenes/loss_cutscene.png" id="2_skq7k"]
 [ext_resource type="AudioStream" uid="uid://j0hrsttpxgiv" path="res://assets/audio/cutscenes/defeat_score_new.mp3" id="3_8lu2c"]
+[ext_resource type="Script" uid="uid://dhbvj587s8ykb" path="res://scripts/ui_components/button_wrapper.gd" id="3_b8nrf"]
+[ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="3_v1f5k"]
 [ext_resource type="PackedScene" uid="uid://csjdtvby2iw5h" path="res://scenes/ui_components/quit_game_button.tscn" id="4_3fhyi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_skq7k"]
@@ -27,6 +29,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1f5k"]
+bg_color = Color(0.08627451, 0.08627451, 0.08627451, 0.24705882)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.44770932, 0.17372069, 0.21684489, 0.78431374)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
 [node name="LOSS" type="CanvasLayer"]
 script = ExtResource("1_08wtc")
 
@@ -45,7 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.25701883, 0.087468974, 0.10929323, 0.5019608)
+color = Color(0.25766784, 0.086104214, 0.11207495, 0.89500004)
 
 [node name="CBoxContainer" type="CenterContainer" parent="Control"]
 layout_mode = 1
@@ -63,20 +81,40 @@ sprite_frames = SubResource("SpriteFrames_b8nrf")
 autoplay = "default"
 frame_progress = 0.893359
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_8lu2c")
-
-[node name="QuitGame" parent="." instance=ExtResource("4_3fhyi")]
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -275.0
-offset_top = -75.0
-offset_right = -35.0
-offset_bottom = -31.0
+offset_left = -266.0
+offset_top = -118.0
+offset_right = -26.0
+offset_bottom = -26.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_v1f5k")
 
-[connection signal="pressed" from="QuitGame" to="." method="_on_quit_game_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Restart" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_v1f5k")
+text = "RESTART"
+alignment = 2
+script = ExtResource("3_b8nrf")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
+
+[node name="QuitGame" parent="Control/PanelContainer/VBoxContainer" instance=ExtResource("4_3fhyi")]
+layout_mode = 2
+alignment = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8lu2c")
+bus = &"Music"
+
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

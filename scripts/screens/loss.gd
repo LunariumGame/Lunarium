@@ -31,3 +31,10 @@ func _on_quit_game_pressed() -> void:
 	var timer = get_tree().create_timer(0.2)
 	await timer.timeout
 	get_tree().quit()
+
+
+func _on_restart_pressed() -> void:
+	# Reset the game (replays intro movie too)
+	game_manager.restart_triggered()
+	close()
+	get_tree().reload_current_scene()

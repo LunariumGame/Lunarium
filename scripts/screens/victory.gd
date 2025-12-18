@@ -1,18 +1,18 @@
 extends CanvasLayer
 
 @onready var banner := $Control/CBoxContainer/VBoxContainer/AnimatedSprite2D
-@onready var audio := $AudioStreamPlayer
+@onready var victory_audio := $AudioStreamPlayer
+@onready var main_music: AudioStreamPlayer = get_node("/root/World/Audio/Music")
 
 func _ready():
 	# Make banner invisible at first
 	banner.modulate.a = 0.0
 	
 	# stop background music
-	var main_music = get_node("/root/World/Audio/Music")
 	if main_music:
 		main_music.stop()
 	
-	audio.play()
+	victory_audio.play()
 	banner.play("default")
 	
 	# Fade in over 1 second
@@ -20,11 +20,14 @@ func _ready():
 	tween.tween_property(banner, "modulate:a", 1.0, 3.0)
 
 func close():
+	game_manager.endless_mode_triggered()
 	window_manager.pop()
 	queue_free()
 
 
 func _on_continue_pressed() -> void:
+	victory_audio.stop()
+	main_music.play()
 	close()
 
 

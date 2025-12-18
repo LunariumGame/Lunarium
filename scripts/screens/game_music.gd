@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-@export var TRACK_SPACING: float = 30
+@export var TRACK_SPACING: float = 20
 
 
 func on_finished() -> void:
