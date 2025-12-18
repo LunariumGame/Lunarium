@@ -3,10 +3,12 @@ extends CanvasLayer
 @export var scroll_speed : float = 45
 
 @onready var credits := $Credits
+@onready var embark := $Embark
 
 
 func _ready() -> void:
 	print("credits called")
+	embark.play()
 	
 	# Make credits invisible at first
 	credits.modulate.a = 0.0

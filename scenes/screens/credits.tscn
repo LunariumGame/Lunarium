@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://etungttgp7k"]
+[gd_scene load_steps=6 format=3 uid="uid://etungttgp7k"]
 
 [ext_resource type="Script" uid="uid://cquhuwfjlbien" path="res://scripts/screens/credits.gd" id="1_bm3ny"]
 [ext_resource type="FontFile" uid="uid://b6gud4og1ou5r" path="res://assets/fonts/2P.ttf" id="2_sqip1"]
 [ext_resource type="Script" uid="uid://dhbvj587s8ykb" path="res://scripts/ui_components/button_wrapper.gd" id="3_0v8dc"]
 [ext_resource type="Theme" uid="uid://kx5rwtakaxsk" path="res://resources/ui/clear_button.tres" id="3_sqip1"]
+[ext_resource type="AudioStream" uid="uid://vr7vkadix0fo" path="res://assets/audio/noir_ambiance/Aaron Marshall - Noir Ambiance - 03 Embark.mp3" id="5_3qmcs"]
 
 [node name="Credits" type="CanvasLayer"]
 script = ExtResource("1_bm3ny")
@@ -192,5 +193,8 @@ theme = ExtResource("3_sqip1")
 text = "CONTINUE"
 script = ExtResource("3_0v8dc")
 metadata/_custom_type_script = "uid://dhbvj587s8ykb"
+
+[node name="Embark" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3qmcs")
 
 [connection signal="pressed" from="Button" to="." method="close"]
