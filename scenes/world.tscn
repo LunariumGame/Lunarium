@@ -133,7 +133,6 @@ region_enabled = true
 region_rect = Rect2(0, 0, 12800, 12800)
 
 [node name="Craters" parent="SurfaceTexture" instance=ExtResource("15_xo05s")]
-crater_count = 500
 
 [node name="Camera" type="Node" parent="."]
 

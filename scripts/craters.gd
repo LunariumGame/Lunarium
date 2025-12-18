@@ -9,8 +9,8 @@ const MIN_GAP = 128
 
 @export_tool_button("Regenerate", "Callable") var regenerate = _regenerate_craters
 
-@export var crater_count:int = 5000
-@export var spread:int = 100
+@export var crater_count:int = 825
+@export var spread:int = 4000
 
 func _regenerate_craters():
 	var rng := RandomNumberGenerator.new()
