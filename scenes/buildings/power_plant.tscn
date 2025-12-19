@@ -1,10 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://bmcgkpbcwft3l"]
+[gd_scene load_steps=32 format=3 uid="uid://bmcgkpbcwft3l"]
 
 [ext_resource type="PackedScene" uid="uid://sr08scun8ys1" path="res://scenes/buildings/building.tscn" id="1_afyay"]
 [ext_resource type="Script" uid="uid://bwb3ytyn3xxkr" path="res://scripts/buildings/power_plant.gd" id="2_5nqxb"]
 [ext_resource type="Script" uid="uid://0leikb15bp7y" path="res://scripts/buildings/cost.gd" id="3_jn2df"]
 [ext_resource type="Script" uid="uid://cy4nkunttcuy5" path="res://scripts/buildings/building_spec.gd" id="4_e41u7"]
-[ext_resource type="Texture2D" uid="uid://b653cdbpruy4i" path="res://assets/sprites/buildings/power_generators/nuclear_reactor/nuclear_reactor_spritesheet.png" id="5_jn2df"]
 [ext_resource type="AudioStream" uid="uid://5ugsbmor04sc" path="res://assets/audio/buildings/power_plant.wav" id="6_e41u7"]
 
 [sub_resource type="Resource" id="Resource_jn2df"]
@@ -43,8 +42,23 @@ cost_levels = Array[ExtResource("3_jn2df")]([SubResource("Resource_jn2df"), SubR
 type = 5
 metadata/_custom_type_script = "uid://cy4nkunttcuy5"
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jn2df"]
+load_path = "res://.godot/imported/nuclear_reactor_spritesheet.png-e10e02c122ba8b45db74cbba44b355f0.ctex"
+
 [sub_resource type="Animation" id="Animation_jn2df"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [98]
+}
 
 [sub_resource type="Animation" id="Animation_daisx"]
 resource_name = "buffed_u1"
@@ -246,8 +260,102 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_u6fk5"]
 resource_name = "off_u1"
-length = 0.5
-loop_mode = 1
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.13333334, 0.099999994, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [91, 92, 93]
+}
+
+[sub_resource type="Animation" id="Animation_w2b1x"]
+resource_name = "off_u2"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.06666669, 0.100000024, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [96, 97, 98]
+}
+
+[sub_resource type="Animation" id="Animation_4hstu"]
+resource_name = "off_u3"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.06666667, 0.13333334, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [101, 102, 103]
+}
+
+[sub_resource type="Animation" id="Animation_e41u7"]
+resource_name = "on_u1"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.13333334, 0.10000001, 0.33333337),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [93, 92, 91]
+}
+
+[sub_resource type="Animation" id="Animation_pap3h"]
+resource_name = "on_u2"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.06666667, 0.16666667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [98, 97, 96]
+}
+
+[sub_resource type="Animation" id="Animation_ra8a1"]
+resource_name = "on_u3"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.06666669, 0.16666667, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [103, 102, 101]
+}
+
+[sub_resource type="Animation" id="Animation_xxpri"]
+resource_name = "place_u1"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -259,38 +367,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [11]
-}
-
-[sub_resource type="Animation" id="Animation_w2b1x"]
-resource_name = "off_u2"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [41]
-}
-
-[sub_resource type="Animation" id="Animation_4hstu"]
-resource_name = "off_u3"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [71]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jn2df"]
@@ -310,7 +386,11 @@ _data = {
 &"idle_u3": SubResource("Animation_xl0vr"),
 &"off_u1": SubResource("Animation_u6fk5"),
 &"off_u2": SubResource("Animation_w2b1x"),
-&"off_u3": SubResource("Animation_4hstu")
+&"off_u3": SubResource("Animation_4hstu"),
+&"on_u1": SubResource("Animation_e41u7"),
+&"on_u2": SubResource("Animation_pap3h"),
+&"on_u3": SubResource("Animation_ra8a1"),
+&"place_u1": SubResource("Animation_xxpri")
 }
 
 [node name="PowerPlant" instance=ExtResource("1_afyay")]
@@ -322,12 +402,11 @@ building_spec = SubResource("Resource_pap3h")
 target = NodePath("..")
 
 [node name="Sprite2D" parent="." index="2"]
-texture = ExtResource("5_jn2df")
+texture = SubResource("CompressedTexture2D_jn2df")
 vframes = 21
-frame = 11
+frame = 98
 
 [node name="AnimationPlayer" parent="." index="3"]
-active = true
 libraries = {
 &"": SubResource("AnimationLibrary_jn2df")
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://sr08scun8ys1"]
+[gd_scene load_steps=87 format=3 uid="uid://sr08scun8ys1"]
 
 [ext_resource type="Script" uid="uid://6myfee53w1xy" path="res://scripts/buildings/building.gd" id="1_a3sb6"]
 [ext_resource type="Script" uid="uid://dh3go6ocensfh" path="res://scripts/buildings/building_collider.gd" id="3_qcxio"]
@@ -245,6 +245,18 @@ tracks/0/keys = {
 "values": []
 }
 
+[sub_resource type="Animation" id="Animation_78n4u"]
+resource_name = "on_u1"
+
+[sub_resource type="Animation" id="Animation_j2vja"]
+resource_name = "on_u2"
+
+[sub_resource type="Animation" id="Animation_c57nt"]
+resource_name = "on_u3"
+
+[sub_resource type="Animation" id="Animation_ia6p8"]
+resource_name = "place_u1"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_daisx"]
 _data = {
 &"buffed_u1": SubResource("Animation_daisx"),
@@ -261,7 +273,11 @@ _data = {
 &"idle_u3": SubResource("Animation_xl0vr"),
 &"off_u1": SubResource("Animation_u6fk5"),
 &"off_u2": SubResource("Animation_w2b1x"),
-&"off_u3": SubResource("Animation_4hstu")
+&"off_u3": SubResource("Animation_4hstu"),
+&"on_u1": SubResource("Animation_78n4u"),
+&"on_u2": SubResource("Animation_j2vja"),
+&"on_u3": SubResource("Animation_c57nt"),
+&"place_u1": SubResource("Animation_ia6p8")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_daisx"]
@@ -474,7 +490,6 @@ vframes = 18
 script = ExtResource("4_mfina")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-active = false
 libraries = {
 &"": SubResource("AnimationLibrary_daisx")
 }
