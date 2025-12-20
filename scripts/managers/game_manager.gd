@@ -96,17 +96,18 @@ func _logic_food_consumption_and_starvation() -> void:
 	var starving_colonists:int = population - fed_colonists
 	var deaths:int = ceili(starving_colonists * STARVING_COLONIST_DEATH_RATE_PER_TURN)
 	
-	if deaths != 0:
-		var starvation: AudioStreamPlayer = get_tree().get_root().get_node("World/Audio/Starvation")
-		starvation.play()
-	
-	# apply calculated effects
+	# Apply calculated effects
 	resource_manager.add_precalculated(ResourceManager.ResourceType.FOOD, -COLONIST_CONSUMPTION_PER_TURN * fed_colonists)
+
 	if deaths > 0:
+		# Play starvation audio
+		get_tree().get_root().get_node("World/Audio/Starvation").play()
+
+		# Subtract deaths from population
 		resource_manager.add_precalculated(ResourceManager.ResourceType.POPULATION, -deaths)
 		Signals.colonist_died.emit(deaths)
 		
-		# stop sending shuttles for a period of time
+		# Stop sending shuttles for a period of time
 		Shuttle.turns_to_shuttle = max(Shuttle.turns_to_shuttle, SHUTTLE_DEATH_MEMORANDUM_TURN_DURATION)
 
 

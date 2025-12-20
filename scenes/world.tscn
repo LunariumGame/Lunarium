@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=33 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bpc6gps3lk4ac" path="res://scenes/ui_components/hud.tscn" id="2_4mrxx"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://ddo5xfsra2x3y" path="res://assets/sprites/world/bg_layer_1.webp" id="16_lakw3"]
 [ext_resource type="Texture2D" uid="uid://d176nimp53u8d" path="res://assets/sprites/world/bg_layer_2.webp" id="17_pm21f"]
 [ext_resource type="Texture2D" uid="uid://datq56lofg7x4" path="res://assets/sprites/world/bg_layer_3.webp" id="18_2lf6f"]
+[ext_resource type="Material" uid="uid://crdd5qx3rpjon" path="res://resources/ui/fog_shader_material.tres" id="24_0nbtd"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lakw3"]
 streams_count = 10
@@ -41,6 +42,10 @@ stream_6/stream = ExtResource("9_4kbfs")
 stream_7/stream = ExtResource("10_f17e3")
 stream_8/stream = ExtResource("11_x2olw")
 stream_9/stream = ExtResource("12_817gm")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ts3gi"]
+seamless = true
+normalize = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3hyu"]
 
@@ -132,6 +137,18 @@ limit_right = 7547
 limit_bottom = 6405
 editor_draw_limits = true
 script = ExtResource("8_4mrxx")
+
+[node name="FogLayer" type="CanvasLayer" parent="Camera/Camera"]
+layer = 0
+
+[node name="Fog" type="TextureRect" parent="Camera/Camera/FogLayer"]
+material = ExtResource("24_0nbtd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_ts3gi")
 
 [node name="BuildingFinder" type="ShapeCast2D" parent="."]
 visible = false
