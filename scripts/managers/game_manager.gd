@@ -31,28 +31,30 @@ func end_turn() -> void:
 	if state == GameState.LOST || state == GameState.WON:
 		return
 
+	# Emit all turn ended signals
 	Signals.turn_ended.emit(turn)
 	Signals.turn_ended_power_plant.emit(turn)
 	Signals.turn_ended_eco_dome.emit(turn)
 	Signals.turn_ended_refinery.emit(turn)
 	Signals.turn_ended_residential.emit(turn)
-	
-	# Handle electricity calculations
-	resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
 
+	# Process food consumption and starvation
 	_logic_food_consumption_and_starvation()
 	
 	turn += 1
 	Signals.turn_started.emit(turn)
 	
-	# electricity recomputation handles reactors
+	# Handle electricity calculations
+	resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
 	recompute_electricity()
 	
+	# Emit all turn started signals
 	Signals.turn_started_power_plant.emit(turn)
 	Signals.turn_started_eco_dome.emit(turn)
 	Signals.turn_started_refinery.emit(turn)
 	Signals.turn_started_residential.emit(turn)
 	
+	# Check win/loss conditions
 	if _win_condition_satisfied():
 		state = GameState.WON
 		print_debug("Game win triggered")
@@ -65,7 +67,7 @@ func end_turn() -> void:
 		Signals.game_lost.emit()
 		return
 		
-	# play next turn only if not won
+	# play next turn audio
 	get_tree().get_root().get_node("World/Audio/NextTurn").play()
 
 
@@ -143,7 +145,7 @@ func get_resource_cap(resource:ResourceManager.ResourceType) -> float:
 		_: return NAN
 
 
-func recompute_electricity() -> void:
+func recompute_electricity(_building : Building = null) -> void:
 	resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
 	Signals.recompute_power_plants.emit()
 	_computed_electricity_capacity = resource_manager.get_resource(ResourceManager.ResourceType.ELECTRICITY)
