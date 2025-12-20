@@ -618,8 +618,8 @@ Made all building sprites & animation sequences (Jacob actually set up the anima
 <i>[Settings Cog](https://kenney.nl/assets/mobile-controls)</i> from Kenney.nl - Creative Commons
 
 <u>Shaders</u>  
-<i>[Lightweight Pixel Perfect Outline](https://godotshaders.com/shader/lightweight-pixel-perfect-outline/)</i> by flytrap - Creative Commons
-<i>[Fog Shader](https://www.youtube.com/watch?v=C_N1Wzr1KLU)</i> by FencerDevLog - Tutorial
+<i>[Lightweight Pixel Perfect Outline](https://godotshaders.com/shader/lightweight-pixel-perfect-outline/)</i> by flytrap - Creative Commons  
+<i>[Fog Shader](https://www.youtube.com/watch?v=C_N1Wzr1KLU)</i> by FencerDevLog - Tutorial  
 
 <u>Music</u>  
 <i>[Space Music Pack](https://gooseninja.itch.io/space-music-pack)</i> by Goose Ninja - Free Use  
