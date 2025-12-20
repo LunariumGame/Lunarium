@@ -115,12 +115,14 @@ func _place_building() -> bool:
 	)
 	
 	var frame_size: Vector2 = cursor_sprite.get_frame_wh()
+	@warning_ignore("narrowing_conversion")
 	var top_left_pos := (
 		Vector2i(cursor_instance.global_position.x - (frame_size.x / 2),
 				 cursor_instance.global_position.y - (frame_size.y / 2))
 	)
 
 	# log building in build manager array
+	@warning_ignore("narrowing_conversion")
 	var building_id = build_man.build(
 		cursor_instance, top_left_pos,
 		frame_size.x, frame_size.y

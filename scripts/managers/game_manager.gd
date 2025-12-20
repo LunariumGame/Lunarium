@@ -143,7 +143,7 @@ func get_resource_cap(resource:ResourceManager.ResourceType) -> float:
 		_: return NAN
 
 
-func recompute_electricity(building: Building) -> void:
+func recompute_electricity(_building: Building) -> void:
 	resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
 	Signals.recompute_power_plants.emit()
 	_computed_electricity_capacity = resource_manager.get_resource(ResourceManager.ResourceType.ELECTRICITY)
