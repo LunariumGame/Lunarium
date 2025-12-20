@@ -46,7 +46,7 @@ func end_turn() -> void:
 	Signals.turn_started.emit(turn)
 	
 	# electricity recomputation handles reactors
-	recompute_electricity(null)
+	recompute_electricity()
 	
 	Signals.turn_started_power_plant.emit(turn)
 	Signals.turn_started_eco_dome.emit(turn)
@@ -143,7 +143,7 @@ func get_resource_cap(resource:ResourceManager.ResourceType) -> float:
 		_: return NAN
 
 
-func recompute_electricity(_building: Building) -> void:
+func recompute_electricity() -> void:
 	resource_manager.set_resource(ResourceManager.ResourceType.ELECTRICITY, 0)
 	Signals.recompute_power_plants.emit()
 	_computed_electricity_capacity = resource_manager.get_resource(ResourceManager.ResourceType.ELECTRICITY)
@@ -154,6 +154,7 @@ func recompute_electricity(_building: Building) -> void:
 
 func endless_mode_triggered() -> void:
 	state = GameState.ENDLESS
-	
+
+
 func restart_triggered() -> void:
 	state = GameState.IN_PROGRESS
