@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=34 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bpc6gps3lk4ac" path="res://scenes/ui_components/hud.tscn" id="2_4mrxx"]
@@ -43,7 +43,11 @@ stream_7/stream = ExtResource("10_f17e3")
 stream_8/stream = ExtResource("11_x2olw")
 stream_9/stream = ExtResource("12_817gm")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0nbtd"]
+frequency = 0.0063
+
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ts3gi"]
+noise = SubResource("FastNoiseLite_0nbtd")
 seamless = true
 normalize = false
 
@@ -142,6 +146,7 @@ script = ExtResource("8_4mrxx")
 layer = 0
 
 [node name="Fog" type="TextureRect" parent="Camera/Camera/FogLayer"]
+texture_repeat = 2
 material = ExtResource("24_0nbtd")
 anchors_preset = 15
 anchor_right = 1.0

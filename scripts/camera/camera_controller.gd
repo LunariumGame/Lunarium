@@ -16,6 +16,7 @@ var default_cam_speed: float
 var sprint_speed: float
 var cur_speed: float
 
+@onready var fog: TextureRect = $FogLayer/Fog
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,6 +59,7 @@ func _unhandled_input(event):
 		# clamp so zoom never becomes too large or tiny
 		zoom.x = clamp(zoom.x, min_zoom, max_zoom)
 		zoom.y = clamp(zoom.y, min_zoom, max_zoom)
+		#fog.texture.noise.frequency = 0.0063 * (1 / zoom.x) # NOTE: can experiment with this to adjust fog based on zoom level
 
 	# Click and drag camera
 	if event is InputEventMouseMotion:

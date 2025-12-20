@@ -4,4 +4,4 @@
 
 [resource]
 shader = ExtResource("1_i8xha")
-shader_parameter/base_color = Color(0.6225652, 0.16416946, 0.17908886, 1)
+shader_parameter/base_color = Color(0.8389701, 0.93670046, 0.7778729, 1)
