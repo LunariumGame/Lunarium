@@ -17,7 +17,7 @@ var parent_node: Building
 func _ready() -> void:
 	state_machine = get("parameters/playback") as AnimationNodeStateMachinePlayback
 	parent_node = get_parent()
-	active = true	
+	active = true
 
 
 func update_animation(action: StateAction) -> void:
