@@ -5,68 +5,102 @@ enum Event { NONE, PARASITE, STORM, FOG, PLAGUE, HARVEST }
 
 var event_turn_lengths: Dictionary[Event, int] = {
 	Event.NONE: -1,
-	Event.PARASITE: 3,
-	Event.STORM: 3,
-	Event.FOG: 5,
-	Event.PLAGUE: 3,
-	Event.HARVEST: 2
+	Event.PARASITE: 4,
+	Event.STORM: 4,
+	Event.FOG: 2,
+	Event.PLAGUE: 4,
+	Event.HARVEST: 3
 }
+
 var current_event: Event
+var event_turns_left: int
 
 
 func _ready() -> void:
-	Signals.turn_started.connect(_roll_runtime_event)
+	Signals.turn_started.connect(_handle_runtime_event)
 	current_event = Event.NONE
+	event_turns_left = -1
 
 
-func _roll_runtime_event(_turn_number: int) -> void:
+func _handle_runtime_event(_turn_number: int) -> void:
+	# If event is over, cancel it (we cancel at 1 to guarantee a buffer between events)
+	if event_turns_left == 1:
+		_cancel_event()
+
+	# If an event is active, decrement the turns left and do nothing
+	if event_turns_left > 0:
+		event_turns_left -= 1
+		return
+	
+	# Do nothing if game was just won or lost this turn
 	if game_manager.state == game_manager.GameState.WON || game_manager.state == game_manager.GameState.LOST:
-		# Do nothing if game was just won or lost
 		return
 	
-	if current_event != Event.NONE:
-		# If an event is already active, do nothing
-		return
-		
 	var rand = randf()
-	print("%d", rand)
+	rand = 0.93 # TODO: this is for testing, deleteme
 	
-	# 90% nothing happens, 2% for each event
-	if rand < 0.9:
+	# 85% nothing happens, 3% for each event (on next turn)
+	if rand < 0.85:
 		print("No event triggered")
 		return
-	elif rand < 0.92:
+	elif rand < 0.88:
 		print("Parasite event triggered")
+		Signals.notification.emit(NotificationManager.Notification.new("Parasites have invaded your eco-domes"))
 		_trigger_parasite()
-	elif rand < 0.94:
+	elif rand < 0.91:
 		print("Electromagnetic storm event triggered")
+		Signals.notification.emit(NotificationManager.Notification.new("An electromagnetic storm has begun"))
 		_trigger_storm()
-	elif rand < 0.96:
+	elif rand < 1.00:
 		print("Fog event triggered")
+		Signals.notification.emit(NotificationManager.Notification.new("Methane fog has covered the moon's surface"))
 		_trigger_fog()
-	elif rand < 0.98:
+	elif rand < 0.97:
 		print("Plague event triggered")
+		Signals.notification.emit(NotificationManager.Notification.new("A deadly plague has hit your colonists"))
 		_trigger_plague()
 	else:
 		print("Harvest event triggered")
+		Signals.notification.emit(NotificationManager.Notification.new("The soil is rich, a harvest begins"))
 		_trigger_harvest()
 
 
+func _cancel_event() -> void:
+	_reset_effects()
+	current_event = Event.NONE
+
+
+func _reset_effects() -> void:
+	get_tree().get_root().get_node("World/Camera/Camera/FogLayer").visible = false
+	#TODO
+
+
+func fade_fog() -> void:
+	#TODO tween the fog in and out
+	pass
+
+
 func _trigger_parasite() -> void:
+	event_turns_left = event_turn_lengths[Event.PARASITE]
 	pass
 	
 
 func _trigger_storm() -> void:
+	event_turns_left = event_turn_lengths[Event.STORM]
 	pass
 
 
 func _trigger_fog() -> void:
+	event_turns_left = event_turn_lengths[Event.FOG]
+	get_tree().get_root().get_node("World/Camera/Camera/FogLayer").visible = true
 	pass
 
 
 func _trigger_plague() -> void:
+	event_turns_left = event_turn_lengths[Event.PLAGUE]
 	pass
 
 
 func _trigger_harvest() -> void:
+	event_turns_left = event_turn_lengths[Event.HARVEST]
 	pass
