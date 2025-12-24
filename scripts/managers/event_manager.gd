@@ -45,7 +45,7 @@ func _handle_runtime_event(_turn_number: int) -> void:
 		return
 	elif rand < 0.88:
 		print("Parasite event triggered")
-		Signals.notification.emit(NotificationManager.Notification.new("Parasites have invaded your eco-domes"))
+		Signals.notification.emit(NotificationManager.Notification.new("Parasites have infested your eco-domes"))
 		_trigger_parasite()
 	elif rand < 0.91:
 		print("Electromagnetic storm event triggered")
@@ -53,7 +53,7 @@ func _handle_runtime_event(_turn_number: int) -> void:
 		_trigger_storm()
 	elif rand < 1.00:
 		print("Fog event triggered")
-		Signals.notification.emit(NotificationManager.Notification.new("Methane fog has covered the moon's surface"))
+		Signals.notification.emit(NotificationManager.Notification.new("Methane fog has covered the surface"))
 		_trigger_fog()
 	elif rand < 0.97:
 		print("Plague event triggered")
