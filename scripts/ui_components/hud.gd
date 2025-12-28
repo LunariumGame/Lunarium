@@ -225,7 +225,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		ui_audio_manager.button_click.play()
 		toggle_panel(Systems.BUILDING)
 	if event.is_action_pressed("next_turn"):
-		_on_next_turn_pressed()
+		if GameState.state == GameState.State.PLAYING: # fixes being able to press enter for next turn before starting game
+			_on_next_turn_pressed()
 
 
 func close_inspector() -> void:
