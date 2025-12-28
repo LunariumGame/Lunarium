@@ -14,12 +14,13 @@ var event_turn_lengths: Dictionary[Event, int] = {
 
 var current_event: Event
 var event_turns_left: int
-
+var fog: TextureRect
 
 func _ready() -> void:
 	Signals.turn_started.connect(_handle_runtime_event)
 	current_event = Event.NONE
 	event_turns_left = -1
+	fog = get_tree().get_root().get_node("World/Camera/Camera/FogLayer/Fog")
 
 
 func _handle_runtime_event(_turn_number: int) -> void:
@@ -71,13 +72,21 @@ func _cancel_event() -> void:
 
 
 func _reset_effects() -> void:
-	get_tree().get_root().get_node("World/Camera/Camera/FogLayer").visible = false
+	fade_fog(0.0, 1.0)
 	#TODO
 
 
-func fade_fog() -> void:
-	#TODO tween the fog in and out
-	pass
+## Takes in opacity (0 is off), and duration of the fade
+func fade_fog(opacity: float, duration: float) -> void:
+	fog.visible = true
+	var t = create_tween()
+	t.tween_property(fog, "modulate:a", opacity, duration)
+	if opacity == 0:
+		t.finished.connect(hide_fog)
+
+
+func hide_fog() -> void:
+	fog.visible = false
 
 
 func _trigger_parasite() -> void:
@@ -92,8 +101,7 @@ func _trigger_storm() -> void:
 
 func _trigger_fog() -> void:
 	event_turns_left = event_turn_lengths[Event.FOG]
-	get_tree().get_root().get_node("World/Camera/Camera/FogLayer").visible = true
-	pass
+	fade_fog(1.0, 3.0)
 
 
 func _trigger_plague() -> void:

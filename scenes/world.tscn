@@ -144,9 +144,9 @@ script = ExtResource("8_4mrxx")
 
 [node name="FogLayer" type="CanvasLayer" parent="Camera/Camera"]
 layer = 0
-visible = false
 
 [node name="Fog" type="TextureRect" parent="Camera/Camera/FogLayer"]
+visible = false
 texture_repeat = 2
 material = ExtResource("24_0nbtd")
 anchors_preset = 15
