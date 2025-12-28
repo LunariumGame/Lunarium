@@ -21,6 +21,7 @@ func _ready() -> void:
 	current_event = Event.NONE
 	event_turns_left = -1
 	fog = get_tree().get_root().get_node("World/Camera/Camera/FogLayer/Fog")
+	fog.modulate.a = 0
 
 
 func _handle_runtime_event(_turn_number: int) -> void:
