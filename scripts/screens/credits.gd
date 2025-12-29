@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var scroll_speed : float = 45
+@export var scroll_speed : float = 60
 
 @onready var credit_text := $Credits
 @onready var black_box: ColorRect = $ColorRect
@@ -10,6 +10,9 @@ extends CanvasLayer
 func _ready() -> void:
 	print("credits called")
 	embark.play()
+	var credits_length = embark.stream.get_length()
+	var t = get_tree().create_timer(credits_length)
+	t.timeout.connect(close) # close credits once embark audio is done
 	
 	# Make credits invisible at first
 	black_box.modulate.a = 0.0
