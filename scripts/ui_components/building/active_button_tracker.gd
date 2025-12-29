@@ -1,12 +1,17 @@
 extends Node
 
 var active_button: BuildingButton = null
+@onready var residential: BuildingButton = $HBoxContainer2/Residential
+@onready var refinery: BuildingButton = $HBoxContainer/Refinery
+@onready var reactor: BuildingButton = $HBoxContainer/Reactor
+@onready var farm: BuildingButton = $HBoxContainer2/Farm
+
 
 func _ready() -> void:
 	add_to_group("tracker")
 
 
-# only one active button at a time	
+# only one active button at a time
 func button_activated(inc_active_button: BuildingButton) -> void:
 	# check if active_button is already active
 	if active_button and is_instance_valid(active_button) and active_button == inc_active_button:
@@ -15,7 +20,7 @@ func button_activated(inc_active_button: BuildingButton) -> void:
 			active_button = null
 		return
 
-	# for all non-active buttons with cursor, clear to prioritize active button		
+	# for all non-active buttons with cursor, clear to prioritize active button
 	for button in get_tree().get_nodes_in_group("building_buttons"):
 		if button != inc_active_button:
 			_free_cursor(button)
@@ -25,6 +30,19 @@ func button_activated(inc_active_button: BuildingButton) -> void:
 
 ## Given InputEvent unhandled by UI, check for active BuildingCursor
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.pressed && !event.echo:
+			match event.keycode:
+				KEY_1:
+					_simulate_button_press(reactor)
+				KEY_2:
+					_simulate_button_press(residential)
+				KEY_3:
+					_simulate_button_press(refinery)
+				KEY_4:
+					_simulate_button_press(farm)
+			return
+		
 	if not active_button or not is_instance_valid(active_button):
 		active_button = null
 		return
@@ -34,6 +52,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_free_cursor(active_button)
 		active_button = null
 		get_viewport().set_input_as_handled()
+
 	elif event.is_action_pressed("engage_building_button"):
 		if cursor and is_instance_valid(cursor):
 			var cursor_area := cursor.get_node("Area2D")
@@ -61,3 +80,11 @@ func _free_cursor(target_button: BuildingButton) -> bool:
 		return true
 	
 	return false
+
+
+func _simulate_button_press(button : BuildingButton) -> void:
+	if active_button == button:
+		_free_cursor(button)
+		active_button = null
+		return
+	button.pressed.emit()
