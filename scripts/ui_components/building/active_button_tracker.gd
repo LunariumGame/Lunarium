@@ -41,8 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 					_simulate_button_press(refinery)
 				KEY_4:
 					_simulate_button_press(farm)
-			return
-		
+
 	if not active_button or not is_instance_valid(active_button):
 		active_button = null
 		return
