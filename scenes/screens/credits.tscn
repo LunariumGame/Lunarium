@@ -11,8 +11,11 @@ script = ExtResource("1_bm3ny")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.043137256, 0.043137256, 0.03137255, 1)
 
 [node name="Credits" type="CenterContainer" parent="."]
