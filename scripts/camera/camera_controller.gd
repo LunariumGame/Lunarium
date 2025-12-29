@@ -7,8 +7,8 @@ extends Camera2D
 
 @export var sprint_speed_scale: float = 3.0
 
-@export var set_max_shake: float = 5.0
-@export var shake_fade: float = 5.0
+@export var set_max_shake: float = 3.0
+@export var shake_fade: float = 3.0
 
 var _curr_shake_strength: float = 0.0
 var max_shake: float
@@ -66,6 +66,7 @@ func _unhandled_input(event):
 		if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
 			global_position -= event.relative / zoom
 			clamp_camera()
+
 
 func trigger_shake() -> void:
 	_curr_shake_strength = max_shake
