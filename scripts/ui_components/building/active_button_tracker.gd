@@ -5,6 +5,7 @@ var active_button: BuildingButton = null
 @onready var refinery: BuildingButton = $HBoxContainer/Refinery
 @onready var reactor: BuildingButton = $HBoxContainer/Reactor
 @onready var farm: BuildingButton = $HBoxContainer2/Farm
+@onready var hud: HUD = $"../../../../../../../../.."
 
 
 func _ready() -> void:
@@ -85,5 +86,9 @@ func _simulate_button_press(button : BuildingButton) -> void:
 	if active_button == button:
 		_free_cursor(button)
 		active_button = null
+		hud.close_inspector()
 		return
+	if %InspectorPanel.visible == false:
+		hud.toggle_panel(hud.Systems.BUILDING)
 	button.pressed.emit()
+	hud.flash_inspector_panel()
