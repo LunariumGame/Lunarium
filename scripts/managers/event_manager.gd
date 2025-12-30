@@ -39,7 +39,7 @@ func _handle_runtime_event(_turn_number: int) -> void:
 		return
 	
 	var rand = randf()
-	rand = 0.93 # TODO: this is for testing, deleteme
+	#rand = 0.93 # TODO: this is for testing, deleteme
 	
 	# 85% nothing happens, 3% for each event (on next turn)
 	if rand < 0.85:
@@ -53,7 +53,7 @@ func _handle_runtime_event(_turn_number: int) -> void:
 		print("Electromagnetic storm event triggered")
 		Signals.notification.emit(NotificationManager.Notification.new("An electromagnetic storm has begun"))
 		_trigger_storm()
-	elif rand < 1.00:
+	elif rand < 0.94:
 		print("Fog event triggered")
 		Signals.notification.emit(NotificationManager.Notification.new("Methane fog has covered the surface"))
 		_trigger_fog()
