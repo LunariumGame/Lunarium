@@ -20,16 +20,18 @@ func _open_victory_screen() -> void:
 	window_manager.push(victory_tscn)
 	# open credits after victory ditty finishes
 	await get_tree().create_timer(victory_tscn_music.stream.get_length()).timeout
-	window_manager.push(CREDITS.instantiate())
+	if window_manager.top() != null && window_manager.top().name == "Victory": # only push credits when victory screen is still open
+		window_manager.push(CREDITS.instantiate())
 
-
+	
 func _open_loss_screen() -> void:
 	var loss_tscn := LOSS.instantiate()
 	var loss_tscn_music: AudioStreamPlayer = loss_tscn.get_node("AudioStreamPlayer")
 	window_manager.push(LOSS.instantiate())
 	# open credits after loss ditty finishes
 	await get_tree().create_timer(loss_tscn_music.stream.get_length()).timeout
-	window_manager.push(CREDITS.instantiate())
+	if window_manager.top() != null && window_manager.top().name == "LOSS": # only push credits when loss screen is still open
+		window_manager.push(CREDITS.instantiate())
 
 
 func _open_opening_movie_from_intro() -> void:

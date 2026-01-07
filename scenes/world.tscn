@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://djnwiopkr12qv"]
+[gd_scene load_steps=34 format=3 uid="uid://djnwiopkr12qv"]
 
 [ext_resource type="Script" uid="uid://6i6wy51f181h" path="res://scripts/world.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bpc6gps3lk4ac" path="res://scenes/ui_components/hud.tscn" id="2_4mrxx"]
@@ -7,10 +7,9 @@
 [ext_resource type="Script" uid="uid://dw0rfoan2smch" path="res://scripts/screens/game_music.gd" id="4_dss4m"]
 [ext_resource type="AudioStream" uid="uid://vr7vkadix0fo" path="res://assets/audio/noir_ambiance/Aaron Marshall - Noir Ambiance - 03 Embark.mp3" id="5_navra"]
 [ext_resource type="AudioStream" uid="uid://bg7ky7xfhjhv" path="res://assets/audio/noir_ambiance/Aaron Marshall - Noir Ambiance - 04 Prelude.mp3" id="6_luhhm"]
-[ext_resource type="PackedScene" uid="uid://bvqdwlryncc6q" path="res://scenes/player.tscn" id="7_7r4gi"]
 [ext_resource type="AudioStream" uid="uid://dt6tnvd0wjj56" path="res://assets/audio/game_events/population_starved.wav" id="7_7t5mc"]
 [ext_resource type="AudioStream" uid="uid://c5xeytsheckcy" path="res://assets/audio/noir_ambiance/Aaron Marshall - Noir Ambiance - 05 Alternate Universe.mp3" id="7_fh13f"]
-[ext_resource type="Script" uid="uid://dm3fhxjge8xxk" path="res://scripts/camera/position_lock.gd" id="8_4mrxx"]
+[ext_resource type="Script" uid="uid://dm3fhxjge8xxk" path="res://scripts/camera/camera_controller.gd" id="8_4mrxx"]
 [ext_resource type="AudioStream" uid="uid://kibyxisd4u67" path="res://assets/audio/ui/next_turn.wav" id="8_lakw3"]
 [ext_resource type="AudioStream" uid="uid://bt5g7pj0mn3ul" path="res://assets/audio/noir_ambiance/Aaron Marshall - Noir Ambiance - 06 Two.mp3" id="8_rup4s"]
 [ext_resource type="AudioStream" uid="uid://dcga8swcer527" path="res://assets/audio/game_events/power_down.wav" id="9_2lf6f"]
@@ -28,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://ddo5xfsra2x3y" path="res://assets/sprites/world/bg_layer_1.webp" id="16_lakw3"]
 [ext_resource type="Texture2D" uid="uid://d176nimp53u8d" path="res://assets/sprites/world/bg_layer_2.webp" id="17_pm21f"]
 [ext_resource type="Texture2D" uid="uid://datq56lofg7x4" path="res://assets/sprites/world/bg_layer_3.webp" id="18_2lf6f"]
+[ext_resource type="Material" uid="uid://crdd5qx3rpjon" path="res://resources/ui/fog_shader_material.tres" id="24_0nbtd"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lakw3"]
 streams_count = 10
@@ -43,17 +43,13 @@ stream_7/stream = ExtResource("10_f17e3")
 stream_8/stream = ExtResource("11_x2olw")
 stream_9/stream = ExtResource("12_817gm")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo05s"]
-size = Vector2(214, 12804)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0nbtd"]
+frequency = 0.0063
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dss4m"]
-size = Vector2(214, 12804)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7t5mc"]
-size = Vector2(214, 12804)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8fc1"]
-size = Vector2(214, 12804)
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ts3gi"]
+noise = SubResource("FastNoiseLite_0nbtd")
+seamless = true
+normalize = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3hyu"]
 
@@ -120,52 +116,45 @@ region_rect = Rect2(0, 0, 25600, 25600)
 texture_repeat = 2
 texture = ExtResource("17_pm21f")
 centered = false
-offset = Vector2(-6400, -6400)
+offset = Vector2(-12800, -12800)
 region_enabled = true
-region_rect = Rect2(0, 0, 12800, 12800)
+region_rect = Rect2(0, 0, 25600, 25600)
 
 [node name="Layer3" type="Sprite2D" parent="SurfaceTexture"]
 texture_repeat = 2
 texture = ExtResource("18_2lf6f")
 centered = false
-offset = Vector2(-6400, -6400)
+offset = Vector2(-12800, -12800)
 region_enabled = true
-region_rect = Rect2(0, 0, 12800, 12800)
+region_rect = Rect2(0, 0, 25600, 25600)
 
 [node name="Craters" parent="SurfaceTexture" instance=ExtResource("15_xo05s")]
 
 [node name="Camera" type="Node" parent="."]
 
-[node name="CameraController" parent="Camera" instance=ExtResource("7_7r4gi")]
-unique_name_in_owner = true
-visible = false
-position = Vector2(614, 406)
-
-[node name="Camera" type="Camera2D" parent="Camera" node_paths=PackedStringArray("player")]
+[node name="Camera" type="Camera2D" parent="Camera"]
 unique_name_in_owner = true
 position = Vector2(614, 406)
+limit_left = -6594
+limit_top = -6340
+limit_right = 7547
+limit_bottom = 6405
+editor_draw_limits = true
 script = ExtResource("8_4mrxx")
-player = NodePath("../CameraController")
 
-[node name="WorldBounds" type="StaticBody2D" parent="Camera"]
+[node name="FogLayer" type="CanvasLayer" parent="Camera/Camera"]
+layer = 0
 
-[node name="TopWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
-position = Vector2(366, -3161)
-rotation = 1.5707964
-shape = SubResource("RectangleShape2D_xo05s")
-
-[node name="BottomWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
-position = Vector2(164, 3770)
-rotation = 1.5707964
-shape = SubResource("RectangleShape2D_dss4m")
-
-[node name="LeftWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
-position = Vector2(-3177, -59)
-shape = SubResource("RectangleShape2D_7t5mc")
-
-[node name="RightWall" type="CollisionShape2D" parent="Camera/WorldBounds"]
-position = Vector2(4384, 2)
-shape = SubResource("RectangleShape2D_o8fc1")
+[node name="Fog" type="TextureRect" parent="Camera/Camera/FogLayer"]
+visible = false
+texture_repeat = 2
+material = ExtResource("24_0nbtd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_ts3gi")
 
 [node name="BuildingFinder" type="ShapeCast2D" parent="."]
 visible = false

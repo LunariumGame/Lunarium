@@ -11,9 +11,32 @@ script = ExtResource("1_bm3ny")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.043137256, 0.043137256, 0.03137255, 1)
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -78.0
+offset_right = -34.0
+offset_bottom = -34.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_sqip1")
+text = "CONTINUE"
+script = ExtResource("3_0v8dc")
+metadata/_custom_type_script = "uid://dhbvj587s8ykb"
 
 [node name="Credits" type="CenterContainer" parent="."]
 anchors_preset = 7
@@ -168,6 +191,9 @@ theme_override_font_sizes/font_size = 24
 text = "Composer (Noir Ambiance, 2007)"
 horizontal_alignment = 1
 
+[node name="Spacer" type="Control" parent="Credits/VBoxContainer"]
+layout_mode = 2
+
 [node name="ThankYou" type="Label" parent="Credits/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_sqip1")
@@ -175,27 +201,8 @@ theme_override_font_sizes/font_size = 36
 text = "Thank you so much for playing."
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -78.0
-offset_right = -34.0
-offset_bottom = -34.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("3_sqip1")
-text = "CONTINUE"
-script = ExtResource("3_0v8dc")
-metadata/_custom_type_script = "uid://dhbvj587s8ykb"
-
 [node name="Embark" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_3qmcs")
 bus = &"Music"
 
-[connection signal="pressed" from="Button" to="." method="close"]
+[connection signal="pressed" from="ColorRect/Button" to="." method="close"]

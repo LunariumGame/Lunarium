@@ -22,6 +22,7 @@ static var same_building_in_a_row: int
 @onready var destroy: Button = $HUD/BotLeft/Box/VBox/InspectorPanel/SelectedBuildingInspector/VBox/MarginContainer2/UpgradeAndDestroy/Destroy
 @onready var building_cost: Label = $HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/Costs/BuildingCost
 @onready var tutorial: Control = $Tutorial
+@onready var building_buttons: HBoxContainer = $HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons
 
 var prev_building_id: int
 var selected_building_id: int = -1
@@ -66,7 +67,8 @@ func _on_settings_pressed() -> void:
 
 
 func _on_next_turn_pressed() -> void:
-	if next_turn_button.disabled:
+	if next_turn_button.disabled || building_buttons.active_button != null:
+		# TODO: play a small error sound signifying button is unavailable
 		return
 
 	game_manager.end_turn()
@@ -223,9 +225,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		close_inspector()
 	if event.is_action_pressed("open_building_panel"):
 		ui_audio_manager.button_click.play()
-		toggle_panel(Systems.BUILDING)
+		_on_building_manager_pressed()
 	if event.is_action_pressed("next_turn"):
-		_on_next_turn_pressed()
+		if GameState.state == GameState.State.PLAYING: # fixes being able to press enter for next turn before starting game
+			_on_next_turn_pressed()
 
 
 func close_inspector() -> void:

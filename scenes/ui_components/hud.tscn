@@ -501,13 +501,13 @@ script = ExtResource("9_do4pv")
 layout_mode = 2
 theme_override_constants/separation = 48
 
-[node name="Residential" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer"]
+[node name="Reactor" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("18_haqli")
-text = "RESIDENCE"
+text = "REACTOR"
 script = ExtResource("9_jswg8")
-building_cursor = ExtResource("11_ne71y")
+building_cursor = ExtResource("13_ij283")
 
 [node name="Refinery" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer"]
 layout_mode = 2
@@ -521,13 +521,13 @@ building_cursor = ExtResource("12_2w4nd")
 layout_mode = 2
 theme_override_constants/separation = 48
 
-[node name="Reactor" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer2"]
+[node name="Residential" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("18_haqli")
-text = "REACTOR"
+text = "RESIDENCE"
 script = ExtResource("9_jswg8")
-building_cursor = ExtResource("13_ij283")
+building_cursor = ExtResource("11_ne71y")
 
 [node name="Farm" type="Button" parent="HUD/BotLeft/Box/VBox/InspectorPanel/BuildingInspector/HBoxContainer/MarginContainer/BuildingButtons/HBoxContainer2"]
 layout_mode = 2
