@@ -127,7 +127,7 @@ func get_total_housing_capacity() -> int:
 	for building in placed_buildings:
 		if building is Residential and building.is_powered:
 			total_capacity += building.get_housing_capacity()
-	return total_capacity
+	return total_capacity + 1 # Plus one for starting colonist
 
 
 func get_total_elec_capacity() -> int:
