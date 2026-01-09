@@ -328,6 +328,7 @@ libraries = {
 
 [node name="Select" parent="Audio" index="1"]
 stream = ExtResource("6_g6fhf")
+volume_db = 3.0
 bus = &"Effects"
 
 [node name="Destroy" parent="Audio" index="2"]

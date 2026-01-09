@@ -337,6 +337,7 @@ active = true
 
 [node name="Select" parent="Audio" index="1"]
 stream = ExtResource("6_e41u7")
+volume_db = 3.0
 bus = &"Effects"
 
 [node name="Destroy" parent="Audio" index="2"]

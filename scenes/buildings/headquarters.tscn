@@ -337,6 +337,7 @@ script = null
 
 [node name="Select" parent="Audio" index="1"]
 stream = ExtResource("4_l6mfu")
+volume_db = 4.0
 bus = &"Effects"
 
 [node name="Destroy" parent="Audio" index="2"]
