@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://0leikb15bp7y"
 [sub_resource type="Resource" id="Resource_c44lc"]
 script = ExtResource("3_c44lc")
 cost = Dictionary[int, float]({
-0: 10.0,
+0: 5.0,
 1: 0.0,
 2: 10.0,
 3: 0.0
@@ -30,9 +30,9 @@ metadata/_custom_type_script = "uid://0leikb15bp7y"
 [sub_resource type="Resource" id="Resource_gnoo8"]
 script = ExtResource("3_c44lc")
 cost = Dictionary[int, float]({
-0: 25.0,
+0: 10.0,
 1: 0.0,
-2: 15.0,
+2: 10.0,
 3: 0.0
 })
 metadata/_custom_type_script = "uid://0leikb15bp7y"
@@ -306,8 +306,8 @@ _data = {
 
 [node name="Residential" instance=ExtResource("1_e3wr7")]
 script = ExtResource("2_4f3d3")
-capacity_table = Array[int]([0, 5, 10, 25])
-power_table = Array[int]([0, 10, 20, 30])
+capacity_table = Array[int]([0, 5, 10, 20])
+power_table = Array[int]([0, 10, 15, 20])
 building_spec = SubResource("Resource_wakwv")
 
 [node name="BuildingDebugger" parent="." index="1" node_paths=PackedStringArray("target")]
