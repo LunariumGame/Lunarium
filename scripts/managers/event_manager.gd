@@ -1,7 +1,7 @@
 class_name EventManager
 extends Node
 
-enum Event { NONE, PARASITE, STORM, FOG, PLAGUE, HARVEST }
+enum Event { NONE, PARASITE, STORM, FOG, PLAGUE, HARVEST, ECLIPSE }
 
 var event_turn_lengths: Dictionary[Event, int] = {
 	Event.NONE: -1,
@@ -9,7 +9,8 @@ var event_turn_lengths: Dictionary[Event, int] = {
 	Event.STORM: 4,
 	Event.FOG: 2,
 	Event.PLAGUE: 4,
-	Event.HARVEST: 3
+	Event.HARVEST: 3,
+	Event.ECLIPSE: 5
 }
 
 var current_event: Event
@@ -41,26 +42,30 @@ func _handle_runtime_event(_turn_number: int) -> void:
 	var rand = randf()
 	#rand = 0.93 # TODO: this is for testing, deleteme
 	
-	# 85% nothing happens, 3% for each event (on next turn)
-	if rand < 0.85:
+	# 82% nothing happens, 3% for each event (on next turn)
+	if rand < 0.82:
 		print("No event triggered")
 		return
-	elif rand < 0.88:
+	elif rand < 0.85:
 		print("Parasite event triggered")
 		Signals.notification.emit(NotificationManager.Notification.new("Parasites have infested your eco-domes"))
 		_trigger_parasite()
-	elif rand < 0.91:
+	elif rand < 0.88:
 		print("Electromagnetic storm event triggered")
 		Signals.notification.emit(NotificationManager.Notification.new("An electromagnetic storm has begun"))
 		_trigger_storm()
-	elif rand < 0.94:
+	elif rand < 0.91:
 		print("Fog event triggered")
 		Signals.notification.emit(NotificationManager.Notification.new("Methane fog has covered the surface"))
 		_trigger_fog()
-	elif rand < 0.97:
+	elif rand < 0.94:
 		print("Plague event triggered")
 		Signals.notification.emit(NotificationManager.Notification.new("A deadly plague has hit your colonists"))
 		_trigger_plague()
+	elif rand < 0.97:
+		print("Lunar eclipse triggered")
+		Signals.notification.emit(NotificationManager.Notification.new("A lunar eclipse has caused a cold winter"))
+		_trigger_eclipse()
 	else:
 		print("Harvest event triggered")
 		Signals.notification.emit(NotificationManager.Notification.new("The soil is rich, a harvest begins"))
@@ -113,3 +118,6 @@ func _trigger_plague() -> void:
 func _trigger_harvest() -> void:
 	event_turns_left = event_turn_lengths[Event.HARVEST]
 	pass
+
+func _trigger_eclipse() -> void:
+	event_turns_left = event_turn_lengths[Event.ECLIPSE]

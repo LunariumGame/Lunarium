@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce5pyvkrsuwy"]
+[gd_scene load_steps=7 format=3 uid="uid://ce5pyvkrsuwy"]
 
 [ext_resource type="Script" uid="uid://b1kx34gg7jrl7" path="res://scripts/ui_components/notification_ui.gd" id="1_cgvyd"]
 [ext_resource type="LabelSettings" uid="uid://dte7ki6on48e4" path="res://resources/ui/label_settings_regular.tres" id="1_iw8wg"]
@@ -22,6 +22,12 @@ corner_radius_bottom_left = 24
 shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 4
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07uv6"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cgvyd"]
 streams_count = 1
 stream_0/stream = ExtResource("3_07uv6")
@@ -34,6 +40,7 @@ script = ExtResource("1_cgvyd")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_07uv6")
 label_settings = ExtResource("1_iw8wg")
 
 [node name="NotifSound" type="AudioStreamPlayer" parent="."]

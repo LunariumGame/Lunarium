@@ -279,6 +279,7 @@ offset_bottom = 111.0
 grow_horizontal = 2
 
 [node name="Box" type="PanelContainer" parent="HUD/TopMid"]
+unique_name_in_owner = true
 texture_filter = 2
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_otepx")
@@ -703,7 +704,7 @@ text = "Welcome to Lunarium!
 
 Establish the first colony
 on the moon by reaching a
-population of 50!
+population of 50.
 
 Don't forget to power your
 buildings and feed your
