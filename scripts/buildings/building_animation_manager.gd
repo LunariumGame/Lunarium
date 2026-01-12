@@ -2,7 +2,9 @@ class_name AnimationManager
 extends AnimationTree
 
 enum StateAction {
+	PLACE,
 	OFF,
+	ON,
 	CREATE,
 	IDLE,
 	BUFFED,
@@ -17,7 +19,7 @@ var parent_node: Building
 func _ready() -> void:
 	state_machine = get("parameters/playback") as AnimationNodeStateMachinePlayback
 	parent_node = get_parent()
-	active = true	
+	active = true
 
 
 func update_animation(action: StateAction) -> void:
@@ -25,8 +27,12 @@ func update_animation(action: StateAction) -> void:
 	var target_node: String
 	
 	match action:
+		StateAction.PLACE:
+			target_node = "place_u1"
 		StateAction.OFF:
 			target_node = "off_u%d" % u_level
+		StateAction.ON:
+			target_node = "on_u%d" % u_level
 		StateAction.CREATE:
 			target_node = "create_u%d" % u_level
 		StateAction.IDLE:
