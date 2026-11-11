@@ -258,39 +258,39 @@ In terms of player interaction with the buildings, I wanted to introduce some ne
 
 ##### Residence selection #####
 <ul>
-     <li> <a href="https://www.soundjay.com/human/sounds/crowd-talking-5.mp3">Crowd Talking 5</a> by <a href="https://www.soundjay.com/">SoundJay</a> </li> 
+	 <li> <a href="https://www.soundjay.com/human/sounds/crowd-talking-5.mp3">Crowd Talking 5</a> by <a href="https://www.soundjay.com/">SoundJay</a> </li> 
 </ul>
 
  ##### Ecodome selection #####
 <ul>
-     <li> <a href="https://pixabay.com/sound-effects/viscious-liquid-gurgling-54710/">viscious liquid gurgling</a> by <a href="https://pixabay.com/users/freesound_community-46691455/">freesound_community</a> </li> 
+	 <li> <a href="https://pixabay.com/sound-effects/viscious-liquid-gurgling-54710/">viscious liquid gurgling</a> by <a href="https://pixabay.com/users/freesound_community-46691455/">freesound_community</a> </li> 
 </ul>
 
 #####  Refinery Selection #####
 <ul>
-     <li> <a href="https://sonniss.com/gameaudiogdc/">Sonniss GameAudioGDC Giveaway 2024 </a> </li> 
+	 <li> <a href="https://sonniss.com/gameaudiogdc/">Sonniss GameAudioGDC Giveaway 2024 </a> </li> 
 </ul>
 
 ##### Reactor Selection #####
 <ul>
-     <li> <a href="https://pixabay.com/sound-effects/space-energy-generator-72092/">space energu generator</a> by 
-      <a href="https://pixabay.com/users/freesound_community-46691455/">freesound_community</a> </li> 
+	 <li> <a href="https://pixabay.com/sound-effects/space-energy-generator-72092/">space energu generator</a> by 
+	  <a href="https://pixabay.com/users/freesound_community-46691455/">freesound_community</a> </li> 
 </ul>
 
 ##### Headquarters Selection #####
 <ul>
-     <li> <a href="https://sonniss.com/gameaudiogdc/">Sonniss GameAudioGDC Giveaway 2024 </a> </li> 
+	 <li> <a href="https://sonniss.com/gameaudiogdc/">Sonniss GameAudioGDC Giveaway 2024 </a> </li> 
 </ul>
 
 
 ##### Upgrade/Create Building #####
 <ul>
-     <li> <a href="https://pixabay.com/sound-effects/whoosh-cinematic-sound-effect-376889/">Whoosh Cinematic Sound Effect</a> by <a href="https://pixabay.com/users/dragon-studio-38165424/">DRAGON-STUDIO</a> </li> 
+	 <li> <a href="https://pixabay.com/sound-effects/whoosh-cinematic-sound-effect-376889/">Whoosh Cinematic Sound Effect</a> by <a href="https://pixabay.com/users/dragon-studio-38165424/">DRAGON-STUDIO</a> </li> 
 </ul>
 
 ##### Destroy Building (removed from the game due to subtle bugs) #####
 <ul>
-     <li> <a href="https://sonniss.com/gameaudiogdc/">Sonniss GameAudioGDC Giveaway 2024 </a> </li> 
+	 <li> <a href="https://sonniss.com/gameaudiogdc/">Sonniss GameAudioGDC Giveaway 2024 </a> </li> 
 </ul>
 
 4) [*Full Sound Effects Suite*](https://github.com/LunariumGame/Lunarium/pull/206/) - The final thrust. This is where the game environment SFX really comes together I think.
@@ -466,12 +466,12 @@ I designed and implemented the following tools and systems:
   * [Refactor into an editor plugin](https://github.com/LunariumGame/Lunarium/pull/45)
 * Resource system:
   * Resource engine - stores and updates player's resource counts, handles upgrade modifiers
-    * [Resource engine](https://github.com/LunariumGame/Lunarium/pull/41) - implementation of engine and framework for upgrade modifiers 
-    * [Conditional modifiers](https://github.com/LunariumGame/Lunarium/pull/87) - framework for modifier conditions, implements a modifier to apply based on class
+	* [Resource engine](https://github.com/LunariumGame/Lunarium/pull/41) - implementation of engine and framework for upgrade modifiers 
+	* [Conditional modifiers](https://github.com/LunariumGame/Lunarium/pull/87) - framework for modifier conditions, implements a modifier to apply based on class
   * Electricity generation mechanics
-    * [Implementation](https://github.com/LunariumGame/Lunarium/pull/80)
-    * [Configuration](https://github.com/LunariumGame/Lunarium/pull/137)
-    * [Building debug overlay](https://github.com/LunariumGame/Lunarium/pull/138) - used to debug power status
+	* [Implementation](https://github.com/LunariumGame/Lunarium/pull/80)
+	* [Configuration](https://github.com/LunariumGame/Lunarium/pull/137)
+	* [Building debug overlay](https://github.com/LunariumGame/Lunarium/pull/138) - used to debug power status
 * [NotificationManager](https://github.com/LunariumGame/Lunarium/pull/184) - processes event signals into textual notifications
 * [UiScaleManager](https://github.com/LunariumGame/Lunarium/blob/dev/scripts/managers/ui_scale_manager.gd) - manages the current scale setting of the UI
    * [Label scaling](https://github.com/LunariumGame/Lunarium/pull/64) - scales labels
