@@ -23,4 +23,5 @@ func _on_ui_scale_manager_scale_changed(new_scale:float) -> void:
 
 
 func _set_scale(scale:float) -> void:
+	@warning_ignore("narrowing_conversion")
 	font_size = base_font_size * scale

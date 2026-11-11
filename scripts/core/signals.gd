@@ -1,4 +1,5 @@
 extends Node
+@warning_ignore_start("unused_signal")
 
 ## Fires at the start of a turn.
 signal turn_started(turn_number:int)

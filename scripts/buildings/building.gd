@@ -84,7 +84,7 @@ func _on_turn_started(_turn_number:int) -> void:
 	pass
 
 
-func _on_Area2D_input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
+func _on_Area2D_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			Signals.building_selected.emit(building_id, _get_selection_payload())

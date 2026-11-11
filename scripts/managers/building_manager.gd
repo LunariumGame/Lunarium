@@ -205,7 +205,7 @@ func get_adjacent_positions(building_id: int) -> Array:
 	
 	return adjacent_tiles.get(building_id, [])
 
-
+# Use this method for building buffs
 func get_adjacent_buildings(building_id: int) -> Array[BuildingType]:
 	var adjacent_positions: Array = get_adjacent_positions(building_id)
 	var adjacent_buildings: Array[BuildingType] = []

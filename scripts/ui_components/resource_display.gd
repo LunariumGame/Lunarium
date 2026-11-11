@@ -59,7 +59,8 @@ func _update_display() -> void:
 	# Special-case: POPULATION uses occupied/housing capacity
 	if resource == ResourceManager.ResourceType.POPULATION:
 		var housing_cap := game_manager.get_total_housing_capacity()
-		text = "%d/%d" % [value, housing_cap + 1] # plus 1 for starting colonist
+		text = "%d" % value
+		%Box.tooltip_text = "Housing capacity: %d" % housing_cap
 		return
 
 	# If the resource has no capacity, show only the value

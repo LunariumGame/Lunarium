@@ -14,7 +14,6 @@ var hud : CanvasLayer
 @onready var effects_volume: HSlider = $"Settings/MainVBox/AudioSettings/EffectsVolume"
 @onready var ui_scale: HSlider = $"Settings/MainVBox/UISettings/ScaleSlider"
 @onready var cam_speed_scale: HSlider = $"Settings/MainVBox/CameraSettings/CameraSpeed"
-@onready var rb_curs_checkbox: CheckBox = $"Settings/CheckBox"
 @onready var master_default_db_vol := AudioServer.get_bus_volume_db(0)
 @onready var how_to_play: ButtonWrapper = $Settings/MainVBox/Buttons/CenterContainer/HBoxContainer/VBoxContainer2/HowToPlayCenter/HowToPlay
 @onready var check_box: CheckBox = $Settings/MainVBox/CameraSettings/HBoxContainer/CheckBox

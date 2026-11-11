@@ -32,7 +32,7 @@ func _get_selection_payload() -> Dictionary:
 		"\n  ": "",
 		"PRODUCTION": str(iron_per_turn) + " IRON PER TURN",
 		"\n ": "",
-		"POWER REQUIRED": int(get_power_draw()),
+		"POWER DRAW": int(get_power_draw()),
 		"POWERED": "YES" if is_powered else "NO",
 		"\n": "",
 	}

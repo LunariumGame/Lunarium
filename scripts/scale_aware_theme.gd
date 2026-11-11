@@ -13,4 +13,5 @@ func _init() -> void:
 
 
 func _update_scale(new_scale:float) -> void:
+	@warning_ignore("narrowing_conversion")
 	default_font_size = base_font_size * new_scale
